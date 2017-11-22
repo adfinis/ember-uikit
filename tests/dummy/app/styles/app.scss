@@ -7,3 +7,23 @@ $base-body-font-weight: 300;
 $base-heading-font-weight: 300;
 
 @import 'ember-uikit';
+
+.uk-nav-primary a:hover.active,
+.uk-nav-primary a:active.active,
+.uk-nav-primary a:focus.active,
+.uk-nav-primary a.active {
+  color: $global-primary-background;
+  position: relative;
+}
+
+.uk-nav-primary a.active::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 1px;
+  background-color: $global-primary-background;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateX(calc(-100% - 5px));
+}
