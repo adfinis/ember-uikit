@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('button');
   this.route('icon');
+  this.route('spinner');
 });
 
 export default Router;
