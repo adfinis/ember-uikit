@@ -10,6 +10,7 @@ export default Controller.extend({
   },
 
   label: 'Button',
+  type: 'button',
   disabled: false,
   active: false,
   style: '',

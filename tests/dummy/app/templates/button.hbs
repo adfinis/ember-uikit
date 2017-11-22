@@ -2,6 +2,7 @@
 
 {{uk-button
   label=label
+  type=type
   disabled=disabled
   active=active
   style=style
@@ -36,6 +37,19 @@
           <td>The content of the button</td>
           <td>
             {{input class='uk-input' value=label}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>type</code></td>
+          <td><code>String</code></td>
+          <td><code>'button'</code></td>
+          <td>The type of the button</td>
+          <td>
+            <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+              <option value="button">button</option>
+              <option value="submit">submit</option>
+              <option value="reset">reset</option>
+            </select>
           </td>
         </tr>
         <tr>
