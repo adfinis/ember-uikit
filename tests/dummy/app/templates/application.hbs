@@ -1,3 +1,13 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="uk-container uk-padding">
+  <div uk-grid class="uk-grid-divider">
+    <div class="uk-width-1-4">
+      <ul class="uk-nav uk-nav-primary">
+          <li>{{#link-to 'button'}}Button{{/link-to}}</li>
+          <li>{{#link-to 'icon'}}Icon{{/link-to}}</li>
+      </ul>
+    </div>
+    <div class="uk-width-3-4">
+      {{outlet}}
+    </div>
+  </div>
+</div>

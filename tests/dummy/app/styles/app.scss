@@ -1,1 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400');
+
+$global-font-family: 'Source Sans Pro', sans-serif;
+$base-code-font-family: 'Source Code Pro', monospace;
+$base-body-font-weight: 300;
+$base-heading-font-weight: 300;
+
 @import 'ember-uikit';

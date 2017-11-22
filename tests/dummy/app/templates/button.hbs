@@ -1,0 +1,145 @@
+<h2>Button</h2>
+
+{{uk-button
+  label=label
+  disabled=disabled
+  active=active
+  style=style
+  size=size
+  fill=fill
+  on-click=(perform fireEvent 'button-on-click')
+}}
+
+<ul uk-tab>
+  <li><a href="#">Properties</a></li>
+  <li><a href="#">Yields</a></li>
+  <li><a href="#">Events</a></li>
+  <li><a href="#">Example</a></li>
+</ul>
+
+<ul class="uk-switcher">
+  <li>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>label</code></td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The content of the button</td>
+          <td>
+            {{input class='uk-input' value=label}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>disabled</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the button is disabled</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=disabled}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>active</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the button is active</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=active}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>loading</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether the button is loading</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=loading}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>style</code></td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The style of the button</td>
+          <td>
+            <select class="uk-select" onchange={{action (mut style) value='target.value'}}>
+              <option value=""></option>
+              <option value="default">default</option>
+              <option value="primary">primary</option>
+              <option value="secondary">secondary</option>
+              <option value="text">text</option>
+              <option value="link">link</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><code>size</code></td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The size of the button</td>
+          <td>
+            <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
+              <option value=""></option>
+              <option value="small">small</option>
+              <option value="large">large</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><code>fill</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to use the full width for the button</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=fill}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>default</code></td>
+          <td>The label of the button, will be used before the <code>label</code> property if used</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Fired</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>on-click</code></td>
+          <td>Fired if the component was clicked</td>
+          <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>{{code-snippet name='button.hbs'}}</li>
+</ul>
