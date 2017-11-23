@@ -1,6 +1,9 @@
 import Controller from '@ember/controller';
 
 export default Controller.extend({
-  icon: 'happy',
-  ratio: 5
+  divider: false,
+  striped: true,
+  bullet: false,
+  large: false,
+  width: ''
 });

@@ -1,0 +1,100 @@
+<h2 class="uk-heading-divider">List</h2>
+
+{{#uk-list
+  divider=divider
+  striped=striped
+  bullet=bullet
+  large=large
+as |list|}}
+  {{#list.item}}List item 1{{/list.item}}
+  {{#list.item}}List item 2{{/list.item}}
+  {{#list.item}}List item 3{{/list.item}}
+{{/uk-list}}
+
+<ul uk-tab>
+  <li><a href="#">Props</a></li>
+  <li><a href="#">Yields</a></li>
+  <li><a href="#">Example</a></li>
+</ul>
+
+<ul class="uk-switcher">
+  <li>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+          <th>Demo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>divider</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to show a divider between the items</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=divider}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>striped</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether stripe the list</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=striped}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>bullet</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to show a bullet point before the items</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=bullet}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>large</code></td>
+          <td><code>Boolean</code></td>
+          <td><code>false</code></td>
+          <td>Whether to make the list larger</td>
+          <td>
+            {{input type='checkbox' class='uk-checkbox' checked=large}}
+          </td>
+        </tr>
+        <tr>
+          <td><code>width</code></td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The width of the list, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
+          <td>
+            {{input class='uk-input' value=width}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table class="uk-table uk-table-divider">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>item</code></td>
+          <td><code>Ember.Component</code></td>
+          <td>A component for the list items</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>{{code-snippet name='list.hbs'}}</li>
+</ul>

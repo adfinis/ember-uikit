@@ -15,6 +15,8 @@ export default Component.extend(ColorMixin, SizeMixin, WidthMixin, {
     ]);
   },
 
+  _color: ALL_COLORS.DEFAULT,
+
   layout,
 
   colorTemplate: 'uk-card-$color$',

@@ -2113,7 +2113,7 @@ ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.1.0, e
     ember-cli-version-checker "^2.1.0"
     semver "^5.4.1"
 
-ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.8.2:
+ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.4.1, ember-cli-babel@^6.8.2:
   version "6.10.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.10.0.tgz#81424acd1d97fb13658168121eeb2007d6edee84"
   dependencies:
@@ -2248,11 +2248,11 @@ ember-cli-lodash-subset@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
 
-ember-cli-mocha@^0.14.4:
+ember-cli-mocha@anehx/ember-cli-mocha#no-jquery:
   version "0.14.4"
-  resolved "https://registry.yarnpkg.com/ember-cli-mocha/-/ember-cli-mocha-0.14.4.tgz#5f63907f952ec6d6609d551ce321dc83823ba63f"
+  resolved "https://codeload.github.com/anehx/ember-cli-mocha/tar.gz/b97b303b9274a05b47132d7f88e86922a7e8eb9d"
   dependencies:
-    broccoli-funnel "^1.0.1"
+    broccoli-funnel "^2.0.0"
     broccoli-merge-trees "^2.0.0"
     ember-cli-babel "^6.0.0"
     ember-cli-test-loader "^2.0.0"
@@ -2510,6 +2510,19 @@ ember-mocha@^0.12.0:
   resolved "https://registry.yarnpkg.com/ember-mocha/-/ember-mocha-0.12.0.tgz#ea27ae9838c8c6e28ea72c48084586ef5fa00a7a"
   dependencies:
     ember-test-helpers "^0.6.3"
+
+ember-native-dom-event-dispatcher@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-event-dispatcher/-/ember-native-dom-event-dispatcher-0.6.3.tgz#3b2f10dcf82f9aaa4dd211a704ac511fd8714720"
+  dependencies:
+    ember-cli-babel "^6.4.1"
+
+ember-native-dom-helpers@^0.5.5:
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.5.tgz#979764773a1608a42c3e1ec7e98144e416e35898"
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    ember-cli-babel "^6.6.0"
 
 ember-resolver@^4.0.0:
   version "4.5.0"

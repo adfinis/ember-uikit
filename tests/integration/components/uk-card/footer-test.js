@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
+import { find } from 'ember-native-dom-helpers';
 
 describe('Integration | Component | uk card/footer', function() {
   setupComponentTest('uk-card/footer', {
@@ -9,16 +10,8 @@ describe('Integration | Component | uk card/footer', function() {
   });
 
   it('renders', function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-    // Template block usage:
-    // this.render(hbs`
-    //   {{#uk-card/footer}}
-    //     template content
-    //   {{/uk-card/footer}}
-    // `);
+    this.render(hbs`{{#uk-card/footer}}Content{{/uk-card/footer}}`);
 
-    this.render(hbs`{{uk-card/footer}}`);
-    expect(this.$()).to.have.length(1);
+    expect(find('.uk-card-footer')).to.be.ok;
   });
 });

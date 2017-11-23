@@ -17,6 +17,8 @@ export default Component.extend(ColorMixin, WidthMixin, SizeMixin, {
     ]);
   },
 
+  _color: ALL_COLORS.DEFAULT,
+
   layout,
 
   tagName: 'button',

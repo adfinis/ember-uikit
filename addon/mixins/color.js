@@ -27,6 +27,8 @@ export default Mixin.create({
 
   colorTemplate: 'uk-$color$-background',
 
+  _color: null,
+
   _colors: computed('includedColors.[]', 'excludedColors.[]', function() {
     let included = this.get('includedColors') || [];
     let excluded = this.get('excludedColors') || [];
@@ -37,8 +39,6 @@ export default Mixin.create({
       );
     });
   }),
-
-  _color: null,
 
   _colorClass: computed('_color', function() {
     let color = this.get('_color');

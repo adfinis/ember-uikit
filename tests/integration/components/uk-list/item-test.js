@@ -4,14 +4,14 @@ import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
 import { find } from 'ember-native-dom-helpers';
 
-describe('Integration | Component | uk card/title', function() {
-  setupComponentTest('uk-card/title', {
+describe('Integration | Component | uk list/item', function() {
+  setupComponentTest('uk-list/item', {
     integration: true
   });
 
   it('renders', function() {
-    this.render(hbs`{{#uk-card/title}}Content{{/uk-card/title}}`);
+    this.render(hbs`{{uk-list/item}}`);
 
-    expect(find('h1.uk-card-title')).to.be.ok;
+    expect(find('li')).to.be.ok;
   });
 });

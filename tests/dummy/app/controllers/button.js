@@ -13,9 +13,10 @@ export default Controller.extend({
   type: 'button',
   disabled: false,
   active: false,
-  style: '',
+  loading: false,
+  color: 'default',
   size: '',
-  fill: false,
+  width: '',
 
   fireEvent: task(function*(name) {
     this.get('firedEvents').pushObject(name);

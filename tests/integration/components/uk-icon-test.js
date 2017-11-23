@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupComponentTest } from 'ember-mocha';
 import hbs from 'htmlbars-inline-precompile';
+import { find } from 'ember-native-dom-helpers';
 
 describe('Integration | Component | uk icon', function() {
   setupComponentTest('uk-icon', {
@@ -9,16 +10,18 @@ describe('Integration | Component | uk icon', function() {
   });
 
   it('renders', function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
-    // Template block usage:
-    // this.render(hbs`
-    //   {{#uk-icon}}
-    //     template content
-    //   {{/uk-icon}}
-    // `);
+    this.render(hbs`{{uk-icon 'home'}}`);
 
-    this.render(hbs`{{uk-icon}}`);
-    expect(this.$()).to.have.length(1);
+    expect(find('[uk-icon]')).to.be.ok;
+
+    expect(find('[uk-icon]').getAttribute('uk-icon')).to.contain('icon: home');
+  });
+
+  it('can set ratio', function() {
+    this.render(hbs`{{uk-icon 'home' ratio=2}}`);
+
+    expect(find('[uk-icon]')).to.be.ok;
+
+    expect(find('[uk-icon]').getAttribute('uk-icon')).to.contain('ratio: 2');
   });
 });
