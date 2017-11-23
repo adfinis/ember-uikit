@@ -13,8 +13,6 @@ export default Component.extend(ColorMixin, SizeMixin, WidthMixin, {
       ALL_COLORS.PRIMARY,
       ALL_COLORS.SECONDARY
     ]);
-
-    this.set('color', ALL_COLORS.DEFAULT);
   },
 
   layout,
