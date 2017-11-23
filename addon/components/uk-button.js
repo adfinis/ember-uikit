@@ -39,5 +39,9 @@ export default Component.extend(ColorMixin, WidthMixin, SizeMixin, {
 
   active: false,
 
-  loading: false
+  loading: false,
+
+  click(e) {
+    this.getWithDefault('on-click', () => {})(e);
+  }
 });
