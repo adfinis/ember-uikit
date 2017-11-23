@@ -1,41 +1,43 @@
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 import layout from '../templates/components/uk-button';
+import ColorMixin, { ALL_COLORS } from 'ember-uikit/mixins/color';
+import WidthMixin from 'ember-uikit/mixins/width';
+import SizeMixin from 'ember-uikit/mixins/size';
 
-export default Component.extend({
+export default Component.extend(ColorMixin, WidthMixin, SizeMixin, {
+  init() {
+    this._super(...arguments);
+
+    this.set('includedColors', [
+      ALL_COLORS.DEFAULT,
+      ALL_COLORS.PRIMARY,
+      ALL_COLORS.SECONDARY,
+      ALL_COLORS.LINK,
+      ALL_COLORS.TEXT
+    ]);
+  },
+
   layout,
 
   tagName: 'button',
 
+  colorTemplate: 'uk-button-$color$',
+
+  sizeTemplate: 'uk-button-$size$',
+
   classNames: ['uk-button'],
-  classNameBindings: [
-    'active:uk-active',
-    'styleClass',
-    'sizeClass',
-    'fill:uk-width-1-1'
-  ],
+
+  classNameBindings: ['active:uk-active'],
 
   attributeBindings: ['disabled', 'type'],
 
   label: '',
+
   type: 'button',
 
   disabled: false,
+
   active: false,
-  loading: false,
 
-  style: '',
-  size: '',
-
-  styleClass: computed('style', function() {
-    return this.get('style') && `uk-button-${this.get('style')}`;
-  }),
-
-  sizeClass: computed('size', function() {
-    return this.get('size') && `uk-button-${this.get('size')}`;
-  }),
-
-  click(e) {
-    this.getWithDefault('on-click', () => {})(e);
-  }
+  loading: false
 });

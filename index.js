@@ -7,6 +7,12 @@ const Merge = require('broccoli-merge-trees');
 module.exports = {
   name: 'ember-uikit',
 
+  options: {
+    babel: {
+      plugins: ['transform-object-rest-spread']
+    }
+  },
+
   treeForPublic(tree) {
     let uikitImages = new Funnel('node_modules/uikit/src/images', {
       destDir: '/assets/images/'

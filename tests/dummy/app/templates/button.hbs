@@ -6,9 +6,9 @@
   disabled=disabled
   active=active
   loading=loading
-  style=style
+  color=color
   size=size
-  fill=fill
+  width=width
   on-click=(perform fireEvent 'button-on-click')
 }}
 
@@ -81,12 +81,12 @@
           </td>
         </tr>
         <tr>
-          <td><code>style</code></td>
+          <td><code>color</code></td>
           <td><code>String</code></td>
           <td><code>''</code></td>
-          <td>The style of the button</td>
+          <td>The color of the button</td>
           <td>
-            <select class="uk-select" onchange={{action (mut style) value='target.value'}}>
+            <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
               <option value=""></option>
               <option value="default">default</option>
               <option value="primary">primary</option>
@@ -110,12 +110,12 @@
           </td>
         </tr>
         <tr>
-          <td><code>fill</code></td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether to use the full width for the button</td>
+          <td><code>width</code></td>
+          <td><code>String</code></td>
+          <td><code>''</code></td>
+          <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
           <td>
-            {{input type='checkbox' class='uk-checkbox' checked=fill}}
+            {{input class='uk-input' value=width}}
           </td>
         </tr>
       </tbody>
