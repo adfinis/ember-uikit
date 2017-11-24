@@ -4,7 +4,7 @@ This addon is a wrapper for the CSS library [UIkit](https://getuikit.com/)
 which exposes certain components to give users an easy way for using UIkit in
 ember apps.
 
-`ember-uikit` is heavily based on [Vuikit](https://github.com/vuikit/vuikit) which does a tremendous job in bringing UIkit to Vue apps.
+`ember-uikit` is heavily inspired by [Vuikit](https://github.com/vuikit/vuikit) which does a tremendous job in bringing UIkit to Vue apps.
 
 **WARNING: This addon is still very much in beta! Contributions are welcome.**
 
