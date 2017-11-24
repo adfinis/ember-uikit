@@ -47,7 +47,8 @@ jobs:
   include:
     - stage: deploy
       script: yarn build -prod
-      env: JOBS=1
+      env:
+        matrix: []
       deploy:
         provider: pages
         skip_cleanup: true
