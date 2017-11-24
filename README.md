@@ -1,26 +1,21 @@
-# ember-uikit
+# ember-uikit [![Build Status](https://travis-ci.org/anehx/ember-uikit.svg?branch=master)](https://travis-ci.org/anehx/ember-uikit)
 
-This README outlines the details of collaborating on this Ember addon.
+This addon is a wrapper for the CSS library [UIkit](https://getuikit.com/)
+which exposes certain components to give users an easy way for using UIkit in
+ember apps.
+
+**WARNING: This addon is still very much in beta! Contributions are welcome.**
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-uikit`
-* `yarn install`
+Install the ember-cli addon in your ember-cli project:
 
-## Running
+```shell
+$ ember install ember-uikit
+```
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+This will also install `ember-cli-sass` and add the needed SASS include to `app/styles/app.scss`.
 
-## Running Tests
+# License
 
-* `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+This addon is licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php)
