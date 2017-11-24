@@ -46,41 +46,9 @@ as |card|}}
               {{input type='checkbox' class='uk-checkbox' checked=hover}}
             </td>
           </tr>
-          <tr>
-            <td><code>color</code></td>
-            <td><code>String</code></td>
-            <td><code>'default'</code></td>
-            <td>The color of the button</td>
-            <td>
-              <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
-                <option value="default">default</option>
-                <option value="primary">primary</option>
-                <option value="secondary">secondary</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><code>size</code></td>
-            <td><code>String</code></td>
-            <td><code>''</code></td>
-            <td>The size of the button</td>
-            <td>
-              <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
-                <option value=""></option>
-                <option value="small">small</option>
-                <option value="large">large</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><code>width</code></td>
-            <td><code>String</code></td>
-            <td><code>''</code></td>
-            <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
-            <td>
-              {{input class='uk-input' value=width}}
-            </td>
-          </tr>
+          {{color-row name='card' colors=(array 'default' 'primary' 'secondary') value=color}}
+          {{size-row name='card' sizes=(array '' 'small' 'large') value=size}}
+          {{width-row name='card' value=width}}
         </tbody>
       </table>
     </div>
