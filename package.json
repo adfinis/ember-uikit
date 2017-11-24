@@ -1,18 +1,30 @@
 {
   "name": "ember-uikit",
   "version": "0.1.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "The ember implementation of UIkit",
   "keywords": [
     "ember-addon",
     "uikit"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Adfinis SyGroup AG <info@adfinis-sygroup.ch>",
+  "contributors": [
+    {
+      "name": "Jonas Metzener",
+      "email": "jonas.metzener@adfinis-sygroup.ch"
+    }
+  ],
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adfinis-sygroup/ember-uikit"
+  },
+  "homepage": "https://adfinis-sygroup.github.io/ember-uikit",
+  "bugs": {
+    "url": "https://github.com/adfinis-sygroup/ember-uikit/issues"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",
