@@ -16,8 +16,7 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each",
-    "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages"
+    "test": "ember try:each"
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.1",
@@ -35,7 +34,6 @@
     "ember-cli-chai": "^0.4.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.0.0",
-    "ember-cli-github-pages": "^0.1.2",
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-mocha": "^0.14.4",
     "ember-cli-sass": "^7.1.1",

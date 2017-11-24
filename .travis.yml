@@ -46,7 +46,7 @@ script:
 jobs:
   include:
     - stage: deploy
-      script: yarn build --production
+      script: yarn build -prod
       env: JOBS=1
       deploy:
         provider: pages
