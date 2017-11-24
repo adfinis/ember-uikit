@@ -46,6 +46,12 @@ script:
 jobs:
   include:
     - stage: deploy
-      script: yarn deploy
-      node_js: "4"
+      script: yarn build --production
       env: JOBS=1
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GITHUB_TOKEN
+        local_dir: dist
+        on:
+          branch: master
