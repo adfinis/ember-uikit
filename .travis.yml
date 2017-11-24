@@ -18,6 +18,15 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
+  matrix:
+    # we recommend new addons test the current and previous LTS
+    # as well as latest stable release (bonus points to beta/canary)
+    - EMBER_TRY_SCENARIO=ember-lts-2.8
+    - EMBER_TRY_SCENARIO=ember-lts-2.12
+    - EMBER_TRY_SCENARIO=ember-release
+    - EMBER_TRY_SCENARIO=ember-beta
+    - EMBER_TRY_SCENARIO=ember-canary
+    - EMBER_TRY_SCENARIO=ember-default
 
 matrix:
   fast_finish: true
@@ -31,22 +40,14 @@ before_install:
 install:
   - yarn install --no-lockfile --non-interactive
 
+script:
+  - yarn ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
+
 jobs:
   include:
-    - stage: test
-      script: yarn ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
-      env:
-        matrix:
-          # we recommend new addons test the current and previous LTS
-          # as well as latest stable release (bonus points to beta/canary)
-          - EMBER_TRY_SCENARIO=ember-lts-2.8
-          - EMBER_TRY_SCENARIO=ember-lts-2.12
-          - EMBER_TRY_SCENARIO=ember-release
-          - EMBER_TRY_SCENARIO=ember-beta
-          - EMBER_TRY_SCENARIO=ember-canary
-          - EMBER_TRY_SCENARIO=ember-default
     - stage: deploy
       script: yarn build -prod
+      env: []
       deploy:
         provider: pages
         skip_cleanup: true
