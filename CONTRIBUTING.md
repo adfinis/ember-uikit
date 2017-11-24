@@ -2,7 +2,7 @@
 
 ## Coding style
 
-* **Ember** ember-uikit uses the [ember](https://github.com/ember-cli/eslint-plugin-ember)
+* **Ember** ember-uikit uses the [ember](https://github.com/ember-cli/eslint-plugin-ember) coding style.
 * **Prettier** Install prettier for automatic code formatting. This is also enforced by the CI.
 * **Actions** Use closure actions. We prefer dasherized action names like `on-click` rather than `onClick`.
 
