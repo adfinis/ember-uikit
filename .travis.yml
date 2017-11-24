@@ -59,7 +59,7 @@ jobs:
     - stage: deploy
       script: yarn build -prod
       env: []
-      if: branch = master
+      if: tag IS present
       deploy:
         provider: pages
         skip_cleanup: true
