@@ -20,123 +20,127 @@
 
 <ul class="uk-switcher">
   <li>
-    <table class="uk-table uk-table-divider">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-          <th>Demo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>label</code></td>
-          <td><code>String</code></td>
-          <td><code>''</code></td>
-          <td>The content of the button</td>
-          <td>
-            {{input class='uk-input' value=label}}
-          </td>
-        </tr>
-        <tr>
-          <td><code>type</code></td>
-          <td><code>String</code></td>
-          <td><code>'button'</code></td>
-          <td>The type of the button</td>
-          <td>
-            <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
-              <option value="button">button</option>
-              <option value="submit">submit</option>
-              <option value="reset">reset</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><code>disabled</code></td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether the button is disabled</td>
-          <td>
-            {{input type='checkbox' class='uk-checkbox' checked=disabled}}
-          </td>
-        </tr>
-        <tr>
-          <td><code>active</code></td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether the button is active</td>
-          <td>
-            {{input type='checkbox' class='uk-checkbox' checked=active}}
-          </td>
-        </tr>
-        <tr>
-          <td><code>loading</code></td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether the button is loading</td>
-          <td>
-            {{input type='checkbox' class='uk-checkbox' checked=loading}}
-          </td>
-        </tr>
-        <tr>
-          <td><code>color</code></td>
-          <td><code>String</code></td>
-          <td><code>'default'</code></td>
-          <td>The color of the button</td>
-          <td>
-            <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
-              <option value="default">default</option>
-              <option value="primary">primary</option>
-              <option value="secondary">secondary</option>
-              <option value="text">text</option>
-              <option value="link">link</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><code>size</code></td>
-          <td><code>String</code></td>
-          <td><code>''</code></td>
-          <td>The size of the button</td>
-          <td>
-            <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
-              <option value=""></option>
-              <option value="small">small</option>
-              <option value="large">large</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><code>width</code></td>
-          <td><code>String</code></td>
-          <td><code>''</code></td>
-          <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
-          <td>
-            {{input class='uk-input' value=width}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-divider">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Demo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>label</code></td>
+            <td><code>String</code></td>
+            <td><code>''</code></td>
+            <td>The content of the button</td>
+            <td>
+              {{input class='uk-input' value=label}}
+            </td>
+          </tr>
+          <tr>
+            <td><code>type</code></td>
+            <td><code>String</code></td>
+            <td><code>'button'</code></td>
+            <td>The type of the button</td>
+            <td>
+              <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+                <option value="button">button</option>
+                <option value="submit">submit</option>
+                <option value="reset">reset</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><code>disabled</code></td>
+            <td><code>Boolean</code></td>
+            <td><code>false</code></td>
+            <td>Whether the button is disabled</td>
+            <td>
+              {{input type='checkbox' class='uk-checkbox' checked=disabled}}
+            </td>
+          </tr>
+          <tr>
+            <td><code>active</code></td>
+            <td><code>Boolean</code></td>
+            <td><code>false</code></td>
+            <td>Whether the button is active</td>
+            <td>
+              {{input type='checkbox' class='uk-checkbox' checked=active}}
+            </td>
+          </tr>
+          <tr>
+            <td><code>loading</code></td>
+            <td><code>Boolean</code></td>
+            <td><code>false</code></td>
+            <td>Whether the button is loading</td>
+            <td>
+              {{input type='checkbox' class='uk-checkbox' checked=loading}}
+            </td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>String</code></td>
+            <td><code>'default'</code></td>
+            <td>The color of the button</td>
+            <td>
+              <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
+                <option value="default">default</option>
+                <option value="primary">primary</option>
+                <option value="secondary">secondary</option>
+                <option value="text">text</option>
+                <option value="link">link</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>String</code></td>
+            <td><code>''</code></td>
+            <td>The size of the button</td>
+            <td>
+              <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
+                <option value=""></option>
+                <option value="small">small</option>
+                <option value="large">large</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td><code>String</code></td>
+            <td><code>''</code></td>
+            <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
+            <td>
+              {{input class='uk-input' value=width}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </li>
   <li>
-    <table class="uk-table uk-table-divider">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Fired</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>on-click</code></td>
-          <td>Fired if the component was clicked</td>
-          <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-divider">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Fired</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>on-click</code></td>
+            <td>Fired if the component was clicked</td>
+            <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </li>
   <li>{{code-snippet name='button.hbs'}}</li>
 </ul>

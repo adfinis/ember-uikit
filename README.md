@@ -1,4 +1,4 @@
-# ember-uikit [![Build Status](https://travis-ci.org/anehx/ember-uikit.svg?branch=master)](https://travis-ci.org/anehx/ember-uikit)
+# ember-uikit [![Build Status](https://travis-ci.org/adfinis-sygroup/ember-uikit.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-uikit)
 
 This addon is a wrapper for the CSS library [UIkit](https://getuikit.com/)
 which exposes certain components to give users an easy way for using UIkit in

@@ -25,96 +25,100 @@ as |card|}}
 
 <ul class="uk-switcher">
   <li>
-    <table class="uk-table uk-table-divider">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-          <th>Demo</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>hover</code></td>
-          <td><code>Boolean</code></td>
-          <td><code>false</code></td>
-          <td>Whether to show a stronger shadow on hover</td>
-          <td>
-            {{input type='checkbox' class='uk-checkbox' checked=hover}}
-          </td>
-        </tr>
-        <tr>
-          <td><code>color</code></td>
-          <td><code>String</code></td>
-          <td><code>'default'</code></td>
-          <td>The color of the button</td>
-          <td>
-            <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
-              <option value="default">default</option>
-              <option value="primary">primary</option>
-              <option value="secondary">secondary</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><code>size</code></td>
-          <td><code>String</code></td>
-          <td><code>''</code></td>
-          <td>The size of the button</td>
-          <td>
-            <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
-              <option value=""></option>
-              <option value="small">small</option>
-              <option value="large">large</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><code>width</code></td>
-          <td><code>String</code></td>
-          <td><code>''</code></td>
-          <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
-          <td>
-            {{input class='uk-input' value=width}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-divider">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+            <th>Demo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>hover</code></td>
+            <td><code>Boolean</code></td>
+            <td><code>false</code></td>
+            <td>Whether to show a stronger shadow on hover</td>
+            <td>
+              {{input type='checkbox' class='uk-checkbox' checked=hover}}
+            </td>
+          </tr>
+          <tr>
+            <td><code>color</code></td>
+            <td><code>String</code></td>
+            <td><code>'default'</code></td>
+            <td>The color of the button</td>
+            <td>
+              <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
+                <option value="default">default</option>
+                <option value="primary">primary</option>
+                <option value="secondary">secondary</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><code>size</code></td>
+            <td><code>String</code></td>
+            <td><code>''</code></td>
+            <td>The size of the button</td>
+            <td>
+              <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
+                <option value=""></option>
+                <option value="small">small</option>
+                <option value="large">large</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><code>width</code></td>
+            <td><code>String</code></td>
+            <td><code>''</code></td>
+            <td>The width of the button, more information about possible values <a href="https://getuikit.com/docs/width">here</a>.</td>
+            <td>
+              {{input class='uk-input' value=width}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </li>
   <li>
-    <table class="uk-table uk-table-divider">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>header</code></td>
-          <td><code>Ember.Component</code></td>
-          <td>A component for the cards header</td>
-        </tr>
-        <tr>
-          <td><code>title</code></td>
-          <td><code>Ember.Component</code></td>
-          <td>A component for the cards title, has a default <code>tagName</code> of <code>h1</code>.</td>
-        </tr>
-        <tr>
-          <td><code>body</code></td>
-          <td><code>Ember.Component</code></td>
-          <td>A component for the cards main body</td>
-        </tr>
-        <tr>
-          <td><code>footer</code></td>
-          <td><code>Ember.Component</code></td>
-          <td>A component for the cards footer</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="uk-overflow-auto">
+      <table class="uk-table uk-table-divider">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>header</code></td>
+            <td><code>Ember.Component</code></td>
+            <td>A component for the cards header</td>
+          </tr>
+          <tr>
+            <td><code>title</code></td>
+            <td><code>Ember.Component</code></td>
+            <td>A component for the cards title, has a default <code>tagName</code> of <code>h1</code>.</td>
+          </tr>
+          <tr>
+            <td><code>body</code></td>
+            <td><code>Ember.Component</code></td>
+            <td>A component for the cards main body</td>
+          </tr>
+          <tr>
+            <td><code>footer</code></td>
+            <td><code>Ember.Component</code></td>
+            <td>A component for the cards footer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </li>
   <li>{{code-snippet name='card.hbs'}}</li>
 </ul>
