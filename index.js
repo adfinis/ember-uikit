@@ -24,7 +24,7 @@ module.exports = {
 
     app.options.sassOptions.includePaths.push('node_modules');
 
-    app.import('node_modules/uikit/dist/js/uikit.min.js');
-    app.import('node_modules/uikit/dist/js/uikit-icons.min.js');
+    app.import('node_modules/uikit/dist/js/uikit.js');
+    app.import('node_modules/uikit/dist/js/uikit-icons.js');
   }
 };

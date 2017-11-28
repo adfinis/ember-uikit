@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { A } from '@ember/array';
 import { task, timeout } from 'ember-concurrency';
+import { BUTTON_COLOR_OPTIONS } from 'ember-uikit/components/uk-button';
 
 export default Controller.extend({
   init() {
@@ -17,6 +18,8 @@ export default Controller.extend({
   color: 'default',
   size: '',
   width: '',
+
+  colors: BUTTON_COLOR_OPTIONS,
 
   fireEvent: task(function*(name) {
     this.get('firedEvents').pushObject(name);

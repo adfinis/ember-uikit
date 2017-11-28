@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import EmberObject from '@ember/object';
-import SizeMixin, { ALL_SIZES } from 'ember-uikit/mixins/size';
+import SizeMixin, { SIZE_OPTIONS } from 'ember-uikit/mixins/size';
 
 describe('Unit | Mixin | size', function() {
   it('computes the size', function() {
@@ -11,16 +11,18 @@ describe('Unit | Mixin | size', function() {
       sizeTemplate: 'foobar-$size$'
     });
 
-    expect(() => subject.set('size', ALL_SIZES.LARGE)).to.not.throw();
+    subject.set('size', SIZE_OPTIONS.LARGE);
 
-    expect(subject.get('_sizeClass')).to.equal(`foobar-${ALL_SIZES.LARGE}`);
+    expect(subject.get('sizeClass')).to.equal('foobar-large');
   });
 
-  it('fails with invalid sizes', function() {
+  it('ignores invalid sizes', function() {
     let SizeObject = EmberObject.extend(SizeMixin);
 
     let subject = SizeObject.create();
 
-    expect(() => subject.set('size', 'invalidsize')).to.throw();
+    subject.set('size', 'invalidsize');
+
+    expect(subject.get('sizeClass')).to.be.empty;
   });
 });

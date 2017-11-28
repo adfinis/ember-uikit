@@ -1,11 +1,19 @@
 <h2>Spinner</h2>
 
-{{uk-spinner}}
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{uk-spinner}}
+</div>
 
-<ul uk-tab>
-  <li><a href="#">Example</a></li>
-</ul>
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
 
-<ul class="uk-switcher">
-  <li>{{code-snippet name='spinner.hbs'}}</li>
-</ul>
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      {{code-snippet name='spinner.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

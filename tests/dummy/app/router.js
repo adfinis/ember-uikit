@@ -9,6 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('button');
   this.route('card');
+  this.route('tab');
+  this.route('subnav');
+  this.route('switcher');
   this.route('list');
   this.route('icon');
   this.route('spinner');

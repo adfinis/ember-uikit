@@ -1,8 +1,9 @@
 import Mixin from '@ember/object/mixin';
 import { computed } from '@ember/object';
-import { assert } from '@ember/debug';
+import validatedComputedProperty from 'ember-uikit/-private/validated-computed-property';
 
-export const ALL_COLORS = {
+export const COLOR_OPTIONS = {
+  NONE: '',
   DEFAULT: 'default',
   MUTED: 'muted',
   PRIMARY: 'primary',
@@ -14,56 +15,18 @@ export const ALL_COLORS = {
 };
 
 export default Mixin.create({
-  init() {
-    this._super(...arguments);
+  COLOR_OPTIONS: Object.values(COLOR_OPTIONS),
 
-    this.setProperties({
-      includedColors: [],
-      excludedColors: []
-    });
-  },
-
-  classNameBindings: ['_colorClass'],
+  classNameBindings: ['colorClass'],
 
   colorTemplate: 'uk-$color$-background',
 
-  _color: null,
+  color: validatedComputedProperty('_color', 'color', 'COLOR_OPTIONS'),
 
-  _colors: computed('includedColors.[]', 'excludedColors.[]', function() {
-    let included = this.get('includedColors') || [];
-    let excluded = this.get('excludedColors') || [];
-
-    return Object.values(ALL_COLORS).filter(c => {
-      return (
-        !excluded.includes(c) && (!included.length || included.includes(c))
-      );
-    });
-  }),
-
-  _colorClass: computed('_color', function() {
-    let color = this.get('_color');
-
-    if (!color) {
-      return null;
-    }
-
-    return this.get('colorTemplate').replace(/\$color\$/, color);
-  }),
-
-  color: computed('_color', {
-    get() {
-      return this.get('_color');
-    },
-    set(_, value) {
-      if (value && !this.get('_colors').includes(value)) {
-        assert(`Color must be one of ${this.get('_colors').join(', ')}.`);
-
-        return;
-      }
-
-      this.set('_color', value);
-
-      return value;
-    }
+  colorClass: computed('color', function() {
+    return (
+      this.get('color') &&
+      this.get('colorTemplate').replace(/\$color\$/, this.get('color'))
+    );
   })
 });

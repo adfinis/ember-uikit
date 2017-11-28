@@ -1,49 +1,50 @@
 import Component from '@ember/component';
 import layout from '../templates/components/uk-button';
-import ColorMixin, { ALL_COLORS } from 'ember-uikit/mixins/color';
 import WidthMixin from 'ember-uikit/mixins/width';
 import SizeMixin from 'ember-uikit/mixins/size';
+import ColorMixin, { COLOR_OPTIONS } from 'ember-uikit/mixins/color';
+import EventedMixin from 'ember-uikit/mixins/evented';
 
-export default Component.extend(ColorMixin, WidthMixin, SizeMixin, {
-  init() {
-    this._super(...arguments);
+export const BUTTON_COLOR_OPTIONS = [
+  COLOR_OPTIONS.DEFAULT,
+  COLOR_OPTIONS.PRIMARY,
+  COLOR_OPTIONS.SECONDARY,
+  COLOR_OPTIONS.LINK,
+  COLOR_OPTIONS.TEXT
+];
 
-    this.set('includedColors', [
-      ALL_COLORS.DEFAULT,
-      ALL_COLORS.PRIMARY,
-      ALL_COLORS.SECONDARY,
-      ALL_COLORS.LINK,
-      ALL_COLORS.TEXT
-    ]);
-  },
+export default Component.extend(
+  ColorMixin,
+  WidthMixin,
+  SizeMixin,
+  EventedMixin,
+  {
+    COLOR_OPTIONS: BUTTON_COLOR_OPTIONS,
 
-  _color: ALL_COLORS.DEFAULT,
+    _color: COLOR_OPTIONS.DEFAULT,
 
-  layout,
+    layout,
 
-  tagName: 'button',
+    tagName: 'button',
 
-  colorTemplate: 'uk-button-$color$',
+    colorTemplate: 'uk-button-$color$',
 
-  sizeTemplate: 'uk-button-$size$',
+    sizeTemplate: 'uk-button-$size$',
 
-  classNames: ['uk-button'],
+    classNames: ['uk-button'],
 
-  classNameBindings: ['active:uk-active'],
+    classNameBindings: ['active:uk-active'],
 
-  attributeBindings: ['disabled', 'type'],
+    attributeBindings: ['disabled', 'type'],
 
-  label: '',
+    label: '',
 
-  type: 'button',
+    type: 'button',
 
-  disabled: false,
+    disabled: false,
 
-  active: false,
+    active: false,
 
-  loading: false,
-
-  click(e) {
-    this.getWithDefault('on-click', () => {})(e);
+    loading: false
   }
-});
+);

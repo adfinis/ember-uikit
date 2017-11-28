@@ -1,16 +1,31 @@
 import Mixin from '@ember/object/mixin';
 import { computed } from '@ember/object';
+import { validatedArrayComputedProperty } from 'ember-uikit/-private/validated-computed-property';
+import MEDIA_OPTIONS from 'ember-uikit/-private/media';
+
+export const gcd = (a, b) => (a % b === 0 ? b : gcd(b, a % b));
 
 export const MAX_GRID = 6;
 
-export const GRID = [...new Array(MAX_GRID).keys()].map(n => n + 1);
+export const GRID_NUMBERS = [...new Array(MAX_GRID).keys()].map(n => n + 1);
 
-export const SPECIAL = {
-  AUTO: 'auto',
-  EXPAND: 'expand'
-};
+export const GRID_OPTIONS = Array.from(
+  new Set(
+    GRID_NUMBERS.reduce((all, of) => {
+      return [
+        ...all,
+        ...GRID_NUMBERS.filter(n => of >= n).map(n => {
+          return `${n / gcd(n, of)}-${of / gcd(n, of)}`;
+        })
+      ];
+    }, [])
+  )
+).reduce(
+  (obj, val) => Object.assign(obj, { [val.replace(/-/, '_OF_')]: val }),
+  {}
+);
 
-export const FIXED = {
+export const FIXED_OPTIONS = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
@@ -18,67 +33,41 @@ export const FIXED = {
   XXLARGE: 'xxlarge'
 };
 
-export const MEDIA = {
-  SMALL: '@s',
-  MEDIUM: '@m',
-  LARGE: '@l',
-  XLARGE: '@xl'
+export const SPECIAL_OPTIONS = {
+  AUTO: 'auto',
+  EXPAND: 'expand'
 };
 
+export const WIDTH_OPTIONS = Object.assign(
+  {},
+  GRID_OPTIONS,
+  FIXED_OPTIONS,
+  SPECIAL_OPTIONS
+);
+
 export default Mixin.create({
-  classNameBindings: ['_widthClasses'],
+  WIDTH_OPTIONS: Object.values(WIDTH_OPTIONS),
+  MEDIA_OPTIONS: Object.values(MEDIA_OPTIONS),
+
+  classNameBindings: ['widthClass'],
 
   _widthTemplate: 'uk-width-$width$',
 
-  _widths: null,
+  width: validatedArrayComputedProperty(
+    '_width',
+    'width',
+    'WIDTH_OPTIONS',
+    'MEDIA_OPTIONS',
+    ' '
+  ),
 
-  _widthClasses: computed('_widths', function() {
-    let widths = this.get('_widths');
-
-    if (!widths) {
-      return null;
-    }
-
-    let tpl = this.get('_widthTemplate');
-
-    return widths.map(w => tpl.replace(/\$width\$/, w)).join(' ');
-  }),
-
-  width: computed('_widths', {
-    get() {
-      return this.get('_widths').join(' ');
-    },
-    set(_, value) {
-      if (!value) {
-        this.set('_widths', null);
-        return value;
-      }
-
-      let widths = value.split(' ');
-
-      let mediaRePartial = `(${Object.values(MEDIA).join('|')})?`;
-
-      let gridRe = new RegExp(
-        `^(${GRID.join('|')})-(${GRID.join('|')})${mediaRePartial}$`
-      );
-
-      let specialRe = new RegExp(
-        `^(${Object.values(SPECIAL).join('|')})${mediaRePartial}$`
-      );
-
-      let fixedRe = new RegExp(
-        `^(${Object.values(FIXED).join('|')})${mediaRePartial}$`
-      );
-
-      let valid = widths.filter(width => {
-        return (
-          gridRe.test(width) || specialRe.test(width) || fixedRe.test(width)
-        );
-      });
-
-      this.set('_widths', valid);
-
-      return valid.join(' ');
-    }
+  widthClass: computed('width', function() {
+    return (
+      this.get('width') &&
+      this.get('width')
+        .split(' ')
+        .map(w => this.get('_widthTemplate').replace(/\$width\$/, w))
+        .join(' ')
+    );
   })
 });

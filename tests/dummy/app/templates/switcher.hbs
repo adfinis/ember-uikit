@@ -1,0 +1,180 @@
+<h2>Switcher</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{#uk-switcher
+    animation=animation
+    animationDuration=animationDuration
+    swiping=swiping
+  as |switcher|}}
+    {{#switcher.nav type=type as |nav|}}
+      {{#nav.component as |tab|}}
+        {{#tab.item}}Item 1{{/tab.item}}
+        {{#tab.item}}Item 2{{/tab.item}}
+        {{#tab.item}}Item 3{{/tab.item}}
+      {{/nav.component}}
+    {{/switcher.nav}}
+
+    {{#switcher.content as |content|}}
+      {{#content.item}}
+        <h5>Content 1</h5>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      {{/content.item}}
+      {{#content.item}}
+        <h5>Content 2</h5>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      {{/content.item}}
+      {{#content.item}}
+        <h5>Content 3</h5>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      {{/content.item}}
+    {{/switcher.content}}
+  {{/uk-switcher}}
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Yields{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>animation</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The animation to use when switching the content</td>
+              <td>
+                <small class="uk-text-muted">
+                  Sadly we can't show this live since we'd need to
+                  reinitialize the component on every change. Currently we
+                  use <b>{{animation}}</b>.
+                </small>
+              </td>
+            </tr>
+            <tr>
+              <td><code>animationDuration</code></td>
+              <td><code>Number</code></td>
+              <td><code>200</code></td>
+              <td>The duration for the animation</td>
+              <td>
+                <small class="uk-text-muted">
+                  Sadly we can't show this live since we'd need to
+                  reinitialize the component on every change. Currently we
+                  use <b>{{animationDuration}}</b>.
+                </small>
+              </td>
+            </tr>
+            <tr>
+              <td><code>swiping</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to use swiping for switching</td>
+              <td>
+                <small class="uk-text-muted">
+                  Sadly we can't show this live since we'd need to
+                  reinitialize the component on every change. Currently we
+                  use <b>{{if switching 'true' 'false'}}</b>.
+                </small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      <small class="uk-text-muted">
+        The demo on the yielded components always counts for the first
+        appearance of said component.
+      </small>
+
+      <p>
+        <code>nav</code>
+      </p>
+      <p>
+        The switcher yields a <code>nav</code> component which can have a
+        certain type. This component will then yield the navigation component
+        for the given type. The type can either be <code>{{link-to "'subnav'" 'subnav'}}</code>
+        or <code>{{link-to "'tab'" 'tab'}}</code>. The properties for the
+        <code>component</code> which is yielded by <code>nav</code> can be
+        looked up on the documentation for the given type of navigation.
+      </p>
+      <p>
+        For better understanding of the hierarchy, check the example tab.
+      </p>
+
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>type</code></td>
+              <td><code>String</code></td>
+              <td><code>'tab'</code></td>
+              <td>The navigation type</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+                  <option value="tab">tab</option>
+                  <option value="subnav">subnav</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <code>content</code>
+      </p>
+      <p>
+      The switcher yields a <code>content</code> component which should be
+      used for the content of the switcher . The <code>content</code>
+      component takes no properties.
+      </p>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='switcher.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

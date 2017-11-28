@@ -1,0 +1,18 @@
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{! nav.component is either a uk-tab or a uk-subnav component }}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Title 1{{/tab.item}}
+      {{#tab.item}}Title 2{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <h5>Content 1</h5>
+    {{/content.item}}
+    {{#content.item}}
+      <h5>Content 2</h5>
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

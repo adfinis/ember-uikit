@@ -1,0 +1,147 @@
+<h2>Subnav</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{#uk-subnav
+    divider=divider
+    pill=pill
+  as |nav|}}
+    {{#nav.item active=itemActive disabled=itemDisabled}}Item 1{{/nav.item}}
+    {{#nav.item}}Item 2{{/nav.item}}
+    {{#nav.link-item 'subnav' disabled=linkItemDisabled}}Link Item 1 (active){{/nav.link-item}}
+  {{/uk-subnav}}
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Yields{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>divider</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to show a divider between the nav items</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=divider}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>pill</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to style the nav items as pills</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=pill}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      <small class="uk-text-muted">
+        The demo on the yielded components always counts for the first
+        appearance of said component.
+      </small>
+
+      <p>
+        <code>item</code>
+      </p>
+      <p>
+        The subnav yields an <code>item</code> component which can be used to
+        create a navigation item inside the subnav. The <code>item</code>
+        component takes the following properties:
+      </p>
+
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>active</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the item is active</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=itemActive}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>disabled</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the item is disabled</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=itemDisabled}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        <code>link-item</code>
+      </p>
+      <p>
+        The subnav yields an <code>link-item</code> component which behaves
+        almost the same way as <code>item</code> but is an ember
+        <code>link-to</code> component. The <code>link-item</code> component
+        takes the following properties:
+      </p>
+
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>disabled</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the link item is disabled</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=linkItemDisabled}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='subnav.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

@@ -1,112 +1,121 @@
 <h2>Button</h2>
 
-{{uk-button
-  label=label
-  type=type
-  disabled=disabled
-  active=active
-  loading=loading
-  color=color
-  size=size
-  width=width
-  on-click=(perform fireEvent 'button-on-click')
-}}
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{uk-button
+    label=label
+    type=type
+    disabled=disabled
+    active=active
+    loading=loading
+    color=color
+    size=size
+    width=width
+    on-click=(perform fireEvent 'button-on-click')
+  }}
+</div>
 
-<ul uk-tab>
-  <li><a href="#">Props</a></li>
-  <li><a href="#">Events</a></li>
-  <li><a href="#">Example</a></li>
-</ul>
 
-<ul class="uk-switcher">
-  <li>
-    <div class="uk-overflow-auto">
-      <table class="uk-table uk-table-divider">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-            <th>Demo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>label</code></td>
-            <td><code>String</code></td>
-            <td><code>''</code></td>
-            <td>The content of the button</td>
-            <td>
-              {{input class='uk-input' value=label}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>type</code></td>
-            <td><code>String</code></td>
-            <td><code>'button'</code></td>
-            <td>The type of the button</td>
-            <td>
-              <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
-                <option value="button">button</option>
-                <option value="submit">submit</option>
-                <option value="reset">reset</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td><code>disabled</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether the button is disabled</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=disabled}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>active</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether the button is active</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=active}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>loading</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether the button is loading</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=loading}}
-            </td>
-          </tr>
-          {{color-row name='button' colors=(array 'default' 'primary' 'secondary' 'text' 'link') value=color}}
-          {{size-row name='button' sizes=(array '' 'small' 'large') value=size}}
-          {{width-row name='button' value=width}}
-        </tbody>
-      </table>
-    </div>
-  </li>
-  <li>
-    <div class="uk-overflow-auto">
-      <table class="uk-table uk-table-divider">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Fired</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>on-click</code></td>
-            <td>Fired if the component was clicked</td>
-            <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </li>
-  <li>{{code-snippet name='button.hbs'}}</li>
-</ul>
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Events{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>label</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The content of the button</td>
+              <td>
+                {{input class='uk-input' value=label}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>type</code></td>
+              <td><code>String</code></td>
+              <td><code>'button'</code></td>
+              <td>The type of the button</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+                  <option value="button">button</option>
+                  <option value="submit">submit</option>
+                  <option value="reset">reset</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>disabled</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the button is disabled</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=disabled}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>active</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the button is active</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=active}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>loading</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether the button is loading</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=loading}}
+              </td>
+            </tr>
+            {{color-row name='button' colors=colors value=color}}
+            {{size-row name='button' sizes=(array '' 'small' 'large') value=size}}
+            {{width-row name='button' value=width}}
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Fired</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>on-click</code></td>
+              <td>Fired if the component was clicked</td>
+              <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='button.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

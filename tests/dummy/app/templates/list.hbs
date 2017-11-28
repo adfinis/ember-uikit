@@ -1,97 +1,95 @@
-<h2 class="uk-heading-divider">List</h2>
+<h2>List</h2>
 
-{{#uk-list
-  divider=divider
-  striped=striped
-  bullet=bullet
-  large=large
-  width=width
-as |list|}}
-  {{#list.item}}List item 1{{/list.item}}
-  {{#list.item}}List item 2{{/list.item}}
-  {{#list.item}}List item 3{{/list.item}}
-{{/uk-list}}
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{#uk-list
+    divider=divider
+    striped=striped
+    bullet=bullet
+    large=large
+    width=width
+  as |list|}}
+    {{#list.item}}List item 1{{/list.item}}
+    {{#list.item}}List item 2{{/list.item}}
+    {{#list.item}}List item 3{{/list.item}}
+  {{/uk-list}}
+</div>
 
-<ul uk-tab>
-  <li><a href="#">Props</a></li>
-  <li><a href="#">Yields</a></li>
-  <li><a href="#">Example</a></li>
-</ul>
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Yields{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
 
-<ul class="uk-switcher">
-  <li>
-    <div class="uk-overflow-auto">
-      <table class="uk-table uk-table-divider">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Default</th>
-            <th>Description</th>
-            <th>Demo</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>divider</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether to show a divider between the items</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=divider}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>striped</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether stripe the list</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=striped}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>bullet</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether to show a bullet point before the items</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=bullet}}
-            </td>
-          </tr>
-          <tr>
-            <td><code>large</code></td>
-            <td><code>Boolean</code></td>
-            <td><code>false</code></td>
-            <td>Whether to make the list larger</td>
-            <td>
-              {{input type='checkbox' class='uk-checkbox' checked=large}}
-            </td>
-          </tr>
-          {{width-row name='list' value=width}}
-        </tbody>
-      </table>
-    </div>
-  </li>
-  <li>
-    <div class="uk-overflow-auto">
-      <table class="uk-table uk-table-divider">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>item</code></td>
-            <td><code>Ember.Component</code></td>
-            <td>A component for the list items</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </li>
-  <li>{{code-snippet name='list.hbs'}}</li>
-</ul>
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>divider</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to show a divider between the items</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=divider}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>striped</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether stripe the list</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=striped}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>bullet</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to show a bullet point before the items</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=bullet}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>large</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to make the list larger</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=large}}
+              </td>
+            </tr>
+            {{width-row name='list' value=width}}
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      <p>
+        <code>item</code>
+      </p>
+      <p>
+        The list yields an <code>item</code> component which can be used to
+        create a list item inside the list. The <code>item</code> component
+        takes no properties.
+      </p>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='list.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}
