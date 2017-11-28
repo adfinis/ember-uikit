@@ -10,18 +10,13 @@ describe('Integration | Component | uk icon', function() {
   });
 
   it('renders', function() {
-    this.render(hbs`{{uk-icon 'home'}}`);
-
-    expect(find('[uk-icon]')).to.be.ok;
-
-    expect(find('[uk-icon]').getAttribute('uk-icon')).to.contain('icon: home');
-  });
-
-  it('can set ratio', function() {
     this.render(hbs`{{uk-icon 'home' ratio=2}}`);
 
     expect(find('[uk-icon]')).to.be.ok;
 
-    expect(find('[uk-icon]').getAttribute('uk-icon')).to.contain('ratio: 2');
+    expect(find('[uk-icon]')).to.be.ok;
+
+    expect(find('[uk-icon]').getAttribute('icon')).to.equal('home');
+    expect(find('[uk-icon]').getAttribute('ratio')).to.equal('2');
   });
 });
