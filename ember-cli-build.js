@@ -9,7 +9,12 @@ module.exports = function(defaults) {
       prepend: 'https://adfinis-sygroup.github.io/ember-uikit/'
     },
     snippetPaths: ['tests/dummy/app/snippets'],
+    includeHighlightJS: false,
     includeHighlightStyles: false
+  });
+
+  app.import('vendor/highlight.pack.js', {
+    using: [{ transformation: 'amd', as: 'highlight.js' }]
   });
 
   app.import('vendor/atom-one-light.css');
