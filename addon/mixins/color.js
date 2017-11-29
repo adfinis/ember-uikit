@@ -8,8 +8,9 @@ export const COLOR_OPTIONS = {
   MUTED: 'muted',
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
-  DANGER: 'danger',
   SUCCESS: 'success',
+  WARNING: 'warning',
+  DANGER: 'danger',
   LINK: 'link',
   TEXT: 'text'
 };

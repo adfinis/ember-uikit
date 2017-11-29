@@ -9,12 +9,13 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('button');
   this.route('card');
-  this.route('tab');
+  this.route('icon');
+  this.route('label');
+  this.route('list');
+  this.route('spinner');
   this.route('subnav');
   this.route('switcher');
-  this.route('list');
-  this.route('icon');
-  this.route('spinner');
+  this.route('tab');
 });
 
 export default Router;
