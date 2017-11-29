@@ -1,5 +1,10 @@
 <h2>Button</h2>
 
+<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
+  Uses:
+    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+</p>
+
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{uk-button
     label=label
@@ -9,7 +14,6 @@
     loading=loading
     color=color
     size=size
-    width=width
     on-click=(perform fireEvent 'button-on-click')
   }}
 </div>
@@ -89,7 +93,6 @@
             </tr>
             {{color-row name='button' default='default' colors=colors value=color}}
             {{size-row name='button' sizes=(array '' 'small' 'large') value=size}}
-            {{width-row name='button' value=width}}
           </tbody>
         </table>
       </div>

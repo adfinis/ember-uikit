@@ -51,12 +51,6 @@ describe('Integration | Component | uk button', function() {
     expect(find('.uk-button.uk-button-large')).to.be.ok;
   });
 
-  it('can set width', function() {
-    this.render(hbs`{{#uk-button width='1-1'}}Click me!{{/uk-button}}`);
-
-    expect(find('.uk-button.uk-width-1-1')).to.be.ok;
-  });
-
   it('fires on-click action', function() {
     this.set('didClick', false);
 

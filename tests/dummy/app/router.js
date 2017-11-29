@@ -18,6 +18,11 @@ Router.map(function() {
     this.route('switcher');
     this.route('tab');
   });
+
+  this.route('utilities', function() {
+    this.route('flex');
+    this.route('width');
+  });
 });
 
 export default Router;

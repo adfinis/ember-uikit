@@ -1,12 +1,16 @@
 <h2>List</h2>
 
+<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
+  Uses:
+    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+</p>
+
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-list
     divider=divider
     striped=striped
     bullet=bullet
     large=large
-    width=width
   as |list|}}
     {{#list.item}}List item 1{{/list.item}}
     {{#list.item}}List item 2{{/list.item}}
@@ -73,7 +77,6 @@
                 {{input type='checkbox' class='uk-checkbox' checked=large}}
               </td>
             </tr>
-            {{width-row name='list' value=width}}
           </tbody>
         </table>
       </div>

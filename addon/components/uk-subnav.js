@@ -1,7 +1,8 @@
 import Component from '@ember/component';
 import layout from '../templates/components/uk-subnav';
+import FlexMixin from 'ember-uikit/mixins/flex';
 
-export default Component.extend({
+export default Component.extend(FlexMixin, {
   layout,
 
   tagName: 'ul',

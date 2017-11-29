@@ -1,12 +1,9 @@
-<h2>Label</h2>
-
-<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
-  Uses:
-    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
-</p>
+<h2>Width</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-label label=label color=color}}
+  {{#uk-flex}}
+    {{#uk-width width class='uk-padding uk-background-secondary uk-light'}}{{if width width 'No width set'}}{{/uk-width}}
+  {{/uk-flex}}
 </div>
 
 {{#uk-switcher animation='uk-animation-fade' as |switcher|}}
@@ -32,21 +29,25 @@
           </thead>
           <tbody>
             <tr>
-              <td><code>label</code></td>
+              <td><code>width</code></td>
               <td><code>String</code></td>
               <td><code>''</code></td>
-              <td>The content of the label</td>
               <td>
-                {{input class='uk-input' value=label}}
+                The width of the element, more information about possible
+                values <a href="https://getuikit.com/docs/width">here</a>.
+                This can also be multiple widths separated by a whitespace.
+                This is the first positional parameter.
+              </td>
+              <td>
+                {{input class='uk-input' value=width}}
               </td>
             </tr>
-            {{color-row name='label' default='' colors=colors value=color}}
           </tbody>
         </table>
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='label.hbs'}}
+      {{code-snippet name='width.hbs'}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

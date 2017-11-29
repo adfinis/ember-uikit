@@ -1,5 +1,10 @@
 <h2>Tab</h2>
 
+<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
+  Uses:
+    {{#link-to 'utilities.flex'}}{{uk-label color='success' label='Flex'}}{{/link-to}}
+</p>
+
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-tab
     left=left
@@ -39,7 +44,7 @@
               <td><code>left</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
-              <td></td>
+              <td>Whether to enable left alignment</td>
               <td>
                 {{input type='checkbox' class='uk-checkbox' checked=left}}
               </td>
@@ -48,7 +53,7 @@
               <td><code>right</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
-              <td></td>
+              <td>Whether to enable right alignment</td>
               <td>
                 {{input type='checkbox' class='uk-checkbox' checked=right}}
               </td>
@@ -57,7 +62,7 @@
               <td><code>bottom</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
-              <td></td>
+              <td>Whether to enable bottom alignment</td>
               <td>
                 {{input type='checkbox' class='uk-checkbox' checked=bottom}}
               </td>

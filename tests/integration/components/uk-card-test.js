@@ -48,10 +48,4 @@ describe('Integration | Component | uk card', function() {
 
     expect(find('.uk-card.uk-card-small')).to.be.ok;
   });
-
-  it('can set width', function() {
-    this.render(hbs`{{uk-card width='1-1'}}`);
-
-    expect(find('.uk-card.uk-width-1-1')).to.be.ok;
-  });
 });

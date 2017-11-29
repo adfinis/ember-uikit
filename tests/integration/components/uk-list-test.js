@@ -45,10 +45,4 @@ describe('Integration | Component | uk list', function() {
 
     expect(find('.uk-list.uk-list-large')).to.be.ok;
   });
-
-  it('can set width', function() {
-    this.render(hbs`{{uk-list width='1-1'}}`);
-
-    expect(find('.uk-list.uk-width-1-1')).to.be.ok;
-  });
 });

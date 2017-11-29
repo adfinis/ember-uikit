@@ -66,20 +66,22 @@ export const validatedArrayComputedProperty = (
       return this.get(key);
     },
     set(_, value) {
-      let validated = value
-        .split(separator)
-        .map(v =>
-          sanitize(
-            validateValue(
-              v,
-              name,
-              this.getWithDefault(optionsKey, []),
-              this.getWithDefault(mediaOptionsKey, [])
+      let validated =
+        value &&
+        value
+          .split(separator)
+          .map(v =>
+            sanitize(
+              validateValue(
+                v,
+                name,
+                this.getWithDefault(optionsKey, []),
+                this.getWithDefault(mediaOptionsKey, [])
+              )
             )
           )
-        )
-        .join(separator)
-        .trim();
+          .join(separator)
+          .trim();
 
       this.set(key, validated);
 

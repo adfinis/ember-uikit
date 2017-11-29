@@ -1,0 +1,160 @@
+<h2>Flex</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{#uk-flex
+    flex=flex
+    inline=inline
+    horizontal=horizontal
+    vertical=vertical
+    direction=direction
+    wrap=wrap
+    wrapAlignment=wrapAlignment
+
+    class=(if fixHeight 'uk-height-large')
+  }}
+    {{#uk-width (if fill '1-1' '') class='uk-background-secondary uk-light uk-padding'}}
+      Item 1
+    {{/uk-width}}
+    {{#uk-width (if fill '1-1' '') class='uk-background-secondary uk-light uk-padding'}}
+      Item 2
+    {{/uk-width}}
+    {{#uk-width (if fill '1-1' '') class='uk-background-secondary uk-light uk-padding'}}
+      Item 3
+    {{/uk-width}}
+  {{/uk-flex}}
+
+  <div class="uk-margin-medium-top">
+    <div>
+      <label class="uk-form-label">
+        {{input type='checkbox' class='uk-checkbox' checked=fill}}
+        Let children use the full width (necessary for testing <code>wrap</code> and <code>wrapAlignment</code>)
+      </label>
+    </div>
+    <div>
+      <label class="uk-form-label">
+        {{input type='checkbox' class='uk-checkbox' checked=fixHeight}}
+        Use fixed container height (necessary for testing <code>vertical</code> and <code>wrapAlignment</code>)
+      </label>
+    </div>
+  </div>
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>flex</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>true</code></td>
+              <td>Whether to display the element as flex element</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=flex}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>inline</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to display the element as inline flex element</td>
+              <td>
+                {{input type='checkbox' class='uk-checkbox' checked=inline}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>horizontal</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>How to align the children horizontally</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut horizontal) value='target.value'}}>
+                  <option></option>
+                  {{#each horizontals as |opt|}}
+                    <option value={{opt}}>{{opt}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>vertical</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>How to align the children vertically</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut vertical) value='target.value'}}>
+                  <option></option>
+                  {{#each verticals as |opt|}}
+                    <option value={{opt}}>{{opt}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>direction</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The direction in which the children should align</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut direction) value='target.value'}}>
+                  <option></option>
+                  {{#each directions as |opt|}}
+                    <option value={{opt}}>{{opt}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>wrap</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>How to handle overflowing children</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut wrap) value='target.value'}}>
+                  <option></option>
+                  {{#each wraps as |opt|}}
+                    <option value={{opt}}>{{opt}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>wrapAlignment</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>How to align overflowing children</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut wrapAlignment) value='target.value'}}>
+                  <option></option>
+                  {{#each wrapAlignments as |opt|}}
+                    <option value={{opt}}>{{opt}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='flex.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

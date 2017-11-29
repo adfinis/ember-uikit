@@ -1,11 +1,15 @@
 <h2>Card</h2>
 
+<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
+  Uses:
+    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+</p>
+
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-card
     hover=hover
     color=color
     size=size
-    width=width
   as |card|}}
     {{#card.header}}
       {{#card.title}}Title{{/card.title}}
@@ -53,7 +57,6 @@
             </tr>
             {{color-row name='card' default='default' colors=colors value=color}}
             {{size-row name='card' value=size}}
-            {{width-row name='card' value=width}}
           </tbody>
         </table>
       </div>
