@@ -17,7 +17,7 @@ const DEFAULT_OPTIONS = {
   blacklist: []
 };
 
-const componentDependencies = {
+const COMPONENT_DEPENDENCIES = {
   'uk-switcher': ['uk-tab', 'uk-subnav']
 };
 
@@ -113,8 +113,8 @@ module.exports = {
       if (list.indexOf(item) === -1) {
         list.push(item);
 
-        if (componentDependencies[item]) {
-          componentDependencies[item].forEach(_addToWhitelist);
+        if (COMPONENT_DEPENDENCIES[item]) {
+          COMPONENT_DEPENDENCIES[item].forEach(_addToWhitelist);
         }
       }
     }
