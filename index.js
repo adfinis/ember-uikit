@@ -11,16 +11,24 @@ const DEFAULT_OPTIONS = {
   importUIkitIcons: true,
   importUIkitAssets: true,
 
-  useIcons: true
+  useIcons: true,
+
+  whitelist: [],
+  blacklist: []
 };
 
-// For ember-cli < 2.7 findHost doesnt exist so we backport from that version
-// for earlier version of ember-cli.
-// https://github.com/ember-cli/ember-cli/blame/16e4492c9ebf3348eb0f31df17215810674dbdf6/lib/models/addon.js#L533
+const componentDependencies = {
+  'uk-switcher': ['uk-tab', 'uk-subnav']
+};
 
 module.exports = {
   name: 'ember-uikit',
 
+  /**
+   * For ember-cli < 2.7 findHost doesnt exist so we backport from that version
+   * for earlier version of ember-cli.
+   * https://github.com/ember-cli/ember-cli/blame/16e4492c9ebf3348eb0f31df17215810674dbdf6/lib/models/addon.js#L533
+   */
   findHost() {
     let fn =
       this._findHost ||
@@ -76,6 +84,10 @@ module.exports = {
 
     this.uikitOptions = options;
 
+    if (!this.uikitOptions.useIcons) {
+      this.uikitOptions.blacklist.push('uk-icon');
+    }
+
     if (!this._hasSass() && this.uikitOptions.importUIkitCSS) {
       // use compiled css version of uikit
       this.app.import(path.join(this._getStylesPath(), 'uikit.css'));
@@ -88,6 +100,85 @@ module.exports = {
         this.app.import(path.join(this._getDistPath(), 'js', 'uikit-icons.js'));
       }
     }
+  },
+
+  _generateWhitelist(whitelist) {
+    let list = [];
+
+    if (!whitelist) {
+      return list;
+    }
+
+    function _addToWhitelist(item) {
+      if (list.indexOf(item) === -1) {
+        list.push(item);
+
+        if (componentDependencies[item]) {
+          componentDependencies[item].forEach(_addToWhitelist);
+        }
+      }
+    }
+
+    whitelist.forEach(_addToWhitelist);
+    return list;
+  },
+
+  treeForAddon(tree) {
+    return this._super.treeForAddon.call(this, this._filterComponents(tree));
+  },
+
+  treeForAddonTemplates(tree) {
+    return this._super.treeForAddonTemplates.call(
+      this,
+      this._filterComponents(tree)
+    );
+  },
+
+  /**
+   * Treeshaking stolen from ember-bootstrap all credits to @kaliber5
+   */
+  _filterComponents(tree) {
+    let whitelist = this._generateWhitelist(this.uikitOptions.whitelist);
+    let blacklist = this.uikitOptions.blacklist || [];
+
+    // exit early if no opts defined
+    if (whitelist.length === 0 && blacklist.length === 0) {
+      return tree;
+    }
+
+    return new Funnel(tree, {
+      exclude: [name => this._excludeComponent(name, whitelist, blacklist)]
+    });
+  },
+
+  _excludeComponent(name, whitelist, blacklist) {
+    let regex = /^(templates\/)?components\//;
+    let isComponent = regex.test(name);
+
+    if (!isComponent) {
+      return false;
+    }
+
+    let baseName = name.replace(regex, '');
+    let firstSeparator = baseName.indexOf('/');
+    if (firstSeparator !== -1) {
+      baseName = baseName.substring(0, firstSeparator);
+    } else {
+      baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+    }
+
+    let isWhitelisted = whitelist.indexOf(baseName) !== -1;
+    let isBlacklisted = blacklist.indexOf(baseName) !== -1;
+
+    if (whitelist.length === 0 && blacklist.length === 0) {
+      return false;
+    }
+
+    if (whitelist.length && blacklist.length === 0) {
+      return !isWhitelisted;
+    }
+
+    return isBlacklisted;
   },
 
   _hasSass() {
