@@ -22,6 +22,76 @@
   include to <code>app/styles/app.scss</code>.
 </p>
 
+<h3>Configuration</h3>
+
+<table class="uk-table uk-table-divider">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>importUIkitCSS</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether to import the CSS of UIkit</td>
+    </tr>
+    <tr>
+      <td><code>importUIkitJS</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether to import the JS of UIkit</td>
+    </tr>
+    <tr>
+      <td><code>importUIkitAssets</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether to import the assets of UIkit</td>
+    </tr>
+    <tr>
+      <td><code>importUIkitIcons</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
+      <td>Whether to import the icons of UIkit</td>
+    </tr>
+    <tr>
+      <td><code>useIcons</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>true</code></td>
+      <td>Whether to use UIkits icons</td>
+    </tr>
+    <tr>
+      <td><code>whitelist</code></td>
+      <td><code>String[]</code></td>
+      <td><code>[]</code></td>
+      <td>
+        A list of included components. Only components in this list will be
+        included in your build. You should never use <code>whitelist</code>
+        and <code>blacklist</code>!
+      </td>
+    </tr>
+    <tr>
+      <td><code>blacklist</code></td>
+      <td><code>String[]</code></td>
+      <td><code>[]</code></td>
+      <td>
+        A list of excluded components. Only components not in this list will
+        be included in your build
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  Those options can be configured in your <code>ember-cli-build.js</code> file:
+</p>
+
+{{code-snippet name='configuration.js'}}
+
 <h3>Contribution</h3>
 
 <p>
