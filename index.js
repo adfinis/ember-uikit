@@ -83,7 +83,7 @@ module.exports = {
 
     uikitScripts = map(
       uikitScripts,
-      content => `if (typeof FastBoot === undefined) { ${content} }`
+      content => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
     return new Merge([tree, uikitScripts].filter(Boolean));
