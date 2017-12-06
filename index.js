@@ -101,6 +101,15 @@ module.exports = {
 
     this.uikitOptions = options;
 
+    if (
+      this.uikitOptions.whitelist.length &&
+      this.uikitOptions.blacklist.length
+    ) {
+      this.ui.writeWarnLine(
+        '[ember-uikit]: `blacklist` and `whitelist` should not be used simultaneously - ignoring whitelist.'
+      );
+    }
+
     if (!this.uikitOptions.useIcons) {
       this.uikitOptions.blacklist.push('uk-icon');
     }
