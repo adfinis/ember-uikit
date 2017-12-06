@@ -3,28 +3,223 @@
 
 const Funnel = require('broccoli-funnel');
 const Merge = require('broccoli-merge-trees');
+const path = require('path');
+
+const DEFAULT_OPTIONS = {
+  importUIkitCSS: true,
+  importUIkitJS: true,
+  importUIkitIcons: true,
+  importUIkitAssets: true,
+
+  useIcons: true,
+
+  whitelist: [],
+  blacklist: []
+};
+
+const COMPONENT_DEPENDENCIES = {
+  'uk-switcher': ['uk-tab', 'uk-subnav']
+};
 
 module.exports = {
   name: 'ember-uikit',
 
-  treeForPublic(tree) {
-    let uikitImages = new Funnel('node_modules/uikit/src/images', {
-      destDir: '/assets/images/'
-    });
+  /**
+   * For ember-cli < 2.7 findHost doesnt exist so we backport from that version
+   * for earlier version of ember-cli.
+   * https://github.com/ember-cli/ember-cli/blame/16e4492c9ebf3348eb0f31df17215810674dbdf6/lib/models/addon.js#L533
+   */
+  findHost() {
+    let fn =
+      this._findHost ||
+      function() {
+        let current = this;
+        let app;
+        do {
+          app = current.app || app;
+        } while (current.parent.parent && (current = current.parent));
+        return app;
+      };
 
-    return new Merge([uikitImages, tree].filter(Boolean));
+    return fn.call(this);
   },
 
-  included(app) {
+  treeForPublic(tree) {
+    let uikitAssets =
+      this.uikitOptions.importUIkitAssets &&
+      Funnel(this._getAssetsPath(), {
+        destDir: '/assets/images/components'
+      });
+
+    let uikitIcons =
+      this.uikitOptions.useIcons &&
+      this.uikitOptions.importUIkitIcons &&
+      new Funnel(this._getIconsPath(), {
+        destDir: '/assets/images/icons'
+      });
+
+    return new Merge([uikitAssets, uikitIcons, tree].filter(Boolean));
+  },
+
+  treeForStyles(tree) {
+    let uikitStyles =
+      this._hasSass() &&
+      this.uikitOptions.importUIkitCSS &&
+      new Funnel(this._getStylesPath(), {
+        destDir: 'ember-uikit'
+      });
+
+    return new Merge([uikitStyles, tree].filter(Boolean));
+  },
+
+  included() {
     this._super.included.apply(this, arguments);
 
-    app.options.sassOptions = app.options.sassOptions || {};
-    app.options.sassOptions.includePaths =
-      app.options.sassOptions.includePaths || [];
+    this.app = this.findHost();
 
-    app.options.sassOptions.includePaths.push('node_modules');
+    let options = Object.assign(
+      Object.assign({}, DEFAULT_OPTIONS),
+      this.app.options['ember-uikit']
+    );
 
-    app.import('node_modules/uikit/dist/js/uikit.js');
-    app.import('node_modules/uikit/dist/js/uikit-icons.js');
+    this.uikitOptions = options;
+
+    if (!this.uikitOptions.useIcons) {
+      this.uikitOptions.blacklist.push('uk-icon');
+    }
+
+    if (!this._hasSass() && this.uikitOptions.importUIkitCSS) {
+      // use compiled css version of uikit
+      this.app.import(path.join(this._getStylesPath(), 'uikit.css'));
+    }
+
+    if (this.uikitOptions.importUIkitJS) {
+      this.app.import(path.join(this._getDistPath(), 'js', 'uikit.js'));
+
+      if (this.uikitOptions.useIcons) {
+        this.app.import(path.join(this._getDistPath(), 'js', 'uikit-icons.js'));
+      }
+    }
+  },
+
+  _generateWhitelist(whitelist) {
+    let list = [];
+
+    if (!whitelist) {
+      return list;
+    }
+
+    function _addToWhitelist(item) {
+      if (list.indexOf(item) === -1) {
+        list.push(item);
+
+        if (COMPONENT_DEPENDENCIES[item]) {
+          COMPONENT_DEPENDENCIES[item].forEach(_addToWhitelist);
+        }
+      }
+    }
+
+    whitelist.forEach(_addToWhitelist);
+    return list;
+  },
+
+  treeForAddon(tree) {
+    return this._super.treeForAddon.call(this, this._filterComponents(tree));
+  },
+
+  treeForAddonTemplates(tree) {
+    return this._super.treeForAddonTemplates.call(
+      this,
+      this._filterComponents(tree)
+    );
+  },
+
+  /**
+   * Treeshaking stolen from ember-bootstrap all credits to @kaliber5
+   */
+  _filterComponents(tree) {
+    let whitelist = this._generateWhitelist(this.uikitOptions.whitelist);
+    let blacklist = this.uikitOptions.blacklist || [];
+
+    // exit early if no opts defined
+    if (whitelist.length === 0 && blacklist.length === 0) {
+      return tree;
+    }
+
+    return new Funnel(tree, {
+      exclude: [name => this._excludeComponent(name, whitelist, blacklist)]
+    });
+  },
+
+  _excludeComponent(name, whitelist, blacklist) {
+    let regex = /^(templates\/)?components\//;
+    let isComponent = regex.test(name);
+
+    if (!isComponent) {
+      return false;
+    }
+
+    let baseName = name.replace(regex, '');
+    let firstSeparator = baseName.indexOf('/');
+    if (firstSeparator !== -1) {
+      baseName = baseName.substring(0, firstSeparator);
+    } else {
+      baseName = baseName.substring(0, baseName.lastIndexOf('.'));
+    }
+
+    let isWhitelisted = whitelist.indexOf(baseName) !== -1;
+    let isBlacklisted = blacklist.indexOf(baseName) !== -1;
+
+    if (whitelist.length === 0 && blacklist.length === 0) {
+      return false;
+    }
+
+    if (whitelist.length && blacklist.length === 0) {
+      return !isWhitelisted;
+    }
+
+    return isBlacklisted;
+  },
+
+  _hasSass() {
+    return !!this.app.project.findAddonByName('ember-cli-sass');
+  },
+
+  _getNodeModulesPath() {
+    return path.relative(process.cwd(), this.app.project.nodeModulesPath);
+  },
+
+  _getDistPath() {
+    return path.join(this._getNodeModulesPath(), 'uikit', 'dist');
+  },
+
+  _getIconsPath() {
+    return path.join(
+      this._getNodeModulesPath(),
+      'uikit',
+      'src',
+      'images',
+      'icons'
+    );
+  },
+
+  _getAssetsPath() {
+    return path.join(
+      this._getNodeModulesPath(),
+      'uikit',
+      'src',
+      'images',
+      'components'
+    );
+  },
+
+  _getStylesPath() {
+    let uikitPath = path.join(this._getNodeModulesPath(), 'uikit');
+
+    if (this._hasSass()) {
+      return path.join(uikitPath, 'src', 'scss');
+    }
+
+    return path.join(uikitPath, 'dist', 'css');
   }
 };
