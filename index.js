@@ -3,6 +3,7 @@
 
 const Funnel = require('broccoli-funnel');
 const Merge = require('broccoli-merge-trees');
+const map = require('broccoli-stew').map;
 const path = require('path');
 
 const DEFAULT_OPTIONS = {
@@ -72,6 +73,22 @@ module.exports = {
     return new Merge([uikitStyles, tree].filter(Boolean));
   },
 
+  treeForVendor(tree) {
+    let uikitScripts = new Funnel(
+      path.join(this._getNodeModulesPath(), 'uikit', 'dist', 'js'),
+      {
+        include: ['uikit.js', 'uikit-icons.js']
+      }
+    );
+
+    uikitScripts = map(
+      uikitScripts,
+      content => `if (typeof FastBoot === undefined) { ${content} }`
+    );
+
+    return new Merge([tree, uikitScripts].filter(Boolean));
+  },
+
   included() {
     this._super.included.apply(this, arguments);
 
@@ -84,6 +101,15 @@ module.exports = {
 
     this.uikitOptions = options;
 
+    if (
+      this.uikitOptions.whitelist.length &&
+      this.uikitOptions.blacklist.length
+    ) {
+      this.ui.writeWarnLine(
+        '[ember-uikit]: `blacklist` and `whitelist` should not be used simultaneously - ignoring whitelist.'
+      );
+    }
+
     if (!this.uikitOptions.useIcons) {
       this.uikitOptions.blacklist.push('uk-icon');
     }
@@ -94,10 +120,10 @@ module.exports = {
     }
 
     if (this.uikitOptions.importUIkitJS) {
-      this.app.import(path.join(this._getDistPath(), 'js', 'uikit.js'));
+      this.app.import(path.join('vendor', 'uikit.js'));
 
       if (this.uikitOptions.useIcons) {
-        this.app.import(path.join(this._getDistPath(), 'js', 'uikit-icons.js'));
+        this.app.import(path.join('vendor', 'uikit-icons.js'));
       }
     }
   },
@@ -187,10 +213,6 @@ module.exports = {
 
   _getNodeModulesPath() {
     return path.relative(process.cwd(), this.app.project.nodeModulesPath);
-  },
-
-  _getDistPath() {
-    return path.join(this._getNodeModulesPath(), 'uikit', 'dist');
   },
 
   _getIconsPath() {
