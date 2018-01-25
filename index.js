@@ -75,7 +75,7 @@ module.exports = {
 
   treeForVendor(tree) {
     let uikitScripts = new Funnel(
-      path.join(this._getNodeModulesPath(), 'uikit', 'dist', 'js'),
+      path.join(this._getUikitPath(), 'dist', 'js'),
       {
         include: ['uikit.js', 'uikit-icons.js']
       }
@@ -211,32 +211,24 @@ module.exports = {
     return !!this.app.project.findAddonByName('ember-cli-sass');
   },
 
-  _getNodeModulesPath() {
-    return path.relative(process.cwd(), this.app.project.nodeModulesPath);
+  _getUikitPath() {
+    return path.dirname(
+      require('resolve').sync('uikit/package.json', {
+        basedir: this.project.root
+      })
+    );
   },
 
   _getIconsPath() {
-    return path.join(
-      this._getNodeModulesPath(),
-      'uikit',
-      'src',
-      'images',
-      'icons'
-    );
+    return path.join(this._getUikitPath(), 'src', 'images', 'icons');
   },
 
   _getAssetsPath() {
-    return path.join(
-      this._getNodeModulesPath(),
-      'uikit',
-      'src',
-      'images',
-      'components'
-    );
+    return path.join(this._getUikitPath(), 'src', 'images', 'components');
   },
 
   _getStylesPath() {
-    let uikitPath = path.join(this._getNodeModulesPath(), 'uikit');
+    let uikitPath = this._getUikitPath();
 
     if (this._hasSass()) {
       return path.join(uikitPath, 'src', 'scss');
