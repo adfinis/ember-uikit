@@ -1,0 +1,205 @@
+<h2>Sortable</h2>
+
+<div class='uk-padding uk-box-shadow-medium uk-margin'>
+
+  <div class='uk-child-width-1-3@s' uk-grid>
+      <div>
+        <h4>Group A</h4>
+      </div>
+      <div>
+        <h4>Group B</h4>
+      </div>
+      <div>
+        <h4>Group C</h4>
+      </div>
+  </div>
+
+  <div class='uk-child-width-1-3@s' uk-grid uk-height-match='target: > div > .uk-card'>
+    {{#uk-sortable
+      group='groupA'
+      animationDuration=animationDuration
+      on-start=(action 'notify' 'Group A START')
+      on-stop=(action 'notify' 'Group A STOP')
+      on-moved=(action 'notify' 'Group A MOVED')
+    }}
+      {{#each group1 as |item|}}
+        <div class='uk-margin uk-margin-right'>
+          {{#uk-card color='primary' size='small' as |card|}}
+            {{#card.body}}
+              {{item.label}}
+            {{/card.body}}
+          {{/uk-card}}
+        </div>
+      {{/each}}
+    {{/uk-sortable}}
+
+    {{#uk-sortable
+      on-added=(action 'notify' 'Group B ADDED')
+      on-removed=(action 'notify' 'Group B REMOVED')
+      group='sortable-group'}}
+      {{#each group2 as |item|}}
+        <div class='uk-margin uk-margin-right'>
+          {{#uk-card color='secondary' size='small' as |card|}}
+            {{#card.body}}
+              {{item.label}}
+            {{/card.body}}
+          {{/uk-card}}
+        </div>
+      {{/each}}
+    {{/uk-sortable}}
+
+    {{uk-sortable
+      on-added=(action 'notify' 'Group C ADDED')
+      on-removed=(action 'notify' 'Group C REMOVED')
+      group='sortable-group'
+      clsEmpty='uk-sortable-empty'}}
+  </div>
+
+  <p class='sortable-empty-message'>
+    Groups B and C have the same group option. You can move items between the two. The events <code>on-added</code> and <code>on-removed</code> fire when items are added or removed from a group.
+  </p>
+
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Options{{/tab.item}}
+      {{#tab.item}}Events{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class='uk-overflow-auto'>
+        <table class='uk-table uk-table-divider'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>group</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The group</td>
+            </tr>
+            <tr>
+              <td><code>animationDuration</code></td>
+              <td><code>Number</code></td>
+              <td><code>150</code></td>
+              <td>The animation duration.</td>
+            </tr>
+            <tr>
+              <td><code>threshold</code></td>
+              <td><code>Number</code></td>
+              <td><code>10</code></td>
+              <td>Mouse move threshold before dragging starts.</td>
+            </tr>
+            <tr>
+              <td><code>clsItem</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-item'</code></td>
+              <td>The item class.</td>
+            </tr>
+            <tr>
+              <td><code>clsPlaceholder</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-placeholder'</code></td>
+              <td>The placeholder class.</td>
+            </tr>
+            <tr>
+              <td><code>clsDrag</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-drag'</code></td>
+              <td>The ghost class.</td>
+            </tr>
+            <tr>
+              <td><code>clsDragState</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-dragging'</code></td>
+              <td>The body's dragging class.</td>
+            </tr>
+            <tr>
+              <td><code>clsBase</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable'</code></td>
+              <td>The list's class.</td>
+            </tr>
+            <tr>
+              <td><code>clsNoDrag</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-nodrag'</code></td>
+              <td>Disable dragging on elements with this class.</td>
+            </tr>
+            <tr>
+              <td><code>clsEmpty</code></td>
+              <td><code>String</code></td>
+              <td><code>'uk-sortable-empty'</code></td>
+              <td>The empty list class.</td>
+            </tr>
+            <tr>
+              <td><code>clsCustom</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The ghost's custom class.</td>
+            </tr>
+            <tr>
+              <td><code>threshold</code></td>
+              <td><code>String</code></td>
+              <td><code>''</code></td>
+              <td>The handle selector.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+
+    {{#content.item}}
+      <p>
+        The events are named parameters that pass actions.
+      </p>
+
+      <div class='uk-overflow-auto'>
+        <table class='uk-table uk-table-divider'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>on-start</code></td>
+              <td>Fires after dragging starts.</td>
+            </tr>
+            <tr>
+              <td><code>on-stop</code></td>
+              <td>Fires after dragging stops.</td>
+            </tr>
+            <tr>
+              <td><code>on-moved</code></td>
+              <td>Fires after an element has been moved.</td>
+            </tr>
+            <tr>
+              <td><code>on-added</code></td>
+              <td>Fires after an element has been added.</td>
+            </tr>
+            <tr>
+              <td><code>on-removed</code></td>
+              <td>Fires after an element has been removed.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='sortable.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}
