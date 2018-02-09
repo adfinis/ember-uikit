@@ -27,3 +27,8 @@ $base-heading-font-weight: 300;
   top: 50%;
   transform: translateX(calc(-100% - 5px));
 }
+
+.uk-sortable-empty {
+  border-color: $global-warning-background;
+  border-style: dashed;
+}

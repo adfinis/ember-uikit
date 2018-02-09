@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('icon');
     this.route('label');
     this.route('list');
+    this.route('sortable');
     this.route('spinner');
     this.route('subnav');
     this.route('switcher');
