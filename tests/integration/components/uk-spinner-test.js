@@ -14,4 +14,10 @@ describe('Integration | Component | uk spinner', function() {
 
     expect(find('[uk-spinner]')).to.be.ok;
   });
+
+  it('can set ratio', function() {
+    this.render(hbs`{{uk-spinner ratio=2}}`);
+
+    expect(find('[uk-spinner]').getAttribute('ratio')).to.be.equal('2');
+  });
 });
