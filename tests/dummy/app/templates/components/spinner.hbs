@@ -1,17 +1,45 @@
 <h2>Spinner</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-spinner}}
+  {{uk-spinner ratio=ratio}}
 </div>
 
 {{#uk-switcher animation='uk-animation-fade' as |switcher|}}
   {{#switcher.nav type='tab' as |nav|}}
     {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
     {{/nav.component}}
   {{/switcher.nav}}
 
   {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ratio</code></td>
+              <td><code>Number</code></td>
+              <td><code>1</code></td>
+              <td>The ratio of the spinner</td>
+              <td>
+                {{input type='number' class='uk-input' value=ratio}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+
     {{#content.item}}
       {{code-snippet name='spinner.hbs'}}
     {{/content.item}}

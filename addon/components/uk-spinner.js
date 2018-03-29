@@ -6,7 +6,9 @@ export default Component.extend({
 
   tagName: 'div',
 
-  attributeBindings: ['spinner:uk-spinner'],
+  attributeBindings: ['spinner:uk-spinner', 'ratio'],
 
-  spinner: ''
+  spinner: '',
+
+  ratio: 1
 });
