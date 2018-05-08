@@ -1,10 +1,10 @@
-import Component from '@ember/component';
-import layout from '../templates/components/uk-badge';
+import Component from "@ember/component";
+import layout from "../templates/components/uk-badge";
 
 export default Component.extend({
   layout,
 
-  tagName: 'span',
+  tagName: "span",
 
-  classNames: ['uk-badge']
+  classNames: ["uk-badge"]
 });

@@ -1,7 +1,7 @@
-import Mixin from '@ember/object/mixin';
-import { computed } from '@ember/object';
-import { validatedArrayComputedProperty } from 'ember-uikit/-private/validated-computed-property';
-import MEDIA_OPTIONS from 'ember-uikit/-private/media';
+import Mixin from "@ember/object/mixin";
+import { computed } from "@ember/object";
+import { validatedArrayComputedProperty } from "ember-uikit/-private/validated-computed-property";
+import MEDIA_OPTIONS from "ember-uikit/-private/media";
 
 export const gcd = (a, b) => (a % b === 0 ? b : gcd(b, a % b));
 
@@ -21,21 +21,21 @@ export const GRID_OPTIONS = Array.from(
     }, [])
   )
 ).reduce(
-  (obj, val) => Object.assign(obj, { [val.replace(/-/, '_OF_')]: val }),
+  (obj, val) => Object.assign(obj, { [val.replace(/-/, "_OF_")]: val }),
   {}
 );
 
 export const FIXED_OPTIONS = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-  XLARGE: 'xlarge',
-  XXLARGE: 'xxlarge'
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large",
+  XLARGE: "xlarge",
+  XXLARGE: "xxlarge"
 };
 
 export const SPECIAL_OPTIONS = {
-  AUTO: 'auto',
-  EXPAND: 'expand'
+  AUTO: "auto",
+  EXPAND: "expand"
 };
 
 export const WIDTH_OPTIONS = Object.assign(
@@ -49,25 +49,25 @@ export default Mixin.create({
   WIDTH_OPTIONS: Object.values(WIDTH_OPTIONS),
   MEDIA_OPTIONS: Object.values(MEDIA_OPTIONS),
 
-  classNameBindings: ['widthClass'],
+  classNameBindings: ["widthClass"],
 
-  _widthTemplate: 'uk-width-$width$',
+  _widthTemplate: "uk-width-$width$",
 
   width: validatedArrayComputedProperty(
-    '_width',
-    'width',
-    'WIDTH_OPTIONS',
-    'MEDIA_OPTIONS',
-    ' '
+    "_width",
+    "width",
+    "WIDTH_OPTIONS",
+    "MEDIA_OPTIONS",
+    " "
   ),
 
-  widthClass: computed('width', function() {
+  widthClass: computed("width", function() {
     return (
-      this.get('width') &&
-      this.get('width')
-        .split(' ')
-        .map(w => this.get('_widthTemplate').replace(/\$width\$/, w))
-        .join(' ')
+      this.get("width") &&
+      this.get("width")
+        .split(" ")
+        .map(w => this.get("_widthTemplate").replace(/\$width\$/, w))
+        .join(" ")
     );
   })
 });

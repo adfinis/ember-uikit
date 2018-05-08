@@ -1,6 +1,6 @@
-import { computed } from '@ember/object';
-import { warn } from '@ember/debug';
-import Ember from 'ember';
+import { computed } from "@ember/object";
+import { warn } from "@ember/debug";
+import Ember from "ember";
 
 const { testing } = Ember;
 
@@ -8,7 +8,7 @@ export const validateValue = (value, name, options, mediaOptions) => {
   if (
     value &&
     !options.filter(v => {
-      let re = new RegExp(`^${v}(${mediaOptions.join('|')})?$`);
+      let re = new RegExp(`^${v}(${mediaOptions.join("|")})?$`);
 
       return re.test(value);
     }).length
@@ -16,10 +16,10 @@ export const validateValue = (value, name, options, mediaOptions) => {
     warn(
       `\`${name}\` must be one of ${options
         .map(v => `'${v}'`)
-        .join(', ')}. Passed was '${value}', which will therefore be ignored.`,
+        .join(", ")}. Passed was '${value}', which will therefore be ignored.`,
       testing,
       {
-        id: 'ember-uikit.invalid-property'
+        id: "ember-uikit.invalid-property"
       }
     );
 
@@ -33,8 +33,8 @@ export const validatedComputedProperty = (
   key,
   name,
   optionsKey,
-  mediaOptionsKey = 'MEDIA_OPTIONS',
-  sanitize = val => val || ''
+  mediaOptionsKey = "MEDIA_OPTIONS",
+  sanitize = val => val || ""
 ) => {
   return computed(key, `${optionsKey}.[]`, `${mediaOptionsKey}.[]`, {
     get() {
@@ -61,9 +61,9 @@ export const validatedArrayComputedProperty = (
   key,
   name,
   optionsKey,
-  mediaOptionsKey = 'MEDIA_OPTIONS',
-  separator = ' ',
-  sanitize = val => val || ''
+  mediaOptionsKey = "MEDIA_OPTIONS",
+  separator = " ",
+  sanitize = val => val || ""
 ) => {
   return computed(key, `${optionsKey}.[]`, `${mediaOptionsKey}.[]`, {
     get() {

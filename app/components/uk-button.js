@@ -1,1 +1,1 @@
-export { default } from 'ember-uikit/components/uk-button';
+export { default } from "ember-uikit/components/uk-button";

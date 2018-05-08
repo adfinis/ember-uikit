@@ -1,1 +1,1 @@
-export { default } from 'ember-uikit/components/uk-card/footer';
+export { default } from "ember-uikit/components/uk-card/footer";

@@ -1,25 +1,25 @@
-import Component from '@ember/component';
-import UIkit from 'uikit';
+import Component from "@ember/component";
+import UIkit from "uikit";
 
 // empty function as default event handler
 const noop = () => {};
 
 export default Component.extend({
-  classNames: ['uk-sortable'],
+  classNames: ["uk-sortable"],
   attributeBindings: [
-    'group',
-    'animationDuration:animation',
-    'threshold',
-    'clsItem:cls-item',
-    'clsPlaceholder:cls-placeholder',
-    'clsDrag:cls-drag',
-    'clsDragState:cls-drag-state',
-    'clsBase:cls-base',
-    'clsNoDrag:cls-no-drag',
-    'clsEmpty:cls-empty',
-    'clsCustom:cls-custom',
-    'handle',
-    'ukSortable:uk-sortable'
+    "group",
+    "animationDuration:animation",
+    "threshold",
+    "clsItem:cls-item",
+    "clsPlaceholder:cls-placeholder",
+    "clsDrag:cls-drag",
+    "clsDragState:cls-drag-state",
+    "clsBase:cls-base",
+    "clsNoDrag:cls-no-drag",
+    "clsEmpty:cls-empty",
+    "clsCustom:cls-custom",
+    "handle",
+    "ukSortable:uk-sortable"
   ],
 
   // Component Options
@@ -36,15 +36,15 @@ export default Component.extend({
   clsCustom: null,
   handle: null,
 
-  ukSortable: '',
+  ukSortable: "",
 
   setEvents() {
     let events = {
-      start: this.getWithDefault('on-start', noop),
-      stop: this.getWithDefault('on-stop', noop),
-      moved: this.getWithDefault('on-moved', noop),
-      added: this.getWithDefault('on-added', noop),
-      removed: this.getWithDefault('on-removed', noop)
+      start: this.getWithDefault("on-start", noop),
+      stop: this.getWithDefault("on-stop", noop),
+      moved: this.getWithDefault("on-moved", noop),
+      added: this.getWithDefault("on-added", noop),
+      removed: this.getWithDefault("on-removed", noop)
     };
 
     for (let event in events) {

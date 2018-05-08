@@ -1,15 +1,15 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
-import hbs from 'htmlbars-inline-precompile';
-import { find, findAll } from 'ember-native-dom-helpers';
+import { expect } from "chai";
+import { describe, it } from "mocha";
+import { setupComponentTest } from "ember-mocha";
+import hbs from "htmlbars-inline-precompile";
+import { find, findAll } from "ember-native-dom-helpers";
 
-describe('Integration | Component | uk switcher/nav', function() {
-  setupComponentTest('uk-switcher/nav', {
+describe("Integration | Component | uk switcher/nav", function() {
+  setupComponentTest("uk-switcher/nav", {
     integration: true
   });
 
-  it('renders with subnav', function() {
+  it("renders with subnav", function() {
     this.render(hbs`
       {{#uk-switcher/nav type='subnav' as |nav|}}
         {{#nav.component as |subnav|}}
@@ -19,13 +19,13 @@ describe('Integration | Component | uk switcher/nav', function() {
       {{/uk-switcher/nav}}
     `);
 
-    expect(find('ul.uk-subnav')).to.be.ok;
+    expect(find("ul.uk-subnav")).to.be.ok;
 
-    expect(findAll('li')).to.have.length(2);
-    expect(findAll('a')).to.have.length(2);
+    expect(findAll("li")).to.have.length(2);
+    expect(findAll("a")).to.have.length(2);
   });
 
-  it('renders with tab', function() {
+  it("renders with tab", function() {
     this.render(hbs`
       {{#uk-switcher/nav type='tab' as |nav|}}
         {{#nav.component as |tab|}}
@@ -35,9 +35,9 @@ describe('Integration | Component | uk switcher/nav', function() {
       {{/uk-switcher/nav}}
     `);
 
-    expect(find('ul.uk-tab')).to.be.ok;
+    expect(find("ul.uk-tab")).to.be.ok;
 
-    expect(findAll('li')).to.have.length(2);
-    expect(findAll('a')).to.have.length(2);
+    expect(findAll("li")).to.have.length(2);
+    expect(findAll("a")).to.have.length(2);
   });
 });

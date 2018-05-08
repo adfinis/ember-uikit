@@ -2,9 +2,9 @@
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    'ember-uikit': {
+    "ember-uikit": {
       useIcons: false,
-      whitelist: ['uk-button', 'uk-card']
+      whitelist: ["uk-button", "uk-card"]
     }
   });
 

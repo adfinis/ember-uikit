@@ -1,6 +1,6 @@
-import Component from '@ember/component';
+import Component from "@ember/component";
 
 export default Component.extend({
-  tagName: 'tr',
-  default: ''
+  tagName: "tr",
+  default: ""
 });

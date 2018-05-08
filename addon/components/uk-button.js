@@ -1,9 +1,9 @@
-import Component from '@ember/component';
-import layout from '../templates/components/uk-button';
-import WidthMixin from 'ember-uikit/mixins/width';
-import SizeMixin from 'ember-uikit/mixins/size';
-import ColorMixin, { COLOR_OPTIONS } from 'ember-uikit/mixins/color';
-import EventedMixin from 'ember-uikit/mixins/evented';
+import Component from "@ember/component";
+import layout from "../templates/components/uk-button";
+import WidthMixin from "ember-uikit/mixins/width";
+import SizeMixin from "ember-uikit/mixins/size";
+import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
+import EventedMixin from "ember-uikit/mixins/evented";
 
 export const BUTTON_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,
@@ -25,21 +25,21 @@ export default Component.extend(
 
     layout,
 
-    tagName: 'button',
+    tagName: "button",
 
-    colorTemplate: 'uk-button-$color$',
+    colorTemplate: "uk-button-$color$",
 
-    sizeTemplate: 'uk-button-$size$',
+    sizeTemplate: "uk-button-$size$",
 
-    classNames: ['uk-button'],
+    classNames: ["uk-button"],
 
-    classNameBindings: ['active:uk-active'],
+    classNameBindings: ["active:uk-active"],
 
-    attributeBindings: ['disabled', 'type'],
+    attributeBindings: ["disabled", "type"],
 
-    label: '',
+    label: "",
 
-    type: 'button',
+    type: "button",
 
     disabled: false,
 

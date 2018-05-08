@@ -1,6 +1,6 @@
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
 
 export default Controller.extend({
-  icon: 'happy',
+  icon: "happy",
   ratio: 5
 });

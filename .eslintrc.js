@@ -14,19 +14,24 @@ module.exports = {
     browser: true
   },
   rules: {
-    'prettier/prettier': 'error'
   },
   overrides: [
     // node files
     {
       files: [
+        'ember-cli-build.js',
         'index.js',
         'testem.js',
-        'ember-cli-build.js',
+        'blueprints/*/index.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
-      excludedFiles: ['app/**', 'addon/**', 'tests/dummy/app/**'],
+      excludedFiles: [
+        'addon/**',
+        'addon-test-support/**',
+        'app/**',
+        'tests/dummy/app/**'
+      ],
       parserOptions: {
         sourceType: 'script',
         ecmaVersion: 2015
@@ -36,13 +41,9 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign(
-        {},
-        require('eslint-plugin-node').configs.recommended.rules,
-        {
-          // add your custom rules and overrides for node files here
-        }
-      )
+      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+      })
     }
   ]
 };

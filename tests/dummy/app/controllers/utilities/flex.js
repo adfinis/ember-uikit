@@ -1,11 +1,11 @@
-import Controller from '@ember/controller';
+import Controller from "@ember/controller";
 import {
   FLEX_HORIZONTAL_OPTIONS,
   FLEX_VERTICAL_OPTIONS,
   FLEX_DIRECTION_OPTIONS,
   FLEX_WRAP_OPTIONS,
   FLEX_WRAP_ALIGNMENT_OPTIONS
-} from 'ember-uikit/mixins/flex';
+} from "ember-uikit/mixins/flex";
 
 export default Controller.extend({
   horizontals: Object.values(FLEX_HORIZONTAL_OPTIONS),
@@ -16,11 +16,11 @@ export default Controller.extend({
 
   flex: true,
   inline: false,
-  horizontal: '',
-  vertical: '',
-  direction: '',
-  wrap: '',
-  wrapAlignment: '',
+  horizontal: "",
+  vertical: "",
+  direction: "",
+  wrap: "",
+  wrapAlignment: "",
 
   fill: false,
   fixHeight: false
