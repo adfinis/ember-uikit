@@ -1,14 +1,14 @@
-import LinkComponent from '@ember/routing/link-component';
-import layout from '../../templates/components/uk-tab/item';
+import LinkComponent from "@ember/routing/link-component";
+import layout from "../../templates/components/uk-tab/item";
 
 export default LinkComponent.extend({
   layout,
 
-  tagName: 'li',
+  tagName: "li",
 
-  activeClass: 'uk-active',
+  activeClass: "uk-active",
 
-  classNameBindings: ['disabled:uk-disabled'],
+  classNameBindings: ["disabled:uk-disabled"],
 
   disabled: false
 });

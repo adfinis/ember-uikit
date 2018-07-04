@@ -1,1 +1,1 @@
-export { default } from 'ember-uikit/components/uk-badge';
+export { default } from "ember-uikit/components/uk-badge";

@@ -1,10 +1,10 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import layout from '../../templates/components/uk-switcher/nav';
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import layout from "../../templates/components/uk-switcher/nav";
 
 export const TYPES = {
-  TAB: { name: 'tab', componentName: 'uk-tab' },
-  SUBNAV: { name: 'subnav', componentName: 'uk-subnav' }
+  TAB: { name: "tab", componentName: "uk-tab" },
+  SUBNAV: { name: "subnav", componentName: "uk-subnav" }
 };
 
 export default Component.extend({
@@ -12,11 +12,11 @@ export default Component.extend({
 
   type: TYPES.TAB,
 
-  tagName: '',
+  tagName: "",
 
-  componentName: computed('type', function() {
+  componentName: computed("type", function() {
     return TYPES[
-      Object.keys(TYPES).find(k => TYPES[k].name === this.get('type'))
+      Object.keys(TYPES).find(k => TYPES[k].name === this.get("type"))
     ].componentName;
   })
 });

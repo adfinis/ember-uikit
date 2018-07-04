@@ -1,10 +1,10 @@
-import Component from '@ember/component';
-import layout from '../../templates/components/uk-switcher/content';
+import Component from "@ember/component";
+import layout from "../../templates/components/uk-switcher/content";
 
 export default Component.extend({
   layout,
 
-  tagName: 'ul',
+  tagName: "ul",
 
-  classNames: ['uk-switcher']
+  classNames: ["uk-switcher"]
 });

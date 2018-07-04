@@ -1,25 +1,25 @@
-import Mixin from '@ember/object/mixin';
-import { computed } from '@ember/object';
-import { isEmpty } from '@ember/utils';
+import Mixin from "@ember/object/mixin";
+import { computed } from "@ember/object";
+import { isEmpty } from "@ember/utils";
 
 export default Mixin.create({
   attributeBindings: [
-    'ukSwitcher:uk-switcher',
-    'connect',
-    'animation',
-    'animationDuration:duration',
-    'swiping'
+    "ukSwitcher:uk-switcher",
+    "connect",
+    "animation",
+    "animationDuration:duration",
+    "swiping"
   ],
 
-  contentId: '',
-  animation: '',
+  contentId: "",
+  animation: "",
   animationDuration: 200,
   swiping: false,
-  ukSwitcher: '',
+  ukSwitcher: "",
 
-  connect: computed('contentId', function() {
-    let id = this.get('contentId');
+  connect: computed("contentId", function() {
+    let id = this.get("contentId");
 
-    return isEmpty(id) ? '' : `#${id}`;
+    return isEmpty(id) ? "" : `#${id}`;
   })
 });

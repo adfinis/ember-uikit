@@ -1,15 +1,15 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
-import { setupComponentTest } from 'ember-mocha';
-import hbs from 'htmlbars-inline-precompile';
-import { find, findAll } from 'ember-native-dom-helpers';
+import { expect } from "chai";
+import { describe, it } from "mocha";
+import { setupComponentTest } from "ember-mocha";
+import hbs from "htmlbars-inline-precompile";
+import { find, findAll } from "ember-native-dom-helpers";
 
-describe('Integration | Component | uk switcher/content', function() {
-  setupComponentTest('uk-switcher/content', {
+describe("Integration | Component | uk switcher/content", function() {
+  setupComponentTest("uk-switcher/content", {
     integration: true
   });
 
-  it('renders', function() {
+  it("renders", function() {
     this.render(hbs`
       {{#uk-switcher/content as |content|}}
         {{#content.item}}Content 1{{/content.item}}
@@ -17,8 +17,8 @@ describe('Integration | Component | uk switcher/content', function() {
       {{/uk-switcher/content}}
     `);
 
-    expect(find('ul')).to.be.ok;
+    expect(find("ul")).to.be.ok;
 
-    expect(findAll('li')).to.have.length(2);
+    expect(findAll("li")).to.have.length(2);
   });
 });

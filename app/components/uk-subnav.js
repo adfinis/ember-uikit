@@ -1,1 +1,1 @@
-export { default } from 'ember-uikit/components/uk-subnav';
+export { default } from "ember-uikit/components/uk-subnav";

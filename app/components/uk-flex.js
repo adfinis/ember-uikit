@@ -1,1 +1,1 @@
-export { default } from 'ember-uikit/components/uk-flex';
+export { default } from "ember-uikit/components/uk-flex";

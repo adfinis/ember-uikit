@@ -1,14 +1,14 @@
-import Component from '@ember/component';
-import layout from '../templates/components/uk-spinner';
+import Component from "@ember/component";
+import layout from "../templates/components/uk-spinner";
 
 export default Component.extend({
   layout,
 
-  tagName: 'div',
+  tagName: "div",
 
-  attributeBindings: ['spinner:uk-spinner', 'ratio'],
+  attributeBindings: ["spinner:uk-spinner", "ratio"],
 
-  spinner: '',
+  spinner: "",
 
   ratio: 1
 });

@@ -1,8 +1,8 @@
-import Component from '@ember/component';
-import layout from '../templates/components/uk-card';
-import ColorMixin, { COLOR_OPTIONS } from 'ember-uikit/mixins/color';
-import SizeMixin from 'ember-uikit/mixins/size';
-import WidthMixin from 'ember-uikit/mixins/width';
+import Component from "@ember/component";
+import layout from "../templates/components/uk-card";
+import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
+import SizeMixin from "ember-uikit/mixins/size";
+import WidthMixin from "ember-uikit/mixins/width";
 
 export const CARD_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,
@@ -17,13 +17,13 @@ export default Component.extend(ColorMixin, SizeMixin, WidthMixin, {
 
   layout,
 
-  colorTemplate: 'uk-card-$color$',
+  colorTemplate: "uk-card-$color$",
 
-  sizeTemplate: 'uk-card-$size$',
+  sizeTemplate: "uk-card-$size$",
 
-  classNames: ['uk-card'],
+  classNames: ["uk-card"],
 
-  classNameBindings: ['hover:uk-card-hover'],
+  classNameBindings: ["hover:uk-card-hover"],
 
   hover: false
 });

@@ -1,22 +1,22 @@
-import Component from '@ember/component';
-import layout from '../templates/components/uk-icon';
+import Component from "@ember/component";
+import layout from "../templates/components/uk-icon";
 
 const UkIconComponent = Component.extend({
   layout,
 
-  tagName: 'span',
+  tagName: "span",
 
-  attributeBindings: ['ukIcon:uk-icon', 'icon', 'ratio'],
+  attributeBindings: ["ukIcon:uk-icon", "icon", "ratio"],
 
-  icon: '',
+  icon: "",
 
   ratio: 1,
 
-  ukIcon: ''
+  ukIcon: ""
 });
 
 UkIconComponent.reopenClass({
-  positionalParams: ['icon']
+  positionalParams: ["icon"]
 });
 
 export default UkIconComponent;
