@@ -1,67 +1,64 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render, click } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, click } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk button", function() {
-  setupComponentTest("uk-button", {
-    integration: true
+module("Integration | Component | uk button", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-button}}Click me!{{/uk-button}}`);
+
+    assert.dom(".uk-button").hasText("Click me!");
   });
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-button}}Click me!{{/uk-button}}`);
+  test("can set label", async function(assert) {
+    await render(hbs`{{uk-button label='Click me!'}}`);
 
-    expect(find(".uk-button").innerHTML).to.equal("Click me!");
+    assert.dom(".uk-button").hasText("Click me!");
   });
 
-  it("can set label", function() {
-    this.render(hbs`{{uk-button label='Click me!'}}`);
+  test("can set disabled", async function(assert) {
+    await render(hbs`{{#uk-button disabled=true}}Click me!{{/uk-button}}`);
 
-    expect(find(".uk-button").innerHTML).to.equal("Click me!");
+    assert.dom(".uk-button").isDisabled();
   });
 
-  it("can set disabled", function() {
-    this.render(hbs`{{#uk-button disabled=true}}Click me!{{/uk-button}}`);
+  test("can set active", async function(assert) {
+    await render(hbs`{{#uk-button active=true}}Click me!{{/uk-button}}`);
 
-    expect(find(".uk-button[disabled]")).to.be.ok;
+    assert.dom(".uk-button").hasClass("uk-active");
   });
 
-  it("can set active", function() {
-    this.render(hbs`{{#uk-button active=true}}Click me!{{/uk-button}}`);
+  test("can set loading", async function(assert) {
+    await render(hbs`{{#uk-button loading=true}}Click me!{{/uk-button}}`);
 
-    expect(find(".uk-button.uk-active")).to.be.ok;
+    assert.dom(".uk-button [uk-spinner]").exists();
   });
 
-  it("can set loading", function() {
-    this.render(hbs`{{#uk-button loading=true}}Click me!{{/uk-button}}`);
+  test("can set color", async function(assert) {
+    await render(hbs`{{#uk-button color='primary'}}Click me!{{/uk-button}}`);
 
-    expect(find(".uk-button [uk-spinner]")).to.be.ok;
+    assert.dom(".uk-button").hasClass("uk-button-primary");
   });
 
-  it("can set color", function() {
-    this.render(hbs`{{#uk-button color='primary'}}Click me!{{/uk-button}}`);
+  test("can set size", async function(assert) {
+    await render(hbs`{{#uk-button size='large'}}Click me!{{/uk-button}}`);
 
-    expect(find(".uk-button.uk-button-primary")).to.be.ok;
+    assert.dom(".uk-button").hasClass("uk-button-large");
   });
 
-  it("can set size", function() {
-    this.render(hbs`{{#uk-button size='large'}}Click me!{{/uk-button}}`);
-
-    expect(find(".uk-button.uk-button-large")).to.be.ok;
-  });
-
-  it("fires on-click action", function() {
+  test("fires on-click action", async function(assert) {
     this.set("didClick", false);
 
-    this.render(
+    await render(
       hbs`{{#uk-button on-click=(action (mut didClick) true)}}Click me!{{/uk-button}}`
     );
 
-    expect(this.get("didClick")).to.be.false;
+    assert.notOk(this.get("didClick"));
 
-    click(".uk-button");
+    await click(".uk-button");
 
-    expect(this.get("didClick")).to.be.true;
+    assert.ok(this.get("didClick"));
   });
 });

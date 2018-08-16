@@ -1,25 +1,21 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk badge", function() {
-  setupComponentTest("uk-badge", {
-    integration: true
+module("Integration | Component | uk badge", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-badge}}Test{{/uk-badge}}`);
+
+    assert.dom("span.uk-badge").exists();
+    assert.dom("span.uk-badge").hasText("Test");
   });
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-badge}}Test{{/uk-badge}}`);
+  test("can set label", async function(assert) {
+    await render(hbs`{{uk-badge label='Test'}}`);
 
-    expect(find("span.uk-badge")).to.be.ok;
-
-    expect(find("span.uk-badge").innerHTML).to.equal("Test");
-  });
-
-  it("can set label", function() {
-    this.render(hbs`{{uk-badge label='Test'}}`);
-
-    expect(find("span.uk-badge").innerHTML).to.equal("Test");
+    assert.dom("span.uk-badge").hasText("Test");
   });
 });

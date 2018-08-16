@@ -1,16 +1,13 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, findAll } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk switcher/nav", function() {
-  setupComponentTest("uk-switcher/nav", {
-    integration: true
-  });
+module("Integration | Component | uk switcher/nav", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders with subnav", function() {
-    this.render(hbs`
+  test("renders with subnav", async function(assert) {
+    await render(hbs`
       {{#uk-switcher/nav type='subnav' as |nav|}}
         {{#nav.component as |subnav|}}
           {{#subnav.item}}Item 1{{/subnav.item}}
@@ -19,14 +16,13 @@ describe("Integration | Component | uk switcher/nav", function() {
       {{/uk-switcher/nav}}
     `);
 
-    expect(find("ul.uk-subnav")).to.be.ok;
-
-    expect(findAll("li")).to.have.length(2);
-    expect(findAll("a")).to.have.length(2);
+    assert.dom("ul.uk-subnav").exists();
+    assert.dom("li").exists({ count: 2 });
+    assert.dom("a").exists({ count: 2 });
   });
 
-  it("renders with tab", function() {
-    this.render(hbs`
+  test("renders with tab", async function(assert) {
+    await render(hbs`
       {{#uk-switcher/nav type='tab' as |nav|}}
         {{#nav.component as |tab|}}
           {{#tab.item}}Item 1{{/tab.item}}
@@ -35,9 +31,8 @@ describe("Integration | Component | uk switcher/nav", function() {
       {{/uk-switcher/nav}}
     `);
 
-    expect(find("ul.uk-tab")).to.be.ok;
-
-    expect(findAll("li")).to.have.length(2);
-    expect(findAll("a")).to.have.length(2);
+    assert.dom("ul.uk-tab").exists();
+    assert.dom("li").exists({ count: 2 });
+    assert.dom("a").exists({ count: 2 });
   });
 });

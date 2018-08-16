@@ -1,33 +1,31 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render, triggerEvent } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, triggerEvent } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk sortable", function() {
-  setupComponentTest("uk-sortable", {
-    integration: true
+module("Integration | Component | uk sortable", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders sortable no options", async function(assert) {
+    await render(hbs`{{uk-sortable}}`);
+
+    assert.dom(".uk-sortable").exists();
+    assert.dom(".uk-sortable").doesNotHaveAttribute("group");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("animation");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("threshold");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-item");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-placeholder");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-drag");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-drag-state");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-base");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-no-drag");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-empty");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("cls-custom");
+    assert.dom(".uk-sortable").doesNotHaveAttribute("handle");
   });
 
-  it("renders sortable no options", function() {
-    this.render(hbs`{{uk-sortable}}`);
-    expect(find(".uk-sortable")).to.be.ok;
-    expect(find(".uk-sortable").getAttribute("group")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("animation")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("threshold")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-item")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-placeholder")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-drag")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-drag-state")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-base")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-no-drag")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-empty")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("cls-custom")).to.equal(null);
-    expect(find(".uk-sortable").getAttribute("handle")).to.equal(null);
-  });
-
-  it("sets sortable options", function() {
-    this.render(hbs`{{uk-sortable
+  test("sets sortable options", async function(assert) {
+    await render(hbs`{{uk-sortable
       group='sncc'
       animationDuration=400
       threshold=0
@@ -41,35 +39,29 @@ describe("Integration | Component | uk sortable", function() {
       handle='boynton'
       clsItem='hamer'
     }}`);
-    expect(find(".uk-sortable").getAttribute("group")).to.equal("sncc");
-    expect(find(".uk-sortable").getAttribute("animation")).to.equal("400");
-    expect(find(".uk-sortable").getAttribute("threshold")).to.equal("0");
-    expect(find(".uk-sortable").getAttribute("cls-item")).to.equal("hamer");
-    expect(find(".uk-sortable").getAttribute("cls-placeholder")).to.equal(
-      "parks"
-    );
-    expect(find(".uk-sortable").getAttribute("cls-drag")).to.equal("tubman");
-    expect(find(".uk-sortable").getAttribute("cls-drag-state")).to.equal(
-      "wells"
-    );
-    expect(find(".uk-sortable").getAttribute("cls-base")).to.equal(
-      "scott-king"
-    );
-    expect(find(".uk-sortable").getAttribute("cls-no-drag")).to.equal(
-      "angelou"
-    );
-    expect(find(".uk-sortable").getAttribute("cls-empty")).to.equal("nash");
-    expect(find(".uk-sortable").getAttribute("cls-custom")).to.equal("bates");
-    expect(find(".uk-sortable").getAttribute("handle")).to.equal("boynton");
+
+    assert.dom(".uk-sortable").hasAttribute("group", "sncc");
+    assert.dom(".uk-sortable").hasAttribute("animation", "400");
+    assert.dom(".uk-sortable").hasAttribute("threshold", "0");
+    assert.dom(".uk-sortable").hasAttribute("cls-item", "hamer");
+    assert.dom(".uk-sortable").hasAttribute("cls-placeholder", "parks");
+    assert.dom(".uk-sortable").hasAttribute("cls-drag", "tubman");
+    assert.dom(".uk-sortable").hasAttribute("cls-drag-state", "wells");
+    assert.dom(".uk-sortable").hasAttribute("cls-base", "scott-king");
+    assert.dom(".uk-sortable").hasAttribute("cls-no-drag", "angelou");
+    assert.dom(".uk-sortable").hasAttribute("cls-empty", "nash");
+    assert.dom(".uk-sortable").hasAttribute("cls-custom", "bates");
+    assert.dom(".uk-sortable").hasAttribute("handle", "boynton");
   });
 
-  it("has sortable events", async function() {
+  test("has sortable events", async function(assert) {
     this.set("sortStarted", false);
     this.set("sortStopped", false);
     this.set("sortMoved", false);
     this.set("sortAdded", false);
     this.set("sortRemoved", false);
-    this.render(
+
+    await render(
       hbs`{{#uk-sortable
         on-start=(action (mut sortStarted) true)
         on-stop=(action (mut sortStopped) true)
@@ -81,12 +73,12 @@ describe("Integration | Component | uk sortable", function() {
       {{/uk-sortable}}`
     );
 
-    expect(find(".uk-sortable")).to.be.ok;
-    expect(this.get("sortStarted")).to.be.false;
-    expect(this.get("sortStopped")).to.be.false;
-    expect(this.get("sortMoved")).to.be.false;
-    expect(this.get("sortAdded")).to.be.false;
-    expect(this.get("sortRemoved")).to.be.false;
+    assert.dom(".uk-sortable").exists();
+    assert.notOk(this.get("sortStarted"));
+    assert.notOk(this.get("sortStopped"));
+    assert.notOk(this.get("sortMoved"));
+    assert.notOk(this.get("sortAdded"));
+    assert.notOk(this.get("sortRemoved"));
 
     await triggerEvent(".uk-sortable", "start");
     await triggerEvent(".uk-sortable", "stop");
@@ -94,10 +86,10 @@ describe("Integration | Component | uk sortable", function() {
     await triggerEvent(".uk-sortable", "added");
     await triggerEvent(".uk-sortable", "removed");
 
-    expect(this.get("sortStarted")).to.be.true;
-    expect(this.get("sortStopped")).to.be.true;
-    expect(this.get("sortMoved")).to.be.true;
-    expect(this.get("sortAdded")).to.be.true;
-    expect(this.get("sortRemoved")).to.be.true;
+    assert.ok(this.get("sortStarted"));
+    assert.ok(this.get("sortStopped"));
+    assert.ok(this.get("sortMoved"));
+    assert.ok(this.get("sortAdded"));
+    assert.ok(this.get("sortRemoved"));
   });
 });

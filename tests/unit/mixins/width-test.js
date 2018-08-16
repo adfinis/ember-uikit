@@ -1,6 +1,5 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
 import EmberObject from "@ember/object";
+import { module, test } from "qunit";
 import WidthMixin, {
   GRID_OPTIONS,
   FIXED_OPTIONS,
@@ -8,8 +7,8 @@ import WidthMixin, {
 } from "ember-uikit/mixins/width";
 import MEDIA_OPTIONS from "ember-uikit/-private/media";
 
-describe("Unit | Mixin | width", function() {
-  it("computes the width", function() {
+module("Unit | Mixin | width", function() {
+  test("computes the width", function(assert) {
     let WidthObject = EmberObject.extend(WidthMixin);
 
     let subject = WidthObject.create({
@@ -25,12 +24,13 @@ describe("Unit | Mixin | width", function() {
       }`
     );
 
-    expect(subject.get("widthClass")).to.equal(
+    assert.equal(
+      subject.get("widthClass"),
       "foo-1-1 foo-1-2@m foo-medium@l foo-auto@xl"
     );
   });
 
-  it("ignores invalid width", function() {
+  test("ignores invalid width", function(assert) {
     let WidthObject = EmberObject.extend(WidthMixin);
 
     let subject = WidthObject.create({
@@ -39,6 +39,6 @@ describe("Unit | Mixin | width", function() {
 
     subject.set("width", "1-8 1-2@x somestring auto@xl");
 
-    expect(subject.get("widthClass")).to.equal("foo-auto@xl");
+    assert.equal(subject.get("widthClass"), "foo-auto@xl");
   });
 });

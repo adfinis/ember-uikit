@@ -1,20 +1,18 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
 import EmberObject from "@ember/object";
+import { module, test } from "qunit";
 import SwitcherMixin from "ember-uikit/mixins/switcher";
 
-describe("Unit | Mixin | switcher", function() {
-  it("computes connect property", function() {
+module("Unit | Mixin | switcher", function() {
+  test("computes connect property", function(assert) {
     let SwitcherObject = EmberObject.extend(SwitcherMixin);
 
     let subject = SwitcherObject.create();
 
-    expect(subject).to.be.ok;
-
-    expect(subject.get("connect")).to.equal("");
+    assert.ok(subject);
+    assert.equal(subject.get("connect"), "");
 
     subject.set("contentId", "test");
 
-    expect(subject.get("connect")).to.equal("#test");
+    assert.equal(subject.get("connect"), "#test");
   });
 });

@@ -1,31 +1,27 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk label", function() {
-  setupComponentTest("uk-label", {
-    integration: true
+module("Integration | Component | uk label", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-label}}Test{{/uk-label}}`);
+
+    assert.dom("span.uk-label").exists();
+    assert.dom("span.uk-label").hasText("Test");
   });
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-label}}Test{{/uk-label}}`);
+  test("can set label", async function(assert) {
+    await render(hbs`{{uk-label label='Test'}}`);
 
-    expect(find("span.uk-label")).to.be.ok;
-
-    expect(find("span.uk-label").innerHTML).to.equal("Test");
+    assert.dom("span.uk-label").hasText("Test");
   });
 
-  it("can set label", function() {
-    this.render(hbs`{{uk-label label='Test'}}`);
+  test("can set color", async function(assert) {
+    await render(hbs`{{uk-label color='danger' label='Test'}}`);
 
-    expect(find("span.uk-label").innerHTML).to.equal("Test");
-  });
-
-  it("can set color", function() {
-    this.render(hbs`{{uk-label color='danger' label='Test'}}`);
-
-    expect(find("span.uk-label.uk-label-danger")).to.be.ok;
+    assert.dom("span.uk-label").hasClass("uk-label-danger");
   });
 });

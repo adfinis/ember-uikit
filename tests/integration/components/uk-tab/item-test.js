@@ -1,32 +1,28 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk tab/item", function() {
-  setupComponentTest("uk-tab/item", {
-    integration: true
+module("Integration | Component | uk tab/item", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-tab/item}}Test{{/uk-tab/item}}`);
+
+    assert.dom("li").exists();
+    assert.dom("a").exists();
+    assert.dom("a").hasText("Test");
   });
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-tab/item}}Test{{/uk-tab/item}}`);
+  test("can be active", async function(assert) {
+    await render(hbs`{{#uk-tab/item active=true}}Test{{/uk-tab/item}}`);
 
-    expect(find("li")).to.be.ok;
-    expect(find("a")).to.be.ok;
-
-    expect(find("a").innerHTML).to.equal("Test");
+    assert.dom("li").hasClass("uk-active");
   });
 
-  it("can be active", function() {
-    this.render(hbs`{{#uk-tab/item active=true}}Test{{/uk-tab/item}}`);
+  test("can be disabled", async function(assert) {
+    await render(hbs`{{#uk-tab/item disabled=true}}Test{{/uk-tab/item}}`);
 
-    expect(Array.from(find("li").classList)).to.include("uk-active");
-  });
-
-  it("can be disabled", function() {
-    this.render(hbs`{{#uk-tab/item disabled=true}}Test{{/uk-tab/item}}`);
-
-    expect(Array.from(find("li").classList)).to.include("uk-disabled");
+    assert.dom("li").hasClass("uk-disabled");
   });
 });

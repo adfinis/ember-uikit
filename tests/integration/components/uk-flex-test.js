@@ -1,55 +1,51 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk flex", function() {
-  setupComponentTest("uk-flex", {
-    integration: true
+module("Integration | Component | uk flex", function(hooks) {
+  setupRenderingTest(hooks);
+
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-flex}}Test{{/uk-flex}}`);
+
+    assert.dom(".uk-flex").exists();
+    assert.dom(".uk-flex").hasText("Test");
   });
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-flex}}Test{{/uk-flex}}`);
+  test("can set inline", async function(assert) {
+    await render(hbs`{{uk-flex inline=true}}`);
 
-    expect(find(".uk-flex")).to.be.ok;
-
-    expect(find(".uk-flex").innerHTML).to.equal("Test");
+    assert.dom(".uk-flex-inline").exists();
   });
 
-  it("can set inline", function() {
-    this.render(hbs`{{uk-flex inline=true}}`);
+  test("can set horizontal", async function(assert) {
+    await render(hbs`{{uk-flex horizontal='center'}}`);
 
-    expect(find(".uk-flex-inline")).to.be.ok;
+    assert.dom(".uk-flex-center").exists();
   });
 
-  it("can set horizontal", function() {
-    this.render(hbs`{{uk-flex horizontal='center'}}`);
+  test("can set vertical", async function(assert) {
+    await render(hbs`{{uk-flex vertical='middle'}}`);
 
-    expect(find(".uk-flex-center")).to.be.ok;
+    assert.dom(".uk-flex-middle").exists();
   });
 
-  it("can set vertical", function() {
-    this.render(hbs`{{uk-flex vertical='middle'}}`);
+  test("can set direction", async function(assert) {
+    await render(hbs`{{uk-flex direction='column-reverse'}}`);
 
-    expect(find(".uk-flex-middle")).to.be.ok;
+    assert.dom(".uk-flex-column-reverse").exists();
   });
 
-  it("can set direction", function() {
-    this.render(hbs`{{uk-flex direction='column-reverse'}}`);
+  test("can set wrap", async function(assert) {
+    await render(hbs`{{uk-flex wrap='nowrap'}}`);
 
-    expect(find(".uk-flex-column-reverse")).to.be.ok;
+    assert.dom(".uk-flex-nowrap").exists();
   });
 
-  it("can set wrap", function() {
-    this.render(hbs`{{uk-flex wrap='nowrap'}}`);
+  test("can set wrap alignment", async function(assert) {
+    await render(hbs`{{uk-flex wrapAlignment='around'}}`);
 
-    expect(find(".uk-flex-nowrap")).to.be.ok;
-  });
-
-  it("can set wrap alignment", function() {
-    this.render(hbs`{{uk-flex wrapAlignment='around'}}`);
-
-    expect(find(".uk-flex-wrap-around")).to.be.ok;
+    assert.dom(".uk-flex-wrap-around").exists();
   });
 });

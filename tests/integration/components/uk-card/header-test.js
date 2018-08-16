@@ -1,17 +1,14 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk card/header", function() {
-  setupComponentTest("uk-card/header", {
-    integration: true
-  });
+module("Integration | Component | uk card/header", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`{{#uk-card/header}}Content{{/uk-card/header}}`);
+  test("renders", async function(assert) {
+    await render(hbs`{{#uk-card/header}}Content{{/uk-card/header}}`);
 
-    expect(find(".uk-card-header")).to.be.ok;
+    assert.dom(".uk-card-header").exists();
   });
 });

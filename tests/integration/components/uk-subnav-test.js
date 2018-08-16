@@ -1,37 +1,33 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, findAll } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk subnav", function() {
-  setupComponentTest("uk-subnav", {
-    integration: true
-  });
+module("Integration | Component | uk subnav", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`
+  test("renders", async function(assert) {
+    await render(hbs`
       {{#uk-subnav as |nav|}}
         {{#nav.item}}Item 1{{/nav.item}}
         {{#nav.link-item 'index'}}Item 2{{/nav.link-item}}
       {{/uk-subnav}}
     `);
 
-    expect(find("ul.uk-subnav")).to.be.ok;
-
-    expect(findAll("li")).to.have.length(2);
-    expect(findAll("a")).to.have.length(2);
+    assert.dom("ul.uk-subnav").exists();
+    assert.dom("li").exists({ count: 2 });
+    assert.dom("a").exists({ count: 2 });
   });
 
-  it("can set pill", function() {
-    this.render(hbs`{{uk-subnav pill=true}}`);
+  test("can set pill", async function(assert) {
+    await render(hbs`{{uk-subnav pill=true}}`);
 
-    expect(find("ul.uk-subnav.uk-subnav-pill")).to.be.ok;
+    assert.dom("ul.uk-subnav").hasClass("uk-subnav-pill");
   });
 
-  it("can set divider", function() {
-    this.render(hbs`{{uk-subnav divider=true}}`);
+  test("can set divider", async function(assert) {
+    await render(hbs`{{uk-subnav divider=true}}`);
 
-    expect(find("ul.uk-subnav.uk-subnav-divider")).to.be.ok;
+    assert.dom("ul.uk-subnav").hasClass("uk-subnav-divider");
   });
 });
