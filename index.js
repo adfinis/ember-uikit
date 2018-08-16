@@ -121,7 +121,6 @@ module.exports = {
 
     if (this.uikitOptions.importUIkitJS) {
       this.app.import(path.join("vendor", "uikit.js"));
-      this.app.import(path.join("vendor", "shims", "uikit.js"));
 
       if (this.uikitOptions.useIcons) {
         this.app.import(path.join("vendor", "uikit-icons.js"));
