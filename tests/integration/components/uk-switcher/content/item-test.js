@@ -1,20 +1,17 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk switcher/content/item", function() {
-  setupComponentTest("uk-switcher/content/item", {
-    integration: true
-  });
+module("Integration | Component | uk switcher/content/item", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(
+  test("renders", async function(assert) {
+    await render(
       hbs`{{#uk-switcher/content/item}}Test{{/uk-switcher/content/item}}`
     );
 
-    expect(find("li")).to.be.ok;
-    expect(find("li").innerHTML).to.equal("Test");
+    assert.dom("li").exists();
+    assert.dom("li").hasText("Test");
   });
 });

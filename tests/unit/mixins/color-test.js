@@ -1,10 +1,9 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
 import EmberObject from "@ember/object";
+import { module, test } from "qunit";
 import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
 
-describe("Unit | Mixin | color", function() {
-  it("computes the color", function() {
+module("Unit | Mixin | color", function() {
+  test("computes the color", function(assert) {
     let ColorObject = EmberObject.extend(ColorMixin);
 
     let subject = ColorObject.create({
@@ -13,16 +12,16 @@ describe("Unit | Mixin | color", function() {
 
     subject.set("color", COLOR_OPTIONS.PRIMARY);
 
-    expect(subject.get("colorClass")).to.equal("foobar-primary");
+    assert.equal(subject.get("colorClass"), "foobar-primary");
   });
 
-  it("ignores invalid colors", function() {
+  test("ignores invalid colors", function(assert) {
     let ColorObject = EmberObject.extend(ColorMixin);
 
     let subject = ColorObject.create();
 
     subject.set("color", "invalidcolor");
 
-    expect(subject.get("colorClass")).to.be.empty;
+    assert.notOk(subject.get("colorClass"));
   });
 });

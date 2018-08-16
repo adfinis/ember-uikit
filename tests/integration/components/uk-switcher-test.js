@@ -1,16 +1,13 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, findAll } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk switcher", function() {
-  setupComponentTest("uk-switcher", {
-    integration: true
-  });
+module("Integration | Component | uk switcher", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`
+  test("renders", async function(assert) {
+    await render(hbs`
       {{#uk-switcher as |switcher|}}
         {{#switcher.nav type='subnav' as |nav|}}
           {{#nav.component as |subnav|}}
@@ -26,9 +23,8 @@ describe("Integration | Component | uk switcher", function() {
       {{/uk-switcher}}
     `);
 
-    expect(find("ul.uk-subnav")).to.be.ok;
-
-    expect(findAll("li")).to.have.length(4);
-    expect(findAll("a")).to.have.length(2);
+    assert.dom("ul.uk-subnav").exists();
+    assert.dom("li").exists({ count: 4 });
+    assert.dom("a").exists({ count: 2 });
   });
 });

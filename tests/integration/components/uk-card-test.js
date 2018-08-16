@@ -1,16 +1,13 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk card", function() {
-  setupComponentTest("uk-card", {
-    integration: true
-  });
+module("Integration | Component | uk card", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`
+  test("renders", async function(assert) {
+    await render(hbs`
       {{#uk-card as |card|}}
         {{#card.header}}
           {{#card.title}}Header{{/card.title}}
@@ -24,28 +21,28 @@ describe("Integration | Component | uk card", function() {
       {{/uk-card}}
     `);
 
-    expect(find(".uk-card")).to.be.ok;
-    expect(find(".uk-card .uk-card-header")).to.be.ok;
-    expect(find(".uk-card .uk-card-header .uk-card-title")).to.be.ok;
-    expect(find(".uk-card .uk-card-body")).to.be.ok;
-    expect(find(".uk-card .uk-card-footer")).to.be.ok;
+    assert.dom(".uk-card").exists();
+    assert.dom(".uk-card .uk-card-header").exists();
+    assert.dom(".uk-card .uk-card-header .uk-card-title").exists();
+    assert.dom(".uk-card .uk-card-body").exists();
+    assert.dom(".uk-card .uk-card-footer").exists();
   });
 
-  it("can set hover", function() {
-    this.render(hbs`{{uk-card hover=true}}`);
+  test("can set hover", async function(assert) {
+    await render(hbs`{{uk-card hover=true}}`);
 
-    expect(find(".uk-card.uk-card-hover")).to.be.ok;
+    assert.dom(".uk-card").hasClass("uk-card-hover");
   });
 
-  it("can set color", function() {
-    this.render(hbs`{{uk-card color='primary'}}`);
+  test("can set color", async function(assert) {
+    await render(hbs`{{uk-card color='primary'}}`);
 
-    expect(find(".uk-card.uk-card-primary")).to.be.ok;
+    assert.dom(".uk-card").hasClass("uk-card-primary");
   });
 
-  it("can set size", function() {
-    this.render(hbs`{{uk-card size='small'}}`);
+  test("can set size", async function(assert) {
+    await render(hbs`{{uk-card size='small'}}`);
 
-    expect(find(".uk-card.uk-card-small")).to.be.ok;
+    assert.dom(".uk-card").hasClass("uk-card-small");
   });
 });

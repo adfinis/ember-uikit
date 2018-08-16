@@ -1,43 +1,39 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, findAll } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk tab", function() {
-  setupComponentTest("uk-tab", {
-    integration: true
-  });
+module("Integration | Component | uk tab", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`
+  test("renders", async function(assert) {
+    await render(hbs`
       {{#uk-tab as |tab|}}
         {{#tab.item}}Item 1{{/tab.item}}
         {{#tab.link-item 'index'}}Item 2{{/tab.link-item}}
       {{/uk-tab}}
     `);
 
-    expect(find("ul.uk-tab[uk-tab]")).to.be.ok;
-
-    expect(findAll("li")).to.have.length(2);
-    expect(findAll("a")).to.have.length(2);
+    assert.dom("ul.uk-tab[uk-tab]").exists();
+    assert.dom("li").exists({ count: 2 });
+    assert.dom("a").exists({ count: 2 });
   });
 
-  it("can set bottom", function() {
-    this.render(hbs`{{uk-tab bottom=true}}`);
+  test("can set bottom", async function(assert) {
+    await render(hbs`{{uk-tab bottom=true}}`);
 
-    expect(find("ul.uk-tab.uk-tab-bottom")).to.be.ok;
+    assert.dom("ul.uk-tab").hasClass("uk-tab-bottom");
   });
 
-  it("can set left", function() {
-    this.render(hbs`{{uk-tab left=true}}`);
+  test("can set left", async function(assert) {
+    await render(hbs`{{uk-tab left=true}}`);
 
-    expect(find("ul.uk-tab.uk-tab-left")).to.be.ok;
+    assert.dom("ul.uk-tab").hasClass("uk-tab-left");
   });
 
-  it("can set right", function() {
-    this.render(hbs`{{uk-tab right=true}}`);
+  test("can set right", async function(assert) {
+    await render(hbs`{{uk-tab right=true}}`);
 
-    expect(find("ul.uk-tab.uk-tab-right")).to.be.ok;
+    assert.dom("ul.uk-tab").hasClass("uk-tab-right");
   });
 });

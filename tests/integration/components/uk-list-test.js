@@ -1,16 +1,13 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find, findAll } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk list", function() {
-  setupComponentTest("uk-list", {
-    integration: true
-  });
+module("Integration | Component | uk list", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`
+  test("renders", async function(assert) {
+    await render(hbs`
       {{#uk-list as |list|}}
         {{#list.item}}Foo{{/list.item}}
         {{#list.item}}Bar{{/list.item}}
@@ -18,31 +15,31 @@ describe("Integration | Component | uk list", function() {
       {{/uk-list}}
     `);
 
-    expect(find(".uk-list")).to.be.ok;
-    expect(findAll("li")).to.have.length(3);
+    assert.dom(".uk-list").exists();
+    assert.dom("li").exists({ count: 3 });
   });
 
-  it("can set divider", function() {
-    this.render(hbs`{{uk-list divider=true}}`);
+  test("can set divider", async function(assert) {
+    await render(hbs`{{uk-list divider=true}}`);
 
-    expect(find(".uk-list.uk-list-divider")).to.be.ok;
+    assert.dom(".uk-list").hasClass("uk-list-divider");
   });
 
-  it("can set striped", function() {
-    this.render(hbs`{{uk-list striped=true}}`);
+  test("can set striped", async function(assert) {
+    await render(hbs`{{uk-list striped=true}}`);
 
-    expect(find(".uk-list.uk-list-striped")).to.be.ok;
+    assert.dom(".uk-list").hasClass("uk-list-striped");
   });
 
-  it("can set bullet", function() {
-    this.render(hbs`{{uk-list bullet=true}}`);
+  test("can set bullet", async function(assert) {
+    await render(hbs`{{uk-list bullet=true}}`);
 
-    expect(find(".uk-list.uk-list-bullet")).to.be.ok;
+    assert.dom(".uk-list").hasClass("uk-list-bullet");
   });
 
-  it("can set large", function() {
-    this.render(hbs`{{uk-list large=true}}`);
+  test("can set large", async function(assert) {
+    await render(hbs`{{uk-list large=true}}`);
 
-    expect(find(".uk-list.uk-list-large")).to.be.ok;
+    assert.dom(".uk-list").hasClass("uk-list-large");
   });
 });

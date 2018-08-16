@@ -1,17 +1,14 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
-import { setupComponentTest } from "ember-mocha";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { find } from "ember-native-dom-helpers";
 
-describe("Integration | Component | uk list/item", function() {
-  setupComponentTest("uk-list/item", {
-    integration: true
-  });
+module("Integration | Component | uk list/item", function(hooks) {
+  setupRenderingTest(hooks);
 
-  it("renders", function() {
-    this.render(hbs`{{uk-list/item}}`);
+  test("renders", async function(assert) {
+    await render(hbs`{{uk-list/item}}`);
 
-    expect(find("li")).to.be.ok;
+    assert.dom("li").exists();
   });
 });

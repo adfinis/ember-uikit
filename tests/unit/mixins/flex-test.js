@@ -1,6 +1,5 @@
-import { expect } from "chai";
-import { describe, it } from "mocha";
 import EmberObject from "@ember/object";
+import { module, test } from "qunit";
 import FlexMixin, {
   FLEX_HORIZONTAL_OPTIONS,
   FLEX_VERTICAL_OPTIONS,
@@ -9,58 +8,54 @@ import FlexMixin, {
   FLEX_WRAP_ALIGNMENT_OPTIONS
 } from "ember-uikit/mixins/flex";
 
-describe("Unit | Mixin | flex", function() {
-  it("computes flex horizontal", function() {
+module("Unit | Mixin | flex", function() {
+  test("computes flex horizontal", function(assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
 
     subject.set("flexHorizontal", FLEX_HORIZONTAL_OPTIONS.CENTER);
 
-    expect(subject.get("flexHorizontalClass")).to.equal("uk-flex-center");
+    assert.equal(subject.get("flexHorizontalClass"), "uk-flex-center");
   });
 
-  it("computes flex vertical", function() {
+  test("computes flex vertical", function(assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
 
     subject.set("flexVertical", FLEX_VERTICAL_OPTIONS.MIDDLE);
 
-    expect(subject.get("flexVerticalClass")).to.equal("uk-flex-middle");
+    assert.equal(subject.get("flexVerticalClass"), "uk-flex-middle");
   });
 
-  it("computes flex direction", function() {
+  test("computes flex direction", function(assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
 
     subject.set("flexDirection", FLEX_DIRECTION_OPTIONS.COLUMN_REVERSE);
 
-    expect(subject.get("flexDirectionClass")).to.equal(
-      "uk-flex-column-reverse"
-    );
+    assert.equal(subject.get("flexDirectionClass"), "uk-flex-column-reverse");
   });
 
-  it("computes flex wrap", function() {
+  test("computes flex wrap", function(assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
 
     subject.set("flexWrap", FLEX_WRAP_OPTIONS.NOWRAP);
 
-    expect(subject.get("flexWrapClass")).to.equal("uk-flex-nowrap");
+    assert.equal(subject.get("flexWrapClass"), "uk-flex-nowrap");
   });
 
-  it("computes flex wrap alignment", function() {
+  test("computes flex wrap alignment", function(assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
 
     subject.set("flexWrapAlignment", FLEX_WRAP_ALIGNMENT_OPTIONS.BETWEEN);
 
-    expect(subject.get("flexWrapAlignmentClass")).to.equal(
-      "uk-flex-wrap-between"
-    );
+    assert.equal(subject.get("flexWrapAlignmentClass"), "uk-flex-wrap-between");
   });
 });
