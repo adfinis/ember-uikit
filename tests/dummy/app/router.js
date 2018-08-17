@@ -25,6 +25,10 @@ Router.map(function() {
     this.route("flex");
     this.route("width");
   });
+
+  this.route("services", function() {
+    this.route("notification");
+  });
 });
 
 export default Router;

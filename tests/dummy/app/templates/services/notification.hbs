@@ -1,0 +1,41 @@
+<h2>Notification</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{uk-button label='Default' on-click=(action 'default')}}
+  {{uk-button label='Primary' on-click=(action 'primary')}}
+  {{uk-button label='Success' on-click=(action 'success')}}
+  {{uk-button label='Warning' on-click=(action 'warning')}}
+  {{uk-button label='Danger' on-click=(action 'danger')}}
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Usage{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      To use the <code>notification</code> service simply inject it into your
+      <code>Route</code>, <code>Controller</code> or <code>Component</code>.
+      Then you can use the <code>default</code>, <code>primary</code>,
+      <code>success</code>, <code>warning</code> and <code>danger</code>
+      methods to display a message.
+      {{code-snippet name='notification.js'}}
+      All of the methods take the same arguments:
+      <ul>
+        <li>
+          <code>message (String)</code> The message which should be the content of the notification
+        </li>
+        <li>
+          <code>options (Object)</code> Additional options. Available options
+          are listed <a href="https://getuikit.com/docs/notification#component-options">here</a>.
+          This argument is optional. You can also configure your notifications globally as
+          documented {{#link-to 'index'}}here{{/link-to}}.
+        </li>
+      </ul>
+      All of them return a <code>Promise</code> which is resolved as soon as the notification closes.
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}
