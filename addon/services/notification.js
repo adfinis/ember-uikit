@@ -3,7 +3,8 @@ import UIkit from "uikit";
 import config from "ember-get-config";
 import { Promise, resolve } from "rsvp";
 
-const USER_CONFIG = config["ember-uikit"].notification || {};
+const USER_CONFIG =
+  (config["ember-uikit"] && config["ember-uikit"].notification) || {};
 
 const notification = status =>
   function(message, options = {}) {
