@@ -15,7 +15,9 @@ const DEFAULT_OPTIONS = {
   useIcons: true,
 
   whitelist: [],
-  blacklist: []
+  blacklist: [],
+
+  notification: {}
 };
 
 const COMPONENT_DEPENDENCIES = {
