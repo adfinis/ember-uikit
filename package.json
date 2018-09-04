@@ -78,7 +78,8 @@
     "lint-staged": "^7.1.0",
     "loader.js": "^4.6.0",
     "prettier": "^1.10.2",
-    "qunit-dom": "^0.7.1"
+    "qunit-dom": "^0.7.1",
+    "sass": "^1.13.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
