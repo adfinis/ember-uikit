@@ -54,7 +54,7 @@
     "ember-cli-inject-live-reload": "^1.7.0",
     "ember-cli-qunit": "^4.3.2",
     "ember-cli-release": "^1.0.0-beta.2",
-    "ember-cli-sass": "^7.1.4",
+    "ember-cli-sass": "^9.0.0",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^2.0.0",
@@ -78,7 +78,8 @@
     "lint-staged": "^7.1.0",
     "loader.js": "^4.6.0",
     "prettier": "^1.10.2",
-    "qunit-dom": "^0.7.1"
+    "qunit-dom": "^0.7.1",
+    "sass": "^1.13.1"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"

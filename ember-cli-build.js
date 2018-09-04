@@ -2,9 +2,11 @@
 "use strict";
 
 const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
+const sass = require("sass");
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
+    sassOptions: { implementation: sass },
     fingerprint: {
       prepend: "https://adfinis-sygroup.github.io/ember-uikit/"
     },
