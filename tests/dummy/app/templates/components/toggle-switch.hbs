@@ -1,0 +1,122 @@
+<h2>Toggle Switch</h2>
+
+<p class="uk-text-muted">
+  This component is not a built in component of UIkit and has absolutely
+  nothing to do with the <a href="https://getuikit.com/docs/toggle">toggle</a>
+  or <a href="https://getuikit.com/docs/switcher">switcher</a> components. Instead, it is
+  a partial implementation of <a href="https://github.com/uikit/uikit/issues/2531">a feature request</a>
+  built with <a href="https://github.com/knownasilya/ember-toggle">ember-toggle</a>.
+</p>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  {{uk-toggle-switch
+    name=name
+    value=value
+    size=size
+    color=color
+    onLabel=onLabel
+    offLabel=offLabel
+    showLabels=showLabels
+    disabled=disabled
+  }}
+</div>
+
+{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
+  {{#switcher.nav type='tab' as |nav|}}
+    {{#nav.component as |tab|}}
+      {{#tab.item}}Props{{/tab.item}}
+      {{#tab.item}}Example{{/tab.item}}
+    {{/nav.component}}
+  {{/switcher.nav}}
+
+  {{#switcher.content as |content|}}
+    {{#content.item}}
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>value</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>The value</td>
+              <td>{{input type='checkbox' class='uk-checkbox' checked=value}}</td>
+            </tr>
+            <tr>
+              <td><code>name</code></td>
+              <td><code>String</code></td>
+              <td><code>null</code></td>
+              <td>The name of the input</td>
+              <td>{{input class='uk-input' value=name}}</td>
+            </tr>
+            <tr>
+              <td><code>size</code></td>
+              <td><code>String</code></td>
+              <td><code>'medium'</code></td>
+              <td>The display size</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
+                  {{#each sizes as |s|}}
+                    <option value={{s}} selected={{eq size s}}>{{s}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>color</code></td>
+              <td><code>String</code></td>
+              <td><code>'default'</code></td>
+              <td>The display color schema</td>
+              <td>
+                <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
+                  {{#each colors as |c|}}
+                    <option value={{c}} selected={{eq color c}}>{{c}}</option>
+                  {{/each}}
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><code>onLabel</code></td>
+              <td><code>String</code></td>
+              <td><code>null</code></td>
+              <td>The label for the on state</td>
+              <td>{{input class='uk-input' value=onLabel}}</td>
+            </tr>
+            <tr>
+              <td><code>offLabel</code></td>
+              <td><code>String</code></td>
+              <td><code>null</code></td>
+              <td>The label for the off state</td>
+              <td>{{input class='uk-input' value=offLabel}}</td>
+            </tr>
+            <tr>
+              <td><code>showLabels</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to show the labels</td>
+              <td>{{input type='checkbox' class='uk-checkbox' checked=showLabels}}</td>
+            </tr>
+            <tr>
+              <td><code>disabled</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>Whether to disable the toggle switch</td>
+              <td>{{input type='checkbox' class='uk-checkbox' checked=disabled}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    {{/content.item}}
+    {{#content.item}}
+      {{code-snippet name='toggle-switch.hbs'}}
+    {{/content.item}}
+  {{/switcher.content}}
+{{/uk-switcher}}

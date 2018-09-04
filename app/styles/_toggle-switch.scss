@@ -1,0 +1,47 @@
+.uk-toggle-switch {
+  .x-toggle-light.x-toggle-btn {
+    padding: 0;
+  }
+
+  .x-toggle-component {
+    display: inline-flex;
+  }
+
+  .x-toggle-light.x-toggle-btn::after {
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .x-toggle-component.x-toggle-focused .x-toggle-btn::after,
+  .x-toggle-component.x-toggle-focused .x-toggle-btn::before {
+    box-shadow: none;
+  }
+
+  .toggle-text {
+    text-transform: uppercase;
+  }
+}
+
+.uk-toggle-switch-default {
+  .x-toggle-light.x-toggle-btn {
+    background: lighten($global-border, 2%);
+    border: 2px solid $global-border;
+  }
+
+  .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
+    background: lighten($global-primary-background, 2%);
+    border: 2px solid $global-primary-background;
+  }
+}
+
+.uk-toggle-switch-onoff {
+  .x-toggle-light.x-toggle-btn {
+    background: lighten($global-danger-background, 2%);
+    border: 2px solid $global-danger-background;
+  }
+
+  .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
+    background: lighten($global-success-background, 2%);
+    border: 2px solid $global-success-background;
+  }
+}
