@@ -1,10 +1,17 @@
+$toggle-switch-border: 1px;
+
 .uk-toggle-switch {
-  .x-toggle-light.x-toggle-btn {
-    padding: 0;
+  display: inline-flex;
+
+  &.x-toggle-focused .x-toggle-btn::after,
+  &.x-toggle-focused .x-toggle-btn::before {
+    box-shadow: none;
   }
 
-  .x-toggle-component {
-    display: inline-flex;
+  .x-toggle-light.x-toggle-btn {
+    padding: 0;
+    width: 100%;
+    height: 100%;
   }
 
   .x-toggle-light.x-toggle-btn::after {
@@ -12,9 +19,23 @@
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;
   }
 
-  .x-toggle-component.x-toggle-focused .x-toggle-btn::after,
-  .x-toggle-component.x-toggle-focused .x-toggle-btn::before {
-    box-shadow: none;
+  .x-toggle-container {
+    padding: 0;
+  }
+
+  .x-toggle-container.small {
+    height: $global-control-small-height;
+    width: $global-control-small-height * 2;
+  }
+
+  .x-toggle-container.medium {
+    height: $global-control-height;
+    width: $global-control-height * 2;
+  }
+
+  .x-toggle-container.large {
+    height: $global-control-large-height;
+    width: $global-control-large-height * 2;
   }
 
   .toggle-text {
@@ -25,23 +46,23 @@
 .uk-toggle-switch-default {
   .x-toggle-light.x-toggle-btn {
     background: lighten($global-border, 2%);
-    border: 2px solid $global-border;
+    border: $toggle-switch-border solid $global-border;
   }
 
   .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
     background: lighten($global-primary-background, 2%);
-    border: 2px solid $global-primary-background;
+    border: $toggle-switch-border solid $global-primary-background;
   }
 }
 
 .uk-toggle-switch-onoff {
   .x-toggle-light.x-toggle-btn {
     background: lighten($global-danger-background, 2%);
-    border: 2px solid $global-danger-background;
+    border: $toggle-switch-border solid $global-danger-background;
   }
 
   .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
     background: lighten($global-success-background, 2%);
-    border: 2px solid $global-success-background;
+    border: $toggle-switch-border solid $global-success-background;
   }
 }
