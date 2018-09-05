@@ -1,5 +1,4 @@
-import Component from "@ember/component";
-import layout from "../templates/components/uk-toggle-switcher";
+import ToggleComponent from "ember-toggle/components/x-toggle/component";
 import validatedComputedProperty from "ember-uikit/-private/validated-computed-property";
 import { computed } from "@ember/object";
 
@@ -14,8 +13,15 @@ export const COLOR_OPTIONS = {
   ONOFF: "onoff"
 };
 
-export default Component.extend({
-  layout,
+export default ToggleComponent.extend({
+  init() {
+    this._super(...arguments);
+
+    this.setProperties({
+      _size: SIZE_OPTIONS.MEDIUM,
+      _color: COLOR_OPTIONS.DEFAULT
+    });
+  },
 
   SIZE_OPTIONS: Object.values(SIZE_OPTIONS),
   COLOR_OPTIONS: Object.values(COLOR_OPTIONS),
@@ -28,9 +34,7 @@ export default Component.extend({
   showLabels: false,
   onLabel: null,
   offLabel: null,
-
-  _size: SIZE_OPTIONS.MEDIUM,
-  _color: COLOR_OPTIONS.DEFAULT,
+  theme: "light",
 
   size: validatedComputedProperty("_size", "size", "SIZE_OPTIONS"),
   color: validatedComputedProperty("_color", "color", "COLOR_OPTIONS"),
@@ -39,8 +43,8 @@ export default Component.extend({
     return `uk-toggle-switch-${this.get("color")}`;
   }),
 
-  actions: {
-    toggle(value) {
+  onToggle: computed(function() {
+    return value => {
       let action = this["on-toggle"];
 
       if (typeof action === "function") {
@@ -52,6 +56,6 @@ export default Component.extend({
 
       // two way binding
       this.set("value", value);
-    }
-  }
+    };
+  })
 });
