@@ -1,4 +1,3 @@
----
 language: node_js
 node_js:
   # we recommend testing addons with the same minimum supported node version as Ember CLI
@@ -53,7 +52,7 @@ after_script:
   - greenkeeper-lockfile-upload
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+  - bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
 
 jobs:
   include:
