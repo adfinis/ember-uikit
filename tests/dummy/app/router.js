@@ -19,6 +19,7 @@ Router.map(function() {
     this.route("subnav");
     this.route("switcher");
     this.route("tab");
+    this.route("toggle-switch");
   });
 
   this.route("utilities", function() {
