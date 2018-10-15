@@ -49,8 +49,8 @@
   {{/uk-switcher}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Yields{{/tab.item}}
@@ -75,11 +75,11 @@
             <tr>
               <td><code>animation</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
+              <td><code>""</code></td>
               <td>The animation to use when switching the content</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we'd need to
+                  Sadly we can't show this live since we"d need to
                   reinitialize the component on every change. Currently we
                   use <b>{{animation}}</b>.
                 </small>
@@ -92,7 +92,7 @@
               <td>The duration for the animation</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we'd need to
+                  Sadly we can't show this live since we"d need to
                   reinitialize the component on every change. Currently we
                   use <b>{{animationDuration}}</b>.
                 </small>
@@ -105,9 +105,9 @@
               <td>Whether to use swiping for switching</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we'd need to
+                  Sadly we can't show this live since we"d need to
                   reinitialize the component on every change. Currently we
-                  use <b>{{if switching 'true' 'false'}}</b>.
+                  use <b>{{if switching "true" "false"}}</b>.
                 </small>
               </td>
             </tr>
@@ -127,11 +127,12 @@
       <p>
         The switcher yields a <code>nav</code> component which can have a
         certain type. This component will then yield the navigation component
-        for the given type. The type can either be <code>{{link-to "'subnav'"
-        'components.subnav'}}</code> or <code>{{link-to "'tab'"
-        'components.tab'}}</code>. The properties for the
-        <code>component</code> which is yielded by <code>nav</code> can be
-        looked up on the documentation for the given type of navigation.
+        for the given type. The type can either be
+        <code>{{link-to "subnav" "components.subnav"}}</code> or
+        <code>{{link-to "tab" "components.tab"}}</code>.
+        The properties for the <code>component</code> which is yielded by
+        <code>nav</code> can be looked up on the documentation for the given
+        type of navigation.
       </p>
       <p>
         For better understanding of the hierarchy, check the example tab.
@@ -152,10 +153,10 @@
             <tr>
               <td><code>type</code></td>
               <td><code>String</code></td>
-              <td><code>'tab'</code></td>
+              <td><code>"tab"</code></td>
               <td>The navigation type</td>
               <td>
-                <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+                <select class="uk-select" onchange={{action (mut type) value="target.value"}}>
                   <option value="tab">tab</option>
                   <option value="subnav">subnav</option>
                 </select>
@@ -169,13 +170,13 @@
         <code>content</code>
       </p>
       <p>
-      The switcher yields a <code>content</code> component which should be
-      used for the content of the switcher . The <code>content</code>
-      component takes no properties.
+        The switcher yields a <code>content</code> component which should be
+        used for the content of the switcher . The <code>content</code>
+        component takes no properties.
       </p>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='switcher.hbs'}}
+      {{code-snippet name="switcher.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

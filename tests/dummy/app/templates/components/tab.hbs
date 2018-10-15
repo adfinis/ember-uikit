@@ -1,8 +1,10 @@
 <h2>Tab</h2>
 
-<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
-  Uses:
-    {{#link-to 'utilities.flex'}}{{uk-label color='success' label='Flex'}}{{/link-to}}
+<p
+  class="uk-text-muted"
+  title="Properties of the used utilities can be applied to this component too."
+>
+  Uses: {{#link-to "utilities.flex"}}{{uk-label color="success" label="Flex"}}{{/link-to}}
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
@@ -13,12 +15,12 @@
   as |tab|}}
     {{#tab.item active=itemActive disabled=itemDisabled}}Item 1{{/tab.item}}
     {{#tab.item}}Item 2{{/tab.item}}
-    {{#tab.link-item 'components.tab' disabled=linkItemDisabled}}Link Item 1 (active){{/tab.link-item}}
+    {{#tab.link-item "components.tab" disabled=linkItemDisabled}}Link Item 1 (active){{/tab.link-item}}
   {{/uk-tab}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Yields{{/tab.item}}
@@ -46,7 +48,7 @@
               <td><code>false</code></td>
               <td>Whether to enable left alignment</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=left}}
+                {{input type="checkbox" class="uk-checkbox" checked=left}}
               </td>
             </tr>
             <tr>
@@ -55,7 +57,7 @@
               <td><code>false</code></td>
               <td>Whether to enable right alignment</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=right}}
+                {{input type="checkbox" class="uk-checkbox" checked=right}}
               </td>
             </tr>
             <tr>
@@ -64,7 +66,7 @@
               <td><code>false</code></td>
               <td>Whether to enable bottom alignment</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=bottom}}
+                {{input type="checkbox" class="uk-checkbox" checked=bottom}}
               </td>
             </tr>
           </tbody>
@@ -104,7 +106,7 @@
               <td><code>false</code></td>
               <td>Whether the item is active</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=itemActive}}
+                {{input type="checkbox" class="uk-checkbox" checked=itemActive}}
               </td>
             </tr>
             <tr>
@@ -113,7 +115,7 @@
               <td><code>false</code></td>
               <td>Whether the item is disabled</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=itemDisabled}}
+                {{input type="checkbox" class="uk-checkbox" checked=itemDisabled}}
               </td>
             </tr>
           </tbody>
@@ -148,7 +150,7 @@
               <td><code>false</code></td>
               <td>Whether the link item is disabled</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=linkItemDisabled}}
+                {{input type="checkbox" class="uk-checkbox" checked=linkItemDisabled}}
               </td>
             </tr>
           </tbody>
@@ -156,7 +158,7 @@
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='tab.hbs'}}
+      {{code-snippet name="tab.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

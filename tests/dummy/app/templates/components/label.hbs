@@ -1,16 +1,18 @@
 <h2>Label</h2>
 
-<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
-  Uses:
-    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+<p
+  class="uk-text-muted"
+  title="Properties of the used utilities can be applied to this component too."
+>
+  Uses: {{#link-to "utilities.width"}}{{uk-label color="success" label="Width"}}{{/link-to}}
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{uk-label label=label color=color}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -34,19 +36,19 @@
             <tr>
               <td><code>label</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
+              <td><code>""</code></td>
               <td>The content of the label</td>
               <td>
-                {{input class='uk-input' value=label}}
+                {{input class="uk-input" value=label}}
               </td>
             </tr>
-            {{color-row name='label' default='' colors=colors value=color}}
+            {{color-row name="label" default="" colors=colors value=color}}
           </tbody>
         </table>
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='label.hbs'}}
+      {{code-snippet name="label.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

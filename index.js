@@ -25,7 +25,7 @@ const COMPONENT_DEPENDENCIES = {
 };
 
 module.exports = {
-  name: "ember-uikit",
+  name: require("./package").name,
 
   /**
    * For ember-cli < 2.7 findHost doesnt exist so we backport from that version

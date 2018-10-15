@@ -4,8 +4,8 @@
   {{uk-spinner ratio=ratio}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -32,7 +32,7 @@
               <td><code>1</code></td>
               <td>The ratio of the spinner</td>
               <td>
-                {{input type='number' class='uk-input' value=ratio}}
+                {{input type="number" class="uk-input" value=ratio}}
               </td>
             </tr>
           </tbody>
@@ -41,7 +41,7 @@
     {{/content.item}}
 
     {{#content.item}}
-      {{code-snippet name='spinner.hbs'}}
+      {{code-snippet name="spinner.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

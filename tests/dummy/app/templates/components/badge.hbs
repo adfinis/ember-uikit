@@ -4,8 +4,8 @@
   {{uk-badge label=label}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -29,10 +29,10 @@
             <tr>
               <td><code>label</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
+              <td><code>""</code></td>
               <td>The content of the badge</td>
               <td>
-                {{input class='uk-input' value=label}}
+                {{input class="uk-input" value=label}}
               </td>
             </tr>
           </tbody>
@@ -40,7 +40,7 @@
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='badge.hbs'}}
+      {{code-snippet name="badge.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

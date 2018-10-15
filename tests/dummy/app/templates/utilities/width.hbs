@@ -2,12 +2,12 @@
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-flex}}
-    {{#uk-width width class='uk-padding uk-background-secondary uk-light'}}{{if width width 'No width set'}}{{/uk-width}}
+    {{#uk-width width class="uk-padding uk-background-secondary uk-light"}}{{if width width "No width set"}}{{/uk-width}}
   {{/uk-flex}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -31,7 +31,7 @@
             <tr>
               <td><code>width</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
+              <td><code>""</code></td>
               <td>
                 The width of the element, more information about possible
                 values <a href="https://getuikit.com/docs/width">here</a>.
@@ -39,7 +39,7 @@
                 This is the first positional parameter.
               </td>
               <td>
-                {{input class='uk-input' value=width}}
+                {{input class="uk-input" value=width}}
               </td>
             </tr>
           </tbody>
@@ -47,7 +47,7 @@
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='width.hbs'}}
+      {{code-snippet name="width.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

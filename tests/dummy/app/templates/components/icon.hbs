@@ -4,8 +4,8 @@
   {{uk-icon icon ratio=ratio}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -29,11 +29,13 @@
             <tr>
               <td><code>icon</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
-              <td>The name of the icon, this is also the first positional
-              parameter. For a list of icons, see <a href="https://getuikit.com/docs/icon#library">here</a>.</td>
+              <td><code>""</code></td>
               <td>
-                {{input class='uk-input' value=icon}}
+                The name of the icon, this is also the first positional parameter.
+                For a list of icons, see <a href="https://getuikit.com/docs/icon#library">here</a>.
+              </td>
+              <td>
+                {{input class="uk-input" value=icon}}
               </td>
             </tr>
             <tr>
@@ -42,7 +44,7 @@
               <td><code>1</code></td>
               <td>The ratio for the size of the icon</td>
               <td>
-                {{input type='number' min=1 class='uk-input' value=ratio}}
+                {{input type="number" min=1 class="uk-input" value=ratio}}
               </td>
             </tr>
           </tbody>
@@ -50,7 +52,7 @@
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='icon.hbs'}}
+      {{code-snippet name="icon.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}
