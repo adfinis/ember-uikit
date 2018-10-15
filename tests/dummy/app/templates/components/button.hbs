@@ -1,8 +1,10 @@
 <h2>Button</h2>
 
-<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
-  Uses:
-    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+<p
+  class="uk-text-muted"
+  title="Properties of the used utilities can be applied to this component too."
+>
+  Uses: {{#link-to "utilities.width"}}{{uk-label color="success" label="Width"}}{{/link-to}}
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
@@ -14,13 +16,13 @@
     loading=loading
     color=color
     size=size
-    on-click=(perform fireEvent 'button-on-click')
+    on-click=(perform fireEvent "button-on-click")
   }}
 </div>
 
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Events{{/tab.item}}
@@ -45,19 +47,19 @@
             <tr>
               <td><code>label</code></td>
               <td><code>String</code></td>
-              <td><code>''</code></td>
+              <td><code>""</code></td>
               <td>The content of the button</td>
               <td>
-                {{input class='uk-input' value=label}}
+                {{input class="uk-input" value=label}}
               </td>
             </tr>
             <tr>
               <td><code>type</code></td>
               <td><code>String</code></td>
-              <td><code>'button'</code></td>
+              <td><code>"button"</code></td>
               <td>The type of the button</td>
               <td>
-                <select class="uk-select" onchange={{action (mut type) value='target.value'}}>
+                <select class="uk-select" onchange={{action (mut type) value="target.value"}}>
                   <option value="button">button</option>
                   <option value="submit">submit</option>
                   <option value="reset">reset</option>
@@ -70,7 +72,7 @@
               <td><code>false</code></td>
               <td>Whether the button is disabled</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=disabled}}
+                {{input type="checkbox" class="uk-checkbox" checked=disabled}}
               </td>
             </tr>
             <tr>
@@ -79,7 +81,7 @@
               <td><code>false</code></td>
               <td>Whether the button is active</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=active}}
+                {{input type="checkbox" class="uk-checkbox" checked=active}}
               </td>
             </tr>
             <tr>
@@ -88,11 +90,11 @@
               <td><code>false</code></td>
               <td>Whether the button is loading</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=loading}}
+                {{input type="checkbox" class="uk-checkbox" checked=loading}}
               </td>
             </tr>
-            {{color-row name='button' default='default' colors=colors value=color}}
-            {{size-row name='button' sizes=(array '' 'small' 'large') value=size}}
+            {{color-row name="button" default="default" colors=colors value=color}}
+            {{size-row name="button" sizes=(array "" "small" "large") value=size}}
           </tbody>
         </table>
       </div>
@@ -111,14 +113,14 @@
             <tr>
               <td><code>on-click</code></td>
               <td>Fired if the component was clicked</td>
-              <td>{{#if (contains 'button-on-click' firedEvents)}}Yes{{else}}No{{/if}}</td>
+              <td>{{#if (contains "button-on-click" firedEvents)}}Yes{{else}}No{{/if}}</td>
             </tr>
           </tbody>
         </table>
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='button.hbs'}}
+      {{code-snippet name="button.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

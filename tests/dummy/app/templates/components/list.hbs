@@ -1,8 +1,10 @@
 <h2>List</h2>
 
-<p class="uk-text-muted" title="Properties of the used utilities can be applied to this component too.">
-  Uses:
-    {{#link-to 'utilities.width'}}{{uk-label color='success' label='Width'}}{{/link-to}}
+<p
+  class="uk-text-muted"
+  title="Properties of the used utilities can be applied to this component too."
+>
+  Uses: {{#link-to "utilities.width"}}{{uk-label color="success" label="Width"}}{{/link-to}}
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
@@ -18,8 +20,8 @@
   {{/uk-list}}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Yields{{/tab.item}}
@@ -47,7 +49,7 @@
               <td><code>false</code></td>
               <td>Whether to show a divider between the items</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=divider}}
+                {{input type="checkbox" class="uk-checkbox" checked=divider}}
               </td>
             </tr>
             <tr>
@@ -56,7 +58,7 @@
               <td><code>false</code></td>
               <td>Whether stripe the list</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=striped}}
+                {{input type="checkbox" class="uk-checkbox" checked=striped}}
               </td>
             </tr>
             <tr>
@@ -65,7 +67,7 @@
               <td><code>false</code></td>
               <td>Whether to show a bullet point before the items</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=bullet}}
+                {{input type="checkbox" class="uk-checkbox" checked=bullet}}
               </td>
             </tr>
             <tr>
@@ -74,7 +76,7 @@
               <td><code>false</code></td>
               <td>Whether to make the list larger</td>
               <td>
-                {{input type='checkbox' class='uk-checkbox' checked=large}}
+                {{input type="checkbox" class="uk-checkbox" checked=large}}
               </td>
             </tr>
           </tbody>
@@ -92,7 +94,7 @@
       </p>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='list.hbs'}}
+      {{code-snippet name="list.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}

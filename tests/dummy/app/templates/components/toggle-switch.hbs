@@ -21,8 +21,8 @@
   }}
 </div>
 
-{{#uk-switcher animation='uk-animation-fade' as |switcher|}}
-  {{#switcher.nav type='tab' as |nav|}}
+{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
+  {{#switcher.nav type="tab" as |nav|}}
     {{#nav.component as |tab|}}
       {{#tab.item}}Props{{/tab.item}}
       {{#tab.item}}Example{{/tab.item}}
@@ -48,22 +48,22 @@
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
               <td>The value</td>
-              <td>{{input type='checkbox' class='uk-checkbox' checked=value}}</td>
+              <td>{{input type="checkbox" class="uk-checkbox" checked=value}}</td>
             </tr>
             <tr>
               <td><code>name</code></td>
               <td><code>String</code></td>
               <td><code>null</code></td>
               <td>The name of the input</td>
-              <td>{{input class='uk-input' value=name}}</td>
+              <td>{{input class="uk-input" value=name}}</td>
             </tr>
             <tr>
               <td><code>size</code></td>
               <td><code>String</code></td>
-              <td><code>'medium'</code></td>
+              <td><code>"medium"</code></td>
               <td>The display size</td>
               <td>
-                <select class="uk-select" onchange={{action (mut size) value='target.value'}}>
+                <select class="uk-select" onchange={{action (mut size) value="target.value"}}>
                   {{#each sizes as |s|}}
                     <option value={{s}} selected={{eq size s}}>{{s}}</option>
                   {{/each}}
@@ -73,10 +73,10 @@
             <tr>
               <td><code>color</code></td>
               <td><code>String</code></td>
-              <td><code>'default'</code></td>
+              <td><code>"default"</code></td>
               <td>The display color schema</td>
               <td>
-                <select class="uk-select" onchange={{action (mut color) value='target.value'}}>
+                <select class="uk-select" onchange={{action (mut color) value="target.value"}}>
                   {{#each colors as |c|}}
                     <option value={{c}} selected={{eq color c}}>{{c}}</option>
                   {{/each}}
@@ -88,35 +88,35 @@
               <td><code>String</code></td>
               <td><code>null</code></td>
               <td>The label for the on state</td>
-              <td>{{input class='uk-input' value=onLabel}}</td>
+              <td>{{input class="uk-input" value=onLabel}}</td>
             </tr>
             <tr>
               <td><code>offLabel</code></td>
               <td><code>String</code></td>
               <td><code>null</code></td>
               <td>The label for the off state</td>
-              <td>{{input class='uk-input' value=offLabel}}</td>
+              <td>{{input class="uk-input" value=offLabel}}</td>
             </tr>
             <tr>
               <td><code>showLabels</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
               <td>Whether to show the labels</td>
-              <td>{{input type='checkbox' class='uk-checkbox' checked=showLabels}}</td>
+              <td>{{input type="checkbox" class="uk-checkbox" checked=showLabels}}</td>
             </tr>
             <tr>
               <td><code>disabled</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
               <td>Whether to disable the toggle switch</td>
-              <td>{{input type='checkbox' class='uk-checkbox' checked=disabled}}</td>
+              <td>{{input type="checkbox" class="uk-checkbox" checked=disabled}}</td>
             </tr>
           </tbody>
         </table>
       </div>
     {{/content.item}}
     {{#content.item}}
-      {{code-snippet name='toggle-switch.hbs'}}
+      {{code-snippet name="toggle-switch.hbs"}}
     {{/content.item}}
   {{/switcher.content}}
 {{/uk-switcher}}
