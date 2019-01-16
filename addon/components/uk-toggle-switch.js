@@ -55,6 +55,7 @@ export default ToggleComponent.extend({
       }
 
       // two way binding
+      // eslint-disable-next-line ember/no-side-effects
       this.set("value", value);
     };
   })

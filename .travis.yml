@@ -1,8 +1,8 @@
 ---
 language: node_js
 node_js:
-  # we recommend testing addons with the same minimum supported node version as Ember CLI
-  # so that your addon works for all apps
+  # we recommend testing addons with the same minimum supported node version as
+  # Ember CLI so that your addon works for all apps
   - "6"
 
 sudo: false
@@ -44,7 +44,7 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
-- stage: deploy
+    - stage: deploy
       script: yarn build -prod
       env: []
       if: tag IS present
@@ -72,4 +72,3 @@ after_script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f coverage/lcov.info
-
