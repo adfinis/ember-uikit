@@ -19,6 +19,7 @@
 /.DS_Store/
 /.vscode/
 *.swp
+*.swo
 
 # ember-try
 /.node_modules.ember-try/

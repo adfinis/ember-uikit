@@ -1,0 +1,10 @@
+{{#-in-element container}}
+  <div id="modal-{{elementId}}">
+    <div class="uk-modal-dialog ">
+      {{#if closable}}<button class="uk-modal-close-default" type="button" uk-close></button>{{/if}}
+      <div class="uk-modal-body">
+        {{yield}}
+      </div>
+    </div>
+  </div>
+{{/-in-element}}
