@@ -1,8 +1,5 @@
 import { computed } from "@ember/object";
 import { warn } from "@ember/debug";
-import Ember from "ember";
-
-const { testing } = Ember;
 
 export const validateValue = (value, name, options, mediaOptions) => {
   if (
@@ -17,7 +14,6 @@ export const validateValue = (value, name, options, mediaOptions) => {
       `\`${name}\` must be one of ${options
         .map(v => `'${v}'`)
         .join(", ")}. Passed was '${value}', which will therefore be ignored.`,
-      testing,
       {
         id: "ember-uikit.invalid-property"
       }
