@@ -16,6 +16,7 @@
     loading=loading
     color=color
     size=size
+    title=title
     on-click=(perform fireEvent "button-on-click")
   }}
 </div>
@@ -95,6 +96,15 @@
             </tr>
             {{color-row name="button" default="default" colors=colors value=color}}
             {{size-row name="button" sizes=(array "" "small" "large") value=size}}
+            <tr>
+              <td><code>title</code></td>
+              <td><code>String</code></td>
+              <td><code>""</code></td>
+              <td>The title of the button</td>
+              <td>
+                {{input class="uk-input" value=title}}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

@@ -35,7 +35,7 @@ export default Component.extend(
 
     classNameBindings: ["active:uk-active"],
 
-    attributeBindings: ["disabled", "type"],
+    attributeBindings: ["disabled", "type", "title"],
 
     label: "",
 
@@ -45,6 +45,8 @@ export default Component.extend(
 
     active: false,
 
-    loading: false
+    loading: false,
+
+    title: ""
   }
 );
