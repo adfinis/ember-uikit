@@ -18,6 +18,7 @@ export default Controller.extend({
   color: "default",
   size: "",
   width: "",
+  title: "",
 
   colors: BUTTON_COLOR_OPTIONS,
 

@@ -61,4 +61,10 @@ module("Integration | Component | uk button", function(hooks) {
 
     assert.ok(this.get("didClick"));
   });
+
+  test("can set title", async function(assert) {
+    await render(hbs`{{uk-button title='Click me!'}}`);
+
+    assert.dom(".uk-button").hasAttribute("title", "Click me!");
+  });
 });
