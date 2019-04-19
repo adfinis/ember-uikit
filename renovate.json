@@ -1,0 +1,45 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "packageNames": ["eslint-plugin-prettier"],
+      "matchCurrentVersion": "2.6.0"
+    },
+    {
+      "packageNames": [
+        "broccoli-asset-rev",
+        "ember-ajax",
+        "ember-cli-babel",
+        "ember-cli-dependency-checker",
+        "ember-cli-eslint",
+        "ember-cli-eslint",
+        "ember-cli-fastboot",
+        "ember-cli-htmlbars-inline-precompile",
+        "ember-cli-htmlbars",
+        "ember-cli-inject-live-reload",
+        "ember-cli-qunit",
+        "ember-cli-release",
+        "ember-cli-shims",
+        "ember-cli-sri",
+        "ember-cli-template-lint",
+        "ember-cli-uglify",
+        "ember-cli",
+        "ember-disable-prototype-extensions",
+        "ember-export-application-global",
+        "ember-load-initializers",
+        "ember-maybe-import-regenerator",
+        "ember-qunit",
+        "ember-resolver",
+        "ember-source",
+        "ember-source-channel-url",
+        "ember-try",
+        "eslint-plugin-ember",
+        "eslint-plugin-node",
+        "loader.js",
+        "qunit-dom"
+      ],
+      "groupName": "ember infrastructure",
+      "groupSlug": "ember-infra"
+    }
+  ]
+}
