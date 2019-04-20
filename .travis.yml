@@ -22,6 +22,7 @@ env:
 branches:
   only:
     - master
+    - next
     # npm version tags
     - /^v\d+\.\d+\.\d+/
 
