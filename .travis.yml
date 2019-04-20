@@ -60,11 +60,11 @@ jobs:
         on:
           branch: next
         script:
-          - npx semantic-release -d
+          - npx semantic-release
 
-    # - stage: "Deploy"
-    #   if: (branch = master or tag is present) and type = push
-    #   script: yarn ember deploy production
+    - stage: "Deploy"
+      if: (branch = master or tag is present) and type = push
+      script: yarn ember deploy production
 
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash
