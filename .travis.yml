@@ -60,7 +60,7 @@ jobs:
         on:
           branch: next
         script:
-          - npx semantic-release -d
+          - npx semantic-release
 
     - stage: "Deploy"
       if: (branch = master or tag is present) and type = push
