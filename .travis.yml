@@ -56,8 +56,10 @@ jobs:
       deploy:
         provider: script
         skip_cleanup: true
+        on:
+          branch: next
         script:
-          - npx semantic-release
+          - npx semantic-release -d
 
     # - stage: "Deploy"
     #   if: (branch = master or tag is present) and type = push
