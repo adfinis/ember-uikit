@@ -1,4 +1,10 @@
-# ember-uikit [![npm version](https://badge.fury.io/js/ember-uikit.svg)](https://www.npmjs.com/package/ember-uikit) [![Build Status](https://travis-ci.org/adfinis-sygroup/ember-uikit.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-uikit) [![codecov](https://codecov.io/gh/adfinis-sygroup/ember-uikit/branch/master/graph/badge.svg)](https://codecov.io/gh/adfinis-sygroup/ember-uikit) [![Greenkeeper badge](https://badges.greenkeeper.io/adfinis-sygroup/ember-uikit.svg)](https://greenkeeper.io/) [![Ember Observer Score](https://emberobserver.com/badges/ember-uikit.svg)](https://emberobserver.com/addons/ember-uikit)
+# ember-uikit 
+[![npm version](https://badge.fury.io/js/ember-uikit.svg)](https://www.npmjs.com/package/ember-uikit)
+[![Build Status](https://travis-ci.org/adfinis-sygroup/ember-uikit.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-uikit)
+[![codecov](https://codecov.io/gh/adfinis-sygroup/ember-uikit/branch/master/graph/badge.svg)](https://codecov.io/gh/adfinis-sygroup/ember-uikit)
+[![Greenkeeper badge](https://badges.greenkeeper.io/adfinis-sygroup/ember-uikit.svg)](https://greenkeeper.io/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-uikit.svg)](https://emberobserver.com/addons/ember-uikit)
+[![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/)
 
 This addon is a wrapper for the CSS library [UIkit](https://getuikit.com/)
 which exposes certain components to give users an easy way for using UIkit in
