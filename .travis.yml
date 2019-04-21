@@ -38,6 +38,7 @@ jobs:
     - stage: "Tests"
       name: "Tests"
       script:
+        - commitlint-travis
         - npm run lint:hbs
         - npm run lint:js
         - npm test

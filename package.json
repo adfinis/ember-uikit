@@ -47,6 +47,9 @@
     "uikit": "3.0.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/travis-cli": "^7.5.2",
     "@ember/optional-features": "0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-cli": "3.8.1",
@@ -93,5 +96,13 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "https://adfinis-sygroup.github.io/ember-uikit"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
   }
 }
