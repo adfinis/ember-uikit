@@ -31,7 +31,8 @@
     "lint:js": "eslint .",
     "start": "ember server",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.2",
@@ -52,6 +53,11 @@
     "@commitlint/travis-cli": "7.5.2",
     "@ember/optional-features": "0.7.0",
     "broccoli-asset-rev": "3.0.0",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/git": "^7.0.8",
+    "@semantic-release/github": "^5.2.10",
+    "@semantic-release/npm": "^5.1.4",
+    "@semantic-release/release-notes-generator": "^7.1.4",
     "ember-cli": "3.8.1",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-code-coverage": "0.4.2",
@@ -88,7 +94,8 @@
     "loader.js": "4.7.0",
     "prettier": "1.17.0",
     "qunit-dom": "0.8.4",
-    "sass": "1.19.0"
+    "sass": "1.19.0",
+    "semantic-release": "^15.13.3"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
