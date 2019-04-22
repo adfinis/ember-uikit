@@ -31,7 +31,8 @@
     "lint:js": "eslint .",
     "start": "ember server",
     "test": "ember test",
-    "test:all": "ember try:each"
+    "test:all": "ember try:each",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.2",
@@ -47,6 +48,7 @@
     "uikit": "3.1.2"
   },
   "devDependencies": {
+    "@adfinis-sygroup/semantic-release-config": "2.0.0",
     "@commitlint/cli": "7.6.0",
     "@commitlint/config-conventional": "7.6.0",
     "@commitlint/travis-cli": "7.6.0",
@@ -103,6 +105,11 @@
     }
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "release": {
+    "extends": "@adfinis-sygroup/semantic-release-config"
   }
 }

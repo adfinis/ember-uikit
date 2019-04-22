@@ -22,7 +22,7 @@ env:
 branches:
   only:
     - master
-    - next
+    - release
     # npm version tags
     - /^v\d+\.\d+\.\d+/
 
@@ -54,15 +54,15 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
     - stage: release
-      if: branch = next and type = push
+      if: branch = release and type = push
       script: skip
       deploy:
         provider: script
         skip_cleanup: true
         on:
-          branch: next
+          branch: release
         script:
-          - npx semantic-release
+          - yarn semantic-release
 
     - stage: "Deploy"
       if: (branch = master or tag is present) and type = push
