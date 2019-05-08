@@ -3,7 +3,6 @@
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-modal
     visible=visible
-    closable=closable
     on-submit=(action "submit")
   }}
     <h2 class="uk-modal-title">Test</h2>
@@ -48,15 +47,67 @@
               </td>
             </tr>
             <tr>
-              <td><code>closable</code></td>
+              <td><code>escClose</code></td>
               <td><code>Boolean</code></td>
               <td><code>true</code></td>
-              <td>Whether the modal can be closed (only read during initialization)</td>
+              <td>Close the modal when the <em>Esc</em> key is pressed.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>bgClose</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>true</code></td>
+              <td>Close the modal when the background is clicked.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>stack</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>true</code></td>
+              <td>Stack modals, when more than one is open. By default, the previous modal will be hidden.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>container</code></td>
+              <td><code>String</code></td>
+              <td><code>true</code></td>
+              <td>Define a target container via a selector to specify where the modal should be appended in the DOM. Setting it to <code>false</code> will prevent this behavior.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>clsPage</code></td>
+              <td><code>String</code></td>
+              <td><code>"uk-modal-page"</code></td>
+              <td>Class to add to <code>&lt;body&gt;</code> when modal is active.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>clsPanel</code></td>
+              <td><code>String</code></td>
+              <td><code>"uk-modal-dialog"</code></td>
+              <td>Class of the element to be considered the panel of the modal.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><code>selClose</code></td>
+              <td><code>String</code></td>
+              <td>
+                <code>".uk-modal-close,</code>
+                <code>.uk-modal-close-default,</code>
+                <code>.uk-modal-close-outside,</code>
+                <code>.uk-modal-close-full"</code>
+              </td>
+              <td>CSS selector for all elements that should trigger the closing of the modal.</td>
               <td></td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <p>
+        <span class="uk-label">Note</span>
+        Most of the settings are only read during initialization and can thus not be changed in the demo.
+      </p>
     {{/content.item}}
     {{#content.item}}
       {{code-snippet name="modal.hbs"}}

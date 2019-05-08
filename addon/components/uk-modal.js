@@ -7,7 +7,18 @@ import { getOwner } from "@ember/application";
 export default Component.extend({
   layout,
 
-  closable: true,
+  escClose: true,
+  bgClose: true,
+  stack: false,
+  container: true,
+  clsPage: "uk-modal-page",
+  clsPanel: "uk-modal-dialog",
+  selClose: [
+    ".uk-modal-close",
+    ".uk-modal-close-default",
+    ".uk-modal-close-outside",
+    ".uk-modal-close-full"
+  ].join(", "),
 
   init() {
     this._super(...arguments);
@@ -31,9 +42,13 @@ export default Component.extend({
     this.set(
       "modal",
       UIkit.modal(id, {
-        container: false,
-        bgClose: this.get("closable"),
-        escClose: this.get("closable")
+        escClose: this.get("escClose"),
+        bgClose: this.get("bgClose"),
+        stack: this.get("stack"),
+        container: this.get("container"),
+        clsPage: this.get("clsPage"),
+        clsPanel: this.get("clsPanel"),
+        selClose: this.get("selClose")
       })
     );
 
