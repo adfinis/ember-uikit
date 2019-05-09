@@ -7,6 +7,7 @@ import { getOwner } from "@ember/application";
 export default Component.extend({
   layout,
 
+  btnClose: true,
   escClose: true,
   bgClose: true,
   stack: false,
