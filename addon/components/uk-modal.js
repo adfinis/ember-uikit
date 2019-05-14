@@ -4,6 +4,8 @@ import UIkit from "uikit";
 import { scheduleOnce } from "@ember/runloop";
 import { getOwner } from "@ember/application";
 
+const noop = () => {};
+
 export default Component.extend({
   layout,
 
@@ -30,11 +32,11 @@ export default Component.extend({
   },
 
   _show() {
-    this.modal && this.set("visible", true);
+    this.getWithDefault("on-show", noop)();
   },
 
   _hide() {
-    this.modal && this.set("visible", false);
+    this.getWithDefault("on-hide", noop)();
   },
 
   didInsertElement() {

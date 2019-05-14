@@ -4,6 +4,8 @@
   {{#uk-modal
     visible=visible
     on-submit=(action "submit")
+    on-show=(action (mut visible) true)
+    on-hide=(action (mut visible) false)
   }}
     <h2 class="uk-modal-title">Test</h2>
     <p>Lorem Ipsum</p>
