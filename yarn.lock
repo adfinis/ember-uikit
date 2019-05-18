@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adfinis-sygroup/semantic-release-config@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@adfinis-sygroup/semantic-release-config/-/semantic-release-config-2.0.0.tgz#326e10072616f9fad223cc192b672c1f05a1c5cf"
-  integrity sha512-jLNv3LXpr66UpJmCA8GPpDXnt59pycczIswjaF9fkO587r2yAJtyauNwZs3RWUfxjDnpAcawCSyDdU0DEngUUg==
+"@adfinis-sygroup/semantic-release-config@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@adfinis-sygroup/semantic-release-config/-/semantic-release-config-2.1.0.tgz#e4d597524b75cc2acbc056fda8a601953e8c6ecd"
+  integrity sha512-LwfFGCSlYhmp3+Fqh7akT+uqzhsI9HT0lD3KYu841l93L3rkMdHezzaewYHJxb2cPPWBtCkbNgEO25h6XNdbiw==
   dependencies:
     "@commitlint/cli" "7.5.2"
     "@commitlint/config-conventional" "^7.5.0"
