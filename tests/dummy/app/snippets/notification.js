@@ -11,7 +11,7 @@ export default Controller.extend({
 
         this.notification.success("Successfully saved!");
       } catch (e) {
-        this.notification.error("Ooops! Something went wrong...");
+        this.notification.danger("Ooops! Something went wrong...");
       }
     }
   }
