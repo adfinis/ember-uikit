@@ -1,11 +1,22 @@
-# Changelog
+## [0.8.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.0...v0.8.1) (2019-05-09)
 
-All notable changes to this project will be documented in this file.
+### Bug Fixes
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+- **modal:** reintroduce option for close button ([8a719e9](https://github.com/adfinis-sygroup/ember-uikit/commit/8a719e9))
 
-## [v0.7.3] - 2019-03-11
+## [0.8.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.7.3...v0.8.0) (2019-05-08)
+
+### Bug Fixes
+
+- enable semantic release ([6a0e67a](https://github.com/adfinis-sygroup/ember-uikit/commit/6a0e67a))
+- **docs:** correct usage of `mut` helper ([79096bc](https://github.com/adfinis-sygroup/ember-uikit/commit/79096bc))
+- **renovate:** use shared config ([7117811](https://github.com/adfinis-sygroup/ember-uikit/commit/7117811))
+
+### Features
+
+- **modal:** expose all options ([5877dd4](https://github.com/adfinis-sygroup/ember-uikit/commit/5877dd4))
+
+## [0.7.3](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.7.2...v0.7.3) - (2019-03-11)
 
 ### Added
 
@@ -15,20 +26,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Update dependencies
 
-
-## [v0.7.2] - 2019-01-17
+## [0.7.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.7.1...v0.7.2) (2019-01-17)
 
 ### Changed
 
 - Update dependencies
 
-## [v0.7.1] - 2018-09-05
+## [0.7.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.7.0...v0.7.1) (2018-09-05)
 
 ### Changed
 
 - Minor style improvements of `uk-toggle-switch`
 
-## [v0.7.0] - 2018-09-05
+## [0.7.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.6.0...v0.7.0) (2018-09-05)
 
 ### Added
 
@@ -38,7 +48,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Updated various dependencies
 
-## [v0.6.0] - 2018-08-17
+## [0.6.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.5.1...v0.6.0) (2018-08-17)
 
 ### Added
 
@@ -54,13 +64,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Updated various dependencies
 - Remove mocha as testing framework in favor of QUnit
 
-## [v0.5.1] - 2018-03-29
+## [0.5.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.5.0...v0.5.1) (2018-03-29)
 
 ### Added
 
 - `ratio` property on `uk-spinner`
 
-## [v0.5.0] - 2018-02-22
+## [0.5.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.4.1...v0.5.0) (2018-02-22)
 
 ### Added
 
@@ -73,7 +83,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update dependencies
 - Remove support for node v4
 
-## [v0.4.1] - 2018-01-25
+## [0.4.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.4.0...v0.4.1) (2018-01-25)
 
 ### Fixed
 
@@ -84,7 +94,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Update dependencies
 
-## [v0.4.0] - 2017-12-06
+## [0.4.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.3.2...v0.4.0) (2017-12-06)
 
 ### Added
 
@@ -95,13 +105,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Disable warnings in testing
 - Update ember and ember-cli
 
-## [v0.3.2] - 2017-12-06
+## [0.3.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.3.1...v0.3.2) (2017-12-06)
 
 ### Fixed
 
 - Execution of UIkit's javascript code
 
-## [v0.3.1] - 2017-12-06
+## [0.3.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.3.0...v0.3.1) (2017-12-06)
 
 ### Added
 
@@ -115,7 +125,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   - `blacklist`
 - FastBoot compatibility
 
-## [v0.3.0] - 2017-11-29
+## [0.3.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.2.0...v0.3.0) (2017-11-29)
 
 ### Added
 
@@ -124,7 +134,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `uk-label`
 - Flex utility on `uk-subnav`
 
-## [v0.2.0] - 2017-11-28
+## [0.2.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.1.3...v0.2.0) (2017-11-28)
 
 ### Added
 
@@ -137,25 +147,25 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Better validation and warnings
 - Better documentation
 
-## [v0.1.3] - 2017-11-24
+## [0.1.3](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.1.2...v0.1.3) (2017-11-24)
 
 ### Fixed
 
 - Automatic demo page deploy on tags
 
-## [v0.1.2] - 2017-11-24
+## [0.1.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.1.1...v0.1.2) (2017-11-24)
 
 ### Fixed
 
 - `package.json` metadata
 
-## [v0.1.1] - 2017-11-24
+## [0.1.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.1.0...v0.1.1) (2017-11-24)
 
 ### Added
 
 - Automatic demo page deploy
 
-## [v0.1.0] - 2017-11-24
+## 0.1.0 (2017-11-24)
 
 ### Added
 
