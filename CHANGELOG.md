@@ -1,3 +1,15 @@
+## [0.8.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.1...v0.8.2) (2019-06-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies and drop ember-cli-eslint ([1a6023d](https://github.com/adfinis-sygroup/ember-uikit/commit/1a6023d))
+* **deps:** update ember source ([3d293ba](https://github.com/adfinis-sygroup/ember-uikit/commit/3d293ba))
+* **modal:** add DDAU for modal visibility ([#140](https://github.com/adfinis-sygroup/ember-uikit/issues/140)) ([6a3ddef](https://github.com/adfinis-sygroup/ember-uikit/commit/6a3ddef))
+* **notification:** wrong property in snippet ([f925d47](https://github.com/adfinis-sygroup/ember-uikit/commit/f925d47))
+* **syntax:** use the new template syntax ([142aa3a](https://github.com/adfinis-sygroup/ember-uikit/commit/142aa3a))
+* **tests:** fix wrong attribute in uk-toggle-switch test ([73be406](https://github.com/adfinis-sygroup/ember-uikit/commit/73be406))
+
 ## [0.8.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.0...v0.8.1) (2019-05-09)
 
 ### Bug Fixes
