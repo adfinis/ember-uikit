@@ -7,29 +7,31 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route("components", function() {
-    this.route("badge");
-    this.route("button");
-    this.route("card");
-    this.route("icon");
-    this.route("label");
-    this.route("list");
-    this.route("modal");
-    this.route("sortable");
-    this.route("spinner");
-    this.route("subnav");
-    this.route("switcher");
-    this.route("tab");
-    this.route("toggle-switch");
-  });
+  this.route("docs", function() {
+    this.route("components", function() {
+      this.route("badge");
+      this.route("button");
+      this.route("card");
+      this.route("icon");
+      this.route("label");
+      this.route("list");
+      this.route("modal");
+      this.route("sortable");
+      this.route("spinner");
+      this.route("subnav");
+      this.route("switcher");
+      this.route("tab");
+      this.route("toggle-switch");
+    });
 
-  this.route("utilities", function() {
-    this.route("flex");
-    this.route("width");
-  });
+    this.route("utilities", function() {
+      this.route("flex");
+      this.route("width");
+    });
 
-  this.route("services", function() {
-    this.route("notification");
+    this.route("services", function() {
+      this.route("notification");
+    });
   });
 });
 
