@@ -39,7 +39,7 @@ module("Integration | Component | uk-toggle-switch", function(hooks) {
 
   test("can set labels", async function(assert) {
     await render(
-      hbs`{{uk-toggle-switch onLabel='On' offLabel='Off' showLabel=true}}`
+      hbs`{{uk-toggle-switch onLabel='On' offLabel='Off' showLabels=true}}`
     );
 
     assert.dom("label.on-label").hasText("On");
