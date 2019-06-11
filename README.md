@@ -1,6 +1,6 @@
 # ember-uikit 
 [![npm version](https://badge.fury.io/js/ember-uikit.svg)](https://www.npmjs.com/package/ember-uikit)
-[![Build Status](https://travis-ci.org/adfinis-sygroup/ember-uikit.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-uikit)
+[![Build Status](https://travis-ci.com/adfinis-sygroup/ember-uikit.svg?branch=master)](https://travis-ci.com/adfinis-sygroup/ember-uikit)
 [![codecov](https://codecov.io/gh/adfinis-sygroup/ember-uikit/branch/master/graph/badge.svg)](https://codecov.io/gh/adfinis-sygroup/ember-uikit)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-uikit.svg)](https://emberobserver.com/addons/ember-uikit)
