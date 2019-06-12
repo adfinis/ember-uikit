@@ -12,8 +12,6 @@ ember apps.
 
 `ember-uikit` is heavily inspired by [Vuikit](https://github.com/vuikit/vuikit) which does a tremendous job in bringing UIkit to Vue apps.
 
-**WARNING: This addon is still in alpha! Contributions are very welcome.**
-
 ## Installation
 
 Install the ember-cli addon in your ember-cli project:
