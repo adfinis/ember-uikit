@@ -58,5 +58,4 @@ module("Integration | Component | uk switcher/content/item", function(hooks) {
     assert.ok(this.get("hide"));
     assert.ok(this.get("hidden"));
   });
-
 });
