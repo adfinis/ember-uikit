@@ -56,7 +56,7 @@ export default Component.extend({
     );
 
     UIkit.util.on(id, "show", () => this._show());
-    UIkit.util.on(id, "hide", () => this._hide());
+    UIkit.util.on(id, "hidden", () => this._hide());
   },
 
   didReceiveAttrs() {
