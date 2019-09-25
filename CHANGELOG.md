@@ -1,3 +1,21 @@
+# [0.9.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.2...v0.9.0) (2019-09-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency broccoli-stew to v3 ([ffe911f](https://github.com/adfinis-sygroup/ember-uikit/commit/ffe911f))
+* **deps:** update dependency ember-auto-import to v1.4.1 ([f5c5eb7](https://github.com/adfinis-sygroup/ember-uikit/commit/f5c5eb7))
+* **deps:** update dependency ember-auto-import to v1.5.2 ([ef9e943](https://github.com/adfinis-sygroup/ember-uikit/commit/ef9e943))
+* **deps:** update dependency ember-toggle to v5.3.3 ([001904f](https://github.com/adfinis-sygroup/ember-uikit/commit/001904f))
+* **deps:** update dependency uikit to v3.1.6 ([f58e597](https://github.com/adfinis-sygroup/ember-uikit/commit/f58e597))
+* **deps:** update dependency uikit to v3.1.7 ([09977cc](https://github.com/adfinis-sygroup/ember-uikit/commit/09977cc))
+* **modal:** escape close left invisible layer over page ([96aa259](https://github.com/adfinis-sygroup/ember-uikit/commit/96aa259))
+
+
+### Features
+
+* **uk-switcher:** add uikit events for the switcher component ([6561c12](https://github.com/adfinis-sygroup/ember-uikit/commit/6561c12))
+
 ## [0.8.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.1...v0.8.2) (2019-06-11)
 
 
