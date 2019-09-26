@@ -5302,15 +5302,14 @@ ember-composable-helpers@2.3.1:
     ember-cli-babel "^7.1.0"
     resolve "^1.10.0"
 
-ember-concurrency@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.0.0.tgz#3b650672fdd5dc1d45007626119135829076c2b6"
-  integrity sha512-76aKC0lo2LAPoQYz7vMRlpolWTIQerszr8PPf3JMM5cTOzPwXUtzDcjfso3JAEDdhyUF9fkv2V1DmHagFbC2YQ==
+ember-concurrency@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.1.0.tgz#955f6961937c655ecc6ee4c3213e1191dc227ba3"
+  integrity sha512-izwePurc0CMGSvyuZeEyjFrTVBTBQV2k7eYP/b+jYCdh5+J+ajSnx8UYIJ38E7lCukDzeTjDBrQjJxLCNzvDFg==
   dependencies:
-    babel-core "^6.24.1"
-    ember-cli-babel "^6.8.2"
+    ember-cli-babel "^7.7.3"
     ember-compatibility-helpers "^1.2.0"
-    ember-maybe-import-regenerator "^0.1.5"
+    ember-maybe-import-regenerator "^0.1.6"
 
 ember-copy@^1.0.0:
   version "1.0.0"
@@ -5388,7 +5387,7 @@ ember-load-initializers@2.1.0:
     ember-cli-babel "^7.10.0"
     ember-cli-typescript "^2.0.0"
 
-ember-maybe-import-regenerator@0.1.6, ember-maybe-import-regenerator@^0.1.5:
+ember-maybe-import-regenerator@0.1.6, ember-maybe-import-regenerator@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/ember-maybe-import-regenerator/-/ember-maybe-import-regenerator-0.1.6.tgz#35d41828afa6d6a59bc0da3ce47f34c573d776ca"
   integrity sha1-NdQYKK+m1qWbwNo85H80xXPXdso=
