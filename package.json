@@ -51,7 +51,7 @@
     "@adfinis-sygroup/semantic-release-config": "2.1.4",
     "@ember/optional-features": "0.7.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-cli": "~3.11.0",
+    "ember-cli": "~3.13.0",
     "ember-cli-app-version": "3.2.0",
     "ember-cli-code-coverage": "0.4.2",
     "ember-cli-dependency-checker": "3.2.0",
