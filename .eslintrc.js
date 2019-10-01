@@ -1,5 +1,6 @@
 module.exports = {
   root: true,
+  parser: "babel-eslint",
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: "module"
@@ -13,7 +14,11 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {},
+  rules: {
+    "ember/no-jquery": "error",
+    // https://github.com/adfinis-sygroup/ember-uikit/issues/238
+    "ember/no-new-mixins": "warn"
+  },
   overrides: [
     // node files
     {

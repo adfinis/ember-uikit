@@ -60,13 +60,19 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
-    scheduleOnce("afterRender", () => {
-      this.visible ? this.modal.show() : this.modal.hide();
-    });
+    scheduleOnce("afterRender", this, "initVisible");
   },
 
   willDestroyElement() {
     this.modal.$el.parentNode.removeChild(this.modal.$el);
     this.set("modal", null);
+  },
+
+  initVisible() {
+    if (this.visible) {
+      this.modal.show();
+    } else {
+      this.modal.hide();
+    }
   }
 });
