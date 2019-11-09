@@ -17,11 +17,7 @@ module("Unit | Mixin | width", function() {
 
     subject.set(
       "width",
-      `${GRID_OPTIONS["1_OF_1"]} ${GRID_OPTIONS["1_OF_2"]}${
-        MEDIA_OPTIONS.MEDIUM
-      } ${FIXED_OPTIONS.MEDIUM}${MEDIA_OPTIONS.LARGE} ${SPECIAL_OPTIONS.AUTO}${
-        MEDIA_OPTIONS.XLARGE
-      }`
+      `${GRID_OPTIONS["1_OF_1"]} ${GRID_OPTIONS["1_OF_2"]}${MEDIA_OPTIONS.MEDIUM} ${FIXED_OPTIONS.MEDIUM}${MEDIA_OPTIONS.LARGE} ${SPECIAL_OPTIONS.AUTO}${MEDIA_OPTIONS.XLARGE}`
     );
 
     assert.equal(
