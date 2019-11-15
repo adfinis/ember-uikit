@@ -1,4 +1,5 @@
 import Component from "@ember/component";
+import { computed } from "@ember/object";
 import layout from "../templates/components/uk-modal";
 import UIkit from "uikit";
 import { scheduleOnce } from "@ember/runloop";
@@ -23,56 +24,69 @@ export default Component.extend({
     ".uk-modal-close-full"
   ].join(", "),
 
+  modalId: computed("elementId", function() {
+    return `modal-${this.elementId}`;
+  }),
+
+  containerElement: computed("container", function() {
+    return getOwner(this)
+      .lookup("service:-document")
+      .querySelector(this.container);
+  }),
+
   init() {
     this._super(...arguments);
 
-    const { APP } = getOwner(this).resolveRegistration("config:environment");
+    const config = getOwner(this).resolveRegistration("config:environment");
 
-    this.set("container", document.querySelector(APP.rootElement || "body"));
-  },
-
-  _show() {
-    this.getWithDefault("on-show", noop)();
-  },
-
-  _hide() {
-    this.getWithDefault("on-hide", noop)();
+    this.set("container", config.APP.rootElement || "body");
   },
 
   didInsertElement() {
-    const id = `#modal-${this.elementId}`;
-
     this.set(
       "modal",
-      UIkit.modal(id, {
-        escClose: this.get("escClose"),
-        bgClose: this.get("bgClose"),
-        stack: this.get("stack"),
-        container: this.get("container"),
-        clsPage: this.get("clsPage"),
-        clsPanel: this.get("clsPanel"),
-        selClose: this.get("selClose")
-      })
+      UIkit.modal(
+        `#${this.modalId}`,
+        this.getProperties(
+          "escClose",
+          "bgClose",
+          "stack",
+          "container",
+          "clsPage",
+          "clsPanel",
+          "selClose"
+        )
+      )
     );
-
-    UIkit.util.on(id, "show", () => this._show());
-    UIkit.util.on(id, "hidden", () => this._hide());
   },
 
   didReceiveAttrs() {
-    scheduleOnce("afterRender", this, "initVisible");
+    scheduleOnce("afterRender", this, "toggleModal");
   },
 
   willDestroyElement() {
-    this.modal.$el.parentNode.removeChild(this.modal.$el);
-    this.set("modal", null);
+    if (this.modal) {
+      this.modal.$destroy(true);
+
+      this.set("modal", null);
+    }
   },
 
-  initVisible() {
+  toggleModal() {
+    if (!this.modal) return;
+
     if (this.visible) {
       this.modal.show();
+
+      UIkit.util.on(`#${this.modalId}`, "hidden", () =>
+        this.getWithDefault("on-hide", noop)
+      );
     } else {
       this.modal.hide();
+
+      UIkit.util.on(`#${this.modalId}`, "show", () =>
+        this.getWithDefault("on-show", noop)
+      );
     }
   }
 });

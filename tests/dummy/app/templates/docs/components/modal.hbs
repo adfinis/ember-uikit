@@ -3,7 +3,6 @@
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-modal
     visible=visible
-    on-submit=(action "submit")
     on-show=(action (mut visible) true)
     on-hide=(action (mut visible) false)
   }}
