@@ -1,3 +1,34 @@
+# [1.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.9.0...v1.0.0) (2019-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency broccoli-stew to v3 ([0e8399c](https://github.com/adfinis-sygroup/ember-uikit/commit/0e8399c9dae3a2f3a1abbcda27ff5d7fb180ae30))
+* **deps:** update dependency ember-auto-import to v1.4.1 ([cf6f84a](https://github.com/adfinis-sygroup/ember-uikit/commit/cf6f84af8f1ba86603c8a457c27d7aab08775fec))
+* **deps:** update dependency ember-auto-import to v1.5.2 ([ed75c5a](https://github.com/adfinis-sygroup/ember-uikit/commit/ed75c5a92163ed650c2ce4ee5be100dfdf3a5404))
+* **deps:** update dependency ember-toggle to v5.3.3 ([9c45df0](https://github.com/adfinis-sygroup/ember-uikit/commit/9c45df0070dedb4a5c21a9faa25148484e6398c5))
+* **deps:** update dependency uikit to v3.1.6 ([2c4ebd6](https://github.com/adfinis-sygroup/ember-uikit/commit/2c4ebd6b64e15dc1cb1efdbef1b0f199be0a131c))
+* **deps:** update dependency uikit to v3.1.7 ([4fde8c1](https://github.com/adfinis-sygroup/ember-uikit/commit/4fde8c1535da11ec4ff58396c11bce98cce5d9d1))
+* **modal:** escape close left invisible layer over page ([4653783](https://github.com/adfinis-sygroup/ember-uikit/commit/4653783353587ca218397cb89474d2b2dea95955))
+* **modal:** fix modal event handling and add some tests ([916b68b](https://github.com/adfinis-sygroup/ember-uikit/commit/916b68bee671793a7b1bc0915b03ebda2dab029f))
+
+
+### chore
+
+* remove support for ember 3.4 ([cacbd22](https://github.com/adfinis-sygroup/ember-uikit/commit/cacbd22ce5244d0ccc182fabdbbe360e497d8fcf))
+
+
+### Features
+
+* **uk-switcher:** add uikit events for the switcher component ([641bdaf](https://github.com/adfinis-sygroup/ember-uikit/commit/641bdafa75fd6f634902fd9716a879554af1321e))
+
+
+### BREAKING CHANGES
+
+* This removes support for ember 3.4 which is not a
+supported LTS version anymore. This also adds a test matrix for the
+latest LTS version 3.12
+
 # [0.9.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.8.2...v0.9.0) (2019-09-25)
 
 
