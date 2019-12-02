@@ -10,15 +10,15 @@ module("Integration | Component | uk-modal/body", function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<UkModal::Body />`);
+    await render(hbs`{{uk-modal/body}}`);
 
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
     await render(hbs`
-      <UkModal::Body>
+      {{#uk-modal/body}}
         template block text
-      </UkModal::Body>
+      {{/uk-modal/body}}
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");

@@ -10,15 +10,15 @@ module("Integration | Component | uk-modal/footer", function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<UkModal::Footer />`);
+    await render(hbs`{{uk-modal/header}}`);
 
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
     await render(hbs`
-      <UkModal::Footer>
+      {{#uk-modal/header}}
         template block text
-      </UkModal::Footer>
+      {{/uk-modal/header}}
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");
