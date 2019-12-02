@@ -10,8 +10,10 @@ module("Integration | Component | uk-modal", function(hooks) {
     assert.expect(1);
 
     await render(hbs`
-      {{#uk-modal}}
-        <h2>Test</h2>
+      {{#uk-modal as |modal|}}
+        {{#modal.header}}
+          <h2>Test</h2>
+        {{/modal.header}}
       {{/uk-modal}}
     `);
 
@@ -25,7 +27,15 @@ module("Integration | Component | uk-modal", function(hooks) {
 
     await render(hbs`
       {{#uk-modal visible=true}}
-        <h2>Test</h2>
+        {{#modal.header}}
+          <h2>Test</h2>
+        {{/modal.header}}
+        {{#modal.body}}
+          <p>Lorem ipsum</p>
+        {{/modal.body}}
+        {{#modal.footer class="uk-text-right"}}
+          <button></button>
+        {{/modal.footer}}
       {{/uk-modal}}
     `);
 
@@ -41,7 +51,9 @@ module("Integration | Component | uk-modal", function(hooks) {
 
     await render(hbs`
       {{#uk-modal visible=true on-hide=hide}}
-        <h2>Test</h2>
+        {{#modal.header}}
+          <h2>Test</h2>
+        {{/modal.header}}
       {{/uk-modal}}
     `);
 

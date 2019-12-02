@@ -1,9 +1,13 @@
-{{#uk-modal visible=visible on-hide=(action (mut visible) false)}}
-  <h2 class="uk-modal-title">Attention</h2>
-  <p>Do you really want to proceed?</p>
-  <p class="uk-text-right">
+{{#uk-modal visible=visible on-hide=(action (mut visible) false) as |modal|}}
+  {{#modal.header}}
+    <h2 class="uk-modal-title">Attention</h2>
+  {{/modal.header}}
+  {{#modal.body}}
+    <p>Do you really want to proceed?</p>
+  {{/modal.body}}
+  {{#modal.footer class="uk-text-right"}}
     {{uk-button color="primary" label="Ok" on-click=(action "submit")}}
-  </p>
+  {{/modal.footer}}
 {{/uk-modal}}
 
 {{uk-button label="Open modal" on-click=(action (mut visible) true)}}
