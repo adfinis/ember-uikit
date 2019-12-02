@@ -1,3 +1,45 @@
+# [2.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v1.0.0...v2.0.0) (2019-12-02)
+
+
+### Features
+
+* **modal:** change to a composable component ([#307](https://github.com/adfinis-sygroup/ember-uikit/issues/307)) ([ee42813](https://github.com/adfinis-sygroup/ember-uikit/commit/ee42813f7717bd2762da376a4c81bafee5abbbbe))
+
+
+### BREAKING CHANGES
+
+* **modal:** This removes the default stying of "uk-modal-body", to
+migrate to this patch and keep the stying it will have to be changed from:
+```hbs
+{{#uk-modal}}
+  Lorem ipsum
+{{/uk-modal}}
+```
+to:
+```hbs
+{{#uk-modal as |modal|}}
+  {{#modal.body}}
+    Lorem ipsum
+  {{/modal.body}}
+{{/uk-modal}}
+```
+The footer can be migrated as follows:
+```hbs
+{{#uk-modal}}
+  <p class="uk-text-right">
+    Footer content
+  </p>
+{{/uk-modal}}
+```
+to:
+```hbs
+{{#uk-modal as |modal|}}
+  {{#modal.footer class="uk-text-right"}}
+    Footer content
+  {{/modal.footer}}
+{{/uk-modal}}
+```
+
 # [1.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v0.9.0...v1.0.0) (2019-11-18)
 
 
