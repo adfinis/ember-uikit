@@ -10,6 +10,8 @@ const noop = () => {};
 export default Component.extend({
   layout,
 
+  modalClass: "",
+  dialogClass: "",
   btnClose: true,
   escClose: true,
   bgClose: true,

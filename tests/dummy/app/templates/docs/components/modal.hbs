@@ -3,14 +3,23 @@
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   {{#uk-modal
     visible=visible
+    btnClose=btnClose
+    modalClass=modalClass
+    dialogClass=dialogClass
     on-show=(action (mut visible) true)
     on-hide=(action (mut visible) false)
+    as |modal|
   }}
-    <h2 class="uk-modal-title">Test</h2>
-    <p>Lorem Ipsum</p>
-    <p class="uk-text-right">
+
+    {{#modal.header}}
+      <h2 class="uk-modal-title">Test</h2>
+    {{/modal.header}}
+    {{#modal.body uk-modal-overflow-auto}}
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    {{/modal.body}}
+    {{#modal.footer class="uk-text-right"}}
       {{uk-button color="primary" label="Submit" on-click=(action "submit")}}
-    </p>
+    {{/modal.footer}}
   {{/uk-modal}}
 
   {{uk-button label="Open modal" on-click=(action (mut visible true))}}
@@ -46,6 +55,29 @@
               <td>
                 {{input type="checkbox" class="uk-checkbox" checked=visible}}
               </td>
+            </tr>
+            <tr>
+              <td><code>btnClose</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>true</code></td>
+              <td>Whether a button to close the modal should show up in the top right corner or not</td>
+              <td>
+                {{input type="checkbox" class="uk-checkbox" checked=btnClose}}
+              </td>
+            </tr>
+            <tr>
+              <td><code>modalClass</code></td>
+              <td><code>String</code></td>
+              <td><code>""</code></td>
+              <td>Add CSS classes to the modal.</td>
+              <td>{{input class="uk-input" value=modalClass}}</td>
+            </tr>
+            <tr>
+              <td><code>dialogClass</code></td>
+              <td><code>String</code></td>
+              <td><code>""</code></td>
+              <td>Add CSS classes to the dialog.</td>
+              <td>{{input class="uk-input" value=dialogClass}}</td>
             </tr>
             <tr>
               <td><code>escClose</code></td>
