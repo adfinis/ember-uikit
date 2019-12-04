@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.0.0...v2.0.1) (2019-12-04)
+
+
+### Bug Fixes
+
+* **modal:** fix modal event handling and tests ([#311](https://github.com/adfinis-sygroup/ember-uikit/issues/311)) ([c7f8156](https://github.com/adfinis-sygroup/ember-uikit/commit/c7f815655fbaf3ff907b1da6797b2fa543bb945a))
+
 # [2.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v1.0.0...v2.0.0) (2019-12-02)
 
 
