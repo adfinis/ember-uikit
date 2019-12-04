@@ -1,5 +1,5 @@
 {{#-in-element containerElement}}
-  <div id={{this.modalId}} class={{@modalClass}}>
+  <div id={{this.modalId}} class={{@modalClass}} data-test-animating={{this.isAnimating}}>
     <div class="uk-modal-dialog {{@dialogClass}}">
       {{#if this.btnClose}}<button class="uk-modal-close-default" type="button" uk-close></button>{{/if}}
       {{yield (hash

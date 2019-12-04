@@ -26,8 +26,14 @@ export default Component.extend({
     ".uk-modal-close-full"
   ].join(", "),
 
+  isAnimating: false,
+
   modalId: computed("elementId", function() {
     return `modal-${this.elementId}`;
+  }),
+
+  modalSelector: computed("modalId", function() {
+    return `#${this.modalId}`;
   }),
 
   containerElement: computed("container", function() {
@@ -42,6 +48,34 @@ export default Component.extend({
     const config = getOwner(this).resolveRegistration("config:environment");
 
     this.set("container", config.APP.rootElement || "body");
+
+    this.set("eventHandlers", {
+      hidden: async () => {
+        if (this.visible) {
+          await this.getWithDefault("on-hide", noop)();
+        }
+
+        this.set("isAnimating", false);
+      },
+
+      show: async () => {
+        if (!this.visible) {
+          await this.getWithDefault("on-show", noop)();
+        }
+      },
+
+      shown: () => {
+        this.set("isAnimating", false);
+      },
+
+      beforehide: () => {
+        this.set("isAnimating", true);
+      },
+
+      beforeshow: () => {
+        this.set("isAnimating", true);
+      }
+    });
   },
 
   didInsertElement() {
@@ -60,6 +94,8 @@ export default Component.extend({
         )
       )
     );
+
+    scheduleOnce("afterRender", this, "_setupEvents");
   },
 
   didReceiveAttrs() {
@@ -68,27 +104,41 @@ export default Component.extend({
 
   willDestroyElement() {
     if (this.modal) {
+      this._teardownEvents();
+
       this.modal.$destroy(true);
 
       this.set("modal", null);
     }
   },
 
-  toggleModal() {
+  _setupEvents() {
+    Object.keys(this.eventHandlers).forEach(event => {
+      UIkit.util.on(
+        this.modalSelector,
+        event,
+        this.get(`eventHandlers.${event}`)
+      );
+    });
+  },
+
+  _teardownEvents() {
+    Object.keys(this.eventHandlers).forEach(event => {
+      UIkit.util.off(
+        this.modalSelector,
+        event,
+        this.get(`eventHandlers.${event}`)
+      );
+    });
+  },
+
+  async toggleModal() {
     if (!this.modal) return;
 
     if (this.visible) {
-      this.modal.show();
-
-      UIkit.util.on(`#${this.modalId}`, "hidden", () =>
-        this.getWithDefault("on-hide", noop)
-      );
+      await this.modal.show();
     } else {
-      this.modal.hide();
-
-      UIkit.util.on(`#${this.modalId}`, "show", () =>
-        this.getWithDefault("on-show", noop)
-      );
+      await this.modal.hide();
     }
   }
 });

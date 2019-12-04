@@ -1,6 +1,6 @@
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render, settled, triggerKeyEvent } from "@ember/test-helpers";
+import { render, click, waitFor } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
 module("Integration | Component | uk-modal", function(hooks) {
@@ -17,8 +17,6 @@ module("Integration | Component | uk-modal", function(hooks) {
       {{/uk-modal}}
     `);
 
-    await settled();
-
     assert.dom(".uk-modal.uk-open").doesNotExist();
   });
 
@@ -26,7 +24,7 @@ module("Integration | Component | uk-modal", function(hooks) {
     assert.expect(1);
 
     await render(hbs`
-      {{#uk-modal visible=true}}
+      {{#uk-modal visible=true as |modal|}}
         {{#modal.header}}
           <h2>Test</h2>
         {{/modal.header}}
@@ -39,30 +37,25 @@ module("Integration | Component | uk-modal", function(hooks) {
       {{/uk-modal}}
     `);
 
-    await settled();
-
     assert.dom(".uk-modal.uk-open").exists();
   });
 
   test("it triggers the on-hide action", async function(assert) {
     assert.expect(3);
 
-    this.set("hide", assert.step("hide"));
+    this.set("hide", () => assert.step("hide"));
 
     await render(hbs`
-      {{#uk-modal visible=true on-hide=hide}}
+      {{#uk-modal visible=true on-hide=this.hide as |modal|}}
         {{#modal.header}}
           <h2>Test</h2>
         {{/modal.header}}
       {{/uk-modal}}
     `);
 
-    await settled();
-
-    // close by pressing esc
-    await triggerKeyEvent(".uk-modal", "keydown", 27);
-
-    await settled();
+    // close by pressing close button
+    await click(".uk-modal .uk-close");
+    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
 
     assert.dom(".uk-modal.uk-open").doesNotExist();
     assert.verifySteps(["hide"]);
