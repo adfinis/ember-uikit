@@ -50,30 +50,40 @@ export default Component.extend({
     this.set("container", config.APP.rootElement || "body");
 
     this.set("eventHandlers", {
-      hidden: async () => {
-        if (this.visible) {
-          await this.getWithDefault("on-hide", noop)();
-        }
+      hidden: async event => {
+        if (event.currentTarget === event.target) {
+          if (this.visible) {
+            await this.getWithDefault("on-hide", noop)();
+          }
 
-        this.set("isAnimating", false);
-      },
-
-      show: async () => {
-        if (!this.visible) {
-          await this.getWithDefault("on-show", noop)();
+          this.set("isAnimating", false);
         }
       },
 
-      shown: () => {
-        this.set("isAnimating", false);
+      show: async event => {
+        if (event.currentTarget === event.target) {
+          if (!this.visible) {
+            await this.getWithDefault("on-show", noop)();
+          }
+        }
       },
 
-      beforehide: () => {
-        this.set("isAnimating", true);
+      shown: event => {
+        if (event.currentTarget === event.target) {
+          this.set("isAnimating", false);
+        }
       },
 
-      beforeshow: () => {
-        this.set("isAnimating", true);
+      beforehide: event => {
+        if (event.currentTarget === event.target) {
+          this.set("isAnimating", true);
+        }
+      },
+
+      beforeshow: event => {
+        if (event.currentTarget === event.target) {
+          this.set("isAnimating", true);
+        }
       }
     });
   },
