@@ -1,6 +1,12 @@
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render, click, waitFor } from "@ember/test-helpers";
+import {
+  render,
+  click,
+  waitFor,
+  triggerEvent,
+  settled
+} from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
 module("Integration | Component | uk-modal", function(hooks) {
@@ -59,5 +65,25 @@ module("Integration | Component | uk-modal", function(hooks) {
 
     assert.dom(".uk-modal.uk-open").doesNotExist();
     assert.verifySteps(["hide"]);
+  });
+
+  test("it ignores bubbling events", async function(assert) {
+    assert.expect(2);
+
+    this.set("hide", () => assert.step("hide"));
+
+    await render(hbs`
+      {{#uk-modal visible=true on-hide=this.hide as |modal|}}
+        {{#modal.body}}
+          <button data-test-target>Target</button>
+        {{/modal.body}}
+      {{/uk-modal}}
+    `);
+
+    await triggerEvent("[data-test-target]", "hidden");
+    await settled();
+
+    assert.dom(".uk-modal.uk-open").exists();
+    assert.verifySteps([]);
   });
 });
