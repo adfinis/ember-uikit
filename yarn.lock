@@ -5656,10 +5656,10 @@ ember-test-waiters@^1.1.1:
   dependencies:
     ember-cli-babel "^7.1.2"
 
-ember-toggle@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-6.0.1.tgz#e27e2746c0802de4712798ed75b7aa103c3e7009"
-  integrity sha512-8Tixs/wwfYHoZ13ElNDQpXVzusXv+Rs8NxlcN3KuKDsn1/ZZtqEDdDm59Thsz97BYXwI6uAOnFM/Fdbqilj/Mw==
+ember-toggle@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-6.0.2.tgz#6978f2253f9b4dd7f6b90ac40905b9c9b789b85c"
+  integrity sha512-rsuB58s0v1SMPsHi6bgHVzrETpUGVGuOHSpXcjDyaYZ8Jdjvj3rtALX9VbZk4czZnxi6RWi9aT9JBtURv8RD+g==
   dependencies:
     ember-cli-babel "^7.7.3"
     ember-cli-htmlbars "^3.0.1"
