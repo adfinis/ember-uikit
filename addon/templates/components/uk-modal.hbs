@@ -1,9 +1,9 @@
 {{#-in-element containerElement}}
   <div id={{this.modalId}} class={{@modalClass}} data-test-animating={{this.isAnimating}}>
-    <div class="uk-modal-dialog {{@dialogClass}}">
+    <div class="uk-modal-dialog {{@dialogClass}}" role="dialog" aria-modal="true" aria-labelledby={{concat this.modalId "-header"}} {{focus-trap isActive=this.visible focusTrapOptions=(hash initialFocus=(concat this.modalSelector " .uk-modal-dialog"))}}>
       {{#if this.btnClose}}<button class="uk-modal-close-default" type="button" uk-close></button>{{/if}}
       {{yield (hash
-        header = (component "uk-modal/header")
+        header = (component "uk-modal/header" id=(concat this.modalId "-header"))
         body = (component "uk-modal/body")
         footer = (component "uk-modal/footer")
       )}}
