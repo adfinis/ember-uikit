@@ -1,3 +1,15 @@
+# [2.1.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.0.1...v2.1.0) (2020-03-19)
+
+
+### Bug Fixes
+
+* **modal:** ignore bubbling events ([fe6b593](https://github.com/adfinis-sygroup/ember-uikit/commit/fe6b593a10409ed6ea67b97dda201e2b95e777c7))
+
+
+### Features
+
+* **modal:** trap focus in opened modal ([0393967](https://github.com/adfinis-sygroup/ember-uikit/commit/0393967614f1ffcab9d06b7549067c1f4d62ec50))
+
 ## [2.0.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.0.0...v2.0.1) (2019-12-04)
 
 
