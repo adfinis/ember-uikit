@@ -1,3 +1,11 @@
+## [2.1.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.0...v2.1.1) (2020-03-24)
+
+
+### Bug Fixes
+
+* **deps:** move focus-trap to dependencies ([636a681](https://github.com/adfinis-sygroup/ember-uikit/commit/636a68107b681241f4d9ad74f20df1dea7e93eec))
+* **deps:** update ember to 3.16.5 ([02b5d65](https://github.com/adfinis-sygroup/ember-uikit/commit/02b5d650539326133a0b38d163648f6a58bb0349))
+
 # [2.1.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.0.1...v2.1.0) (2020-03-19)
 
 
