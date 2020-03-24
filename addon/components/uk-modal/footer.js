@@ -6,5 +6,5 @@ export default Component.extend({
 
   tagName: "div",
 
-  classNames: ["uk-modal-footer"]
+  classNames: ["uk-modal-footer"],
 });

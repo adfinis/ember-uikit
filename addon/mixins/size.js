@@ -5,7 +5,7 @@ import validatedComputedProperty from "ember-uikit/-private/validated-computed-p
 export const SIZE_OPTIONS = {
   DEFAULT: "",
   SMALL: "small",
-  LARGE: "large"
+  LARGE: "large",
 };
 
 export default Mixin.create({
@@ -17,10 +17,10 @@ export default Mixin.create({
 
   size: validatedComputedProperty("_size", "size", "SIZE_OPTIONS"),
 
-  sizeClass: computed("_size", function() {
+  sizeClass: computed("_size", function () {
     return (
       this.get("size") &&
       this.get("sizeTemplate").replace(/\$size\$/, this.get("size"))
     );
-  })
+  }),
 });

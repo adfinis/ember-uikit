@@ -6,5 +6,5 @@ export default Component.extend({
 
   tagName: "span",
 
-  classNames: ["uk-badge"]
+  classNames: ["uk-badge"],
 });

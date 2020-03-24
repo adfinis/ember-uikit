@@ -7,5 +7,5 @@ export default Controller.extend({
   size: "",
   width: "1-1 1-2@m",
 
-  colors: CARD_COLOR_OPTIONS
+  colors: CARD_COLOR_OPTIONS,
 });

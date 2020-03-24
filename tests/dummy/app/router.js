@@ -3,12 +3,12 @@ import config from "./config/environment";
 
 const Router = EmberRouter.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
 });
 
-Router.map(function() {
-  this.route("docs", function() {
-    this.route("components", function() {
+Router.map(function () {
+  this.route("docs", function () {
+    this.route("components", function () {
       this.route("badge");
       this.route("button");
       this.route("card");
@@ -24,12 +24,12 @@ Router.map(function() {
       this.route("toggle-switch");
     });
 
-    this.route("utilities", function() {
+    this.route("utilities", function () {
       this.route("flex");
       this.route("width");
     });
 
-    this.route("services", function() {
+    this.route("services", function () {
       this.route("notification");
     });
   });

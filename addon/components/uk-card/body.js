@@ -4,5 +4,5 @@ import layout from "../../templates/components/uk-card/body";
 export default Component.extend({
   layout,
 
-  classNames: ["uk-card-body"]
+  classNames: ["uk-card-body"],
 });

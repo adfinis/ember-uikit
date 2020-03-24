@@ -7,7 +7,7 @@ export default Component.extend({
 
   animation: "",
 
-  contentId: computed("elementId", function() {
+  contentId: computed("elementId", function () {
     return `uk-switcher-content-${this.get("elementId")}`;
-  })
+  }),
 });

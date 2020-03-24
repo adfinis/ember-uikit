@@ -5,11 +5,11 @@ import FlexMixin, {
   FLEX_VERTICAL_OPTIONS,
   FLEX_DIRECTION_OPTIONS,
   FLEX_WRAP_OPTIONS,
-  FLEX_WRAP_ALIGNMENT_OPTIONS
+  FLEX_WRAP_ALIGNMENT_OPTIONS,
 } from "ember-uikit/mixins/flex";
 
-module("Unit | Mixin | flex", function() {
-  test("computes flex horizontal", function(assert) {
+module("Unit | Mixin | flex", function () {
+  test("computes flex horizontal", function (assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
@@ -19,7 +19,7 @@ module("Unit | Mixin | flex", function() {
     assert.equal(subject.get("flexHorizontalClass"), "uk-flex-center");
   });
 
-  test("computes flex vertical", function(assert) {
+  test("computes flex vertical", function (assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
@@ -29,7 +29,7 @@ module("Unit | Mixin | flex", function() {
     assert.equal(subject.get("flexVerticalClass"), "uk-flex-middle");
   });
 
-  test("computes flex direction", function(assert) {
+  test("computes flex direction", function (assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
@@ -39,7 +39,7 @@ module("Unit | Mixin | flex", function() {
     assert.equal(subject.get("flexDirectionClass"), "uk-flex-column-reverse");
   });
 
-  test("computes flex wrap", function(assert) {
+  test("computes flex wrap", function (assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();
@@ -49,7 +49,7 @@ module("Unit | Mixin | flex", function() {
     assert.equal(subject.get("flexWrapClass"), "uk-flex-nowrap");
   });
 
-  test("computes flex wrap alignment", function(assert) {
+  test("computes flex wrap alignment", function (assert) {
     let FlexObject = EmberObject.extend(FlexMixin);
 
     let subject = FlexObject.create();

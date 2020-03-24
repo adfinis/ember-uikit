@@ -19,7 +19,7 @@ export default Component.extend({
     "clsEmpty:cls-empty",
     "clsCustom:cls-custom",
     "handle",
-    "ukSortable:uk-sortable"
+    "ukSortable:uk-sortable",
   ],
 
   // Component Options
@@ -44,7 +44,7 @@ export default Component.extend({
       stop: this.getWithDefault("on-stop", noop),
       moved: this.getWithDefault("on-moved", noop),
       added: this.getWithDefault("on-added", noop),
-      removed: this.getWithDefault("on-removed", noop)
+      removed: this.getWithDefault("on-removed", noop),
     };
 
     for (let event in events) {
@@ -55,5 +55,5 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     this.setEvents();
-  }
+  },
 });

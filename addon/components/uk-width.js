@@ -3,11 +3,11 @@ import layout from "../templates/components/uk-width";
 import WidthMixin from "ember-uikit/mixins/width";
 
 const UkWidthComponent = Component.extend(WidthMixin, {
-  layout
+  layout,
 });
 
 UkWidthComponent.reopenClass({
-  positionalParams: ["width"]
+  positionalParams: ["width"],
 });
 
 export default UkWidthComponent;

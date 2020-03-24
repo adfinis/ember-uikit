@@ -32,7 +32,7 @@ export const EVENTS = {
   DRAG_LEAVE: "on-drag-leave",
   DRAG_OVER: "on-drag-over",
   DRAG_END: "on-drag-end",
-  DROP: "on-drop"
+  DROP: "on-drop",
 };
 
 export default Mixin.create({
@@ -41,11 +41,11 @@ export default Mixin.create({
 
     let handlers = Object.values(EVENTS).reduce((obj, evt) => {
       return Object.assign(obj, {
-        [camelize(evt.replace(/on-/, ""))]: e =>
-          this.getWithDefault(evt, () => {})(e)
+        [camelize(evt.replace(/on-/, ""))]: (e) =>
+          this.getWithDefault(evt, () => {})(e),
       });
     }, {});
 
     this.setProperties(handlers);
-  }
+  },
 });

@@ -6,8 +6,8 @@ import { Promise, resolve } from "rsvp";
 const USER_CONFIG =
   (config["ember-uikit"] && config["ember-uikit"].notification) || {};
 
-const notification = status =>
-  function(message, options = {}) {
+const notification = (status) =>
+  function (message, options = {}) {
     return this._notification(message, Object.assign(options, { status }));
   };
 
@@ -18,7 +18,7 @@ export default Service.extend({
     );
 
     return n && n.$el
-      ? new Promise(resolve => UIkit.util.on(n.$el, "close", resolve))
+      ? new Promise((resolve) => UIkit.util.on(n.$el, "close", resolve))
       : resolve();
   },
 
@@ -26,5 +26,5 @@ export default Service.extend({
   primary: notification("primary"),
   success: notification("success"),
   warning: notification("warning"),
-  danger: notification("danger")
+  danger: notification("danger"),
 });

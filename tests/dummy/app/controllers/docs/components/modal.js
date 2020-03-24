@@ -10,6 +10,6 @@ export default Controller.extend({
   actions: {
     submit() {
       this.set("visible", false);
-    }
-  }
+    },
+  },
 });

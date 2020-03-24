@@ -25,5 +25,5 @@ module.exports = {
     this._writeStatusToUI(chalk.green, "add import statement", file);
 
     return this.addAddonToProject("ember-cli-sass");
-  }
+  },
 };

@@ -10,5 +10,5 @@ export default LinkComponent.extend({
 
   classNameBindings: ["disabled:uk-disabled"],
 
-  disabled: false
+  disabled: false,
 });

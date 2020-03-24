@@ -12,11 +12,11 @@ const UkIconComponent = Component.extend({
 
   ratio: 1,
 
-  ukIcon: ""
+  ukIcon: "",
 });
 
 UkIconComponent.reopenClass({
-  positionalParams: ["icon"]
+  positionalParams: ["icon"],
 });
 
 export default UkIconComponent;

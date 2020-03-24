@@ -6,5 +6,5 @@ export default Controller.extend({
 
   itemActive: false,
   itemDisabled: false,
-  linkItemDisabled: false
+  linkItemDisabled: false,
 });

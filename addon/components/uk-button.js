@@ -10,7 +10,7 @@ export const BUTTON_COLOR_OPTIONS = [
   COLOR_OPTIONS.PRIMARY,
   COLOR_OPTIONS.SECONDARY,
   COLOR_OPTIONS.LINK,
-  COLOR_OPTIONS.TEXT
+  COLOR_OPTIONS.TEXT,
 ];
 
 export default Component.extend(
@@ -47,6 +47,6 @@ export default Component.extend(
 
     loading: false,
 
-    title: ""
+    title: "",
   }
 );

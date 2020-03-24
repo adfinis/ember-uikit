@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | uk switcher/nav", function(hooks) {
+module("Integration | Component | uk switcher/nav", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("renders with subnav", async function(assert) {
+  test("renders with subnav", async function (assert) {
     await render(hbs`
       {{#uk-switcher/nav type='subnav' as |nav|}}
         {{#nav.component as |subnav|}}
@@ -21,7 +21,7 @@ module("Integration | Component | uk switcher/nav", function(hooks) {
     assert.dom("a").exists({ count: 2 });
   });
 
-  test("renders with tab", async function(assert) {
+  test("renders with tab", async function (assert) {
     await render(hbs`
       {{#uk-switcher/nav type='tab' as |nav|}}
         {{#nav.component as |tab|}}

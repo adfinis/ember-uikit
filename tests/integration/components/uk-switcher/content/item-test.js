@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render, triggerEvent } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | uk switcher/content/item", function(hooks) {
+module("Integration | Component | uk switcher/content/item", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("renders", async function(assert) {
+  test("renders", async function (assert) {
     await render(
       hbs`{{#uk-switcher/content/item}}Test{{/uk-switcher/content/item}}`
     );
@@ -15,7 +15,7 @@ module("Integration | Component | uk switcher/content/item", function(hooks) {
     assert.dom("li").hasText("Test");
   });
 
-  test("has switcher content item events", async function(assert) {
+  test("has switcher content item events", async function (assert) {
     this.set("beforeshow", false);
     this.set("show", false);
     this.set("shown", false);

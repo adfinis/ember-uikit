@@ -4,7 +4,7 @@ import { warn } from "@ember/debug";
 export const validateValue = (value, name, options, mediaOptions) => {
   if (
     value &&
-    !options.filter(v => {
+    !options.filter((v) => {
       let re = new RegExp(`^${v}(${mediaOptions.join("|")})?$`);
 
       return re.test(value);
@@ -12,10 +12,10 @@ export const validateValue = (value, name, options, mediaOptions) => {
   ) {
     warn(
       `\`${name}\` must be one of ${options
-        .map(v => `'${v}'`)
+        .map((v) => `'${v}'`)
         .join(", ")}. Passed was '${value}', which will therefore be ignored.`,
       {
-        id: "ember-uikit.invalid-property"
+        id: "ember-uikit.invalid-property",
       }
     );
 
@@ -30,7 +30,7 @@ export const validatedComputedProperty = (
   name,
   optionsKey,
   mediaOptionsKey = "MEDIA_OPTIONS",
-  sanitize = val => val || ""
+  sanitize = (val) => val || ""
 ) => {
   return computed(key, `${optionsKey}.[]`, `${mediaOptionsKey}.[]`, {
     get() {
@@ -49,7 +49,7 @@ export const validatedComputedProperty = (
       this.set(key, validated);
 
       return validated;
-    }
+    },
   });
 };
 
@@ -59,7 +59,7 @@ export const validatedArrayComputedProperty = (
   optionsKey,
   mediaOptionsKey = "MEDIA_OPTIONS",
   separator = " ",
-  sanitize = val => val || ""
+  sanitize = (val) => val || ""
 ) => {
   return computed(key, `${optionsKey}.[]`, `${mediaOptionsKey}.[]`, {
     get() {
@@ -70,7 +70,7 @@ export const validatedArrayComputedProperty = (
         value &&
         value
           .split(separator)
-          .map(v =>
+          .map((v) =>
             sanitize(
               validateValue(
                 v,
@@ -86,7 +86,7 @@ export const validatedArrayComputedProperty = (
       this.set(key, validated);
 
       return validated;
-    }
+    },
   });
 };
 

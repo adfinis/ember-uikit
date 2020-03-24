@@ -7,7 +7,7 @@ import WidthMixin from "ember-uikit/mixins/width";
 export const CARD_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,
   COLOR_OPTIONS.PRIMARY,
-  COLOR_OPTIONS.SECONDARY
+  COLOR_OPTIONS.SECONDARY,
 ];
 
 export default Component.extend(ColorMixin, SizeMixin, WidthMixin, {
@@ -25,5 +25,5 @@ export default Component.extend(ColorMixin, SizeMixin, WidthMixin, {
 
   classNameBindings: ["hover:uk-card-hover"],
 
-  hover: false
+  hover: false,
 });

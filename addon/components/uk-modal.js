@@ -23,20 +23,20 @@ export default Component.extend({
     ".uk-modal-close",
     ".uk-modal-close-default",
     ".uk-modal-close-outside",
-    ".uk-modal-close-full"
+    ".uk-modal-close-full",
   ].join(", "),
 
   isAnimating: false,
 
-  modalId: computed("elementId", function() {
+  modalId: computed("elementId", function () {
     return `modal-${this.elementId}`;
   }),
 
-  modalSelector: computed("modalId", function() {
+  modalSelector: computed("modalId", function () {
     return `#${this.modalId}`;
   }),
 
-  containerElement: computed("container", function() {
+  containerElement: computed("container", function () {
     return getOwner(this)
       .lookup("service:-document")
       .querySelector(this.container);
@@ -50,7 +50,7 @@ export default Component.extend({
     this.set("container", config.APP.rootElement || "body");
 
     this.set("eventHandlers", {
-      hidden: async event => {
+      hidden: async (event) => {
         if (event.currentTarget === event.target) {
           if (this.visible) {
             await this.getWithDefault("on-hide", noop)();
@@ -60,7 +60,7 @@ export default Component.extend({
         }
       },
 
-      show: async event => {
+      show: async (event) => {
         if (event.currentTarget === event.target) {
           if (!this.visible) {
             await this.getWithDefault("on-show", noop)();
@@ -68,23 +68,23 @@ export default Component.extend({
         }
       },
 
-      shown: event => {
+      shown: (event) => {
         if (event.currentTarget === event.target) {
           this.set("isAnimating", false);
         }
       },
 
-      beforehide: event => {
+      beforehide: (event) => {
         if (event.currentTarget === event.target) {
           this.set("isAnimating", true);
         }
       },
 
-      beforeshow: event => {
+      beforeshow: (event) => {
         if (event.currentTarget === event.target) {
           this.set("isAnimating", true);
         }
-      }
+      },
     });
   },
 
@@ -123,7 +123,7 @@ export default Component.extend({
   },
 
   _setupEvents() {
-    Object.keys(this.eventHandlers).forEach(event => {
+    Object.keys(this.eventHandlers).forEach((event) => {
       UIkit.util.on(
         this.modalSelector,
         event,
@@ -133,7 +133,7 @@ export default Component.extend({
   },
 
   _teardownEvents() {
-    Object.keys(this.eventHandlers).forEach(event => {
+    Object.keys(this.eventHandlers).forEach((event) => {
       UIkit.util.off(
         this.modalSelector,
         event,
@@ -150,5 +150,5 @@ export default Component.extend({
     } else {
       await this.modal.hide();
     }
-  }
+  },
 });

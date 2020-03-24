@@ -6,5 +6,5 @@ export default Component.extend({
 
   tagName: "h1",
 
-  classNames: ["uk-card-title"]
+  classNames: ["uk-card-title"],
 });

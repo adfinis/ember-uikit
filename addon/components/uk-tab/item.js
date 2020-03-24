@@ -11,5 +11,5 @@ export default Component.extend(EventedMixin, {
 
   active: false,
 
-  disabled: false
+  disabled: false,
 });

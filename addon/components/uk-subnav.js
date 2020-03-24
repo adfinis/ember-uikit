@@ -13,5 +13,5 @@ export default Component.extend(FlexMixin, {
 
   divider: false,
 
-  pill: false
+  pill: false,
 });

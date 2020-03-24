@@ -10,5 +10,5 @@ export default Component.extend({
 
   spinner: "",
 
-  ratio: 1
+  ratio: 1,
 });

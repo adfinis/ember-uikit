@@ -13,5 +13,5 @@ export default Component.extend(FlexMixin, {
   horizontal: alias("flexHorizontal"),
   direction: alias("flexDirection"),
   wrap: alias("flexWrap"),
-  wrapAlignment: alias("flexWrapAlignment")
+  wrapAlignment: alias("flexWrapAlignment"),
 });

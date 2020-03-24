@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | uk list", function(hooks) {
+module("Integration | Component | uk list", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("renders", async function(assert) {
+  test("renders", async function (assert) {
     await render(hbs`
       {{#uk-list as |list|}}
         {{#list.item}}Foo{{/list.item}}
@@ -19,25 +19,25 @@ module("Integration | Component | uk list", function(hooks) {
     assert.dom("li").exists({ count: 3 });
   });
 
-  test("can set divider", async function(assert) {
+  test("can set divider", async function (assert) {
     await render(hbs`{{uk-list divider=true}}`);
 
     assert.dom(".uk-list").hasClass("uk-list-divider");
   });
 
-  test("can set striped", async function(assert) {
+  test("can set striped", async function (assert) {
     await render(hbs`{{uk-list striped=true}}`);
 
     assert.dom(".uk-list").hasClass("uk-list-striped");
   });
 
-  test("can set bullet", async function(assert) {
+  test("can set bullet", async function (assert) {
     await render(hbs`{{uk-list bullet=true}}`);
 
     assert.dom(".uk-list").hasClass("uk-list-bullet");
   });
 
-  test("can set large", async function(assert) {
+  test("can set large", async function (assert) {
     await render(hbs`{{uk-list large=true}}`);
 
     assert.dom(".uk-list").hasClass("uk-list-large");

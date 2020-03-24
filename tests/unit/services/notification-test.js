@@ -3,42 +3,42 @@ import { setupTest } from "ember-qunit";
 import UIkit from "uikit";
 import { Promise } from "rsvp";
 
-module("Unit | Service | notification", function(hooks) {
+module("Unit | Service | notification", function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {});
+  hooks.beforeEach(function () {});
 
-  test("can display notifications", function(assert) {
+  test("can display notifications", function (assert) {
     assert.expect(10);
 
     let _original = UIkit.notification;
     let service = this.owner.lookup("service:notification");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
       assert.equal(o.status, "default");
     };
     service.default("Test");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
       assert.equal(o.status, "primary");
     };
     service.primary("Test");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
       assert.equal(o.status, "success");
     };
     service.success("Test");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
       assert.equal(o.status, "warning");
     };
     service.warning("Test");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
       assert.equal(o.status, "danger");
     };
@@ -47,13 +47,13 @@ module("Unit | Service | notification", function(hooks) {
     UIkit.notification = _original;
   });
 
-  test("can pass options", function(assert) {
+  test("can pass options", function (assert) {
     assert.expect(2);
 
     let _original = UIkit.notification;
     let service = this.owner.lookup("service:notification");
 
-    UIkit.notification = o => {
+    UIkit.notification = (o) => {
       assert.equal(o.timeout, 100);
       assert.equal(o.pos, "bottom-left");
     };
@@ -62,7 +62,7 @@ module("Unit | Service | notification", function(hooks) {
     UIkit.notification = _original;
   });
 
-  test("returns a promise", function(assert) {
+  test("returns a promise", function (assert) {
     assert.expect(1);
 
     let service = this.owner.lookup("service:notification");

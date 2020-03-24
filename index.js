@@ -17,11 +17,11 @@ const DEFAULT_OPTIONS = {
   whitelist: [],
   blacklist: [],
 
-  notification: {}
+  notification: {},
 };
 
 const COMPONENT_DEPENDENCIES = {
-  "uk-switcher": ["uk-tab", "uk-subnav"]
+  "uk-switcher": ["uk-tab", "uk-subnav"],
 };
 
 module.exports = {
@@ -35,7 +35,7 @@ module.exports = {
   findHost() {
     let fn =
       this._findHost ||
-      function() {
+      function () {
         let current = this;
         let app;
         do {
@@ -51,14 +51,14 @@ module.exports = {
     let uikitAssets =
       this.uikitOptions.importUIkitAssets &&
       funnel(this._getAssetsPath(), {
-        destDir: "/assets/images/components"
+        destDir: "/assets/images/components",
       });
 
     let uikitIcons =
       this.uikitOptions.useIcons &&
       this.uikitOptions.importUIkitIcons &&
       funnel(this._getIconsPath(), {
-        destDir: "/assets/images/icons"
+        destDir: "/assets/images/icons",
       });
 
     return merge([uikitAssets, uikitIcons, tree].filter(Boolean));
@@ -69,23 +69,20 @@ module.exports = {
       this._hasSass() &&
       this.uikitOptions.importUIkitCSS &&
       funnel(this._getStylesPath(), {
-        destDir: "ember-uikit"
+        destDir: "ember-uikit",
       });
 
     return merge([uikitStyles, tree].filter(Boolean));
   },
 
   treeForVendor(tree) {
-    let uikitScripts = funnel(
-      path.join(this._getUikitPath(), "dist", "js"),
-      {
-        include: ["uikit.js", "uikit-icons.js"]
-      }
-    );
+    let uikitScripts = funnel(path.join(this._getUikitPath(), "dist", "js"), {
+      include: ["uikit.js", "uikit-icons.js"],
+    });
 
     uikitScripts = map(
       uikitScripts,
-      content => `if (typeof FastBoot === 'undefined') { ${content} }`
+      (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
     return merge([tree, uikitScripts].filter(Boolean));
@@ -175,7 +172,7 @@ module.exports = {
     }
 
     return funnel(tree, {
-      exclude: [name => this._excludeComponent(name, whitelist, blacklist)]
+      exclude: [(name) => this._excludeComponent(name, whitelist, blacklist)],
     });
   },
 
@@ -217,7 +214,7 @@ module.exports = {
     return path.dirname(
       /* eslint-disable node/no-extraneous-require */
       require("resolve").sync("uikit/package.json", {
-        basedir: this.project.root
+        basedir: this.project.root,
       })
     );
   },
@@ -238,5 +235,5 @@ module.exports = {
     }
 
     return path.join(uikitPath, "dist", "css");
-  }
+  },
 };

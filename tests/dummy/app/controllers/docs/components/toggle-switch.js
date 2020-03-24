@@ -1,7 +1,7 @@
 import Controller from "@ember/controller";
 import {
   SIZE_OPTIONS,
-  COLOR_OPTIONS
+  COLOR_OPTIONS,
 } from "ember-uikit/components/uk-toggle-switch";
 
 export default Controller.extend({
@@ -15,5 +15,5 @@ export default Controller.extend({
   disabled: false,
 
   sizes: Object.values(SIZE_OPTIONS),
-  colors: Object.values(COLOR_OPTIONS)
+  colors: Object.values(COLOR_OPTIONS),
 });

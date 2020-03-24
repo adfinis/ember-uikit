@@ -4,11 +4,11 @@
 const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 const sass = require("sass");
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let app = new EmberAddon(defaults, {
     sassOptions: { implementation: sass },
     fingerprint: {
-      prepend: "https://adfinis-sygroup.github.io/ember-uikit/"
+      prepend: "https://adfinis-sygroup.github.io/ember-uikit/",
     },
     snippetPaths: ["tests/dummy/app/snippets"],
     "ember-prism": {
@@ -18,9 +18,9 @@ module.exports = function(defaults) {
         "handlebars",
         "markup",
         "markup-templating",
-        "bash"
-      ]
-    }
+        "bash",
+      ],
+    },
   });
 
   return app.toTree();

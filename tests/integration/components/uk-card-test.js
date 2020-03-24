@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | uk card", function(hooks) {
+module("Integration | Component | uk card", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("renders", async function(assert) {
+  test("renders", async function (assert) {
     await render(hbs`
       {{#uk-card as |card|}}
         {{#card.header}}
@@ -28,19 +28,19 @@ module("Integration | Component | uk card", function(hooks) {
     assert.dom(".uk-card .uk-card-footer").exists();
   });
 
-  test("can set hover", async function(assert) {
+  test("can set hover", async function (assert) {
     await render(hbs`{{uk-card hover=true}}`);
 
     assert.dom(".uk-card").hasClass("uk-card-hover");
   });
 
-  test("can set color", async function(assert) {
+  test("can set color", async function (assert) {
     await render(hbs`{{uk-card color='primary'}}`);
 
     assert.dom(".uk-card").hasClass("uk-card-primary");
   });
 
-  test("can set size", async function(assert) {
+  test("can set size", async function (assert) {
     await render(hbs`{{uk-card size='small'}}`);
 
     assert.dom(".uk-card").hasClass("uk-card-small");

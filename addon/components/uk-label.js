@@ -7,7 +7,7 @@ export const LABEL_COLOR_OPTIONS = [
   "",
   COLOR_OPTIONS.SUCCESS,
   COLOR_OPTIONS.WARNING,
-  COLOR_OPTIONS.DANGER
+  COLOR_OPTIONS.DANGER,
 ];
 
 export default Component.extend(ColorMixin, WidthMixin, {
@@ -19,5 +19,5 @@ export default Component.extend(ColorMixin, WidthMixin, {
 
   classNames: ["uk-label"],
 
-  colorTemplate: "uk-label-$color$"
+  colorTemplate: "uk-label-$color$",
 });

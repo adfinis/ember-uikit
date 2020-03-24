@@ -11,7 +11,9 @@ export default Component.extend(SwitcherMixin, FlexMixin, {
 
     this.set(
       "attributeBindings",
-      this.get("attributeBindings").filter(i => i !== "ukSwitcher:uk-switcher")
+      this.get("attributeBindings").filter(
+        (i) => i !== "ukSwitcher:uk-switcher"
+      )
     );
   },
 
@@ -24,10 +26,10 @@ export default Component.extend(SwitcherMixin, FlexMixin, {
   classNameBindings: [
     "left:uk-tab-left",
     "right:uk-tab-right",
-    "bottom:uk-tab-bottom"
+    "bottom:uk-tab-bottom",
   ],
 
   left: false,
   right: false,
-  bottom: false
+  bottom: false,
 });

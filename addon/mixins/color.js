@@ -12,7 +12,7 @@ export const COLOR_OPTIONS = {
   WARNING: "warning",
   DANGER: "danger",
   LINK: "link",
-  TEXT: "text"
+  TEXT: "text",
 };
 
 export default Mixin.create({
@@ -24,10 +24,10 @@ export default Mixin.create({
 
   color: validatedComputedProperty("_color", "color", "COLOR_OPTIONS"),
 
-  colorClass: computed("color", function() {
+  colorClass: computed("color", function () {
     return (
       this.get("color") &&
       this.get("colorTemplate").replace(/\$color\$/, this.get("color"))
     );
-  })
+  }),
 });

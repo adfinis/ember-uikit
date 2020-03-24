@@ -8,27 +8,27 @@ export const FLEX_HORIZONTAL_OPTIONS = {
   CENTER: "center",
   RIGHT: "right",
   BETWEEN: "between",
-  AROUND: "around"
+  AROUND: "around",
 };
 
 export const FLEX_VERTICAL_OPTIONS = {
   STRETCH: "stretch",
   TOP: "top",
   MIDDLE: "middle",
-  BOTTOM: "bottom"
+  BOTTOM: "bottom",
 };
 
 export const FLEX_DIRECTION_OPTIONS = {
   ROW: "row",
   ROW_REVERSE: "row-reverse",
   COLUMN: "column",
-  COLUMN_REVERSE: "column-reverse"
+  COLUMN_REVERSE: "column-reverse",
 };
 
 export const FLEX_WRAP_OPTIONS = {
   WRAP: "wrap",
   WRAP_REVERSE: "wrap-reverse",
-  NOWRAP: "nowrap"
+  NOWRAP: "nowrap",
 };
 
 export const FLEX_WRAP_ALIGNMENT_OPTIONS = {
@@ -37,7 +37,7 @@ export const FLEX_WRAP_ALIGNMENT_OPTIONS = {
   AROUND: "around",
   TOP: "top",
   MIDDLE: "middle",
-  BOTTOM: "bottom"
+  BOTTOM: "bottom",
 };
 
 export default Mixin.create({
@@ -55,7 +55,7 @@ export default Mixin.create({
     "flexHorizontalClass",
     "flexDirectionClass",
     "flexWrapClass",
-    "flexWrapAlignmentClass"
+    "flexWrapAlignmentClass",
   ],
 
   flex: false,
@@ -87,24 +87,24 @@ export default Mixin.create({
     "FLEX_WRAP_ALIGNMENT_OPTIONS"
   ),
 
-  flexHorizontalClass: computed("flexHorizontal", function() {
+  flexHorizontalClass: computed("flexHorizontal", function () {
     return (
       this.get("flexHorizontal") && `uk-flex-${this.get("flexHorizontal")}`
     );
   }),
-  flexVerticalClass: computed("flexVertical", function() {
+  flexVerticalClass: computed("flexVertical", function () {
     return this.get("flexVertical") && `uk-flex-${this.get("flexVertical")}`;
   }),
-  flexDirectionClass: computed("flexDirection", function() {
+  flexDirectionClass: computed("flexDirection", function () {
     return this.get("flexDirection") && `uk-flex-${this.get("flexDirection")}`;
   }),
-  flexWrapClass: computed("flexWrap", function() {
+  flexWrapClass: computed("flexWrap", function () {
     return this.get("flexWrap") && `uk-flex-${this.get("flexWrap")}`;
   }),
-  flexWrapAlignmentClass: computed("flexWrapAlignment", function() {
+  flexWrapAlignmentClass: computed("flexWrapAlignment", function () {
     return (
       this.get("flexWrapAlignment") &&
       `uk-flex-wrap-${this.get("flexWrapAlignment")}`
     );
-  })
+  }),
 });

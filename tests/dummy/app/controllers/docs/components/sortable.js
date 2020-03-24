@@ -7,14 +7,14 @@ export default Controller.extend({
     { label: "Item 1" },
     { label: "Item 2" },
     { label: "Item 3" },
-    { label: "Item 4" }
+    { label: "Item 4" },
   ]),
 
   group2: A([
     { label: "Item 5" },
     { label: "Item 6" },
     { label: "Item 7" },
-    { label: "Item 8" }
+    { label: "Item 8" },
   ]),
 
   includeA: false,
@@ -23,6 +23,6 @@ export default Controller.extend({
   actions: {
     notify(message) {
       UIkit.notification({ message });
-    }
-  }
+    },
+  },
 });

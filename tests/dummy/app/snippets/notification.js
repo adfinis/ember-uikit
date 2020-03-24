@@ -13,6 +13,6 @@ export default Controller.extend({
       } catch (e) {
         this.notification.danger("Ooops! Something went wrong...");
       }
-    }
-  }
+    },
+  },
 });

@@ -19,6 +19,6 @@ export default Controller.extend({
     },
     danger() {
       this.notification.danger("Danger!");
-    }
-  }
+    },
+  },
 });

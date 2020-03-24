@@ -13,7 +13,7 @@ export default Component.extend(WidthMixin, {
     "divider:uk-list-divider",
     "striped:uk-list-striped",
     "bullet:uk-list-bullet",
-    "large:uk-list-large"
+    "large:uk-list-large",
   ],
 
   divider: false,
@@ -22,5 +22,5 @@ export default Component.extend(WidthMixin, {
 
   bullet: false,
 
-  large: false
+  large: false,
 });

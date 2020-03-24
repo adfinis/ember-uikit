@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render, triggerEvent } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | uk sortable", function(hooks) {
+module("Integration | Component | uk sortable", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("renders sortable no options", async function(assert) {
+  test("renders sortable no options", async function (assert) {
     await render(hbs`{{uk-sortable}}`);
 
     assert.dom(".uk-sortable").exists();
@@ -24,7 +24,7 @@ module("Integration | Component | uk sortable", function(hooks) {
     assert.dom(".uk-sortable").doesNotHaveAttribute("handle");
   });
 
-  test("sets sortable options", async function(assert) {
+  test("sets sortable options", async function (assert) {
     await render(hbs`{{uk-sortable
       group='sncc'
       animationDuration=400
@@ -54,7 +54,7 @@ module("Integration | Component | uk sortable", function(hooks) {
     assert.dom(".uk-sortable").hasAttribute("handle", "boynton");
   });
 
-  test("has sortable events", async function(assert) {
+  test("has sortable events", async function (assert) {
     this.set("sortStarted", false);
     this.set("sortStopped", false);
     this.set("sortMoved", false);

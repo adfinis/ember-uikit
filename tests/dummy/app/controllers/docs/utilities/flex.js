@@ -4,7 +4,7 @@ import {
   FLEX_VERTICAL_OPTIONS,
   FLEX_DIRECTION_OPTIONS,
   FLEX_WRAP_OPTIONS,
-  FLEX_WRAP_ALIGNMENT_OPTIONS
+  FLEX_WRAP_ALIGNMENT_OPTIONS,
 } from "ember-uikit/mixins/flex";
 
 export default Controller.extend({
@@ -23,5 +23,5 @@ export default Controller.extend({
   wrapAlignment: "",
 
   fill: false,
-  fixHeight: false
+  fixHeight: false,
 });

@@ -17,7 +17,7 @@ export default Component.extend({
       shown: this.getWithDefault("on-shown", noop),
       beforehide: this.getWithDefault("on-beforehide", noop),
       hide: this.getWithDefault("on-hide", noop),
-      hidden: this.getWithDefault("on-hidden", noop)
+      hidden: this.getWithDefault("on-hidden", noop),
     };
 
     for (let event in events) {
@@ -27,5 +27,5 @@ export default Component.extend({
   didInsertElement() {
     this._super(...arguments);
     this.setEvents();
-  }
+  },
 });

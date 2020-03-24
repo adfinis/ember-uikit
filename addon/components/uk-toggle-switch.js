@@ -5,12 +5,12 @@ import { computed } from "@ember/object";
 export const SIZE_OPTIONS = {
   SMALL: "small",
   MEDIUM: "medium",
-  LARGE: "large"
+  LARGE: "large",
 };
 
 export const COLOR_OPTIONS = {
   DEFAULT: "default",
-  ONOFF: "onoff"
+  ONOFF: "onoff",
 };
 
 export default ToggleComponent.extend({
@@ -19,7 +19,7 @@ export default ToggleComponent.extend({
 
     this.setProperties({
       _size: SIZE_OPTIONS.MEDIUM,
-      _color: COLOR_OPTIONS.DEFAULT
+      _color: COLOR_OPTIONS.DEFAULT,
     });
   },
 
@@ -39,12 +39,12 @@ export default ToggleComponent.extend({
   size: validatedComputedProperty("_size", "size", "SIZE_OPTIONS"),
   color: validatedComputedProperty("_color", "color", "COLOR_OPTIONS"),
 
-  colorClass: computed("color", function() {
+  colorClass: computed("color", function () {
     return `uk-toggle-switch-${this.get("color")}`;
   }),
 
-  onToggle: computed(function() {
-    return value => {
+  onToggle: computed(function () {
+    return (value) => {
       let action = this["on-toggle"];
 
       if (typeof action === "function") {
@@ -58,5 +58,5 @@ export default ToggleComponent.extend({
       // eslint-disable-next-line ember/no-side-effects
       this.set("value", value);
     };
-  })
+  }),
 });

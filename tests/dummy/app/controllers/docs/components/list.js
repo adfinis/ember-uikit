@@ -5,5 +5,5 @@ export default Controller.extend({
   striped: true,
   bullet: false,
   large: false,
-  width: ""
+  width: "",
 });

@@ -3,16 +3,16 @@ import { module, test } from "qunit";
 import WidthMixin, {
   GRID_OPTIONS,
   FIXED_OPTIONS,
-  SPECIAL_OPTIONS
+  SPECIAL_OPTIONS,
 } from "ember-uikit/mixins/width";
 import MEDIA_OPTIONS from "ember-uikit/-private/media";
 
-module("Unit | Mixin | width", function() {
-  test("computes the width", function(assert) {
+module("Unit | Mixin | width", function () {
+  test("computes the width", function (assert) {
     let WidthObject = EmberObject.extend(WidthMixin);
 
     let subject = WidthObject.create({
-      _widthTemplate: "foo-$width$"
+      _widthTemplate: "foo-$width$",
     });
 
     subject.set(
@@ -26,11 +26,11 @@ module("Unit | Mixin | width", function() {
     );
   });
 
-  test("ignores invalid width", function(assert) {
+  test("ignores invalid width", function (assert) {
     let WidthObject = EmberObject.extend(WidthMixin);
 
     let subject = WidthObject.create({
-      _widthTemplate: "foo-$width$"
+      _widthTemplate: "foo-$width$",
     });
 
     subject.set("width", "1-8 1-2@x somestring auto@xl");

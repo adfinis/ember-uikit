@@ -8,7 +8,7 @@ export default Mixin.create({
     "connect",
     "animation",
     "animationDuration:duration",
-    "swiping"
+    "swiping",
   ],
 
   contentId: "",
@@ -17,9 +17,9 @@ export default Mixin.create({
   swiping: false,
   ukSwitcher: "",
 
-  connect: computed("contentId", function() {
+  connect: computed("contentId", function () {
     let id = this.get("contentId");
 
     return isEmpty(id) ? "" : `#${id}`;
-  })
+  }),
 });
