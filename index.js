@@ -1,8 +1,8 @@
 /* eslint-env node */
 "use strict";
 
-const Funnel = require("broccoli-funnel");
-const Merge = require("broccoli-merge-trees");
+const funnel = require("broccoli-funnel");
+const merge = require("broccoli-merge-trees");
 const map = require("broccoli-stew").map;
 const path = require("path");
 
@@ -50,33 +50,33 @@ module.exports = {
   treeForPublic(tree) {
     let uikitAssets =
       this.uikitOptions.importUIkitAssets &&
-      Funnel(this._getAssetsPath(), {
+      funnel(this._getAssetsPath(), {
         destDir: "/assets/images/components"
       });
 
     let uikitIcons =
       this.uikitOptions.useIcons &&
       this.uikitOptions.importUIkitIcons &&
-      new Funnel(this._getIconsPath(), {
+      funnel(this._getIconsPath(), {
         destDir: "/assets/images/icons"
       });
 
-    return new Merge([uikitAssets, uikitIcons, tree].filter(Boolean));
+    return merge([uikitAssets, uikitIcons, tree].filter(Boolean));
   },
 
   treeForStyles(tree) {
     let uikitStyles =
       this._hasSass() &&
       this.uikitOptions.importUIkitCSS &&
-      new Funnel(this._getStylesPath(), {
+      funnel(this._getStylesPath(), {
         destDir: "ember-uikit"
       });
 
-    return new Merge([uikitStyles, tree].filter(Boolean));
+    return merge([uikitStyles, tree].filter(Boolean));
   },
 
   treeForVendor(tree) {
-    let uikitScripts = new Funnel(
+    let uikitScripts = funnel(
       path.join(this._getUikitPath(), "dist", "js"),
       {
         include: ["uikit.js", "uikit-icons.js"]
@@ -88,7 +88,7 @@ module.exports = {
       content => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
-    return new Merge([tree, uikitScripts].filter(Boolean));
+    return merge([tree, uikitScripts].filter(Boolean));
   },
 
   included() {
@@ -174,7 +174,7 @@ module.exports = {
       return tree;
     }
 
-    return new Funnel(tree, {
+    return funnel(tree, {
       exclude: [name => this._excludeComponent(name, whitelist, blacklist)]
     });
   },
