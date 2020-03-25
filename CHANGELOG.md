@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.1...v2.1.2) (2020-03-25)
+
+
+### Bug Fixes
+
+* **modal:** fix initial focus of modal focus trap ([f57381d](https://github.com/adfinis-sygroup/ember-uikit/commit/f57381d14542ab07a2fd9519993d04d2faf1a959))
+
 ## [2.1.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.0...v2.1.1) (2020-03-24)
 
 
