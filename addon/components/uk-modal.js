@@ -32,6 +32,10 @@ export default Component.extend({
     return `modal-${this.elementId}`;
   }),
 
+  modalHeaderId: computed(function () {
+    return `${this.modalId}-header`;
+  }),
+
   modalSelector: computed("modalId", function () {
     return `#${this.modalId}`;
   }),
