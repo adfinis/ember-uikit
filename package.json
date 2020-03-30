@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "broccoli-funnel": "^2.0.2",
-    "broccoli-merge-trees": "^4.1.0",
+    "broccoli-merge-trees": "^4.2.0",
     "broccoli-stew": "^3.0.0",
     "chalk": "^3.0.0",
     "ember-auto-import": "^1.5.3",
