@@ -40,7 +40,7 @@
     "broccoli-stew": "^3.0.0",
     "chalk": "^3.0.0",
     "ember-auto-import": "^1.5.3",
-    "ember-cli-babel": "^7.18.0",
+    "ember-cli-babel": "^7.20.4",
     "ember-cli-htmlbars": "^4.2.3",
     "ember-focus-trap": "0.4.0",
     "ember-get-config": "^0.2.4",
