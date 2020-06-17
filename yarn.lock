@@ -5888,10 +5888,10 @@ ember-composable-helpers@3.1.1:
     ember-cli-babel "^7.1.0"
     resolve "^1.10.0"
 
-ember-concurrency@1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.1.6.tgz#a42806bc2066d556af1c75c7f031abccbf986f8f"
-  integrity sha512-SjHVtWHfkHpn2cSoZPU1TMpMvzDmS1pIFdi5NEmZnwhVUdQE55TiMp7l0xvoalWzylfFTaf+1PLWl82kw9zC2g==
+ember-concurrency@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-1.2.0.tgz#f8d09ff035ba7652f01de198b9e16424ef2b8522"
+  integrity sha512-XEKleKlcJQOTbMHEbEtIYF/VXSJDVB8H3pRFY5qmGqGujvpLaJY0GCQ6xtnTDdmSDkBO77FJ9o36GL7iwyqn6g==
   dependencies:
     ember-cli-babel "^7.7.3"
     ember-compatibility-helpers "^1.2.0"
