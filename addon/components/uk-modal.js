@@ -49,9 +49,7 @@ export default Component.extend({
   init() {
     this._super(...arguments);
 
-    const config = getOwner(this).resolveRegistration("config:environment");
-
-    this.set("container", config.APP.rootElement || "body");
+    this.set("container", getOwner(this).rootElement || "body");
 
     this.set("eventHandlers", {
       hide: async (event) => {
