@@ -44,7 +44,7 @@
     "ember-cli-htmlbars": "^4.2.3",
     "ember-focus-trap": "0.4.0",
     "ember-get-config": "^0.2.4",
-    "ember-toggle": "^6.0.2",
+    "ember-toggle": "^7.0.0",
     "uikit": "^3.3.7"
   },
   "devDependencies": {
