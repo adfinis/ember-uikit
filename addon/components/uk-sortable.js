@@ -40,11 +40,11 @@ export default Component.extend({
 
   setEvents() {
     let events = {
-      start: this.getWithDefault("on-start", noop),
-      stop: this.getWithDefault("on-stop", noop),
-      moved: this.getWithDefault("on-moved", noop),
-      added: this.getWithDefault("on-added", noop),
-      removed: this.getWithDefault("on-removed", noop),
+      start: this["on-start"] ?? noop,
+      stop: this["on-stop"] ?? noop,
+      moved: this["on-moved"] ?? noop,
+      added: this["on-added"] ?? noop,
+      removed: this["on-removed"] ?? noop,
     };
 
     for (let event in events) {

@@ -18,7 +18,7 @@ export default Mixin.create({
   ukSwitcher: "",
 
   connect: computed("contentId", function () {
-    let id = this.get("contentId");
+    let id = this.contentId;
 
     return isEmpty(id) ? "" : `#${id}`;
   }),

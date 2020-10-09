@@ -32,7 +32,7 @@ export default Component.extend({
     return `modal-${this.elementId}`;
   }),
 
-  modalHeaderId: computed(function () {
+  modalHeaderId: computed("modalId", function () {
     return `${this.modalId}-header`;
   }),
 
@@ -54,12 +54,18 @@ export default Component.extend({
     this.set("container", config.APP.rootElement || "body");
 
     this.set("eventHandlers", {
-      hidden: async (event) => {
+      hide: async (event) => {
         if (event.currentTarget === event.target) {
           if (this.visible) {
-            await this.getWithDefault("on-hide", noop)();
+            await (this["on-hide"] ?? noop)();
           }
 
+          this.set("isAnimating", false);
+        }
+      },
+
+      hidden: async (event) => {
+        if (event.currentTarget === event.target) {
           this.set("isAnimating", false);
         }
       },
@@ -67,7 +73,7 @@ export default Component.extend({
       show: async (event) => {
         if (event.currentTarget === event.target) {
           if (!this.visible) {
-            await this.getWithDefault("on-show", noop)();
+            await (this["on-show"] ?? noop)();
           }
         }
       },
@@ -95,18 +101,15 @@ export default Component.extend({
   didInsertElement() {
     this.set(
       "modal",
-      UIkit.modal(
-        `#${this.modalId}`,
-        this.getProperties(
-          "escClose",
-          "bgClose",
-          "stack",
-          "container",
-          "clsPage",
-          "clsPanel",
-          "selClose"
-        )
-      )
+      UIkit.modal(`#${this.modalId}`, {
+        escClose: this.escClose,
+        bgClose: this.bgClose,
+        stack: this.stack,
+        container: this.container,
+        clsPage: this.clsPage,
+        clsPanel: this.clsPanel,
+        selClose: this.selClose,
+      })
     );
 
     scheduleOnce("afterRender", this, "_setupEvents");

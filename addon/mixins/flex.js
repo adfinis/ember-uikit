@@ -88,23 +88,18 @@ export default Mixin.create({
   ),
 
   flexHorizontalClass: computed("flexHorizontal", function () {
-    return (
-      this.get("flexHorizontal") && `uk-flex-${this.get("flexHorizontal")}`
-    );
+    return this.flexHorizontal && `uk-flex-${this.flexHorizontal}`;
   }),
   flexVerticalClass: computed("flexVertical", function () {
-    return this.get("flexVertical") && `uk-flex-${this.get("flexVertical")}`;
+    return this.flexVertical && `uk-flex-${this.flexVertical}`;
   }),
   flexDirectionClass: computed("flexDirection", function () {
-    return this.get("flexDirection") && `uk-flex-${this.get("flexDirection")}`;
+    return this.flexDirection && `uk-flex-${this.flexDirection}`;
   }),
   flexWrapClass: computed("flexWrap", function () {
-    return this.get("flexWrap") && `uk-flex-${this.get("flexWrap")}`;
+    return this.flexWrap && `uk-flex-${this.flexWrap}`;
   }),
   flexWrapAlignmentClass: computed("flexWrapAlignment", function () {
-    return (
-      this.get("flexWrapAlignment") &&
-      `uk-flex-wrap-${this.get("flexWrapAlignment")}`
-    );
+    return this.flexWrapAlignment && `uk-flex-wrap-${this.flexWrapAlignment}`;
   }),
 });

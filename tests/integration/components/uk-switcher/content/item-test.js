@@ -37,12 +37,12 @@ module("Integration | Component | uk switcher/content/item", function (hooks) {
     );
 
     assert.dom("li").exists();
-    assert.notOk(this.get("beforeshow"));
-    assert.notOk(this.get("show"));
-    assert.notOk(this.get("shown"));
-    assert.notOk(this.get("beforehide"));
-    assert.notOk(this.get("hide"));
-    assert.notOk(this.get("hidden"));
+    assert.notOk(this.beforeshow);
+    assert.notOk(this.show);
+    assert.notOk(this.shown);
+    assert.notOk(this.beforehide);
+    assert.notOk(this.hide);
+    assert.notOk(this.hidden);
 
     await triggerEvent("li", "beforeshow");
     await triggerEvent("li", "show");
@@ -51,11 +51,11 @@ module("Integration | Component | uk switcher/content/item", function (hooks) {
     await triggerEvent("li", "hide");
     await triggerEvent("li", "hidden");
 
-    assert.ok(this.get("beforeshow"));
-    assert.ok(this.get("show"));
-    assert.ok(this.get("shown"));
-    assert.ok(this.get("beforehide"));
-    assert.ok(this.get("hide"));
-    assert.ok(this.get("hidden"));
+    assert.ok(this.beforeshow);
+    assert.ok(this.show);
+    assert.ok(this.shown);
+    assert.ok(this.beforehide);
+    assert.ok(this.hide);
+    assert.ok(this.hidden);
   });
 });

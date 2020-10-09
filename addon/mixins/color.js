@@ -24,10 +24,7 @@ export default Mixin.create({
 
   color: validatedComputedProperty("_color", "color", "COLOR_OPTIONS"),
 
-  colorClass: computed("color", function () {
-    return (
-      this.get("color") &&
-      this.get("colorTemplate").replace(/\$color\$/, this.get("color"))
-    );
+  colorClass: computed("color", "colorTemplate", function () {
+    return this.color && this.colorTemplate.replace(/\$color\$/, this.color);
   }),
 });

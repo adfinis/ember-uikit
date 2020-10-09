@@ -40,7 +40,7 @@ export default ToggleComponent.extend({
   color: validatedComputedProperty("_color", "color", "COLOR_OPTIONS"),
 
   colorClass: computed("color", function () {
-    return `uk-toggle-switch-${this.get("color")}`;
+    return `uk-toggle-switch-${this.color}`;
   }),
 
   onToggle: computed(function () {
