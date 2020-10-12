@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.2...v2.2.0) (2020-10-12)
+
+
+### Features
+
+* update to ember 3.22 ([#523](https://github.com/adfinis-sygroup/ember-uikit/issues/523)) ([e6f8240](https://github.com/adfinis-sygroup/ember-uikit/commit/e6f82405f0ec8b87dabe211f0fba18ef8fc87bdc))
+
 ## [2.1.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.1...v2.1.2) (2020-03-25)
 
 
