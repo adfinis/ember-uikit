@@ -20,6 +20,7 @@ module.exports = {
     "ember/no-jquery": "error",
     // https://github.com/adfinis-sygroup/ember-uikit/issues/238
     "ember/no-new-mixins": "warn",
+    "ember/no-mixins": "warn",
   },
   overrides: [
     // node files
@@ -48,13 +49,7 @@ module.exports = {
         node: true,
       },
       plugins: ["node"],
-      rules: Object.assign(
-        {},
-        require("eslint-plugin-node").configs.recommended.rules,
-        {
-          // add your custom rules and overrides for node files here
-        }
-      ),
+      extends: ["plugin:node/recommended"],
     },
   ],
 };

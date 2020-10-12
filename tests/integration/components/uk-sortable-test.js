@@ -74,11 +74,11 @@ module("Integration | Component | uk sortable", function (hooks) {
     );
 
     assert.dom(".uk-sortable").exists();
-    assert.notOk(this.get("sortStarted"));
-    assert.notOk(this.get("sortStopped"));
-    assert.notOk(this.get("sortMoved"));
-    assert.notOk(this.get("sortAdded"));
-    assert.notOk(this.get("sortRemoved"));
+    assert.notOk(this.sortStarted);
+    assert.notOk(this.sortStopped);
+    assert.notOk(this.sortMoved);
+    assert.notOk(this.sortAdded);
+    assert.notOk(this.sortRemoved);
 
     await triggerEvent(".uk-sortable", "start");
     await triggerEvent(".uk-sortable", "stop");
@@ -86,10 +86,10 @@ module("Integration | Component | uk sortable", function (hooks) {
     await triggerEvent(".uk-sortable", "added");
     await triggerEvent(".uk-sortable", "removed");
 
-    assert.ok(this.get("sortStarted"));
-    assert.ok(this.get("sortStopped"));
-    assert.ok(this.get("sortMoved"));
-    assert.ok(this.get("sortAdded"));
-    assert.ok(this.get("sortRemoved"));
+    assert.ok(this.sortStarted);
+    assert.ok(this.sortStopped);
+    assert.ok(this.sortMoved);
+    assert.ok(this.sortAdded);
+    assert.ok(this.sortRemoved);
   });
 });

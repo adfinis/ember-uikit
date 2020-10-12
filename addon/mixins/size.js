@@ -17,10 +17,7 @@ export default Mixin.create({
 
   size: validatedComputedProperty("_size", "size", "SIZE_OPTIONS"),
 
-  sizeClass: computed("_size", function () {
-    return (
-      this.get("size") &&
-      this.get("sizeTemplate").replace(/\$size\$/, this.get("size"))
-    );
+  sizeClass: computed("_size", "size", "sizeTemplate", function () {
+    return this.size && this.sizeTemplate.replace(/\$size\$/, this.size);
   }),
 });

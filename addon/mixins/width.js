@@ -61,12 +61,12 @@ export default Mixin.create({
     " "
   ),
 
-  widthClass: computed("width", function () {
+  widthClass: computed("_widthTemplate", "width", function () {
     return (
-      this.get("width") &&
-      this.get("width")
+      this.width &&
+      this.width
         .split(" ")
-        .map((w) => this.get("_widthTemplate").replace(/\$width\$/, w))
+        .map((w) => this._widthTemplate.replace(/\$width\$/, w))
         .join(" ")
     );
   }),

@@ -23,10 +23,10 @@ export default Controller.extend({
   colors: BUTTON_COLOR_OPTIONS,
 
   fireEvent: task(function* (name) {
-    this.get("firedEvents").pushObject(name);
+    this.firedEvents.pushObject(name);
 
     yield timeout(1000);
 
-    this.get("firedEvents").removeObject(name);
+    this.firedEvents.removeObject(name);
   }),
 });

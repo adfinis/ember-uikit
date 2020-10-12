@@ -55,11 +55,11 @@ module("Integration | Component | uk button", function (hooks) {
       hbs`{{#uk-button on-click=(action (mut didClick) true)}}Click me!{{/uk-button}}`
     );
 
-    assert.notOk(this.get("didClick"));
+    assert.notOk(this.didClick);
 
     await click(".uk-button");
 
-    assert.ok(this.get("didClick"));
+    assert.ok(this.didClick);
   });
 
   test("can set title", async function (assert) {

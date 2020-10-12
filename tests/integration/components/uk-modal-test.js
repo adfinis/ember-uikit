@@ -30,24 +30,26 @@ module("Integration | Component | uk-modal", function (hooks) {
     assert.expect(1);
 
     await render(hbs`
-      {{#uk-modal visible=true as |modal|}}
-        {{#modal.header}}
-          <h2>Test</h2>
-        {{/modal.header}}
-        {{#modal.body}}
-          <p>Lorem ipsum</p>
-        {{/modal.body}}
-        {{#modal.footer class="uk-text-right"}}
-          <button></button>
-        {{/modal.footer}}
-      {{/uk-modal}}
+    {{#uk-modal visible=true as |modal|}}
+      {{#modal.header}}
+        <h2>Test</h2>
+      {{/modal.header}}
+      {{#modal.body}}
+        <p>Lorem ipsum</p>
+      {{/modal.body}}
+      {{#modal.footer class="uk-text-right"}}
+        <button></button>
+      {{/modal.footer}}
+    {{/uk-modal}}
     `);
+
+    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
 
     assert.dom(".uk-modal.uk-open").exists();
   });
 
   test("it triggers the on-hide action", async function (assert) {
-    assert.expect(3);
+    assert.expect(2);
 
     this.set("hide", () => assert.step("hide"));
 
@@ -63,12 +65,11 @@ module("Integration | Component | uk-modal", function (hooks) {
     await click(".uk-modal .uk-close");
     await waitFor(".uk-modal[data-test-animating]", { count: 0 });
 
-    assert.dom(".uk-modal.uk-open").doesNotExist();
     assert.verifySteps(["hide"]);
   });
 
   test("it ignores bubbling events", async function (assert) {
-    assert.expect(2);
+    assert.expect(1);
 
     this.set("hide", () => assert.step("hide"));
 
@@ -83,7 +84,6 @@ module("Integration | Component | uk-modal", function (hooks) {
     await triggerEvent("[data-test-target]", "hidden");
     await settled();
 
-    assert.dom(".uk-modal.uk-open").exists();
     assert.verifySteps([]);
   });
 });

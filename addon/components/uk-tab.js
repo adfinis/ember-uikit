@@ -11,9 +11,7 @@ export default Component.extend(SwitcherMixin, FlexMixin, {
 
     this.set(
       "attributeBindings",
-      this.get("attributeBindings").filter(
-        (i) => i !== "ukSwitcher:uk-switcher"
-      )
+      this.attributeBindings.filter((i) => i !== "ukSwitcher:uk-switcher")
     );
   },
 

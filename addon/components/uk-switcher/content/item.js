@@ -12,12 +12,12 @@ export default Component.extend({
 
   setEvents() {
     let events = {
-      beforeshow: this.getWithDefault("on-beforeshow", noop),
-      show: this.getWithDefault("on-show", noop),
-      shown: this.getWithDefault("on-shown", noop),
-      beforehide: this.getWithDefault("on-beforehide", noop),
-      hide: this.getWithDefault("on-hide", noop),
-      hidden: this.getWithDefault("on-hidden", noop),
+      beforeshow: this["on-beforeshow"] ?? noop,
+      show: this["on-show"] ?? noop,
+      shown: this["on-shown"] ?? noop,
+      beforehide: this["on-beforehide"] ?? noop,
+      hide: this["on-hide"] ?? noop,
+      hidden: this["on-hidden"] ?? noop,
     };
 
     for (let event in events) {

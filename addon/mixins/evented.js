@@ -1,3 +1,4 @@
+import { get } from "@ember/object";
 import Mixin from "@ember/object/mixin";
 import { camelize } from "@ember/string";
 
@@ -42,7 +43,7 @@ export default Mixin.create({
     let handlers = Object.values(EVENTS).reduce((obj, evt) => {
       return Object.assign(obj, {
         [camelize(evt.replace(/on-/, ""))]: (e) =>
-          this.getWithDefault(evt, () => {})(e),
+          (get(this, evt) ?? (() => {}))(e),
       });
     }, {});
 

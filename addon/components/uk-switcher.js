@@ -8,6 +8,6 @@ export default Component.extend({
   animation: "",
 
   contentId: computed("elementId", function () {
-    return `uk-switcher-content-${this.get("elementId")}`;
+    return `uk-switcher-content-${this.elementId}`;
   }),
 });

@@ -1,4 +1,4 @@
-import { computed } from "@ember/object";
+import { computed, get } from "@ember/object";
 import { warn } from "@ember/debug";
 
 export const validateValue = (value, name, options, mediaOptions) => {
@@ -41,8 +41,8 @@ export const validatedComputedProperty = (
         validateValue(
           value,
           name,
-          this.getWithDefault(optionsKey, []),
-          this.getWithDefault(mediaOptionsKey, [])
+          get(this, optionsKey) ?? [],
+          get(this, mediaOptionsKey) ?? []
         )
       );
 
@@ -75,8 +75,8 @@ export const validatedArrayComputedProperty = (
               validateValue(
                 v,
                 name,
-                this.getWithDefault(optionsKey, []),
-                this.getWithDefault(mediaOptionsKey, [])
+                get(this, optionsKey) ?? [],
+                get(this, mediaOptionsKey) ?? []
               )
             )
           )

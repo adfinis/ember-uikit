@@ -16,7 +16,7 @@ export default Component.extend({
 
   componentName: computed("type", function () {
     return TYPES[
-      Object.keys(TYPES).find((k) => TYPES[k].name === this.get("type"))
+      Object.keys(TYPES).find((k) => TYPES[k].name === this.type)
     ].componentName;
   }),
 });
