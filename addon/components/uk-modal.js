@@ -59,12 +59,10 @@ export default Component.extend({
           if (this.visible) {
             await (this["on-hide"] ?? noop)();
           }
-
-          this.set("isAnimating", false);
         }
       },
 
-      hidden: async (event) => {
+      hidden: (event) => {
         if (event.currentTarget === event.target) {
           this.set("isAnimating", false);
         }
@@ -72,7 +70,7 @@ export default Component.extend({
 
       show: async (event) => {
         if (event.currentTarget === event.target) {
-          if (!this.visible) {
+          if (this.visible) {
             await (this["on-show"] ?? noop)();
           }
         }

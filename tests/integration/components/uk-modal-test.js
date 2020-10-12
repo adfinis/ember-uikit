@@ -30,11 +30,17 @@ module("Integration | Component | uk-modal", function (hooks) {
     assert.expect(1);
 
     await render(hbs`
-      <UkModal @visible={{true}} as |modal|>
-        <modal.header>
-          <h2>Test</h2>
-        </modal.header>
-      </UkModal>
+    {{#uk-modal visible=true as |modal|}}
+      {{#modal.header}}
+        <h2>Test</h2>
+      {{/modal.header}}
+      {{#modal.body}}
+        <p>Lorem ipsum</p>
+      {{/modal.body}}
+      {{#modal.footer class="uk-text-right"}}
+        <button></button>
+      {{/modal.footer}}
+    {{/uk-modal}}
     `);
 
     await waitFor(".uk-modal[data-test-animating]", { count: 0 });
