@@ -1,4 +1,4 @@
-{{#-in-element this.containerElement}}
+{{#in-element this.containerElement insertBefore=null}}
   <div id={{this.modalId}} class={{@modalClass}} data-test-animating={{this.isAnimating}}>
     <div
       class="uk-modal-dialog {{@dialogClass}}"
@@ -26,4 +26,4 @@
       )}}
     </div>
   </div>
-{{/-in-element}}
+{{/in-element}}
