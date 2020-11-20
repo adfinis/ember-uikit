@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.0...v2.2.1) (2020-11-20)
+
+
+### Bug Fixes
+
+* remove deprecated usage of private helper and use ember-cli-uglify ([#562](https://github.com/adfinis-sygroup/ember-uikit/issues/562)) ([bba51c6](https://github.com/adfinis-sygroup/ember-uikit/commit/bba51c62c778744cc9af4e3e0b48ccce329d95f1))
+
 # [2.2.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.1.2...v2.2.0) (2020-10-12)
 
 
