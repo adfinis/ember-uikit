@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.1...v2.2.2) (2020-11-20)
+
+
+### Bug Fixes
+
+* **modal:** fix scrolling to top when modal exists ([5291beb](https://github.com/adfinis-sygroup/ember-uikit/commit/5291beb9d4050b989abc12a6a44b05c9fce6d50d))
+
 ## [2.2.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.0...v2.2.1) (2020-11-20)
 
 
