@@ -50,7 +50,7 @@
     "uikit": "^3.5.9"
   },
   "devDependencies": {
-    "@adfinis-sygroup/semantic-release-config": "3.0.1",
+    "@adfinis-sygroup/semantic-release-config": "3.1.0",
     "@babel/core": "7.12.8",
     "@ember/optional-features": "2.0.0",
     "@ember/render-modifiers": "1.0.2",
