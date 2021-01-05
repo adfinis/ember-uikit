@@ -1,16 +1,17 @@
 /* eslint-env node */
 
-const path = require("path");
 const fs = require("fs");
+const path = require("path");
+
 const chalk = require("chalk");
 
 module.exports = {
   normalizeEntityName() {},
 
   afterInstall() {
-    let stylePath = path.join("app", "styles");
-    let file = path.join(stylePath, "app.scss");
-    let importStatement = "@import 'ember-uikit';";
+    const stylePath = path.join("app", "styles");
+    const file = path.join(stylePath, "app.scss");
+    const importStatement = "@import 'ember-uikit';";
 
     if (!fs.existsSync(stylePath)) {
       fs.mkdirSync(stylePath);

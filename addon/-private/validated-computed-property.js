@@ -1,11 +1,11 @@
-import { computed, get } from "@ember/object";
 import { warn } from "@ember/debug";
+import { computed, get } from "@ember/object";
 
 export const validateValue = (value, name, options, mediaOptions) => {
   if (
     value &&
     !options.filter((v) => {
-      let re = new RegExp(`^${v}(${mediaOptions.join("|")})?$`);
+      const re = new RegExp(`^${v}(${mediaOptions.join("|")})?$`);
 
       return re.test(value);
     }).length
@@ -37,7 +37,7 @@ export const validatedComputedProperty = (
       return this.get(key);
     },
     set(_, value) {
-      let validated = sanitize(
+      const validated = sanitize(
         validateValue(
           value,
           name,
@@ -66,7 +66,7 @@ export const validatedArrayComputedProperty = (
       return this.get(key);
     },
     set(_, value) {
-      let validated =
+      const validated =
         value &&
         value
           .split(separator)

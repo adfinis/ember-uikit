@@ -1,10 +1,11 @@
 /* eslint-env node */
 "use strict";
 
+const path = require("path");
+
 const funnel = require("broccoli-funnel");
 const merge = require("broccoli-merge-trees");
 const map = require("broccoli-stew").map;
-const path = require("path");
 
 const DEFAULT_OPTIONS = {
   importUIkitCSS: true,
@@ -33,7 +34,7 @@ module.exports = {
    * https://github.com/ember-cli/ember-cli/blame/16e4492c9ebf3348eb0f31df17215810674dbdf6/lib/models/addon.js#L533
    */
   findHost() {
-    let fn =
+    const fn =
       this._findHost ||
       function () {
         let current = this;
@@ -48,13 +49,13 @@ module.exports = {
   },
 
   treeForPublic(tree) {
-    let uikitAssets =
+    const uikitAssets =
       this.uikitOptions.importUIkitAssets &&
       funnel(this._getAssetsPath(), {
         destDir: "/assets/images/components",
       });
 
-    let uikitIcons =
+    const uikitIcons =
       this.uikitOptions.useIcons &&
       this.uikitOptions.importUIkitIcons &&
       funnel(this._getIconsPath(), {
@@ -65,7 +66,7 @@ module.exports = {
   },
 
   treeForStyles(tree) {
-    let uikitStyles =
+    const uikitStyles =
       this._hasSass() &&
       this.uikitOptions.importUIkitCSS &&
       funnel(this._getStylesPath(), {
@@ -88,12 +89,12 @@ module.exports = {
     return merge([tree, uikitScripts].filter(Boolean));
   },
 
-  included() {
-    this._super.included.apply(this, arguments);
+  included(...args) {
+    this._super.included.apply(this, args);
 
     this.app = this.findHost();
 
-    let options = Object.assign(
+    const options = Object.assign(
       Object.assign({}, DEFAULT_OPTIONS),
       this.app.options["ember-uikit"]
     );
@@ -128,7 +129,7 @@ module.exports = {
   },
 
   _generateWhitelist(whitelist) {
-    let list = [];
+    const list = [];
 
     if (!whitelist) {
       return list;
@@ -163,8 +164,8 @@ module.exports = {
    * Treeshaking stolen from ember-bootstrap all credits to @kaliber5
    */
   _filterComponents(tree) {
-    let whitelist = this._generateWhitelist(this.uikitOptions.whitelist);
-    let blacklist = this.uikitOptions.blacklist || [];
+    const whitelist = this._generateWhitelist(this.uikitOptions.whitelist);
+    const blacklist = this.uikitOptions.blacklist || [];
 
     // exit early if no opts defined
     if (whitelist.length === 0 && blacklist.length === 0) {
@@ -177,23 +178,23 @@ module.exports = {
   },
 
   _excludeComponent(name, whitelist, blacklist) {
-    let regex = /^(templates\/)?components\//;
-    let isComponent = regex.test(name);
+    const regex = /^(templates\/)?components\//;
+    const isComponent = regex.test(name);
 
     if (!isComponent) {
       return false;
     }
 
     let baseName = name.replace(regex, "");
-    let firstSeparator = baseName.indexOf("/");
+    const firstSeparator = baseName.indexOf("/");
     if (firstSeparator !== -1) {
       baseName = baseName.substring(0, firstSeparator);
     } else {
       baseName = baseName.substring(0, baseName.lastIndexOf("."));
     }
 
-    let isWhitelisted = whitelist.indexOf(baseName) !== -1;
-    let isBlacklisted = blacklist.indexOf(baseName) !== -1;
+    const isWhitelisted = whitelist.indexOf(baseName) !== -1;
+    const isBlacklisted = blacklist.indexOf(baseName) !== -1;
 
     if (whitelist.length === 0 && blacklist.length === 0) {
       return false;
@@ -228,7 +229,7 @@ module.exports = {
   },
 
   _getStylesPath() {
-    let uikitPath = this._getUikitPath();
+    const uikitPath = this._getUikitPath();
 
     if (this._hasSass()) {
       return path.join(uikitPath, "src", "scss");

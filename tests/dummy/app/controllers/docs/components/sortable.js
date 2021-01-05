@@ -1,5 +1,5 @@
-import Controller from "@ember/controller";
 import { A } from "@ember/array";
+import Controller from "@ember/controller";
 import UIkit from "uikit";
 
 export default Controller.extend({

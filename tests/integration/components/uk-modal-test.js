@@ -1,13 +1,7 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
-import {
-  render,
-  click,
-  waitFor,
-  triggerEvent,
-  settled,
-} from "@ember/test-helpers";
+import { render, click, waitFor, triggerEvent } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import { setupRenderingTest } from "ember-qunit";
+import { module, test } from "qunit";
 
 module("Integration | Component | uk-modal", function (hooks) {
   setupRenderingTest(hooks);
@@ -82,7 +76,6 @@ module("Integration | Component | uk-modal", function (hooks) {
     `);
 
     await triggerEvent("[data-test-target]", "hidden");
-    await settled();
 
     assert.verifySteps([]);
   });

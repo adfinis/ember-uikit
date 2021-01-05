@@ -1,13 +1,14 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-tab";
-import SwitcherMixin from "ember-uikit/mixins/switcher";
 import FlexMixin from "ember-uikit/mixins/flex";
+import SwitcherMixin from "ember-uikit/mixins/switcher";
+
+import layout from "../templates/components/uk-tab";
 
 export default Component.extend(SwitcherMixin, FlexMixin, {
   layout,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set(
       "attributeBindings",

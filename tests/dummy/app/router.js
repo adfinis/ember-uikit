@@ -1,4 +1,5 @@
 import EmberRouter from "@ember/routing/router";
+
 import config from "./config/environment";
 
 export default class Router extends EmberRouter {
@@ -6,6 +7,7 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
+// eslint-disable-next-line array-callback-return
 Router.map(function () {
   this.route("docs", function () {
     this.route("components", function () {

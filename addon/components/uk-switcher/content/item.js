@@ -1,6 +1,7 @@
 import Component from "@ember/component";
-import layout from "../../../templates/components/uk-switcher/content/item";
 import UIkit from "uikit";
+
+import layout from "../../../templates/components/uk-switcher/content/item";
 
 // empty function as default event handler
 const noop = () => {};
@@ -11,7 +12,7 @@ export default Component.extend({
   tagName: "li",
 
   setEvents() {
-    let events = {
+    const events = {
       beforeshow: this["on-beforeshow"] ?? noop,
       show: this["on-show"] ?? noop,
       shown: this["on-shown"] ?? noop,
@@ -20,12 +21,12 @@ export default Component.extend({
       hidden: this["on-hidden"] ?? noop,
     };
 
-    for (let event in events) {
+    for (const event in events) {
       UIkit.util.on(this.element, event, events[event]);
     }
   },
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
     this.setEvents();
   },
 });

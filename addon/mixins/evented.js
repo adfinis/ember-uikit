@@ -37,10 +37,10 @@ export const EVENTS = {
 };
 
 export default Mixin.create({
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
-    let handlers = Object.values(EVENTS).reduce((obj, evt) => {
+    const handlers = Object.values(EVENTS).reduce((obj, evt) => {
       return Object.assign(obj, {
         [camelize(evt.replace(/on-/, ""))]: (e) =>
           (get(this, evt) ?? (() => {}))(e),

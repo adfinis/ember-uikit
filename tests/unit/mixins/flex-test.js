@@ -1,5 +1,4 @@
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
 import FlexMixin, {
   FLEX_HORIZONTAL_OPTIONS,
   FLEX_VERTICAL_OPTIONS,
@@ -7,12 +6,13 @@ import FlexMixin, {
   FLEX_WRAP_OPTIONS,
   FLEX_WRAP_ALIGNMENT_OPTIONS,
 } from "ember-uikit/mixins/flex";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | flex", function () {
   test("computes flex horizontal", function (assert) {
-    let FlexObject = EmberObject.extend(FlexMixin);
+    const FlexObject = EmberObject.extend(FlexMixin);
 
-    let subject = FlexObject.create();
+    const subject = FlexObject.create();
 
     subject.set("flexHorizontal", FLEX_HORIZONTAL_OPTIONS.CENTER);
 
@@ -20,9 +20,9 @@ module("Unit | Mixin | flex", function () {
   });
 
   test("computes flex vertical", function (assert) {
-    let FlexObject = EmberObject.extend(FlexMixin);
+    const FlexObject = EmberObject.extend(FlexMixin);
 
-    let subject = FlexObject.create();
+    const subject = FlexObject.create();
 
     subject.set("flexVertical", FLEX_VERTICAL_OPTIONS.MIDDLE);
 
@@ -30,9 +30,9 @@ module("Unit | Mixin | flex", function () {
   });
 
   test("computes flex direction", function (assert) {
-    let FlexObject = EmberObject.extend(FlexMixin);
+    const FlexObject = EmberObject.extend(FlexMixin);
 
-    let subject = FlexObject.create();
+    const subject = FlexObject.create();
 
     subject.set("flexDirection", FLEX_DIRECTION_OPTIONS.COLUMN_REVERSE);
 
@@ -40,9 +40,9 @@ module("Unit | Mixin | flex", function () {
   });
 
   test("computes flex wrap", function (assert) {
-    let FlexObject = EmberObject.extend(FlexMixin);
+    const FlexObject = EmberObject.extend(FlexMixin);
 
-    let subject = FlexObject.create();
+    const subject = FlexObject.create();
 
     subject.set("flexWrap", FLEX_WRAP_OPTIONS.NOWRAP);
 
@@ -50,9 +50,9 @@ module("Unit | Mixin | flex", function () {
   });
 
   test("computes flex wrap alignment", function (assert) {
-    let FlexObject = EmberObject.extend(FlexMixin);
+    const FlexObject = EmberObject.extend(FlexMixin);
 
-    let subject = FlexObject.create();
+    const subject = FlexObject.create();
 
     subject.set("flexWrapAlignment", FLEX_WRAP_ALIGNMENT_OPTIONS.BETWEEN);
 

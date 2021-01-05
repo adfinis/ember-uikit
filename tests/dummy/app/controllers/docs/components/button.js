@@ -1,32 +1,31 @@
-import Controller from "@ember/controller";
 import { A } from "@ember/array";
-import { task, timeout } from "ember-concurrency";
+import Controller from "@ember/controller";
+import { tracked } from "@glimmer/tracking";
+import { timeout } from "ember-concurrency";
+import { dropTask } from "ember-concurrency-decorators";
 import { BUTTON_COLOR_OPTIONS } from "ember-uikit/components/uk-button";
 
-export default Controller.extend({
-  init() {
-    this._super(...arguments);
+export default class extends Controller {
+  @tracked firedEvents = A();
 
-    this.set("firedEvents", A());
-  },
+  @tracked label = "Button";
+  @tracked type = "button";
+  @tracked disabled = false;
+  @tracked active = false;
+  @tracked loading = false;
+  @tracked color = "default";
+  @tracked size = "";
+  @tracked width = "";
+  @tracked title = "";
 
-  label: "Button",
-  type: "button",
-  disabled: false,
-  active: false,
-  loading: false,
-  color: "default",
-  size: "",
-  width: "",
-  title: "",
+  colors = BUTTON_COLOR_OPTIONS;
 
-  colors: BUTTON_COLOR_OPTIONS,
-
-  fireEvent: task(function* (name) {
+  @dropTask
+  *fireEvent(name) {
     this.firedEvents.pushObject(name);
 
     yield timeout(1000);
 
     this.firedEvents.removeObject(name);
-  }),
-});
+  }
+}

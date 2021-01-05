@@ -1,17 +1,17 @@
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
+import MEDIA_OPTIONS from "ember-uikit/-private/media";
 import WidthMixin, {
   GRID_OPTIONS,
   FIXED_OPTIONS,
   SPECIAL_OPTIONS,
 } from "ember-uikit/mixins/width";
-import MEDIA_OPTIONS from "ember-uikit/-private/media";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | width", function () {
   test("computes the width", function (assert) {
-    let WidthObject = EmberObject.extend(WidthMixin);
+    const WidthObject = EmberObject.extend(WidthMixin);
 
-    let subject = WidthObject.create({
+    const subject = WidthObject.create({
       _widthTemplate: "foo-$width$",
     });
 
@@ -27,9 +27,9 @@ module("Unit | Mixin | width", function () {
   });
 
   test("ignores invalid width", function (assert) {
-    let WidthObject = EmberObject.extend(WidthMixin);
+    const WidthObject = EmberObject.extend(WidthMixin);
 
-    let subject = WidthObject.create({
+    const subject = WidthObject.create({
       _widthTemplate: "foo-$width$",
     });
 

@@ -1,12 +1,12 @@
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
 import SizeMixin, { SIZE_OPTIONS } from "ember-uikit/mixins/size";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | size", function () {
   test("computes the size", function (assert) {
-    let SizeObject = EmberObject.extend(SizeMixin);
+    const SizeObject = EmberObject.extend(SizeMixin);
 
-    let subject = SizeObject.create({
+    const subject = SizeObject.create({
       sizeTemplate: "foobar-$size$",
     });
 
@@ -16,9 +16,9 @@ module("Unit | Mixin | size", function () {
   });
 
   test("ignores invalid sizes", function (assert) {
-    let SizeObject = EmberObject.extend(SizeMixin);
+    const SizeObject = EmberObject.extend(SizeMixin);
 
-    let subject = SizeObject.create();
+    const subject = SizeObject.create();
 
     subject.set("size", "invalidsize");
 

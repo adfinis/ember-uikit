@@ -1,7 +1,7 @@
-import Mixin from "@ember/object/mixin";
 import { computed } from "@ember/object";
-import validatedComputedProperty from "ember-uikit/-private/validated-computed-property";
+import Mixin from "@ember/object/mixin";
 import MEDIA_OPTIONS from "ember-uikit/-private/media";
+import validatedComputedProperty from "ember-uikit/-private/validated-computed-property";
 
 export const FLEX_HORIZONTAL_OPTIONS = {
   LEFT: "left",

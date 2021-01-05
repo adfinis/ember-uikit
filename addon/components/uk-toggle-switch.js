@@ -1,6 +1,6 @@
+import { computed } from "@ember/object";
 import ToggleComponent from "ember-toggle/components/x-toggle/component";
 import validatedComputedProperty from "ember-uikit/-private/validated-computed-property";
-import { computed } from "@ember/object";
 
 export const SIZE_OPTIONS = {
   SMALL: "small",
@@ -14,8 +14,8 @@ export const COLOR_OPTIONS = {
 };
 
 export default ToggleComponent.extend({
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.setProperties({
       _size: SIZE_OPTIONS.MEDIUM,
@@ -45,7 +45,7 @@ export default ToggleComponent.extend({
 
   onToggle: computed(function () {
     return (value) => {
-      let action = this["on-toggle"];
+      const action = this["on-toggle"];
 
       if (typeof action === "function") {
         // one way binding
