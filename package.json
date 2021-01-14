@@ -47,7 +47,7 @@
     "ember-get-config": "^0.3.0",
     "ember-in-element-polyfill": "^1.0.0",
     "ember-toggle": "^7.1.0",
-    "uikit": "^3.5.9"
+    "uikit": "^3.6.11"
   },
   "devDependencies": {
     "@adfinis-sygroup/semantic-release-config": "3.1.0",
