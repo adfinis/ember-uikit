@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@adfinis-sygroup/semantic-release-config": "3.1.0",
-    "@babel/core": "7.12.8",
+    "@babel/core": "7.12.13",
     "@ember/optional-features": "2.0.0",
     "@ember/render-modifiers": "1.0.2",
     "@glimmer/component": "1.0.2",
