@@ -95,6 +95,9 @@
     "qunit-dom": "1.6.0",
     "sass": "1.29.0"
   },
+  "resolutions": {
+    "focus-trap": "6.2.1"
+  },
   "engines": {
     "node": "10.* || >= 12"
   },
