@@ -5,8 +5,8 @@ import { module, test } from "qunit";
 module("Unit | Mixin | evented", function () {
   // Replace this with your real tests.
   test("it works", function (assert) {
-    let EventedObject = EmberObject.extend(EventedMixin);
-    let subject = EventedObject.create();
+    const EventedObject = EmberObject.extend(EventedMixin);
+    const subject = EventedObject.create();
     assert.ok(subject);
   });
 });

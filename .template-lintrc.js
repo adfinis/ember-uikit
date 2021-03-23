@@ -1,10 +1,10 @@
 "use strict";
 
 module.exports = {
-  extends: "recommended",
-
+  extends: "octane",
   rules: {
-    // https://github.com/ember-template-lint/ember-template-lint/issues/509
-    "attribute-indentation": false,
+    "no-action": "warn",
+    "no-implicit-this": "warn",
+    "no-curly-component-invocation": "warn",
   },
 };

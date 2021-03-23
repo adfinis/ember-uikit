@@ -1,5 +1,5 @@
-import Mixin from "@ember/object/mixin";
 import { computed } from "@ember/object";
+import Mixin from "@ember/object/mixin";
 import { isEmpty } from "@ember/utils";
 
 export default Mixin.create({
@@ -18,7 +18,7 @@ export default Mixin.create({
   ukSwitcher: "",
 
   connect: computed("contentId", function () {
-    let id = this.contentId;
+    const id = this.contentId;
 
     return isEmpty(id) ? "" : `#${id}`;
   }),

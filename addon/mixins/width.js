@@ -1,7 +1,7 @@
-import Mixin from "@ember/object/mixin";
 import { computed } from "@ember/object";
-import { validatedArrayComputedProperty } from "ember-uikit/-private/validated-computed-property";
+import Mixin from "@ember/object/mixin";
 import MEDIA_OPTIONS from "ember-uikit/-private/media";
+import { validatedArrayComputedProperty } from "ember-uikit/-private/validated-computed-property";
 
 export const gcd = (a, b) => (a % b === 0 ? b : gcd(b, a % b));
 

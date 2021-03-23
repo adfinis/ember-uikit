@@ -1,7 +1,7 @@
-import { module, test } from "qunit";
 import { setupTest } from "ember-qunit";
-import UIkit from "uikit";
+import { module, test } from "qunit";
 import { Promise } from "rsvp";
+import UIkit from "uikit";
 
 module("Unit | Service | notification", function (hooks) {
   setupTest(hooks);
@@ -11,8 +11,8 @@ module("Unit | Service | notification", function (hooks) {
   test("can display notifications", function (assert) {
     assert.expect(10);
 
-    let _original = UIkit.notification;
-    let service = this.owner.lookup("service:notification");
+    const _original = UIkit.notification;
+    const service = this.owner.lookup("service:notification");
 
     UIkit.notification = (o) => {
       assert.equal(o.message, "Test");
@@ -50,8 +50,8 @@ module("Unit | Service | notification", function (hooks) {
   test("can pass options", function (assert) {
     assert.expect(2);
 
-    let _original = UIkit.notification;
-    let service = this.owner.lookup("service:notification");
+    const _original = UIkit.notification;
+    const service = this.owner.lookup("service:notification");
 
     UIkit.notification = (o) => {
       assert.equal(o.timeout, 100);
@@ -65,7 +65,7 @@ module("Unit | Service | notification", function (hooks) {
   test("returns a promise", function (assert) {
     assert.expect(1);
 
-    let service = this.owner.lookup("service:notification");
+    const service = this.owner.lookup("service:notification");
 
     assert.ok(service.default("Test") instanceof Promise);
   });

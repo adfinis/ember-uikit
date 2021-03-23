@@ -39,7 +39,7 @@ export default Component.extend({
   ukSortable: "",
 
   setEvents() {
-    let events = {
+    const events = {
       start: this["on-start"] ?? noop,
       stop: this["on-stop"] ?? noop,
       moved: this["on-moved"] ?? noop,
@@ -47,13 +47,13 @@ export default Component.extend({
       removed: this["on-removed"] ?? noop,
     };
 
-    for (let event in events) {
+    for (const event in events) {
       UIkit.util.on(this.element, event, events[event]);
     }
   },
 
-  didInsertElement() {
-    this._super(...arguments);
+  didInsertElement(...args) {
+    this._super(...args);
     this.setEvents();
   },
 });

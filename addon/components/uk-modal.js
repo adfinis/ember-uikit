@@ -1,9 +1,10 @@
+import { getOwner } from "@ember/application";
 import Component from "@ember/component";
 import { computed } from "@ember/object";
-import layout from "../templates/components/uk-modal";
-import UIkit from "uikit";
 import { scheduleOnce } from "@ember/runloop";
-import { getOwner } from "@ember/application";
+import UIkit from "uikit";
+
+import layout from "../templates/components/uk-modal";
 
 const noop = () => {};
 
@@ -46,8 +47,8 @@ export default Component.extend({
       .querySelector(this.container);
   }),
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set("container", getOwner(this).rootElement || "body");
 
@@ -94,7 +95,8 @@ export default Component.extend({
     });
   },
 
-  didInsertElement() {
+  didInsertElement(...args) {
+    this._super(...args);
     this.set(
       "modal",
       UIkit.modal(`#${this.modalId}`, {
@@ -112,10 +114,12 @@ export default Component.extend({
   },
 
   didReceiveAttrs() {
+    this._super();
     scheduleOnce("afterRender", this, "toggleModal");
   },
 
-  willDestroyElement() {
+  willDestroyElement(...args) {
+    this._super(...args);
     if (this.modal) {
       this._teardownEvents();
 

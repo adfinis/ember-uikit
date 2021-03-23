@@ -1,7 +1,8 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-label";
 import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
 import WidthMixin from "ember-uikit/mixins/width";
+
+import layout from "../templates/components/uk-label";
 
 export const LABEL_COLOR_OPTIONS = [
   "",

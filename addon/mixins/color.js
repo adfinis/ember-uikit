@@ -1,5 +1,5 @@
-import Mixin from "@ember/object/mixin";
 import { computed } from "@ember/object";
+import Mixin from "@ember/object/mixin";
 import validatedComputedProperty from "ember-uikit/-private/validated-computed-property";
 
 export const COLOR_OPTIONS = {

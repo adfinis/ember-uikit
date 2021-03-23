@@ -1,8 +1,9 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-card";
 import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
 import SizeMixin from "ember-uikit/mixins/size";
 import WidthMixin from "ember-uikit/mixins/width";
+
+import layout from "../templates/components/uk-card";
 
 export const CARD_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,

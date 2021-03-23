@@ -1,11 +1,11 @@
-import Controller from "@ember/controller";
 import { A } from "@ember/array";
+import Controller from "@ember/controller";
 import { task, timeout } from "ember-concurrency";
 import { BUTTON_COLOR_OPTIONS } from "ember-uikit/components/uk-button";
 
 export default Controller.extend({
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.set("firedEvents", A());
   },

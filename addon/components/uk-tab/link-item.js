@@ -1,4 +1,5 @@
 import LinkComponent from "@ember/routing/link-component";
+
 import layout from "../../templates/components/uk-tab/item";
 
 export default LinkComponent.extend({
