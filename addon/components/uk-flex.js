@@ -1,7 +1,8 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-flex";
-import FlexMixin from "ember-uikit/mixins/flex";
 import { alias } from "@ember/object/computed";
+import FlexMixin from "ember-uikit/mixins/flex";
+
+import layout from "../templates/components/uk-flex";
 
 export default Component.extend(FlexMixin, {
   layout,

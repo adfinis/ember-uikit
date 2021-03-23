@@ -1,6 +1,7 @@
 import Component from "@ember/component";
-import layout from "../../templates/components/uk-subnav/item";
 import EventedMixin from "ember-uikit/mixins/evented";
+
+import layout from "../../templates/components/uk-subnav/item";
 
 export default Component.extend(EventedMixin, {
   layout,

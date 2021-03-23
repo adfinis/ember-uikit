@@ -1,6 +1,7 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-list";
 import WidthMixin from "ember-uikit/mixins/width";
+
+import layout from "../templates/components/uk-list";
 
 export default Component.extend(WidthMixin, {
   layout,

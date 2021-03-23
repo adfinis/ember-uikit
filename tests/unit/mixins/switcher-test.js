@@ -1,12 +1,12 @@
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
 import SwitcherMixin from "ember-uikit/mixins/switcher";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | switcher", function () {
   test("computes connect property", function (assert) {
-    let SwitcherObject = EmberObject.extend(SwitcherMixin);
+    const SwitcherObject = EmberObject.extend(SwitcherMixin);
 
-    let subject = SwitcherObject.create();
+    const subject = SwitcherObject.create();
 
     assert.ok(subject);
     assert.equal(subject.get("connect"), "");

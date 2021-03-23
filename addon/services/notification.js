@@ -1,7 +1,7 @@
 import Service from "@ember/service";
-import UIkit from "uikit";
 import config from "ember-get-config";
 import { Promise, resolve } from "rsvp";
+import UIkit from "uikit";
 
 const USER_CONFIG =
   (config["ember-uikit"] && config["ember-uikit"].notification) || {};

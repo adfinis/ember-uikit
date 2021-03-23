@@ -1,9 +1,10 @@
 import Component from "@ember/component";
-import layout from "../templates/components/uk-button";
-import WidthMixin from "ember-uikit/mixins/width";
-import SizeMixin from "ember-uikit/mixins/size";
 import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
 import EventedMixin from "ember-uikit/mixins/evented";
+import SizeMixin from "ember-uikit/mixins/size";
+import WidthMixin from "ember-uikit/mixins/width";
+
+import layout from "../templates/components/uk-button";
 
 export const BUTTON_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,

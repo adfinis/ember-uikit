@@ -1,12 +1,12 @@
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
 import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
+import { module, test } from "qunit";
 
 module("Unit | Mixin | color", function () {
   test("computes the color", function (assert) {
-    let ColorObject = EmberObject.extend(ColorMixin);
+    const ColorObject = EmberObject.extend(ColorMixin);
 
-    let subject = ColorObject.create({
+    const subject = ColorObject.create({
       colorTemplate: "foobar-$color$",
     });
 
@@ -16,9 +16,9 @@ module("Unit | Mixin | color", function () {
   });
 
   test("ignores invalid colors", function (assert) {
-    let ColorObject = EmberObject.extend(ColorMixin);
+    const ColorObject = EmberObject.extend(ColorMixin);
 
-    let subject = ColorObject.create();
+    const subject = ColorObject.create();
 
     subject.set("color", "invalidcolor");
 

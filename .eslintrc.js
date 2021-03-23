@@ -1,55 +1,17 @@
 "use strict";
 
 module.exports = {
-  root: true,
-  parser: "babel-eslint",
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: "module",
-  },
-  plugins: ["ember", "prettier"],
-  extends: [
-    "eslint:recommended",
-    "plugin:ember/recommended",
-    "plugin:prettier/recommended",
-  ],
-  env: {
-    browser: true,
-  },
+  extends: "@adfinis-sygroup/eslint-config/ember-addon",
   rules: {
     "ember/no-jquery": "error",
     // https://github.com/adfinis-sygroup/ember-uikit/issues/238
     "ember/no-new-mixins": "warn",
     "ember/no-mixins": "warn",
+    // TODO: migrate to native classes
+    "ember/no-classic-classes": "warn",
+    "ember/no-actions-hash": "warn",
+    "ember/no-classic-components": "warn",
+    "ember/require-tagless-components": "warn",
+    "ember/no-component-lifecycle-hooks": "warn",
   },
-  overrides: [
-    // node files
-    {
-      files: [
-        ".eslintrc.js",
-        ".template-lintrc.js",
-        "ember-cli-build.js",
-        "index.js",
-        "testem.js",
-        "blueprints/*/index.js",
-        "config/**/*.js",
-        "tests/dummy/config/**/*.js",
-      ],
-      excludedFiles: [
-        "addon/**",
-        "addon-test-support/**",
-        "app/**",
-        "tests/dummy/app/**",
-      ],
-      parserOptions: {
-        sourceType: "script",
-      },
-      env: {
-        browser: false,
-        node: true,
-      },
-      plugins: ["node"],
-      extends: ["plugin:node/recommended"],
-    },
-  ],
 };
