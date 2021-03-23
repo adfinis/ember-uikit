@@ -11,15 +11,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
 
-      - name: Install Dependencies
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            node-modules-${{ hashFiles('yarn.lock') }}
+            node-modules-
+
+      - name: Install dependencies
         run: yarn install
 
-      - name: Generate Documentation
+      - name: Generate docs
         run: yarn ember deploy production
 
-      - name: Deploy to Github Pages
+      - name: Deploy to GH pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
