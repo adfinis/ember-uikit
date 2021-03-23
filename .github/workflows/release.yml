@@ -16,10 +16,10 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: node_modules
-          key: node-modules-${{ hashFiles('yarn.lock') }}
+          key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            node-modules-${{ hashFiles('yarn.lock') }}
-            node-modules-
+            yarn-${{ hashFiles('yarn.lock') }}
+            yarn-
 
       - name: Install dependencies
         run: yarn install
