@@ -8,16 +8,7 @@
 </div>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{#uk-flex
-    flex=flex
-    inline=inline
-    horizontal=horizontal
-    vertical=vertical
-    direction=direction
-    wrap=wrap
-    wrapAlignment=wrapAlignment
-    class=(if fixHeight "uk-height-large")
-  }}
+  <UkFlex @flex={{flex}} @inline={{inline}} @horizontal={{horizontal}} @vertical={{vertical}} @direction={{direction}} @wrap={{wrap}} @wrapAlignment={{wrapAlignment}} @class={{if fixHeight "uk-height-large"}}>
     {{#uk-width
       (if fill "1-1" "")
       class="uk-background-secondary uk-light uk-padding"
@@ -36,7 +27,7 @@
     }}
       Item 3
     {{/uk-width}}
-  {{/uk-flex}}
+  </UkFlex>
 
   <div class="uk-margin-medium-top">
     <div>
@@ -54,16 +45,16 @@
   </div>
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -179,9 +170,9 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="flex.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

@@ -8,15 +8,15 @@
   {{uk-button label="Danger" on-click=(action "danger")}}
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Usage{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Usage</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       To use the <code>notification</code> service simply inject it into your
       <code>Route</code>, <code>Controller</code> or <code>Component</code>.
       Then you can use the <code>default</code>, <code>primary</code>,
@@ -35,6 +35,6 @@
         </li>
       </ul>
       Each method returns a <code>Promise</code> which is resolved as soon as the notification closes.
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

@@ -1,21 +1,17 @@
 <h2>Switcher</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{#uk-switcher
-    animation=animation
-    animationDuration=animationDuration
-    swiping=swiping
-  as |switcher|}}
-    {{#switcher.nav type=type as |nav|}}
-      {{#nav.component as |tab|}}
-        {{#tab.item}}Item 1{{/tab.item}}
-        {{#tab.item}}Item 2{{/tab.item}}
-        {{#tab.item}}Item 3{{/tab.item}}
-      {{/nav.component}}
-    {{/switcher.nav}}
+  <UkSwitcher @animation={{animation}} @animationDuration={{animationDuration}} @swiping={{swiping}} as |switcher|>
+    <switcher.nav @type={{type}} as |nav|>
+      <nav.component as |tab|>
+        <tab.item>Item 1</tab.item>
+        <tab.item>Item 2</tab.item>
+        <tab.item>Item 3</tab.item>
+      </nav.component>
+    </switcher.nav>
 
-    {{#switcher.content as |content|}}
-      {{#content.item}}
+    <switcher.content as |content|>
+      <content.item>
         <h5>Content 1</h5>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -24,8 +20,8 @@
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      {{/content.item}}
-      {{#content.item}}
+      </content.item>
+      <content.item>
         <h5>Content 2</h5>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -34,8 +30,8 @@
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      {{/content.item}}
-      {{#content.item}}
+      </content.item>
+      <content.item>
         <h5>Content 3</h5>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -44,22 +40,22 @@
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      {{/content.item}}
-    {{/switcher.content}}
-  {{/uk-switcher}}
+      </content.item>
+    </switcher.content>
+  </UkSwitcher>
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Yields{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Yields</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -114,8 +110,8 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       <small class="uk-text-muted">
         The demo on the yielded components always counts for the first
         appearance of said component.
@@ -174,9 +170,9 @@
         used for the content of the switcher . The <code>content</code>
         component takes no properties.
       </p>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="switcher.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

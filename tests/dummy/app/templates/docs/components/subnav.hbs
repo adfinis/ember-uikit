@@ -8,27 +8,24 @@
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{#uk-subnav
-    divider=divider
-    pill=pill
-  as |nav|}}
-    {{#nav.item active=itemActive disabled=itemDisabled}}Item 1{{/nav.item}}
-    {{#nav.item}}Item 2{{/nav.item}}
+  <UkSubnav @divider={{divider}} @pill={{pill}} as |nav|>
+    <nav.item @active={{itemActive}} @disabled={{itemDisabled}}>Item 1</nav.item>
+    <nav.item>Item 2</nav.item>
     {{#nav.link-item "docs.components.subnav" disabled=linkItemDisabled}}Link Item 1 (active){{/nav.link-item}}
-  {{/uk-subnav}}
+  </UkSubnav>
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Yields{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Yields</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -62,8 +59,8 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       <small class="uk-text-muted">
         The demo on the yielded components always counts for the first
         appearance of said component.
@@ -146,9 +143,9 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="subnav.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

@@ -1,5 +1,5 @@
-{{#uk-subnav divider=true as |nav|}}
-  {{#nav.item active=true}}Item 1{{/nav.item}}
-  {{#nav.item disabled=true}}Item 2{{/nav.item}}
+<UkSubnav @divider={{true}} as |nav|>
+  <nav.item @active={{true}}>Item 1</nav.item>
+  <nav.item @disabled={{true}}>Item 2</nav.item>
   {{#nav.link-item "link.to.some.page"}}Item 3{{/nav.link-item}}
-{{/uk-subnav}}
+</UkSubnav>

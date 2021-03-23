@@ -8,34 +8,30 @@
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{#uk-card
-    hover=hover
-    color=color
-    size=size
-  as |card|}}
-    {{#card.header}}
-      {{#card.title}}Title{{/card.title}}
-    {{/card.header}}
-    {{#card.body}}
+  <UkCard @hover={{hover}} @color={{color}} @size={{size}} as |card|>
+    <card.header>
+      <card.title>Title</card.title>
+    </card.header>
+    <card.body>
       Content
-    {{/card.body}}
-    {{#card.footer}}
+    </card.body>
+    <card.footer>
       {{uk-button color="text" label="Read more"}}
-    {{/card.footer}}
-  {{/uk-card}}
+    </card.footer>
+  </UkCard>
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Yields{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Yields</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -62,8 +58,8 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       <p>
         <code>header</code>
       </p>
@@ -100,9 +96,9 @@
         <code>header</code>. The <code>title</code> component takes not
         properties.
       </p>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="card.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>
