@@ -1,3 +1,14 @@
+# [3.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.2...v3.0.0) (2021-03-23)
+
+
+* chore(ember)!: remove support for ember LTS 3.16 ([0f652ac](https://github.com/adfinis-sygroup/ember-uikit/commit/0f652ac4ee0da056d87914262befb1b78d8cc031))
+
+
+### BREAKING CHANGES
+
+* This removes guaranteed support for ember LTS version
+3.16 since it's not active anymore and adds testing with the active LTS 3.24.
+
 ## [2.2.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.1...v2.2.2) (2020-11-20)
 
 
