@@ -1,83 +1,107 @@
 name: Test
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 env:
-  CI: true
+  NODE_VERSION: 14
 
 jobs:
-  lint-hbs:
-    name: Lint Handlebars
+  lint:
+    name: Lint
     runs-on: [ubuntu-latest]
+    timeout-minutes: 5
+
+    strategy:
+      matrix:
+        target: [js, hbs]
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install Dependencies
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            node-modules-${{ hashFiles('yarn.lock') }}
+            node-modules-
+
+      - name: Install dependencies
         run: yarn install
 
-      - name: Lint Handlebars
-        run: yarn lint:hbs
-
-  lint-js:
-    name: Lint Javascript
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 10
-
-      - name: Install Dependencies
-        run: yarn install
-
-      - name: Lint Javascript
-        run: yarn lint:js
+      - name: Lint ${{ matrix.target }}
+        run: yarn lint:${{ matrix.target }}
 
   test:
     name: Tests
-    needs: [lint-hbs, lint-js]
+    needs: [lint]
     runs-on: [ubuntu-latest]
+    timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install dependencies (no lockfile)
-        run: yarn install --no-lockfile
-
-      - name: Run tests (floating dependencies)
-        run: yarn test
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            node-modules-${{ hashFiles('yarn.lock') }}
+            node-modules-
 
       - name: Install dependencies
         run: yarn install
 
       - name: Run tests
-        run: yarn test
+        run: yarn test:ember
         env:
           COVERAGE: true
 
-      - name: Run codecov
+      - name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v1
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/lcov.info
 
-  try-one:
-    name: Additional Tests
-    needs: [test]
+  test-floating:
+    name: Floating Tests
+    needs: [lint]
     runs-on: [ubuntu-latest]
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: yarn install --no-lockfile
+
+      - name: Run tests
+        run: yarn test:ember
+
+  test-compatibility:
+    name: Compatibility Tests
+    needs: [lint]
+    runs-on: [ubuntu-latest]
+    timeout-minutes: 10
 
     strategy:
       matrix:
         scenario:
-          - ember-lts-3.16
+          - ember-lts-3.24
           - ember-lts-3.20
           - ember-release
           - ember-beta
@@ -87,12 +111,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: ${{ env.NODE_VERSION }}
+
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node-modules-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            node-modules-${{ hashFiles('yarn.lock') }}
+            node-modules-
 
       - name: Install dependencies
         run: yarn install
 
+      - uses: actions/cache@v2
+        with:
+          path: |
+            node-modules
+            package
+            yarn.lock
+          key: node-modules-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('config/ember-try.js') }}
+          restore-keys: |
+            node-modules-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('config/ember-try.js') }}
+            node-modules-${{ matrix.scenario }}-
+            node-modules-
+
       - name: Run tests
-        run: yarn ember try:one ${{ matrix.scenario }}
+        run: yarn ember try:one ${{ matrix.scenario }} --skip-cleanup
