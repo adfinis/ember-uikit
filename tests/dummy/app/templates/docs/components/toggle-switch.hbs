@@ -21,16 +21,16 @@
   }}
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -114,9 +114,9 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="toggle-switch.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

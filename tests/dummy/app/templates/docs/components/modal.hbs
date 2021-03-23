@@ -1,40 +1,32 @@
 <h2>Modal</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{#uk-modal
-    visible=visible
-    btnClose=btnClose
-    modalClass=modalClass
-    dialogClass=dialogClass
-    on-show=(action (mut visible) true)
-    on-hide=(action (mut visible) false)
-    as |modal|
-  }}
+  <UkModal @visible={{visible}} @btnClose={{btnClose}} @modalClass={{modalClass}} @dialogClass={{dialogClass}} @on-show={{action (mut visible) true}} @on-hide={{action (mut visible) false}} as |modal|>
 
-    {{#modal.header}}
+    <modal.header>
       <h2 class="uk-modal-title">Test</h2>
-    {{/modal.header}}
+    </modal.header>
     {{#modal.body uk-modal-overflow-auto}}
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     {{/modal.body}}
-    {{#modal.footer class="uk-text-right"}}
+    <modal.footer @class="uk-text-right">
       {{uk-button color="primary" label="Submit" on-click=(action "submit")}}
-    {{/modal.footer}}
-  {{/uk-modal}}
+    </modal.footer>
+  </UkModal>
 
   {{uk-button label="Open modal" on-click=(action (mut visible) true)}}
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Props{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Props</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -141,9 +133,9 @@
         <span class="uk-label">Note</span>
         Most of the settings are only read during initialization and can thus not be changed in the demo.
       </p>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="modal.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

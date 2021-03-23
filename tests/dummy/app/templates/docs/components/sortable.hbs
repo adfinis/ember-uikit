@@ -19,39 +19,29 @@
     uk-height-match="target: > div > .uk-card"
     class="uk-child-width-1-3@s"
   >
-    {{#uk-sortable
-      group="groupA"
-      animationDuration=animationDuration
-      on-start=(action "notify" "Group A START")
-      on-stop=(action "notify" "Group A STOP")
-      on-moved=(action "notify" "Group A MOVED")
-    }}
+    <UkSortable @group="groupA" @animationDuration={{animationDuration}} @on-start={{action "notify" "Group A START"}} @on-stop={{action "notify" "Group A STOP"}} @on-moved={{action "notify" "Group A MOVED"}}>
       {{#each group1 as |item|}}
         <div class="uk-margin uk-margin-right">
-          {{#uk-card color="primary" size="small" as |card|}}
-            {{#card.body}}
+          <UkCard @color="primary" @size="small" as |card|>
+            <card.body>
               {{item.label}}
-            {{/card.body}}
-          {{/uk-card}}
+            </card.body>
+          </UkCard>
         </div>
       {{/each}}
-    {{/uk-sortable}}
+    </UkSortable>
 
-    {{#uk-sortable
-      on-added=(action "notify" "Group B ADDED")
-      on-removed=(action "notify" "Group B REMOVED")
-      group="sortable-group"
-    }}
+    <UkSortable @on-added={{action "notify" "Group B ADDED"}} @on-removed={{action "notify" "Group B REMOVED"}} @group="sortable-group">
       {{#each group2 as |item|}}
         <div class="uk-margin uk-margin-right">
-          {{#uk-card color="secondary" size="small" as |card|}}
-            {{#card.body}}
+          <UkCard @color="secondary" @size="small" as |card|>
+            <card.body>
               {{item.label}}
-            {{/card.body}}
-          {{/uk-card}}
+            </card.body>
+          </UkCard>
         </div>
       {{/each}}
-    {{/uk-sortable}}
+    </UkSortable>
 
     {{uk-sortable
       on-added=(action "notify" "Group C ADDED")
@@ -67,17 +57,17 @@
 
 </div>
 
-{{#uk-switcher animation="uk-animation-fade" as |switcher|}}
-  {{#switcher.nav type="tab" as |nav|}}
-    {{#nav.component as |tab|}}
-      {{#tab.item}}Options{{/tab.item}}
-      {{#tab.item}}Events{{/tab.item}}
-      {{#tab.item}}Example{{/tab.item}}
-    {{/nav.component}}
-  {{/switcher.nav}}
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Options</tab.item>
+      <tab.item>Events</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
 
-  {{#switcher.content as |content|}}
-    {{#content.item}}
+  <switcher.content as |content|>
+    <content.item>
       <div class="uk-overflow-auto">
         <table class="uk-table uk-table-divider">
           <thead>
@@ -164,9 +154,9 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
+    </content.item>
 
-    {{#content.item}}
+    <content.item>
       <p>
         The events are named parameters that pass actions.
       </p>
@@ -203,9 +193,9 @@
           </tbody>
         </table>
       </div>
-    {{/content.item}}
-    {{#content.item}}
+    </content.item>
+    <content.item>
       {{code-snippet name="sortable.hbs"}}
-    {{/content.item}}
-  {{/switcher.content}}
-{{/uk-switcher}}
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

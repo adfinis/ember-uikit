@@ -1,11 +1,11 @@
-{{#uk-card color="primary" as |card|}}
-  {{#card.header}}
-    {{#card.title}}Title{{/card.title}}
-  {{/card.header}}
-  {{#card.body}}
+<UkCard @color="primary" as |card|>
+  <card.header>
+    <card.title>Title</card.title>
+  </card.header>
+  <card.body>
     Content
-  {{/card.body}}
-  {{#card.footer}}
+  </card.body>
+  <card.footer>
     {{uk-button color="text" label="Read more"}}
-  {{/card.footer}}
-{{/uk-card}}
+  </card.footer>
+</UkCard>
