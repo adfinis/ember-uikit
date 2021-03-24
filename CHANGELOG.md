@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.0...v3.0.1) (2021-03-24)
+
+
+### Bug Fixes
+
+* use prepare instead of postinstall lifecycle ([fbf1102](https://github.com/adfinis-sygroup/ember-uikit/commit/fbf1102556f2fc992927c0f72a04409eb40d3019))
+
 # [3.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v2.2.2...v3.0.0) (2021-03-23)
 
 
