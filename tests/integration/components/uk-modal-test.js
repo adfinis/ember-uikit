@@ -79,4 +79,19 @@ module("Integration | Component | uk-modal", function (hooks) {
 
     assert.verifySteps([]);
   });
+
+  test("it renders in container", async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`
+      <div id="modal-container"></div>
+      <UkModal @visible=true @container="#modal-container" as |Modal|>
+        <Modal.body>
+          <button data-test-target>Target</button>
+        </Modal.body>
+      </UkModal>
+    `);
+
+    assert.dom("#modal-container div.uk-modal.uk-open").exists();
+  });
 });
