@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.1...v3.0.2) (2021-03-24)
+
+
+### Bug Fixes
+
+* **modal:** use the container param as query string if passed as such ([4ca5b59](https://github.com/adfinis-sygroup/ember-uikit/commit/4ca5b591cafa2628fe22874a797c5a9f1d41e6ac))
+
 ## [3.0.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.0...v3.0.1) (2021-03-24)
 
 
