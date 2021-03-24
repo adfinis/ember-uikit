@@ -1,5 +1,9 @@
 {{#in-element this.containerElement insertBefore=null}}
-  <div id={{this.modalId}} class={{@modalClass}} data-test-animating={{this.isAnimating}}>
+  <div
+    id={{this.modalId}}
+    class={{@modalClass}}
+    data-test-animating={{this.isAnimating}}
+  >
     <div
       class="uk-modal-dialog {{@dialogClass}}"
       role="dialog"
@@ -7,7 +11,7 @@
       aria-labelledby={{this.modalHeaderId}}
       tabindex="-1"
       {{focus-trap
-        isActive=@visible
+        isActive=this.focusTrapActive
         shouldSelfFocus=true
         focusTrapOptions=(hash
           escapeDeactivates=true
@@ -20,11 +24,13 @@
       {{#if this.btnClose}}
         <button class="uk-modal-close-default" type="button" uk-close></button>
       {{/if}}
-      {{yield (hash
-        header = (component "uk-modal/header" id=this.modalHeaderId)
-        body = (component "uk-modal/body")
-        footer = (component "uk-modal/footer")
-      )}}
+      {{yield
+        (hash
+          header=(component "uk-modal/header" id=this.modalHeaderId)
+          body=(component "uk-modal/body")
+          footer=(component "uk-modal/footer")
+        )
+      }}
     </div>
   </div>
 {{/in-element}}

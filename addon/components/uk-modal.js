@@ -1,58 +1,74 @@
 import { getOwner } from "@ember/application";
 import Component from "@ember/component";
-import { computed } from "@ember/object";
+import { assert } from "@ember/debug";
+import { guidFor } from "@ember/object/internals";
 import { scheduleOnce } from "@ember/runloop";
+import { tracked } from "@glimmer/tracking";
 import UIkit from "uikit";
 
 import layout from "../templates/components/uk-modal";
 
 const noop = () => {};
 
-export default Component.extend({
-  layout,
+export default class UkModal extends Component {
+  layout = layout;
 
-  modalClass: "",
-  dialogClass: "",
-  btnClose: true,
-  escClose: true,
-  bgClose: true,
-  stack: false,
-  container: true,
-  clsPage: "uk-modal-page",
-  clsPanel: "uk-modal-dialog",
-  selClose: [
+  modalId = `modal-${guidFor(this)}`;
+
+  @tracked modal;
+  @tracked container = true;
+  @tracked modalClass = "";
+  @tracked dialogClass = "";
+  @tracked btnClose = true;
+  @tracked escClose = true;
+  @tracked bgClose = true;
+  @tracked stack = false;
+  @tracked clsPage = "uk-modal-page";
+  @tracked clsPanel = "uk-modal-dialog";
+  @tracked selClose = [
     ".uk-modal-close",
     ".uk-modal-close-default",
     ".uk-modal-close-outside",
     ".uk-modal-close-full",
-  ].join(", "),
+  ].join(", ");
 
-  isAnimating: false,
+  @tracked isAnimating = false;
+  @tracked focusTrapActive = false;
 
-  modalId: computed("elementId", function () {
-    return `modal-${this.elementId}`;
-  }),
+  modalObserver = null;
 
-  modalHeaderId: computed("modalId", function () {
+  get modalHeaderId() {
     return `${this.modalId}-header`;
-  }),
+  }
 
-  modalSelector: computed("modalId", function () {
+  get modalSelector() {
     return `#${this.modalId}`;
-  }),
+  }
 
-  containerElement: computed("container", function () {
-    return getOwner(this)
-      .lookup("service:-document")
-      .querySelector(this.container);
-  }),
+  get containerSelector() {
+    // Only set the container to the default if no query string was passed as argument.
+    if (typeof this.container !== "string") {
+      return getOwner(this).rootElement || "body";
+    }
 
-  init(...args) {
-    this._super(...args);
+    return this.container;
+  }
 
-    this.set("container", getOwner(this).rootElement || "body");
+  get containerElement() {
+    const document = getOwner(this).lookup("service:-document");
+    const containerElement = document.querySelector(this.containerSelector);
 
-    this.set("eventHandlers", {
+    assert(
+      `Your specified @container query selector ${this.container} did not return an element. Check your query selector and check if the element actually exists.`,
+      containerElement
+    );
+    return containerElement;
+  }
+
+  constructor(...args) {
+    super(...args);
+
+    this.eventHandlers = {
       hide: async (event) => {
         if (event.currentTarget === event.target) {
           if (this.visible) {
@@ -63,7 +79,7 @@ export default Component.extend({
 
       hidden: (event) => {
         if (event.currentTarget === event.target) {
-          this.set("isAnimating", false);
+          this.isAnimating = false;
         }
       },
 
@@ -77,77 +93,95 @@ export default Component.extend({
 
       shown: (event) => {
         if (event.currentTarget === event.target) {
-          this.set("isAnimating", false);
+          this.isAnimating = false;
         }
       },
 
       beforehide: (event) => {
         if (event.currentTarget === event.target) {
-          this.set("isAnimating", true);
+          this.isAnimating = true;
         }
       },
 
       beforeshow: (event) => {
         if (event.currentTarget === event.target) {
-          this.set("isAnimating", true);
+          this.isAnimating = true;
         }
       },
-    });
-  },
+    };
+  }
 
   didInsertElement(...args) {
-    this._super(...args);
-    this.set(
-      "modal",
-      UIkit.modal(`#${this.modalId}`, {
-        escClose: this.escClose,
-        bgClose: this.bgClose,
-        stack: this.stack,
-        container: this.container,
-        clsPage: this.clsPage,
-        clsPanel: this.clsPanel,
-        selClose: this.selClose,
-      })
-    );
+    super.didInsertElement(...args);
+    this.modal = UIkit.modal(`#${this.modalId}`, {
+      escClose: this.escClose,
+      bgClose: this.bgClose,
+      stack: this.stack,
+      container: this.containerSelector,
+      clsPage: this.clsPage,
+      clsPanel: this.clsPanel,
+      selClose: this.selClose,
+    });
 
     scheduleOnce("afterRender", this, "_setupEvents");
-  },
+  }
 
   didReceiveAttrs() {
-    this._super();
+    super.didReceiveAttrs();
     scheduleOnce("afterRender", this, "toggleModal");
-  },
+  }
 
   willDestroyElement(...args) {
-    this._super(...args);
+    super.willDestroyElement(...args);
     if (this.modal) {
       this._teardownEvents();
 
       this.modal.$destroy(true);
 
-      this.set("modal", null);
+      this.modal = null;
     }
-  },
+  }
 
   _setupEvents() {
     Object.keys(this.eventHandlers).forEach((event) => {
-      UIkit.util.on(
-        this.modalSelector,
-        event,
-        this.get(`eventHandlers.${event}`)
+      UIkit.util.on(this.modalSelector, event, this.eventHandlers[event]);
+    });
+
+    // Setup a observer so we can avtivate the focus trap only once
+    // the modal has stopped animating (otherwise this will cause errors).
+    // To check if the modal has stopped animating, we can just check for
+    // the `uk-open` class on the modal. If it extists then its finished.
+    this.modalObserver = new MutationObserver((mutationList) => {
+      const mutations = mutationList
+        .filter(
+          ({ target, attributeName }) =>
+            target.id === this.modalId && attributeName === "class"
+        )
+        .map((mutation) => mutation.target.classList);
+
+      // Short-circuit if no mutations match the filter
+      if (!mutations.length) {
+        return;
+      }
+
+      this.focusTrapActive = mutations.every((classList) =>
+        classList.contains("uk-open")
       );
     });
-  },
+    this.modalObserver.observe(
+      getOwner(this)
+        .lookup("service:-document")
+        .querySelector(this.modalSelector),
+      { attributes: true, subtree: true, childList: false }
+    );
+  }
 
   _teardownEvents() {
     Object.keys(this.eventHandlers).forEach((event) => {
-      UIkit.util.off(
-        this.modalSelector,
-        event,
-        this.get(`eventHandlers.${event}`)
-      );
+      UIkit.util.off(this.modalSelector, event, this.eventHandlers[event]);
     });
-  },
+    this.modalObserver.disconnect();
+  }
 
   async toggleModal() {
     if (!this.modal) return;
@@ -157,5 +191,5 @@ export default Component.extend({
     } else {
       await this.modal.hide();
     }
-  },
-});
+  }
+}

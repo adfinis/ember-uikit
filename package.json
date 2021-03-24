@@ -52,7 +52,6 @@
     "ember-get-config": "^0.3.0",
     "ember-in-element-polyfill": "^1.0.1",
     "ember-toggle": "^7.1.0",
-    "focus-trap": "6.2.1",
     "uikit": "^3.6.18"
   },
   "devDependencies": {
@@ -103,9 +102,6 @@
     "qunit": "2.14.1",
     "qunit-dom": "1.6.0",
     "sass": "1.32.8"
-  },
-  "resolutions": {
-    "focus-trap": "6.2.1"
   },
   "ember": {
     "edition": "octane"
