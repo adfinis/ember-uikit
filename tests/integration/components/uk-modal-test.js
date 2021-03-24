@@ -62,6 +62,26 @@ module("Integration | Component | uk-modal", function (hooks) {
     assert.verifySteps(["hide"]);
   });
 
+  test("it triggers the on-show action", async function (assert) {
+    assert.expect(2);
+
+    this.set("show", () => assert.step("show"));
+    this.set("visible", false);
+
+    await render(hbs`
+      {{#uk-modal visible=this.visible on-show=this.show as |modal|}}
+        {{#modal.header}}
+          <h2>Test</h2>
+        {{/modal.header}}
+      {{/uk-modal}}
+    `);
+
+    this.set("visible", true);
+    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
+
+    assert.verifySteps(["show"]);
+  });
+
   test("it ignores bubbling events", async function (assert) {
     assert.expect(1);
 
