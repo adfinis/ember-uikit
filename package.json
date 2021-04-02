@@ -51,7 +51,7 @@
     "ember-focus-trap": "^0.5.0",
     "ember-get-config": "^0.3.0",
     "ember-in-element-polyfill": "^1.0.1",
-    "ember-toggle": "^7.1.0",
+    "ember-toggle": "^7.1.1",
     "uikit": "^3.6.18"
   },
   "devDependencies": {
