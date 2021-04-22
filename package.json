@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@glimmer/tracking": "^1.0.3",
-    "broccoli-funnel": "^3.0.3",
+    "broccoli-funnel": "^3.0.4",
     "broccoli-merge-trees": "^4.1.0",
     "broccoli-stew": "^3.0.0",
     "chalk": "^4.1.1",
