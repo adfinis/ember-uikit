@@ -101,7 +101,7 @@
     "prettier": "2.3.0",
     "qunit": "2.15.0",
     "qunit-dom": "1.6.0",
-    "sass": "1.33.0"
+    "sass": "1.34.0"
   },
   "ember": {
     "edition": "octane"
