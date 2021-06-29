@@ -14626,10 +14626,10 @@ uid-number@0.0.6:
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
   integrity sha1-DqEOgDXo61uOREnwbaHHMGY7qoE=
 
-uikit@^3.6.21:
-  version "3.6.21"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.6.21.tgz#2fcd13181ace58baeb1412ab18ff09225dceaa27"
-  integrity sha512-UeL1rRadB+T7PIvkAIVU4vSTiU0uu+F64ltTD2+1EAyhA99IEX2BJdHEvqMKE/NcaNNYkz1uw4rDxIYERyS/DA==
+uikit@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.7.0.tgz#1ec777ac547010d980f0c430249289080fa5371c"
+  integrity sha512-N0xluQ380EHey26toMmNA4H2YLtvVRHMaYksG31qDxW2VaAAf9i0Q0aT82zeMdrK2Tx9sqnHz6GaOMTIYYM0ZQ==
 
 umask@^1.1.0, umask@~1.1.0:
   version "1.1.0"
