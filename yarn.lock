@@ -6437,10 +6437,10 @@ ember-composable-helpers@4.4.1:
     ember-cli-babel "^7.11.1"
     resolve "^1.10.0"
 
-ember-concurrency@2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-2.0.3.tgz#d8ac917fdf013a277bfc7b26e417937ee0638455"
-  integrity sha512-+fOOFt32odnunDL3Du0LqMgnRzDDNKnzo1ry9ppICpvLXekJzYFwU1RniVivfJ+9nbpHMJZQUlZJAm1ZAnTExw==
+ember-concurrency@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/ember-concurrency/-/ember-concurrency-2.1.2.tgz#a27178fb24951933fa72dd7cf1dca852693cc5c1"
+  integrity sha512-xC6L/SKuM08e9TK5igkSEwbAtkX2sqrj9Xap9G3zYSYdAIO7fcS6ZNEaD5e+dVXwPqH3tOIq41ZT7fqQ7mQ0KQ==
   dependencies:
     "@glimmer/tracking" "^1.0.2"
     ember-cli-babel "^7.22.1"
