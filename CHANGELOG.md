@@ -1,3 +1,20 @@
+# [4.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.2...v4.0.0) (2021-08-03)
+
+
+* chore!: drop node 10 support (#746) ([e2e8e58](https://github.com/adfinis-sygroup/ember-uikit/commit/e2e8e5858fb69e1c217cc83ae3285c69020d56e5)), closes [#746](https://github.com/adfinis-sygroup/ember-uikit/issues/746)
+
+
+### Features
+
+* **switcher:** add active component option ([39c2e36](https://github.com/adfinis-sygroup/ember-uikit/commit/39c2e3682e9189f1c44452b5f1271816ee11359f))
+
+
+### BREAKING CHANGES
+
+* Dropping support for node 10 as it's reached EOL.
+
+Co-authored-by: Akanksh Saxena <akanksh.saxena@adfinis.com>
+
 ## [3.0.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.1...v3.0.2) (2021-03-24)
 
 
