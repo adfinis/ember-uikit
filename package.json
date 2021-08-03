@@ -11,16 +11,10 @@
     "url": "https://github.com/adfinis-sygroup/ember-uikit"
   },
   "license": "MIT",
-  "author": "Adfinis SyGroup AG <info@adfinis-sygroup.ch>",
+  "author": "Adfinis AG <info@adfinis.com>",
   "directories": {
     "test": "tests"
   },
-  "contributors": [
-    {
-      "name": "Jonas Metzener",
-      "email": "jonas.metzener@adfinis-sygroup.ch"
-    }
-  ],
   "homepage": "https://adfinis-sygroup.github.io/ember-uikit",
   "bugs": {
     "url": "https://github.com/adfinis-sygroup/ember-uikit/issues"
@@ -107,7 +101,7 @@
     "edition": "octane"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "12.* || >= 14"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
