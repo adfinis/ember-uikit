@@ -1,18 +1,18 @@
 import Controller from "@ember/controller";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 
-export default Controller.extend({
-  notification: service(),
+export default class ExampleController extends Controller {
+  @service notification;
 
-  actions: {
-    save() {
-      try {
-        // your code
+  @action
+  save() {
+    try {
+      // your code
 
-        this.notification.success("Successfully saved!");
-      } catch (e) {
-        this.notification.danger("Ooops! Something went wrong...");
-      }
-    },
-  },
-});
+      this.notification.success("Successfully saved!");
+    } catch (e) {
+      this.notification.danger("Ooops! Something went wrong...");
+    }
+  }
+}

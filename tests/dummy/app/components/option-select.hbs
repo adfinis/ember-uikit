@@ -1,0 +1,5 @@
+<select class="uk-select" {{on "change" this.change}}>
+  {{#each @options as |opt|}}
+    <option value={{opt}} selected={{eq opt @selected}}>{{opt}}</option>
+  {{/each}}
+</select>

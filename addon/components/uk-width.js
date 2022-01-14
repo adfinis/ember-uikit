@@ -1,14 +1,7 @@
-import Component from "@ember/component";
-import WidthMixin from "ember-uikit/mixins/width";
+import Component from "@glimmer/component";
 
-import layout from "../templates/components/uk-width";
+import width from "ember-uikit/-private/width";
 
-const UkWidthComponent = Component.extend(WidthMixin, {
-  layout,
-});
-
-UkWidthComponent.reopenClass({
-  positionalParams: ["width"],
-});
-
-export default UkWidthComponent;
+export default class UkWidthComponent extends Component {
+  @width width;
+}

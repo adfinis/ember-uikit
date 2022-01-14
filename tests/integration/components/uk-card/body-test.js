@@ -7,7 +7,7 @@ module("Integration | Component | uk card/body", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{#uk-card/body}}Content{{/uk-card/body}}`);
+    await render(hbs`<UkCard::Body>Content</UkCard::Body>`);
 
     assert.dom(".uk-card-body").exists();
   });

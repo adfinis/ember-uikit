@@ -1,0 +1,9 @@
+<li
+  class={{trimmed-join
+    (if this.active "uk-active")
+    (if @disabled "uk-disabled")
+  }}
+  ...attributes
+>
+  <a href={{this.href}} {{on "click" this.navigate}}>{{yield}}</a>
+</li>

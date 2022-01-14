@@ -1,6 +1,5 @@
 import { setupTest } from "ember-qunit";
 import { module, test } from "qunit";
-import { Promise } from "rsvp";
 import UIkit from "uikit";
 
 module("Unit | Service | notification", function (hooks) {
@@ -15,32 +14,32 @@ module("Unit | Service | notification", function (hooks) {
     const service = this.owner.lookup("service:notification");
 
     UIkit.notification = (o) => {
-      assert.equal(o.message, "Test");
-      assert.equal(o.status, "default");
+      assert.strictEqual(o.message, "Test");
+      assert.strictEqual(o.status, "default");
     };
     service.default("Test");
 
     UIkit.notification = (o) => {
-      assert.equal(o.message, "Test");
-      assert.equal(o.status, "primary");
+      assert.strictEqual(o.message, "Test");
+      assert.strictEqual(o.status, "primary");
     };
     service.primary("Test");
 
     UIkit.notification = (o) => {
-      assert.equal(o.message, "Test");
-      assert.equal(o.status, "success");
+      assert.strictEqual(o.message, "Test");
+      assert.strictEqual(o.status, "success");
     };
     service.success("Test");
 
     UIkit.notification = (o) => {
-      assert.equal(o.message, "Test");
-      assert.equal(o.status, "warning");
+      assert.strictEqual(o.message, "Test");
+      assert.strictEqual(o.status, "warning");
     };
     service.warning("Test");
 
     UIkit.notification = (o) => {
-      assert.equal(o.message, "Test");
-      assert.equal(o.status, "danger");
+      assert.strictEqual(o.message, "Test");
+      assert.strictEqual(o.status, "danger");
     };
     service.danger("Test");
 
@@ -54,8 +53,8 @@ module("Unit | Service | notification", function (hooks) {
     const service = this.owner.lookup("service:notification");
 
     UIkit.notification = (o) => {
-      assert.equal(o.timeout, 100);
-      assert.equal(o.pos, "bottom-left");
+      assert.strictEqual(o.timeout, 100);
+      assert.strictEqual(o.pos, "bottom-left");
     };
     service.default("Test", { pos: "bottom-left", timeout: 100 });
 
@@ -67,6 +66,6 @@ module("Unit | Service | notification", function (hooks) {
 
     const service = this.owner.lookup("service:notification");
 
-    assert.ok(service.default("Test") instanceof Promise);
+    assert.true(service.default("Test") instanceof Promise);
   });
 });

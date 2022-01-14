@@ -1,0 +1,13 @@
+<ul
+  class={{trimmed-join
+    "uk-list"
+    (if @divider "uk-list-divider")
+    (if @striped "uk-list-striped")
+    (if @bullet "uk-list-bullet")
+    (if @large "uk-list-large")
+    this.width
+  }}
+  ...attributes
+>
+  {{yield (hash item=(component "uk-list/item"))}}
+</ul>

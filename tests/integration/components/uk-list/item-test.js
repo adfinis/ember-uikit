@@ -7,7 +7,7 @@ module("Integration | Component | uk list/item", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{uk-list/item}}`);
+    await render(hbs`<UkList::Item />`);
 
     assert.dom("li").exists();
   });

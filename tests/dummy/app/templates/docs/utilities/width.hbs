@@ -2,7 +2,10 @@
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
   <UkFlex>
-    {{#uk-width width class="uk-padding uk-background-secondary uk-light"}}{{if width width "No width set"}}{{/uk-width}}
+    <UkWidth
+      @width={{this.width}}
+      class="uk-padding uk-background-secondary uk-light"
+    >{{or this.width "No width set"}}</UkWidth>
   </UkFlex>
 </div>
 
@@ -33,13 +36,13 @@
               <td><code>String</code></td>
               <td><code>""</code></td>
               <td>
-                The width of the element, more information about possible
-                values <a href="https://getuikit.com/docs/width">here</a>.
-                This can also be multiple widths separated by a whitespace.
-                This is the first positional parameter.
+                The width of the element, more information about possible values
+                <a href="https://getuikit.com/docs/width">here</a>. This can
+                also be multiple widths separated by a whitespace. This is the
+                first positional parameter.
               </td>
               <td>
-                {{input class="uk-input" value=width}}
+                <Input class="uk-input" @value={{this.width}} />
               </td>
             </tr>
           </tbody>
@@ -47,7 +50,7 @@
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="width.hbs"}}
+      <CodeSnippet @name="width.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

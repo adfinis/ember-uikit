@@ -4,14 +4,25 @@
   class="uk-text-muted"
   title="Properties of the used utilities can be applied to this component too."
 >
-  Uses: <LinkTo @route="docs.utilities.flex"><UkLabel @color="success" @label="Flex"/></LinkTo>
+  Uses:
+  <LinkTo @route="docs.utilities.flex"><UkLabel
+      @color="success"
+      @label="Flex"
+    /></LinkTo>
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkSubnav @divider={{divider}} @pill={{pill}} as |nav|>
-    <nav.item @active={{itemActive}} @disabled={{itemDisabled}}>Item 1</nav.item>
-    <nav.item>Item 2</nav.item>
-    {{#nav.link-item "docs.components.subnav" disabled=linkItemDisabled}}Link Item 1 (active){{/nav.link-item}}
+  <UkSubnav @divider={{this.divider}} @pill={{this.pill}} as |nav|>
+    <nav.item
+      @onClick={{fn (perform this.fireEvent) "click"}}
+      @active={{this.itemActive}}
+      @disabled={{this.itemDisabled}}
+    >
+      Item
+    </nav.item>
+    <nav.item @href={{this.href}} @disabled={{this.linkItemDisabled}}>
+      Link Item
+    </nav.item>
   </UkSubnav>
 </div>
 
@@ -44,7 +55,11 @@
               <td><code>false</code></td>
               <td>Whether to show a divider between the nav items</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=divider}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.divider}}
+                />
               </td>
             </tr>
             <tr>
@@ -53,7 +68,11 @@
               <td><code>false</code></td>
               <td>Whether to style the nav items as pills</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=pill}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.pill}}
+                />
               </td>
             </tr>
           </tbody>
@@ -70,8 +89,11 @@
         <code>item</code>
       </p>
       <p>
-        The subnav yields an <code>item</code> component which can be used to
-        create a navigation item inside the subnav. The <code>item</code>
+        The subnav yields an
+        <code>item</code>
+        component which can be used to create a navigation item inside the
+        subnav. The
+        <code>item</code>
         component takes the following properties:
       </p>
 
@@ -93,7 +115,11 @@
               <td><code>false</code></td>
               <td>Whether the item is active</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=itemActive}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.itemActive}}
+                />
               </td>
             </tr>
             <tr>
@@ -102,42 +128,40 @@
               <td><code>false</code></td>
               <td>Whether the item is disabled</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=itemDisabled}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.itemDisabled}}
+                />
               </td>
             </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>
-        <code>link-item</code>
-      </p>
-      <p>
-        The subnav yields an <code>link-item</code> component which behaves
-        almost the same way as <code>item</code> but is an ember
-        <code>link-to</code> component. The <code>link-item</code> component
-        takes the following properties:
-      </p>
-
-      <div class="uk-overflow-auto">
-        <table class="uk-table uk-table-divider">
-          <thead>
             <tr>
-              <th>Name</th>
-              <th>Type</th>
-              <th>Default</th>
-              <th>Description</th>
-              <th>Demo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>disabled</code></td>
-              <td><code>Boolean</code></td>
-              <td><code>false</code></td>
-              <td>Whether the link item is disabled</td>
+              <td><code>href</code></td>
+              <td><code>String</code></td>
+              <td></td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=linkItemDisabled}}
+                URL of a route to transition to on click. If `onClick` is passed
+                it will be passed as second argument to that action.
+              </td>
+              <td>
+                <OptionSelect
+                  @options={{this.availableRoutes}}
+                  @selected={{this.href}}
+                  @onChange={{fn (mut this.href)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>onClick</code></td>
+              <td></td>
+              <td></td>
+              <td>Fired if the component was clicked</td>
+              <td>
+                {{#if (includes "click" this.firedEvents)}}
+                  Yes
+                {{else}}
+                  No
+                {{/if}}
               </td>
             </tr>
           </tbody>
@@ -145,7 +169,7 @@
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="subnav.hbs"}}
+      <CodeSnippet @name="subnav.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

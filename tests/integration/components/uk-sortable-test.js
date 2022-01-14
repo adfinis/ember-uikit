@@ -7,7 +7,7 @@ module("Integration | Component | uk sortable", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders sortable no options", async function (assert) {
-    await render(hbs`{{uk-sortable}}`);
+    await render(hbs`<UkSortable />`);
 
     assert.dom(".uk-sortable").exists();
     assert.dom(".uk-sortable").doesNotHaveAttribute("group");
@@ -25,20 +25,20 @@ module("Integration | Component | uk sortable", function (hooks) {
   });
 
   test("sets sortable options", async function (assert) {
-    await render(hbs`{{uk-sortable
-      group='sncc'
-      animationDuration=400
-      threshold=0
-      clsPlaceholder='parks'
-      clsDrag='tubman'
-      clsDragState='wells'
-      clsBase='scott-king'
-      clsNoDrag='angelou'
-      clsEmpty='nash'
-      clsCustom='bates'
-      handle='boynton'
-      clsItem='hamer'
-    }}`);
+    await render(hbs`<UkSortable
+      @group="sncc"
+      @animationDuration={{400}}
+      @threshold={{0}}
+      @clsPlaceholder="parks"
+      @clsDrag="tubman"
+      @clsDragState="wells"
+      @clsBase="scott-king"
+      @clsNoDrag="angelou"
+      @clsEmpty="nash"
+      @clsCustom="bates"
+      @handle="boynton"
+      @clsItem="hamer"
+    />`);
 
     assert.dom(".uk-sortable").hasAttribute("group", "sncc");
     assert.dom(".uk-sortable").hasAttribute("animation", "400");
@@ -55,30 +55,28 @@ module("Integration | Component | uk sortable", function (hooks) {
   });
 
   test("has sortable events", async function (assert) {
-    this.set("sortStarted", false);
-    this.set("sortStopped", false);
-    this.set("sortMoved", false);
-    this.set("sortAdded", false);
-    this.set("sortRemoved", false);
+    assert.expect(11);
 
-    await render(
-      hbs`{{#uk-sortable
-        on-start=(action (mut sortStarted) true)
-        on-stop=(action (mut sortStopped) true)
-        on-moved=(action (mut sortMoved) true)
-        on-added=(action (mut sortAdded) true)
-        on-removed=(action (mut sortRemoved) true)
-      }}
-        <div />
-      {{/uk-sortable}}`
-    );
+    this.sortStarted = false;
+    this.sortStopped = false;
+    this.sortMoved = false;
+    this.sortAdded = false;
+    this.sortRemoved = false;
+
+    await render(hbs`<UkSortable
+      @onStart={{fn (mut this.sortStarted) true}}
+      @onStop={{fn (mut this.sortStopped) true}}
+      @onMoved={{fn (mut this.sortMoved) true}}
+      @onAdded={{fn (mut this.sortAdded) true}}
+      @onRemoved={{fn (mut this.sortRemoved) true}}
+    />`);
 
     assert.dom(".uk-sortable").exists();
-    assert.notOk(this.sortStarted);
-    assert.notOk(this.sortStopped);
-    assert.notOk(this.sortMoved);
-    assert.notOk(this.sortAdded);
-    assert.notOk(this.sortRemoved);
+    assert.false(this.sortStarted);
+    assert.false(this.sortStopped);
+    assert.false(this.sortMoved);
+    assert.false(this.sortAdded);
+    assert.false(this.sortRemoved);
 
     await triggerEvent(".uk-sortable", "start");
     await triggerEvent(".uk-sortable", "stop");
@@ -86,10 +84,10 @@ module("Integration | Component | uk sortable", function (hooks) {
     await triggerEvent(".uk-sortable", "added");
     await triggerEvent(".uk-sortable", "removed");
 
-    assert.ok(this.sortStarted);
-    assert.ok(this.sortStopped);
-    assert.ok(this.sortMoved);
-    assert.ok(this.sortAdded);
-    assert.ok(this.sortRemoved);
+    assert.true(this.sortStarted);
+    assert.true(this.sortStopped);
+    assert.true(this.sortMoved);
+    assert.true(this.sortAdded);
+    assert.true(this.sortRemoved);
   });
 });

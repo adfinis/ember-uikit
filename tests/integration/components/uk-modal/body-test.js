@@ -7,20 +7,16 @@ module("Integration | Component | uk-modal/body", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    await render(hbs`<UkModal::Body/>`);
 
-    await render(hbs`{{uk-modal/body}}`);
+    assert.dom(".uk-modal-body").hasText("");
 
-    assert.dom(this.element).hasText("");
-
-    // Template block usage:
     await render(hbs`
-      {{#uk-modal/body}}
+      <UkModal::Body>
         template block text
-      {{/uk-modal/body}}
+      </UkModal::Body>
     `);
 
-    assert.dom(this.element).hasText("template block text");
+    assert.dom(".uk-modal-body").hasText("template block text");
   });
 });

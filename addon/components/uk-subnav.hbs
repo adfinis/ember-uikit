@@ -1,0 +1,11 @@
+<ul
+  class={{trimmed-join
+    "uk-subnav"
+    (if @divider "uk-subnav-divider")
+    (if @pill "uk-subnav-pill")
+    this.flex
+  }}
+  ...attributes
+>
+  {{yield (hash item=(component "uk-subnav/item"))}}
+</ul>

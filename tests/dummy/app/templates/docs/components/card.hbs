@@ -4,11 +4,20 @@
   class="uk-text-muted"
   title="Properties of the used utilities can be applied to this component too."
 >
-  Uses: <LinkTo @route="docs.utilities.width"><UkLabel @color="success" @label="Width"/></LinkTo>
+  Uses:
+  <LinkTo @route="docs.utilities.width"><UkLabel
+      @color="success"
+      @label="Width"
+    /></LinkTo>
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkCard @hover={{hover}} @color={{color}} @size={{size}} as |card|>
+  <UkCard
+    @hover={{this.hover}}
+    @color={{this.color}}
+    @size={{this.size}}
+    as |card|
+  >
     <card.header>
       <card.title>Title</card.title>
     </card.header>
@@ -16,7 +25,7 @@
       Content
     </card.body>
     <card.footer>
-      {{uk-button color="text" label="Read more"}}
+      <UkButton @color="text" @label="Read more" />
     </card.footer>
   </UkCard>
 </div>
@@ -50,11 +59,39 @@
               <td><code>false</code></td>
               <td>Whether to show a stronger shadow on hover</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=hover}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.hover}}
+                />
               </td>
             </tr>
-            {{color-row name="card" default="default" colors=colors value=color}}
-            {{size-row name="card" value=size}}
+            <tr>
+              <td><code>color</code></td>
+              <td><code>String</code></td>
+              <td><code>"default"</code></td>
+              <td>The color of the card</td>
+              <td>
+                <OptionSelect
+                  @options={{this.colors}}
+                  @selected={{this.color}}
+                  @onChange={{fn (mut this.color)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>size</code></td>
+              <td><code>String</code></td>
+              <td><code>""</code></td>
+              <td>The size of the button</td>
+              <td>
+                <OptionSelect
+                  @options={{array "" "small" "large"}}
+                  @selected={{this.size}}
+                  @onChange={{fn (mut this.size)}}
+                />
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -64,8 +101,11 @@
         <code>header</code>
       </p>
       <p>
-        The subnav yields a <code>header</code> component which can be used to
-        create the header section of the card. The <code>header</code>
+        The subnav yields a
+        <code>header</code>
+        component which can be used to create the header section of the card.
+        The
+        <code>header</code>
         component takes no properties.
       </p>
 
@@ -73,17 +113,23 @@
         <code>body</code>
       </p>
       <p>
-        The subnav yields a <code>body</code> component which can be used to
-        create the body section containing the main content of the card. The
-        <code>body</code> component takes no properties.
+        The subnav yields a
+        <code>body</code>
+        component which can be used to create the body section containing the
+        main content of the card. The
+        <code>body</code>
+        component takes no properties.
       </p>
 
       <p>
         <code>footer</code>
       </p>
       <p>
-        The subnav yields a <code>footer</code> component which can be used to
-        create the footer section of the card. The <code>footer</code>
+        The subnav yields a
+        <code>footer</code>
+        component which can be used to create the footer section of the card.
+        The
+        <code>footer</code>
         component takes no properties.
       </p>
 
@@ -91,14 +137,17 @@
         <code>title</code>
       </p>
       <p>
-        The subnav yields a <code>title</code> component which can be used to
-        create a title for the card. This is mostly used inside of a
-        <code>header</code>. The <code>title</code> component takes not
-        properties.
+        The subnav yields a
+        <code>title</code>
+        component which can be used to create a title for the card. This is
+        mostly used inside of a
+        <code>header</code>. The
+        <code>title</code>
+        component takes not properties.
       </p>
     </content.item>
     <content.item>
-      {{code-snippet name="card.hbs"}}
+      <CodeSnippet @name="card.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

@@ -8,17 +8,17 @@ module("Integration | Component | uk card", function (hooks) {
 
   test("renders", async function (assert) {
     await render(hbs`
-      {{#uk-card as |card|}}
-        {{#card.header}}
-          {{#card.title}}Header{{/card.title}}
-        {{/card.header}}
-        {{#card.body}}
+      <UkCard as |card|>
+        <card.header>
+          <card.title>Header</card.title>
+        </card.header>
+        <card.body>
           Body
-        {{/card.body}}
-        {{#card.footer}}
+        </card.body>
+        <card.footer>
           Footer
-        {{/card.footer}}
-      {{/uk-card}}
+        </card.footer>
+      </UkCard>
     `);
 
     assert.dom(".uk-card").exists();
@@ -29,19 +29,19 @@ module("Integration | Component | uk card", function (hooks) {
   });
 
   test("can set hover", async function (assert) {
-    await render(hbs`{{uk-card hover=true}}`);
+    await render(hbs`<UkCard @hover={{true}} />`);
 
     assert.dom(".uk-card").hasClass("uk-card-hover");
   });
 
   test("can set color", async function (assert) {
-    await render(hbs`{{uk-card color='primary'}}`);
+    await render(hbs`<UkCard @color="primary" />`);
 
     assert.dom(".uk-card").hasClass("uk-card-primary");
   });
 
   test("can set size", async function (assert) {
-    await render(hbs`{{uk-card size='small'}}`);
+    await render(hbs`<UkCard @size="small" />`);
 
     assert.dom(".uk-card").hasClass("uk-card-small");
   });
