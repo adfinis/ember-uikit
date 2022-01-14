@@ -2,44 +2,69 @@
 
 <div class="uk-alert uk-alert-primary">
   If you are using a component using the flex utility, all parameters must be
-  prefixed with <code>flex</code>. E.g <code>vertical</code> becomes
-  <code>flexVertical</code>. However, the <code>flex</code> property stays
-  the same and is <u>not</u> enabled by default!
+  prefixed with
+  <code>flex</code>. E.g
+  <code>vertical</code>
+  becomes
+  <code>flexVertical</code>. However, the
+  <code>flex</code>
+  property stays the same and is
+  <u>not</u>
+  enabled by default!
 </div>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkFlex @flex={{flex}} @inline={{inline}} @horizontal={{horizontal}} @vertical={{vertical}} @direction={{direction}} @wrap={{wrap}} @wrapAlignment={{wrapAlignment}} @class={{if fixHeight "uk-height-large"}}>
-    {{#uk-width
-      (if fill "1-1" "")
+  <UkFlex
+    @flex={{this.flex}}
+    @inline={{this.inline}}
+    @horizontal={{this.horizontal}}
+    @vertical={{this.vertical}}
+    @direction={{this.direction}}
+    @wrap={{this.wrap}}
+    @wrapAlignment={{this.wrapAlignment}}
+    @class={{if this.fixHeight "uk-height-large"}}
+  >
+    <UkWidth
+      @width={{if this.fill "1-1" ""}}
       class="uk-background-secondary uk-light uk-padding"
-    }}
+    >
       Item 1
-    {{/uk-width}}
-    {{#uk-width
-      (if fill "1-1" "")
+    </UkWidth>
+    <UkWidth
+      @width={{if this.fill "1-1" ""}}
       class="uk-background-secondary uk-light uk-padding"
-    }}
+    >
       Item 2
-    {{/uk-width}}
-    {{#uk-width
-      (if fill "1-1" "")
+    </UkWidth>
+    <UkWidth
+      @width={{if this.fill "1-1" ""}}
       class="uk-background-secondary uk-light uk-padding"
-    }}
+    >
       Item 3
-    {{/uk-width}}
+    </UkWidth>
   </UkFlex>
 
   <div class="uk-margin-medium-top">
     <div>
       <label class="uk-form-label">
-        {{input type="checkbox" class="uk-checkbox" checked=fill}}
-        Let children use the full width (necessary for testing <code>wrap</code> and <code>wrapAlignment</code>)
+        <Input @type="checkbox" class="uk-checkbox" @checked={{this.fill}} />
+        Let children use the full width (necessary for testing
+        <code>wrap</code>
+        and
+        <code>wrapAlignment</code>)
       </label>
     </div>
     <div>
       <label class="uk-form-label">
-        {{input type="checkbox" class="uk-checkbox" checked=fixHeight}}
-        Use fixed container height (necessary for testing <code>vertical</code> and <code>wrapAlignment</code>)
+        <Input
+          @type="checkbox"
+          class="uk-checkbox"
+          @checked={{this.fixHeight}}
+        />
+        Use fixed container height (necessary for testing
+        <code>vertical</code>
+        and
+        <code>wrapAlignment</code>)
       </label>
     </div>
   </div>
@@ -73,7 +98,11 @@
               <td><code>true</code></td>
               <td>Whether to display the element as flex element</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=flex}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.flex}}
+                />
               </td>
             </tr>
             <tr>
@@ -82,7 +111,11 @@
               <td><code>false</code></td>
               <td>Whether to display the element as inline flex element</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=inline}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.inline}}
+                />
               </td>
             </tr>
             <tr>
@@ -91,15 +124,11 @@
               <td><code>""</code></td>
               <td>How to align the children horizontally</td>
               <td>
-                <select
-                  class="uk-select"
-                  onchange={{action (mut horizontal) value="target.value"}}
-                >
-                  <option></option>
-                  {{#each horizontals as |opt|}}
-                    <option value={{opt}}>{{opt}}</option>
-                  {{/each}}
-                </select>
+                <OptionSelect
+                  @options={{this.horizontals}}
+                  @selected={{this.horizontal}}
+                  @onChange={{fn (mut this.horizontal)}}
+                />
               </td>
             </tr>
             <tr>
@@ -108,15 +137,11 @@
               <td><code>""</code></td>
               <td>How to align the children vertically</td>
               <td>
-                <select
-                  class="uk-select"
-                  onchange={{action (mut vertical) value="target.value"}}
-                >
-                  <option></option>
-                  {{#each verticals as |opt|}}
-                    <option value={{opt}}>{{opt}}</option>
-                  {{/each}}
-                </select>
+                <OptionSelect
+                  @options={{this.verticals}}
+                  @selected={{this.vertical}}
+                  @onChange={{fn (mut this.vertical)}}
+                />
               </td>
             </tr>
             <tr>
@@ -125,15 +150,11 @@
               <td><code>""</code></td>
               <td>The direction in which the children should align</td>
               <td>
-                <select
-                  class="uk-select"
-                  onchange={{action (mut direction) value="target.value"}}
-                >
-                  <option></option>
-                  {{#each directions as |opt|}}
-                    <option value={{opt}}>{{opt}}</option>
-                  {{/each}}
-                </select>
+                <OptionSelect
+                  @options={{this.directions}}
+                  @selected={{this.direction}}
+                  @onChange={{fn (mut this.direction)}}
+                />
               </td>
             </tr>
             <tr>
@@ -142,12 +163,11 @@
               <td><code>""</code></td>
               <td>How to handle overflowing children</td>
               <td>
-                <select class="uk-select" onchange={{action (mut wrap) value="target.value"}}>
-                  <option></option>
-                  {{#each wraps as |opt|}}
-                    <option value={{opt}}>{{opt}}</option>
-                  {{/each}}
-                </select>
+                <OptionSelect
+                  @options={{this.wraps}}
+                  @selected={{this.wrap}}
+                  @onChange={{fn (mut this.wrap)}}
+                />
               </td>
             </tr>
             <tr>
@@ -156,15 +176,11 @@
               <td><code>""</code></td>
               <td>How to align overflowing children</td>
               <td>
-                <select
-                  class="uk-select"
-                  onchange={{action (mut wrapAlignment) value="target.value"}}
-                >
-                  <option></option>
-                  {{#each wrapAlignments as |opt|}}
-                    <option value={{opt}}>{{opt}}</option>
-                  {{/each}}
-                </select>
+                <OptionSelect
+                  @options={{this.wrapAlignments}}
+                  @selected={{this.wrapAlignment}}
+                  @onChange={{fn (mut this.wrapAlignment)}}
+                />
               </td>
             </tr>
           </tbody>
@@ -172,7 +188,7 @@
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="flex.hbs"}}
+      <CodeSnippet @name="flex.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

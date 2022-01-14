@@ -19,8 +19,14 @@
     uk-height-match="target: > div > .uk-card"
     class="uk-child-width-1-3@s"
   >
-    <UkSortable @group="groupA" @animationDuration={{animationDuration}} @on-start={{action "notify" "Group A START"}} @on-stop={{action "notify" "Group A STOP"}} @on-moved={{action "notify" "Group A MOVED"}}>
-      {{#each group1 as |item|}}
+    <UkSortable
+      @group="groupA"
+      @animationDuration={{100}}
+      @onStart={{fn this.notify "Group A START"}}
+      @onStop={{fn this.notify "Group A STOP"}}
+      @onMoved={{fn this.notify "Group A MOVED"}}
+    >
+      {{#each this.group1 as |item|}}
         <div class="uk-margin uk-margin-right">
           <UkCard @color="primary" @size="small" as |card|>
             <card.body>
@@ -31,8 +37,12 @@
       {{/each}}
     </UkSortable>
 
-    <UkSortable @on-added={{action "notify" "Group B ADDED"}} @on-removed={{action "notify" "Group B REMOVED"}} @group="sortable-group">
-      {{#each group2 as |item|}}
+    <UkSortable
+      @onAdded={{fn this.notify "Group B ADDED"}}
+      @onRemoved={{fn this.notify "Group B REMOVED"}}
+      @group="sortable-group"
+    >
+      {{#each this.group2 as |item|}}
         <div class="uk-margin uk-margin-right">
           <UkCard @color="secondary" @size="small" as |card|>
             <card.body>
@@ -43,16 +53,21 @@
       {{/each}}
     </UkSortable>
 
-    {{uk-sortable
-      on-added=(action "notify" "Group C ADDED")
-      on-removed=(action "notify" "Group C REMOVED")
-      group="sortable-group"
-      clsEmpty="uk-sortable-empty"
-    }}
+    <UkSortable
+      @onAdded={{fn this.notify "Group C ADDED"}}
+      @onRemoved={{fn this.notify "Group C REMOVED"}}
+      @group="sortable-group"
+      @clsEmpty="uk-sortable-empty"
+    />
   </div>
 
   <p class="sortable-empty-message">
-    Groups B and C have the same group option. You can move items between the two. The events <code>on-added</code> and <code>on-removed</code> fire when items are added or removed from a group.
+    Groups B and C have the same group option. You can move items between the
+    two. The events
+    <code>onAdded</code>
+    and
+    <code>onRemoved</code>
+    fire when items are added or removed from a group.
   </p>
 
 </div>
@@ -171,23 +186,23 @@
           </thead>
           <tbody>
             <tr>
-              <td><code>on-start</code></td>
+              <td><code>onStart</code></td>
               <td>Fires after dragging starts.</td>
             </tr>
             <tr>
-              <td><code>on-stop</code></td>
+              <td><code>onStop</code></td>
               <td>Fires after dragging stops.</td>
             </tr>
             <tr>
-              <td><code>on-moved</code></td>
+              <td><code>onMoved</code></td>
               <td>Fires after an element has been moved.</td>
             </tr>
             <tr>
-              <td><code>on-added</code></td>
+              <td><code>onAdded</code></td>
               <td>Fires after an element has been added.</td>
             </tr>
             <tr>
-              <td><code>on-removed</code></td>
+              <td><code>onRemoved</code></td>
               <td>Fires after an element has been removed.</td>
             </tr>
           </tbody>
@@ -195,7 +210,7 @@
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="sortable.hbs"}}
+      <CodeSnippet @name="sortable.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

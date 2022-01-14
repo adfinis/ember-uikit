@@ -1,8 +1,14 @@
 <h2>Switcher</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkSwitcher @active={{active}} @animation={{animation}} @animationDuration={{animationDuration}} @swiping={{swiping}} as |switcher|>
-    <switcher.nav @type={{type}} as |nav|>
+  <UkSwitcher
+    @active={{this.active}}
+    @animation={{this.animation}}
+    @animationDuration={{this.animationDuration}}
+    @swiping={{this.swiping}}
+    as |switcher|
+  >
+    <switcher.nav @type={{this.type}} as |nav|>
       <nav.component as |tab|>
         <tab.item>Item 1</tab.item>
         <tab.item>Item 2</tab.item>
@@ -72,12 +78,13 @@
               <td><code>active</code></td>
               <td><code>Number</code></td>
               <td><code>0</code></td>
-              <td>Active index on init. Providing a negative number indicates a position starting from the end of the set.</td>
+              <td>Active index on init. Providing a negative number indicates a
+                position starting from the end of the set.</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we"d need to
-                  reinitialize the component on every change. Currently we
-                  use <b>{{active}}</b>.
+                  Sadly we can't show this live since we"d need to reinitialize
+                  the component on every change. Currently we use
+                  <b>{{this.active}}</b>.
                 </small>
               </td>
             </tr>
@@ -88,9 +95,9 @@
               <td>The animation to use when switching the content</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we"d need to
-                  reinitialize the component on every change. Currently we
-                  use <b>{{animation}}</b>.
+                  Sadly we can't show this live since we"d need to reinitialize
+                  the component on every change. Currently we use
+                  <b>{{this.animation}}</b>.
                 </small>
               </td>
             </tr>
@@ -101,9 +108,9 @@
               <td>The duration for the animation</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we"d need to
-                  reinitialize the component on every change. Currently we
-                  use <b>{{animationDuration}}</b>.
+                  Sadly we can't show this live since we"d need to reinitialize
+                  the component on every change. Currently we use
+                  <b>{{this.animationDuration}}</b>.
                 </small>
               </td>
             </tr>
@@ -114,9 +121,9 @@
               <td>Whether to use swiping for switching</td>
               <td>
                 <small class="uk-text-muted">
-                  Sadly we can't show this live since we"d need to
-                  reinitialize the component on every change. Currently we
-                  use <b>{{if switching "true" "false"}}</b>.
+                  Sadly we can't show this live since we"d need to reinitialize
+                  the component on every change. Currently we use
+                  <b>{{if this.switching "true" "false"}}</b>.
                 </small>
               </td>
             </tr>
@@ -134,14 +141,18 @@
         <code>nav</code>
       </p>
       <p>
-        The switcher yields a <code>nav</code> component which can have a
-        certain type. This component will then yield the navigation component
-        for the given type. The type can either be
-        <code><LinkTo @route="docs.components.subnav">subnav</LinkTo></code> or
-        <code><LinkTo @route="docs.components.tab">tab</LinkTo></code>.
-        The properties for the <code>component</code> which is yielded by
-        <code>nav</code> can be looked up on the documentation for the given
-        type of navigation.
+        The switcher yields a
+        <code>nav</code>
+        component which can have a certain type. This component will then yield
+        the navigation component for the given type. The type can either be
+        <code><LinkTo @route="docs.components.subnav">subnav</LinkTo></code>
+        or
+        <code><LinkTo @route="docs.components.tab">tab</LinkTo></code>. The
+        properties for the
+        <code>component</code>
+        which is yielded by
+        <code>nav</code>
+        can be looked up on the documentation for the given type of navigation.
       </p>
       <p>
         For better understanding of the hierarchy, check the example tab.
@@ -165,10 +176,11 @@
               <td><code>"tab"</code></td>
               <td>The navigation type</td>
               <td>
-                <select class="uk-select" onchange={{action (mut type) value="target.value"}}>
-                  <option value="tab">tab</option>
-                  <option value="subnav">subnav</option>
-                </select>
+                <OptionSelect
+                  @options={{array "tab" "subnav"}}
+                  @selected={{this.type}}
+                  @onChange={{fn (mut this.type)}}
+                />
               </td>
             </tr>
           </tbody>
@@ -179,13 +191,15 @@
         <code>content</code>
       </p>
       <p>
-        The switcher yields a <code>content</code> component which should be
-        used for the content of the switcher . The <code>content</code>
+        The switcher yields a
+        <code>content</code>
+        component which should be used for the content of the switcher . The
+        <code>content</code>
         component takes no properties.
       </p>
     </content.item>
     <content.item>
-      {{code-snippet name="switcher.hbs"}}
+      <CodeSnippet @name="switcher.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

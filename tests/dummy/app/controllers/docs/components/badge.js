@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
+import { tracked } from "@glimmer/tracking";
 
-export default Controller.extend({
-  label: "100",
-});
+export default class DocsComponentsBadgeController extends Controller {
+  @tracked label = "100";
+}

@@ -7,39 +7,39 @@ module("Integration | Component | uk-toggle-switch", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{uk-toggle-switch}}`);
+    await render(hbs`<UkToggleSwitch />`);
 
     assert.dom(".uk-toggle-switch").exists();
     assert.dom("input[type=checkbox]").exists();
   });
 
   test("can set value", async function (assert) {
-    await render(hbs`{{uk-toggle-switch value=true}}`);
+    await render(hbs`<UkToggleSwitch @value={{true}} />`);
 
     assert.dom("input[type=checkbox]").isChecked();
   });
 
   test("can set color", async function (assert) {
-    await render(hbs`{{uk-toggle-switch color='onoff'}}`);
+    await render(hbs`<UkToggleSwitch @color="onoff" />`);
 
     assert.dom(".uk-toggle-switch").hasClass("uk-toggle-switch-onoff");
   });
 
   test("can set size", async function (assert) {
-    await render(hbs`{{uk-toggle-switch size='small'}}`);
+    await render(hbs`<UkToggleSwitch @size="small" />`);
 
     assert.dom(".x-toggle-btn").hasClass("small");
   });
 
   test("can set disabled", async function (assert) {
-    await render(hbs`{{uk-toggle-switch disabled=true}}`);
+    await render(hbs`<UkToggleSwitch @disabled={{true}} />`);
 
     assert.dom("input[type=checkbox]").isDisabled();
   });
 
   test("can set labels", async function (assert) {
     await render(
-      hbs`{{uk-toggle-switch onLabel='On' offLabel='Off' showLabels=true}}`
+      hbs`<UkToggleSwitch @onLabel="On" @offLabel="Off" @showLabels={{true}} />`
     );
 
     assert.dom("label.on-label").hasText("On");
@@ -47,35 +47,25 @@ module("Integration | Component | uk-toggle-switch", function (hooks) {
   });
 
   test("can set name", async function (assert) {
-    await render(hbs`{{uk-toggle-switch name='test'}}`);
+    await render(hbs`<UkToggleSwitch @name="test" />`);
 
     assert.dom("input[type=checkbox]").hasAttribute("name", "test");
   });
 
-  test("can toggle two way", async function (assert) {
-    this.set("value", true);
-
-    await render(hbs`{{uk-toggle-switch value=value}}`);
-
-    await click("input[type=checkbox]");
-
-    assert.notOk(this.value);
-  });
-
   test("can toggle one way", async function (assert) {
-    this.set("value", true);
-    this.set("toggle", (value) => {
-      this.set("value", value);
+    this.value = true;
+    this.toggle = (value) => {
+      this.value = value;
       assert.step("toggle");
-    });
+    };
 
     await render(
-      hbs`{{uk-toggle-switch value=value on-toggle=(action toggle)}}`
+      hbs`<UkToggleSwitch @value={{this.value}} @onToggle={{this.toggle}} />`
     );
 
     await click("input[type=checkbox]");
 
-    assert.notOk(this.value);
+    assert.false(this.value);
     assert.verifySteps(["toggle"]);
   });
 });

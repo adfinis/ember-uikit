@@ -1,20 +1,32 @@
 <h2>Modal</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkModal @visible={{visible}} @btnClose={{btnClose}} @modalClass={{modalClass}} @dialogClass={{dialogClass}} @on-show={{action (mut visible) true}} @on-hide={{action (mut visible) false}} as |modal|>
+  <UkModal
+    @visible={{this.visible}}
+    @btnClose={{this.btnClose}}
+    @modalClass={{this.modalClass}}
+    @dialogClass={{this.dialogClass}}
+    @onShow={{fn (mut this.visible) true}}
+    @onHide={{fn (mut this.visible) false}}
+    as |modal|
+  >
 
     <modal.header>
       <h2 class="uk-modal-title">Test</h2>
     </modal.header>
-    {{#modal.body uk-modal-overflow-auto}}
+    <modal.body class="uk-modal-overflow-auto">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    {{/modal.body}}
+    </modal.body>
     <modal.footer @class="uk-text-right">
-      {{uk-button color="primary" label="Submit" on-click=(action "submit")}}
+      <UkButton
+        @color="primary"
+        @label="Submit"
+        @onClick={{fn (mut this.visible) false}}
+      />
     </modal.footer>
   </UkModal>
 
-  {{uk-button label="Open modal" on-click=(action (mut visible) true)}}
+  <UkButton @label="Open modal" @onClick={{fn (mut this.visible) true}} />
 </div>
 
 <UkSwitcher @animation="uk-animation-fade" as |switcher|>
@@ -45,16 +57,25 @@
               <td><code>false</code></td>
               <td>Whether the modal is currently visible or not</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=visible}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.visible}}
+                />
               </td>
             </tr>
             <tr>
               <td><code>btnClose</code></td>
               <td><code>Boolean</code></td>
               <td><code>true</code></td>
-              <td>Whether a button to close the modal should show up in the top right corner or not</td>
+              <td>Whether a button to close the modal should show up in the top
+                right corner or not</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=btnClose}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.btnClose}}
+                />
               </td>
             </tr>
             <tr>
@@ -62,14 +83,14 @@
               <td><code>String</code></td>
               <td><code>""</code></td>
               <td>Add CSS classes to the modal.</td>
-              <td>{{input class="uk-input" value=modalClass}}</td>
+              <td><Input class="uk-input" @value={{this.modalClass}} /></td>
             </tr>
             <tr>
               <td><code>dialogClass</code></td>
               <td><code>String</code></td>
               <td><code>""</code></td>
               <td>Add CSS classes to the dialog.</td>
-              <td>{{input class="uk-input" value=dialogClass}}</td>
+              <td><Input class="uk-input" @value={{this.dialogClass}} /></td>
             </tr>
             <tr>
               <td><code>escClose</code></td>
@@ -89,21 +110,27 @@
               <td><code>stack</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>
-              <td>Stack modals, when more than one is open. By default, the previous modal will be hidden.</td>
+              <td>Stack modals, when more than one is open. By default, the
+                previous modal will be hidden.</td>
               <td></td>
             </tr>
             <tr>
               <td><code>container</code></td>
               <td><code>String</code></td>
               <td><code>true</code></td>
-              <td>Define a target container via a selector to specify where the modal should be appended in the DOM. Setting it to <code>false</code> will prevent this behavior.</td>
+              <td>Define a target container via a selector to specify where the
+                modal should be appended in the DOM. Setting it to
+                <code>false</code>
+                will prevent this behavior.</td>
               <td></td>
             </tr>
             <tr>
               <td><code>clsPage</code></td>
               <td><code>String</code></td>
               <td><code>"uk-modal-page"</code></td>
-              <td>Class to add to <code>&lt;body&gt;</code> when modal is active.</td>
+              <td>Class to add to
+                <code>&lt;body&gt;</code>
+                when modal is active.</td>
               <td></td>
             </tr>
             <tr>
@@ -122,7 +149,8 @@
                 <code>.uk-modal-close-outside,</code>
                 <code>.uk-modal-close-full"</code>
               </td>
-              <td>CSS selector for all elements that should trigger the closing of the modal.</td>
+              <td>CSS selector for all elements that should trigger the closing
+                of the modal.</td>
               <td></td>
             </tr>
           </tbody>
@@ -131,11 +159,12 @@
 
       <p>
         <span class="uk-label">Note</span>
-        Most of the settings are only read during initialization and can thus not be changed in the demo.
+        Most of the settings are only read during initialization and can thus
+        not be changed in the demo.
       </p>
     </content.item>
     <content.item>
-      {{code-snippet name="modal.hbs"}}
+      <CodeSnippet @name="modal.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

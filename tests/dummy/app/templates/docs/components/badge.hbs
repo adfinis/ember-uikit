@@ -1,7 +1,7 @@
 <h2>Badge</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-badge label=label}}
+  <UkBadge @label={{this.label}} />
 </div>
 
 <UkSwitcher @animation="uk-animation-fade" as |switcher|>
@@ -31,16 +31,14 @@
               <td><code>String</code></td>
               <td><code>""</code></td>
               <td>The content of the badge</td>
-              <td>
-                {{input class="uk-input" value=label}}
-              </td>
+              <td><Input class="uk-input" @value={{this.label}} /></td>
             </tr>
           </tbody>
         </table>
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="badge.hbs"}}
+      <CodeSnippet @name="badge.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

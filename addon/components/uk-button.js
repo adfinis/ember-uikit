@@ -1,10 +1,8 @@
-import Component from "@ember/component";
-import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
-import EventedMixin from "ember-uikit/mixins/evented";
-import SizeMixin from "ember-uikit/mixins/size";
-import WidthMixin from "ember-uikit/mixins/width";
+import Component from "@glimmer/component";
 
-import layout from "../templates/components/uk-button";
+import color, { COLOR_OPTIONS } from "ember-uikit/-private/color";
+import size from "ember-uikit/-private/size";
+import width from "ember-uikit/-private/width";
 
 export const BUTTON_COLOR_OPTIONS = [
   COLOR_OPTIONS.DEFAULT,
@@ -14,40 +12,13 @@ export const BUTTON_COLOR_OPTIONS = [
   COLOR_OPTIONS.TEXT,
 ];
 
-export default Component.extend(
-  ColorMixin,
-  WidthMixin,
-  SizeMixin,
-  EventedMixin,
-  {
-    COLOR_OPTIONS: BUTTON_COLOR_OPTIONS,
+export default class UkButtonComponent extends Component {
+  @color({
+    template: "uk-button-$value$",
+    options: BUTTON_COLOR_OPTIONS,
+  })
+  color;
 
-    _color: COLOR_OPTIONS.DEFAULT,
-
-    layout,
-
-    tagName: "button",
-
-    colorTemplate: "uk-button-$color$",
-
-    sizeTemplate: "uk-button-$size$",
-
-    classNames: ["uk-button"],
-
-    classNameBindings: ["active:uk-active"],
-
-    attributeBindings: ["disabled", "type", "title"],
-
-    label: "",
-
-    type: "button",
-
-    disabled: false,
-
-    active: false,
-
-    loading: false,
-
-    title: "",
-  }
-);
+  @size({ template: "uk-button-$value$" }) size;
+  @width width;
+}

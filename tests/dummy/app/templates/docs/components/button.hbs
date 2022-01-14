@@ -4,23 +4,26 @@
   class="uk-text-muted"
   title="Properties of the used utilities can be applied to this component too."
 >
-  Uses: <LinkTo @route="docs.utilities.width"><UkLabel @color="success" @label="Width"/></LinkTo>
+  Uses:
+  <LinkTo @route="docs.utilities.width"><UkLabel
+      @color="success"
+      @label="Width"
+    /></LinkTo>
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-button
-    label=label
-    type=type
-    disabled=disabled
-    active=active
-    loading=loading
-    color=color
-    size=size
-    title=title
-    on-click=(perform fireEvent "button-on-click")
-  }}
+  <UkButton
+    @label={{this.label}}
+    @type={{this.type}}
+    @disabled={{this.disabled}}
+    @active={{this.active}}
+    @loading={{this.loading}}
+    @color={{this.color}}
+    @size={{this.size}}
+    @title={{this.title}}
+    @onClick={{fn (perform this.fireEvent) "click"}}
+  />
 </div>
-
 
 <UkSwitcher @animation="uk-animation-fade" as |switcher|>
   <switcher.nav @type="tab" as |nav|>
@@ -51,7 +54,7 @@
               <td><code>""</code></td>
               <td>The content of the button</td>
               <td>
-                {{input class="uk-input" value=label}}
+                <Input class="uk-input" @value={{this.label}} />
               </td>
             </tr>
             <tr>
@@ -60,11 +63,11 @@
               <td><code>"button"</code></td>
               <td>The type of the button</td>
               <td>
-                <select class="uk-select" onchange={{action (mut type) value="target.value"}}>
-                  <option value="button">button</option>
-                  <option value="submit">submit</option>
-                  <option value="reset">reset</option>
-                </select>
+                <OptionSelect
+                  @options={{array "button" "submit" "reset"}}
+                  @selected={{this.type}}
+                  @onChange={{fn (mut this.type)}}
+                />
               </td>
             </tr>
             <tr>
@@ -73,7 +76,11 @@
               <td><code>false</code></td>
               <td>Whether the button is disabled</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=disabled}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.disabled}}
+                />
               </td>
             </tr>
             <tr>
@@ -82,7 +89,11 @@
               <td><code>false</code></td>
               <td>Whether the button is active</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=active}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.active}}
+                />
               </td>
             </tr>
             <tr>
@@ -91,18 +102,46 @@
               <td><code>false</code></td>
               <td>Whether the button is loading</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=loading}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.loading}}
+                />
               </td>
             </tr>
-            {{color-row name="button" default="default" colors=colors value=color}}
-            {{size-row name="button" sizes=(array "" "small" "large") value=size}}
+            <tr>
+              <td><code>color</code></td>
+              <td><code>String</code></td>
+              <td><code>"default"</code></td>
+              <td>The color of the button</td>
+              <td>
+                <OptionSelect
+                  @options={{this.colors}}
+                  @selected={{this.color}}
+                  @onChange={{fn (mut this.color)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>size</code></td>
+              <td><code>String</code></td>
+              <td><code>""</code></td>
+              <td>The size of the button</td>
+              <td>
+                <OptionSelect
+                  @options={{array "" "small" "large"}}
+                  @selected={{this.size}}
+                  @onChange={{fn (mut this.size)}}
+                />
+              </td>
+            </tr>
             <tr>
               <td><code>title</code></td>
               <td><code>String</code></td>
               <td><code>""</code></td>
               <td>The title of the button, displaying a tooltip on hover</td>
               <td>
-                {{input class="uk-input" value=title}}
+                <Input class="uk-input" @value={{this.title}} />
               </td>
             </tr>
           </tbody>
@@ -121,16 +160,22 @@
           </thead>
           <tbody>
             <tr>
-              <td><code>on-click</code></td>
+              <td><code>onClick</code></td>
               <td>Fired if the component was clicked</td>
-              <td>{{#if (contains "button-on-click" firedEvents)}}Yes{{else}}No{{/if}}</td>
+              <td>
+                {{#if (includes "click" this.firedEvents)}}
+                  Yes
+                {{else}}
+                  No
+                {{/if}}
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="button.hbs"}}
+      <CodeSnippet @name="button.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

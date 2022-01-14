@@ -7,7 +7,7 @@ module("Integration | Component | uk icon", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{uk-icon 'home' ratio=2}}`);
+    await render(hbs`<UkIcon @icon="home" @ratio={{2}} />`);
 
     assert.dom("[uk-icon]").exists();
     assert.dom("[uk-icon]").hasAttribute("icon", "home");

@@ -8,10 +8,10 @@ module("Integration | Component | uk subnav", function (hooks) {
 
   test("renders", async function (assert) {
     await render(hbs`
-      {{#uk-subnav as |nav|}}
-        {{#nav.item}}Item 1{{/nav.item}}
-        {{#nav.link-item 'index'}}Item 2{{/nav.link-item}}
-      {{/uk-subnav}}
+      <UkSubnav as |nav|>
+        <nav.item>Item 1</nav.item>
+        <nav.item @href="/">Item 2</nav.item>
+      </UkSubnav>
     `);
 
     assert.dom("ul.uk-subnav").exists();
@@ -20,13 +20,13 @@ module("Integration | Component | uk subnav", function (hooks) {
   });
 
   test("can set pill", async function (assert) {
-    await render(hbs`{{uk-subnav pill=true}}`);
+    await render(hbs`<UkSubnav @pill={{true}} />`);
 
     assert.dom("ul.uk-subnav").hasClass("uk-subnav-pill");
   });
 
   test("can set divider", async function (assert) {
-    await render(hbs`{{uk-subnav divider=true}}`);
+    await render(hbs`<UkSubnav @divider={{true}} />`);
 
     assert.dom("ul.uk-subnav").hasClass("uk-subnav-divider");
   });

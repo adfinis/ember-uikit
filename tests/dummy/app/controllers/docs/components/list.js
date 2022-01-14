@@ -1,9 +1,10 @@
 import Controller from "@ember/controller";
+import { tracked } from "@glimmer/tracking";
 
-export default Controller.extend({
-  divider: false,
-  striped: true,
-  bullet: false,
-  large: false,
-  width: "",
-});
+export default class DocsComponentsListController extends Controller {
+  @tracked divider = false;
+  @tracked striped = true;
+  @tracked bullet = false;
+  @tracked large = false;
+  @tracked width = "";
+}

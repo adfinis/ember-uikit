@@ -1,23 +1,23 @@
-import Component from "@ember/component";
-import { computed } from "@ember/object";
+import { assert } from "@ember/debug";
+import Component from "@glimmer/component";
 
-import layout from "../../templates/components/uk-switcher/nav";
+import UkSubnavComponent from "ember-uikit/components/uk-subnav";
+import UkTabComponent from "ember-uikit/components/uk-tab";
 
-export const TYPES = {
-  TAB: { name: "tab", componentName: "uk-tab" },
-  SUBNAV: { name: "subnav", componentName: "uk-subnav" },
-};
+export default class UkSwitcherNavComponent extends Component {
+  get component() {
+    const component =
+      this.args.type === "tab"
+        ? UkTabComponent
+        : this.args.type === "subnav"
+        ? UkSubnavComponent
+        : null;
 
-export default Component.extend({
-  layout,
+    assert(
+      `The @type argument can of the \`UkSwitcher\` component be "tab" or "subnav", "${this.args.type}" was passed`,
+      component
+    );
 
-  type: TYPES.TAB,
-
-  tagName: "",
-
-  componentName: computed("type", function () {
-    return TYPES[
-      Object.keys(TYPES).find((k) => TYPES[k].name === this.type)
-    ].componentName;
-  }),
-});
+    return component;
+  }
+}

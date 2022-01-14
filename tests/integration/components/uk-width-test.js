@@ -7,14 +7,14 @@ module("Integration | Component | uk width", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{#uk-width '1-1'}}Test{{/uk-width}}`);
+    await render(hbs`<UkWidth @width="1-1">Test</UkWidth>`);
 
     assert.dom(".uk-width-1-1").exists();
     assert.dom(".uk-width-1-1").hasText("Test");
   });
 
   test("can set width", async function (assert) {
-    await render(hbs`{{uk-width width='1-1'}}`);
+    await render(hbs`<UkWidth @width="1-1" />`);
 
     assert.dom(".uk-width-1-1").exists();
   });

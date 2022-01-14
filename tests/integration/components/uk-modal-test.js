@@ -1,4 +1,4 @@
-import { render, click, waitFor, triggerEvent } from "@ember/test-helpers";
+import { render, triggerEvent, settled } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
@@ -10,74 +10,80 @@ module("Integration | Component | uk-modal", function (hooks) {
     assert.expect(1);
 
     await render(hbs`
-      {{#uk-modal as |modal|}}
-        {{#modal.header}}
+      <UkModal as |modal|>
+        <modal.header>
           <h2>Test</h2>
-        {{/modal.header}}
-      {{/uk-modal}}
+        </modal.header>
+      </UkModal>
     `);
 
     assert.dom(".uk-modal.uk-open").doesNotExist();
   });
 
-  test("it renders if visible=true", async function (assert) {
-    assert.expect(1);
+  test("it observes the visible property", async function (assert) {
+    assert.expect(2);
+
+    this.visible = false;
 
     await render(hbs`
-    {{#uk-modal visible=true as |modal|}}
-      {{#modal.header}}
-        <h2>Test</h2>
-      {{/modal.header}}
-      {{#modal.body}}
-        <p>Lorem ipsum</p>
-      {{/modal.body}}
-      {{#modal.footer class="uk-text-right"}}
-        <button></button>
-      {{/modal.footer}}
-    {{/uk-modal}}
+      <UkModal @visible={{this.visible}} as |modal|>
+        <modal.header>
+          <h2>Test</h2>
+        </modal.header>
+        <modal.body>
+          <p>Lorem ipsum</p>
+        </modal.body>
+        <modal.footer class="uk-text-right">
+          <button></button>
+        </modal.footer>
+      </UkModal>
     `);
 
-    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
+    assert.dom(".uk-modal.uk-open").doesNotExist();
+
+    this.set("visible", true);
+    await settled();
 
     assert.dom(".uk-modal.uk-open").exists();
   });
 
-  test("it triggers the on-hide action", async function (assert) {
+  test("it triggers the onHide action", async function (assert) {
     assert.expect(2);
 
-    this.set("hide", () => assert.step("hide"));
+    this.hide = () => assert.step("hide");
 
     await render(hbs`
-      {{#uk-modal visible=true on-hide=this.hide as |modal|}}
-        {{#modal.header}}
+      <UkModal @visible={{true}} @onHide={{this.hide}} as |modal|>
+        <modal.header>
           <h2>Test</h2>
-        {{/modal.header}}
-      {{/uk-modal}}
+        </modal.header>
+      </UkModal>
     `);
 
-    // close by pressing close button
-    await click(".uk-modal .uk-close");
-    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
+    await triggerEvent(".uk-modal", "hide");
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
 
     assert.verifySteps(["hide"]);
   });
 
-  test("it triggers the on-show action", async function (assert) {
+  test("it triggers the onShow action", async function (assert) {
     assert.expect(2);
 
-    this.set("show", () => assert.step("show"));
-    this.set("visible", false);
+    this.show = () => assert.step("show");
+    this.visible = false;
 
     await render(hbs`
-      {{#uk-modal visible=this.visible on-show=this.show as |modal|}}
-        {{#modal.header}}
+      <UkModal @visible={{this.visible}} @onShow={{this.show}} as |modal|>
+        <modal.header>
           <h2>Test</h2>
-        {{/modal.header}}
-      {{/uk-modal}}
+        </modal.header>
+      </UkModal>
     `);
 
-    this.set("visible", true);
-    await waitFor(".uk-modal[data-test-animating]", { count: 0 });
+    await triggerEvent(".uk-modal", "show");
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
 
     assert.verifySteps(["show"]);
   });
@@ -85,17 +91,19 @@ module("Integration | Component | uk-modal", function (hooks) {
   test("it ignores bubbling events", async function (assert) {
     assert.expect(1);
 
-    this.set("hide", () => assert.step("hide"));
+    this.hide = () => assert.step("hide");
 
     await render(hbs`
-      {{#uk-modal visible=true on-hide=this.hide as |modal|}}
-        {{#modal.body}}
+      <UkModal @visible={{true}} @onHide={{this.hide}} as |modal|>
+        <modal.body>
           <button data-test-target>Target</button>
-        {{/modal.body}}
-      {{/uk-modal}}
+        </modal.body>
+      </UkModal>
     `);
 
-    await triggerEvent("[data-test-target]", "hidden");
+    await triggerEvent("[data-test-target]", "hide");
+    // eslint-disable-next-line ember/no-settled-after-test-helper
+    await settled();
 
     assert.verifySteps([]);
   });
@@ -105,10 +113,10 @@ module("Integration | Component | uk-modal", function (hooks) {
 
     await render(hbs`
       <div id="modal-container"></div>
-      <UkModal @visible=true @container="#modal-container" as |Modal|>
-        <Modal.body>
+      <UkModal @visible={{true}} @container="#modal-container" as |modal|>
+        <modal.body>
           <button data-test-target>Target</button>
-        </Modal.body>
+        </modal.body>
       </UkModal>
     `);
 

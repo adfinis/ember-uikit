@@ -1,4 +1,8 @@
-<UkModal @visible={{visible}} @on-hide={{action (mut visible) false}} as |modal|>
+<UkModal
+  @visible={{this.visible}}
+  @onHide={{fn (mut this.visible) false}}
+  as |modal|
+>
   <modal.header>
     <h2 class="uk-modal-title">Attention</h2>
   </modal.header>
@@ -6,8 +10,8 @@
     <p>Do you really want to proceed?</p>
   </modal.body>
   <modal.footer @class="uk-text-right">
-    {{uk-button color="primary" label="Ok" on-click=(action "submit")}}
+    <UkButton @color="primary" @label="Ok" @onClick={{this.submit}} />
   </modal.footer>
 </UkModal>
 
-{{uk-button label="Open modal" on-click=(action (mut visible) true)}}
+<UkButton @label="Open modal" @onClick={{fn (mut this.visible) true}} />

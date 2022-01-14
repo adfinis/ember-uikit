@@ -4,11 +4,15 @@
   class="uk-text-muted"
   title="Properties of the used utilities can be applied to this component too."
 >
-  Uses: <LinkTo @route="docs.utilities.width"><UkLabel @color="success" @label="Width"/></LinkTo>
+  Uses:
+  <LinkTo @route="docs.utilities.width"><UkLabel
+      @color="success"
+      @label="Width"
+    /></LinkTo>
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-label label=label color=color}}
+  <UkLabel @label={{this.label}} @color={{this.color}} />
 </div>
 
 <UkSwitcher @animation="uk-animation-fade" as |switcher|>
@@ -39,16 +43,28 @@
               <td><code>""</code></td>
               <td>The content of the label</td>
               <td>
-                {{input class="uk-input" value=label}}
+                <Input class="uk-input" @value={{this.label}} />
               </td>
             </tr>
-            {{color-row name="label" default="" colors=colors value=color}}
+            <tr>
+              <td><code>color</code></td>
+              <td><code>String</code></td>
+              <td><code>"default"</code></td>
+              <td>The color of the label</td>
+              <td>
+                <OptionSelect
+                  @options={{this.colors}}
+                  @selected={{this.color}}
+                  @onChange={{fn (mut this.color)}}
+                />
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </content.item>
     <content.item>
-      {{code-snippet name="label.hbs"}}
+      <CodeSnippet @name="label.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

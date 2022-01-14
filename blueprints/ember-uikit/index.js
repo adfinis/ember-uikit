@@ -3,8 +3,6 @@
 const fs = require("fs");
 const path = require("path");
 
-const chalk = require("chalk");
-
 module.exports = {
   normalizeEntityName() {},
 
@@ -23,7 +21,7 @@ module.exports = {
       fs.writeFileSync(file, importStatement);
     }
 
-    this._writeStatusToUI(chalk.green, "add import statement", file);
+    this._writeStatusToUI("add import statement", file);
 
     return this.addAddonToProject("ember-cli-sass");
   },

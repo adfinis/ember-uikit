@@ -1,0 +1,13 @@
+<li
+  {{register-uikit-events
+    beforeshow=(optional @onBeforeShow)
+    show=(optional @onShow)
+    shown=(optional @onShown)
+    beforehide=(optional @onBeforeHide)
+    hide=(optional @onHide)
+    hidden=(optional @onHidden)
+  }}
+  ...attributes
+>
+  {{yield}}
+</li>
