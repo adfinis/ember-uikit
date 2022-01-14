@@ -1,7 +1,7 @@
 <h2>Spinner</h2>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  {{uk-spinner ratio=ratio}}
+  <UkSpinner @ratio={{this.ratio}} />
 </div>
 
 <UkSwitcher @animation="uk-animation-fade" as |switcher|>
@@ -32,7 +32,7 @@
               <td><code>1</code></td>
               <td>The ratio of the spinner</td>
               <td>
-                {{input type="number" class="uk-input" value=ratio}}
+                <Input @type="number" class="uk-input" @value={{this.ratio}} />
               </td>
             </tr>
           </tbody>
@@ -41,7 +41,7 @@
     </content.item>
 
     <content.item>
-      {{code-snippet name="spinner.hbs"}}
+      <CodeSnippet @name="spinner.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

@@ -1,0 +1,20 @@
+<button
+  type={{or @type "button"}}
+  class={{trimmed-join
+    "uk-button"
+    (if @active "uk-active")
+    this.color
+    this.size
+    this.width
+  }}
+  disabled={{@disabled}}
+  title={{@title}}
+  {{on "click" (optional @onClick)}}
+  ...attributes
+>
+  {{#if @loading}}
+    <UkSpinner />
+  {{else}}
+    {{#if (has-block)}}{{~yield~}}{{else}}{{~@label~}}{{/if}}
+  {{/if}}
+</button>

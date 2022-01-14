@@ -7,7 +7,7 @@ module("Integration | Component | uk card/title", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{#uk-card/title}}Content{{/uk-card/title}}`);
+    await render(hbs`<UkCard::Title>Content</UkCard::Title>`);
 
     assert.dom("h1.uk-card-title").exists();
   });

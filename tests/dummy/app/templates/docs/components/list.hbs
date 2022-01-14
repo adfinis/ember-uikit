@@ -4,11 +4,21 @@
   class="uk-text-muted"
   title="Properties of the used utilities can be applied to this component too."
 >
-  Uses: <LinkTo @route="docs.utilities.width"><UkLabel @color="success" @label="Width"/></LinkTo>
+  Uses:
+  <LinkTo @route="docs.utilities.width"><UkLabel
+      @color="success"
+      @label="Width"
+    /></LinkTo>
 </p>
 
 <div class="uk-padding uk-box-shadow-medium uk-margin">
-  <UkList @divider={{divider}} @striped={{striped}} @bullet={{bullet}} @large={{large}} as |list|>
+  <UkList
+    @divider={{this.divider}}
+    @striped={{this.striped}}
+    @bullet={{this.bullet}}
+    @large={{this.large}}
+    as |list|
+  >
     <list.item>List item 1</list.item>
     <list.item>List item 2</list.item>
     <list.item>List item 3</list.item>
@@ -44,7 +54,11 @@
               <td><code>false</code></td>
               <td>Whether to show a divider between the items</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=divider}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.divider}}
+                />
               </td>
             </tr>
             <tr>
@@ -53,7 +67,11 @@
               <td><code>false</code></td>
               <td>Whether stripe the list</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=striped}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.striped}}
+                />
               </td>
             </tr>
             <tr>
@@ -62,7 +80,11 @@
               <td><code>false</code></td>
               <td>Whether to show a bullet point before the items</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=bullet}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.bullet}}
+                />
               </td>
             </tr>
             <tr>
@@ -71,7 +93,11 @@
               <td><code>false</code></td>
               <td>Whether to make the list larger</td>
               <td>
-                {{input type="checkbox" class="uk-checkbox" checked=large}}
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.large}}
+                />
               </td>
             </tr>
           </tbody>
@@ -83,13 +109,15 @@
         <code>item</code>
       </p>
       <p>
-        The list yields an <code>item</code> component which can be used to
-        create a list item inside the list. The <code>item</code> component
-        takes no properties.
+        The list yields an
+        <code>item</code>
+        component which can be used to create a list item inside the list. The
+        <code>item</code>
+        component takes no properties.
       </p>
     </content.item>
     <content.item>
-      {{code-snippet name="list.hbs"}}
+      <CodeSnippet @name="list.hbs" />
     </content.item>
   </switcher.content>
 </UkSwitcher>

@@ -1,30 +1,31 @@
 import Service from "@ember/service";
 import config from "ember-get-config";
-import { Promise, resolve } from "rsvp";
 import UIkit from "uikit";
 
-const USER_CONFIG =
-  (config["ember-uikit"] && config["ember-uikit"].notification) || {};
-
-const notification = (status) =>
-  function (message, options = {}) {
-    return this._notification(message, Object.assign(options, { status }));
+function notification(status) {
+  return function () {
+    return {
+      value(message, options = {}) {
+        return this._notification(message, Object.assign(options, { status }));
+      },
+    };
   };
+}
 
-export default Service.extend({
-  _notification(message, options = {}) {
+export default class NotificationService extends Service {
+  _notification(message, options) {
     const n = UIkit.notification(
-      Object.assign(USER_CONFIG, options, { message })
+      Object.assign(config["ember-uikit"]?.notification, options, { message })
     );
 
-    return n && n.$el
+    return n?.$el
       ? new Promise((resolve) => UIkit.util.on(n.$el, "close", resolve))
-      : resolve();
-  },
+      : Promise.resolve();
+  }
 
-  default: notification("default"),
-  primary: notification("primary"),
-  success: notification("success"),
-  warning: notification("warning"),
-  danger: notification("danger"),
-});
+  @notification("default") default;
+  @notification("primary") primary;
+  @notification("success") success;
+  @notification("warning") warning;
+  @notification("danger") danger;
+}

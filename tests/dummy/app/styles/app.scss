@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i');
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400');
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400");
 
-$global-font-family: 'Source Sans Pro', sans-serif;
-$base-code-font-family: 'Source Code Pro', monospace;
+$global-font-family: "Source Sans Pro", sans-serif;
+$base-code-font-family: "Source Code Pro", monospace;
 $base-body-font-weight: 300;
 $base-heading-font-weight: 300;
 
-@import 'ember-uikit';
+@import "ember-uikit";
 
 .uk-nav-primary a:hover.active,
 .uk-nav-primary a:active.active,
@@ -17,7 +17,7 @@ $base-heading-font-weight: 300;
 }
 
 .uk-nav-primary a.active::before {
-  content: '';
+  content: "";
   display: block;
   width: 10px;
   height: 1px;

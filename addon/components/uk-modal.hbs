@@ -1,0 +1,38 @@
+{{#in-element this.containerElement insertBefore=null}}
+  <div
+    id={{this.modalId}}
+    class={{@modalClass}}
+    {{did-insert this.initialize}}
+    {{will-destroy this.teardown}}
+    ...attributes
+  >
+    <div
+      class={{trimmed-join "uk-modal-dialog" @dialogClass}}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={{this.modalHeaderId}}
+      tabindex="-1"
+      {{focus-trap
+        isActive=this.focusTrapActive
+        shouldSelfFocus=true
+        focusTrapOptions=(hash
+          escapeDeactivates=true
+          clickOutsideDeactivates=true
+          returnFocusOnDeactivate=true
+          preventScroll=true
+        )
+      }}
+    >
+      {{#if this.btnClose}}
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+      {{/if}}
+      {{yield
+        (hash
+          header=(component "uk-modal/header" id=this.modalHeaderId)
+          body=(component "uk-modal/body")
+          footer=(component "uk-modal/footer")
+        )
+      }}
+    </div>
+  </div>
+{{/in-element}}

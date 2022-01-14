@@ -1,15 +1,10 @@
 import Controller from "@ember/controller";
+import { tracked } from "@glimmer/tracking";
 
-export default Controller.extend({
-  visible: false,
-  btnClose: true,
-  closable: true,
-  modalClass: "",
-  dialogClass: "",
-
-  actions: {
-    submit() {
-      this.set("visible", false);
-    },
-  },
-});
+export default class DocsComponentsModelController extends Controller {
+  @tracked visible = false;
+  @tracked btnClose = true;
+  @tracked closable = true;
+  @tracked modalClass = "";
+  @tracked dialogClass = "";
+}

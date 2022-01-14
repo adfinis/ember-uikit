@@ -1,8 +1,7 @@
-import Component from "@ember/component";
-import ColorMixin, { COLOR_OPTIONS } from "ember-uikit/mixins/color";
-import WidthMixin from "ember-uikit/mixins/width";
+import Component from "@glimmer/component";
 
-import layout from "../templates/components/uk-label";
+import color, { COLOR_OPTIONS } from "ember-uikit/-private/color";
+import width from "ember-uikit/-private/width";
 
 export const LABEL_COLOR_OPTIONS = [
   "",
@@ -11,14 +10,12 @@ export const LABEL_COLOR_OPTIONS = [
   COLOR_OPTIONS.DANGER,
 ];
 
-export default Component.extend(ColorMixin, WidthMixin, {
-  COLOR_OPTIONS: LABEL_COLOR_OPTIONS,
+export default class UkButtonComponent extends Component {
+  @color({
+    template: "uk-label-$value$",
+    options: LABEL_COLOR_OPTIONS,
+  })
+  color;
 
-  layout,
-
-  tagName: "span",
-
-  classNames: ["uk-label"],
-
-  colorTemplate: "uk-label-$color$",
-});
+  @width width;
+}

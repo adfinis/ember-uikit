@@ -1,7 +1,8 @@
-{{uk-toggle-switch
-  value=value
-  color="onoff"
-  onLabel="On"
-  offLabel="Off"
-  showLabels=true
-}}
+<UkToggleSwitch
+  @value={{this.value}}
+  @color="onoff"
+  @onLabel="On"
+  @offLabel="Off"
+  @showLabels={{true}}
+  @onToggle={{fn (mut this.value)}}
+/>

@@ -8,11 +8,11 @@ module("Integration | Component | uk list", function (hooks) {
 
   test("renders", async function (assert) {
     await render(hbs`
-      {{#uk-list as |list|}}
-        {{#list.item}}Foo{{/list.item}}
-        {{#list.item}}Bar{{/list.item}}
-        {{#list.item}}Baz{{/list.item}}
-      {{/uk-list}}
+      <UkList as |list|>
+        <list.item>Foo</list.item>
+        <list.item>Bar</list.item>
+        <list.item>Baz</list.item>
+      </UkList>
     `);
 
     assert.dom(".uk-list").exists();
@@ -20,25 +20,25 @@ module("Integration | Component | uk list", function (hooks) {
   });
 
   test("can set divider", async function (assert) {
-    await render(hbs`{{uk-list divider=true}}`);
+    await render(hbs`<UkList @divider={{true}} />`);
 
     assert.dom(".uk-list").hasClass("uk-list-divider");
   });
 
   test("can set striped", async function (assert) {
-    await render(hbs`{{uk-list striped=true}}`);
+    await render(hbs`<UkList @striped={{true}} />`);
 
     assert.dom(".uk-list").hasClass("uk-list-striped");
   });
 
   test("can set bullet", async function (assert) {
-    await render(hbs`{{uk-list bullet=true}}`);
+    await render(hbs`<UkList @bullet={{true}} />`);
 
     assert.dom(".uk-list").hasClass("uk-list-bullet");
   });
 
   test("can set large", async function (assert) {
-    await render(hbs`{{uk-list large=true}}`);
+    await render(hbs`<UkList @large={{true}} />`);
 
     assert.dom(".uk-list").hasClass("uk-list-large");
   });

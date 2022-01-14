@@ -1,0 +1,13 @@
+{{yield
+  (hash
+    nav=(component
+      "uk-switcher/nav"
+      contentId=this.contentId
+      active=@active
+      animation=@animation
+      animationDuration=@animationDuration
+      swiping=@swiping
+    )
+    content=(component "uk-switcher/content" contentId=this.contentId)
+  )
+}}

@@ -7,14 +7,14 @@ module("Integration | Component | uk badge", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`{{#uk-badge}}Test{{/uk-badge}}`);
+    await render(hbs`<UkBadge>Test</UkBadge>`);
 
     assert.dom("span.uk-badge").exists();
     assert.dom("span.uk-badge").hasText("Test");
   });
 
   test("can set label", async function (assert) {
-    await render(hbs`{{uk-badge label='Test'}}`);
+    await render(hbs`<UkBadge @label="Test" />`);
 
     assert.dom("span.uk-badge").hasText("Test");
   });

@@ -1,0 +1,26 @@
+<div
+  class="uk-sortable"
+  uk-sortable
+  group={{@group}}
+  handle={{@handle}}
+  animation={{@animationDuration}}
+  threshold={{@threshold}}
+  cls-item={{@clsItem}}
+  cls-placeholder={{@clsPlaceholder}}
+  cls-drag={{@clsDrag}}
+  cls-drag-state={{@clsDragState}}
+  cls-base={{@clsBase}}
+  cls-no-drag={{@clsNoDrag}}
+  cls-empty={{@clsEmpty}}
+  cls-custom={{@clsCustom}}
+  {{register-uikit-events
+    start=(optional @onStart)
+    stop=(optional @onStop)
+    moved=(optional @onMoved)
+    added=(optional @onAdded)
+    removed=(optional @onRemoved)
+  }}
+  ...attributes
+>
+  {{yield}}
+</div>

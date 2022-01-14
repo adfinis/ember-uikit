@@ -1,0 +1,31 @@
+{{#if @contentId}}
+  <ul
+    class={{trimmed-join
+      "uk-tab"
+      (if @left "uk-tab-left")
+      (if @right "uk-tab-right")
+      (if @bottom "uk-tab-bottom")
+    }}
+    uk-tab
+    active={{or @active 0}}
+    connect="#{{@contentId}}"
+    animation={{@animation}}
+    duration={{@animationDuration}}
+    swiping={{@swiping}}
+    ...attributes
+  >
+    {{yield (hash item=(component "uk-tab/item"))}}
+  </ul>
+{{else}}
+  <ul
+    class={{trimmed-join
+      "uk-tab"
+      (if @left "uk-tab-left")
+      (if @right "uk-tab-right")
+      (if @bottom "uk-tab-bottom")
+    }}
+    ...attributes
+  >
+    {{yield (hash item=(component "uk-tab/item"))}}
+  </ul>
+{{/if}}

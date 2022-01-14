@@ -1,18 +1,7 @@
-import Component from "@ember/component";
-import FlexMixin from "ember-uikit/mixins/flex";
+import Component from "@glimmer/component";
 
-import layout from "../templates/components/uk-subnav";
+import flex from "ember-uikit/-private/flex";
 
-export default Component.extend(FlexMixin, {
-  layout,
-
-  tagName: "ul",
-
-  classNames: ["uk-subnav"],
-
-  classNameBindings: ["divider:uk-subnav-divider", "pill:uk-subnav-pill"],
-
-  divider: false,
-
-  pill: false,
-});
+export default class UkSubnavComponent extends Component {
+  @flex flex;
+}

@@ -1,14 +1,8 @@
-import Component from "@ember/component";
-import { computed } from "@ember/object";
+import { guidFor } from "@ember/object/internals";
+import Component from "@glimmer/component";
 
-import layout from "../templates/components/uk-switcher";
-
-export default Component.extend({
-  layout,
-
-  animation: "",
-
-  contentId: computed("elementId", function () {
-    return `uk-switcher-content-${this.elementId}`;
-  }),
-});
+export default class UkSwitcherComponent extends Component {
+  get contentId() {
+    return `uk-switcher-content-${guidFor(this)}`;
+  }
+}
