@@ -1,3 +1,10 @@
+# [5.0.0-beta.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2022-01-20)
+
+
+### Bug Fixes
+
+* **notification:** fix notification options if app doesn't configure anything ([2bd9f42](https://github.com/adfinis-sygroup/ember-uikit/commit/2bd9f42b81c89cfa8a709517a9b7375794dbe6e6))
+
 # [5.0.0-beta.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v4.0.0...v5.0.0-beta.1) (2022-01-20)
 
 
