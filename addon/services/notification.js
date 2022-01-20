@@ -15,7 +15,9 @@ function notification(status) {
 export default class NotificationService extends Service {
   _notification(message, options) {
     const n = UIkit.notification(
-      Object.assign(config["ember-uikit"]?.notification, options, { message })
+      Object.assign(config["ember-uikit"]?.notification ?? {}, options, {
+        message,
+      })
     );
 
     return n?.$el
