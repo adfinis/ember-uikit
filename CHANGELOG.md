@@ -8,9 +8,7 @@
 
 ### BREAKING CHANGES
 
-* This version drops support for Ember < v3.24 and
-requires `ember-auto-import` v2. Please check [the migration
-guide](/docs/migration-v5) for further instructions.
+* This version drops support for Ember < v3.24 and requires `ember-auto-import` v2. Please check [the migration guide](https://github.com/adfinis-sygroup/ember-uikit/blob/main/docs/migration-v5.md) for further instructions.
 
 # [4.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.2...v4.0.0) (2021-08-03)
 
