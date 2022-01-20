@@ -1,3 +1,17 @@
+# [5.0.0-beta.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v4.0.0...v5.0.0-beta.1) (2022-01-20)
+
+
+### Features
+
+* refactor all component to ember v4 ([1f1307c](https://github.com/adfinis-sygroup/ember-uikit/commit/1f1307c9ebbea9660b7c92a74517b8f0050c4e70))
+
+
+### BREAKING CHANGES
+
+* This version drops support for Ember < v3.24 and
+requires `ember-auto-import` v2. Please check [the migration
+guide](/docs/migration-v5) for further instructions.
+
 # [4.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v3.0.2...v4.0.0) (2021-08-03)
 
 
