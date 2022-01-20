@@ -1,3 +1,10 @@
+# [5.0.0-beta.3](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.2...v5.0.0-beta.3) (2022-01-20)
+
+
+### Bug Fixes
+
+* **badge:** add missing attributes ([f0db119](https://github.com/adfinis-sygroup/ember-uikit/commit/f0db1193e41cbbd5349fcdb35745c6167ab1de84))
+
 # [5.0.0-beta.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.1...v5.0.0-beta.2) (2022-01-20)
 
 
