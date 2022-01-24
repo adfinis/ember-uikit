@@ -1,3 +1,10 @@
+# [5.0.0-beta.4](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.3...v5.0.0-beta.4) (2022-01-24)
+
+
+### Bug Fixes
+
+* **linked-items:** add href to linked tab and subnav items ([5340369](https://github.com/adfinis-sygroup/ember-uikit/commit/5340369405a87977dfda98035aed731cf3cd457a))
+
 # [5.0.0-beta.3](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.2...v5.0.0-beta.3) (2022-01-20)
 
 
