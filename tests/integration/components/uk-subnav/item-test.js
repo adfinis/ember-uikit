@@ -68,7 +68,7 @@ module("Integration | Component | uk subnav/item", function (hooks) {
 
     this.owner.lookup("service:router").isActive = () => true;
     await render(
-      hbs`<UkSubnav::Item @href="/" as |active|>{{unless active "not "}}active</UkSubav::Item>`
+      hbs`<UkSubnav::Item @href="/" as |active|>{{unless active "not "}}active</UkSubnav::Item>`
     );
 
     assert.dom("a").hasText("active");
