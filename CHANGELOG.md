@@ -1,3 +1,10 @@
+# [5.0.0-beta.5](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.4...v5.0.0-beta.5) (2022-01-24)
+
+
+### Features
+
+* **linked-item:** yield active state of item component ([b28d06a](https://github.com/adfinis-sygroup/ember-uikit/commit/b28d06a540acb15c45d83751a1d3687bfbb5829b))
+
 # [5.0.0-beta.4](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.3...v5.0.0-beta.4) (2022-01-24)
 
 
