@@ -40,7 +40,7 @@ module("Integration | Component | uk subnav/item", function (hooks) {
   });
 
   test("can navigate via href", async function (assert) {
-    assert.expect(3);
+    assert.expect(4);
 
     this.owner.lookup("service:router").transitionTo = (href) => {
       assert.step("navigate");
@@ -48,6 +48,8 @@ module("Integration | Component | uk subnav/item", function (hooks) {
     };
 
     await render(hbs`<UkSubnav::Item @href="/">Test</UkSubnav::Item>`);
+
+    assert.dom("a").hasAttribute("href", "/");
 
     await click("a");
 
