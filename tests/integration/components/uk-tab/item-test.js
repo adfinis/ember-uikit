@@ -52,4 +52,22 @@ module("Integration | Component | uk tab/item", function (hooks) {
 
     assert.verifySteps(["navigate"]);
   });
+
+  test("yields the active state", async function (assert) {
+    assert.expect(2);
+
+    this.owner.lookup("service:router").isActive = () => false;
+    await render(
+      hbs`<UkTab::Item @href="/" as |active|>{{unless active "not "}}active</UkTab::Item>`
+    );
+
+    assert.dom("a").hasText("not active");
+
+    this.owner.lookup("service:router").isActive = () => true;
+    await render(
+      hbs`<UkTab::Item @href="/" as |active|>{{unless active "not "}}active</UkTab::Item>`
+    );
+
+    assert.dom("a").hasText("active");
+  });
 });

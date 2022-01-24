@@ -5,5 +5,5 @@
   }}
   ...attributes
 >
-  <a href={{@href}} {{on "click" this.navigate}}>{{yield}}</a>
+  <a href={{@href}} {{on "click" this.navigate}}>{{yield this.active}}</a>
 </li>
