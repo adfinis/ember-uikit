@@ -45,7 +45,19 @@ export default class LinkedListItemComponent extends Component {
   get route() {
     if (!this.href) return null;
 
-    const routeInfo = this.router.recognize(this.href);
+    let href = this.href;
+
+    /* istanbul ignore next */
+    if (this.router.location.implementation === "hash") {
+      href = href.replace(/^#/, "");
+    }
+
+    /* istanbul ignore next */
+    if (!href.startsWith(this.router.rootURL)) {
+      href = `${this.router.rootURL}${href}`;
+    }
+
+    const routeInfo = this.router.recognize(href);
 
     if (!routeInfo) return null;
 
