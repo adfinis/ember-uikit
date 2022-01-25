@@ -6,7 +6,7 @@ module.exports = function (environment) {
     modulePrefix: "dummy",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "history",
     "ember-uikit": {
       notification: {
         pos: "top-right",
@@ -50,8 +50,6 @@ module.exports = function (environment) {
   }
 
   if (environment === "production") {
-    ENV.locationType = "hash";
-    ENV.rootURL = "/";
     // here you can enable a production-specific feature
   }
 
