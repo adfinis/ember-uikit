@@ -14,15 +14,50 @@ function getParams(currentRouteInfo) {
 }
 
 export default class LinkedListItemComponent extends Component {
-  @service router;
+  @service("router") _router;
+
+  /* istanbul ignore next */
+  get isEngineRouter() {
+    return Boolean(this._router.externalRouter);
+  }
+
+  get router() {
+    // Use the external router in engines that use `ember-engines-router-service`
+    return this._router.externalRouter ?? this._router;
+  }
+
+  get href() {
+    if (!this.args.href) return null;
+
+    /* istanbul ignore next */
+    if (this.isEngineRouter) {
+      const engineRoot = this._router.urlFor("application");
+
+      // Append the engine root to the url in case the engine didn't already
+      return this.args.href.startsWith(engineRoot)
+        ? this.args.href
+        : `${engineRoot}${this.args.href}`;
+    }
+
+    return this.args.href;
+  }
+
+  get route() {
+    if (!this.href) return null;
+
+    const routeInfo = this.router.recognize(this.href);
+
+    if (!routeInfo) return null;
+
+    return { routeInfo, dynamicSegments: getParams(routeInfo) };
+  }
 
   get active() {
-    if (!this.args.href || this.args.active !== undefined) {
+    if (!this.route || this.args.active !== undefined) {
       return this.args.active ?? false;
     }
 
-    const routeInfo = this.router.recognize(this.args.href);
-    const dynamicSegments = getParams(routeInfo);
+    const { routeInfo, dynamicSegments } = this.route;
 
     return this.router.isActive(routeInfo.name, ...dynamicSegments, {
       queryParams: routeInfo.queryParams,
@@ -34,9 +69,12 @@ export default class LinkedListItemComponent extends Component {
     event.preventDefault();
 
     if (typeof this.args.onClick === "function") {
-      this.args.onClick(...[event, this.args.href].filter(Boolean));
-    } else if (this.args.href) {
-      this.router.transitionTo(this.args.href);
+      this.args.onClick(...[event, this.href].filter(Boolean));
+    } else if (this.route) {
+      const { routeInfo, dynamicSegments } = this.route;
+      this.router.transitionTo(routeInfo.name, ...dynamicSegments, {
+        queryParams: routeInfo.queryParams,
+      });
     }
   }
 }
