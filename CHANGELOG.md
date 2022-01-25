@@ -1,3 +1,10 @@
+# [5.0.0-beta.6](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.5...v5.0.0-beta.6) (2022-01-25)
+
+
+### Features
+
+* **linked-item:** support engines using ember-engines-router-service ([ab39acf](https://github.com/adfinis-sygroup/ember-uikit/commit/ab39acf26526abf8f166a422187addf9aebb5aa9))
+
 # [5.0.0-beta.5](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.4...v5.0.0-beta.5) (2022-01-24)
 
 
