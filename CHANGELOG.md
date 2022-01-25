@@ -1,3 +1,10 @@
+# [5.0.0-beta.7](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2022-01-25)
+
+
+### Bug Fixes
+
+* **linked-item:** handle rootURLs and hash locations ([0ffe74f](https://github.com/adfinis-sygroup/ember-uikit/commit/0ffe74fc17761f8f6fa0a003629f53d117ae5056))
+
 # [5.0.0-beta.6](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.5...v5.0.0-beta.6) (2022-01-25)
 
 
