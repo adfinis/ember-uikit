@@ -1,3 +1,10 @@
+# [5.0.0-beta.8](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.7...v5.0.0-beta.8) (2022-01-31)
+
+
+### Bug Fixes
+
+* **linked-items:** use named dynamic segments ([1d7a8db](https://github.com/adfinis-sygroup/ember-uikit/commit/1d7a8db21be00d9fe6b5d67f736f2df505c58d86))
+
 # [5.0.0-beta.7](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.6...v5.0.0-beta.7) (2022-01-25)
 
 
