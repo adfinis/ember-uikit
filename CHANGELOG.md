@@ -1,3 +1,10 @@
+# [5.0.0-beta.9](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.8...v5.0.0-beta.9) (2022-01-31)
+
+
+### Bug Fixes
+
+* **linked-item:** fix order of dynamic segments ([c917428](https://github.com/adfinis-sygroup/ember-uikit/commit/c917428bbc6ba0e2179e8840bd60c8521cf387f0))
+
 # [5.0.0-beta.8](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.7...v5.0.0-beta.8) (2022-01-31)
 
 
