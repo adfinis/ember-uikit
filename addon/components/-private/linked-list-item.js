@@ -3,10 +3,12 @@ import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
 
 function getParams(currentRouteInfo) {
-  const params = { ...currentRouteInfo.params };
+  const params = currentRouteInfo.paramNames.map(
+    (key) => currentRouteInfo.params[key]
+  );
 
   if (currentRouteInfo.parent) {
-    return { ...params, ...getParams(currentRouteInfo.parent) };
+    return [...getParams(currentRouteInfo.parent), ...params];
   }
 
   return params;
@@ -60,7 +62,7 @@ export default class LinkedListItemComponent extends Component {
 
     if (!routeInfo) return null;
 
-    return { routeInfo, models: getParams(routeInfo) };
+    return { routeInfo, dynamicSegments: getParams(routeInfo) };
   }
 
   get active() {
@@ -68,9 +70,9 @@ export default class LinkedListItemComponent extends Component {
       return this.args.active ?? false;
     }
 
-    const { routeInfo, models } = this.route;
+    const { routeInfo, dynamicSegments } = this.route;
 
-    return this.router.isActive(routeInfo.name, models, {
+    return this.router.isActive(routeInfo.name, ...dynamicSegments, {
       queryParams: routeInfo.queryParams,
     });
   }
@@ -82,8 +84,8 @@ export default class LinkedListItemComponent extends Component {
     if (typeof this.args.onClick === "function") {
       this.args.onClick(...[event, this.href].filter(Boolean));
     } else if (this.route) {
-      const { routeInfo, models } = this.route;
-      this.router.transitionTo(routeInfo.name, models, {
+      const { routeInfo, dynamicSegments } = this.route;
+      this.router.transitionTo(routeInfo.name, ...dynamicSegments, {
         queryParams: routeInfo.queryParams,
       });
     }
