@@ -63,7 +63,9 @@ export default class LinkedListItemComponent extends Component {
     if (!routeInfo) return null;
 
     return {
-      name: routeInfo.name.replace(/\.index$/, ""),
+      name: this.args.linkToIndex
+        ? routeInfo.name
+        : routeInfo.name.replace(/\.index$/, ""),
       args: [
         ...getParams(routeInfo),
         ...(Object.keys(routeInfo.queryParams)

@@ -5,7 +5,7 @@
         <li><LinkTo @route="index">Introduction</LinkTo></li>
         <li class="uk-nav-divider"></li>
         <li class="uk-parent">
-          <a href="" class="uk-disabled">Components</a>
+          <LinkTo @route="docs.components">Components</LinkTo>
           <ul class="uk-nav-sub">
             <li><LinkTo @route="docs.components.badge">Badge</LinkTo></li>
             <li><LinkTo @route="docs.components.button">Button</LinkTo></li>
@@ -24,21 +24,21 @@
         </li>
         <li class="uk-nav-divider"></li>
         <li class="uk-parent">
-          <a href="" class="uk-disabled">Utilities</a>
-          <ul class="uk-nav-sub">
-            <li><LinkTo @route="docs.utilities.flex">Flex</LinkTo></li>
-            <li><LinkTo @route="docs.utilities.width">Width</LinkTo></li>
-          </ul>
-        </li>
-        <li class="uk-nav-divider"></li>
-        <li class="uk-parent">
-          <a href="" class="uk-disabled">Services</a>
+          <LinkTo @route="docs.services">Services</LinkTo>
           <ul class="uk-nav-sub">
             <li>
               <LinkTo @route="docs.services.notification">
                 Notification
               </LinkTo>
             </li>
+          </ul>
+        </li>
+        <li class="uk-nav-divider"></li>
+        <li class="uk-parent">
+          <LinkTo @route="docs.utilities">Utilities</LinkTo>
+          <ul class="uk-nav-sub">
+            <li><LinkTo @route="docs.utilities.flex">Flex</LinkTo></li>
+            <li><LinkTo @route="docs.utilities.width">Width</LinkTo></li>
           </ul>
         </li>
       </ul>

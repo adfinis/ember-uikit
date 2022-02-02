@@ -73,4 +73,28 @@ module("Integration | Component | uk subnav/item", function (hooks) {
 
     assert.dom("a").hasText("active");
   });
+
+  test("respects linkToIndex", async function (assert) {
+    assert.expect(2);
+
+    this.linkToIndex = false;
+
+    this.owner.lookup("service:router").recognize = () => ({
+      name: "foo.index",
+      params: {},
+      paramNames: [],
+      parent: null,
+      queryParams: {},
+    });
+
+    this.owner.lookup("service:router").isActive = (routeName) => {
+      assert.strictEqual(routeName, this.linkToIndex ? "foo.index" : "foo");
+    };
+
+    await render(
+      hbs`<UkSubnav::Item @href="/foo" @linkToIndex={{this.linkToIndex}}>Test</UkSubnav::Item>`
+    );
+
+    this.set("linkToIndex", true);
+  });
 });

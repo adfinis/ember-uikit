@@ -12,6 +12,7 @@ export default class DocsComponentsTabController extends Controller {
   @tracked itemDisabled = false;
   @tracked linkItemDisabled = false;
   @tracked href = this.router.currentURL;
+  @tracked linkToIndex = false;
 
   get availableRoutes() {
     // eslint-disable-next-line ember/no-private-routing-service
@@ -22,17 +23,14 @@ export default class DocsComponentsTabController extends Controller {
           !name.endsWith("loading") &&
           ![
             "application",
-            "docs",
             "docs.index",
-            "docs.components",
             "docs.components.index",
-            "docs.utilities",
             "docs.utilities.index",
-            "docs.services",
             "docs.services.index",
           ].includes(name)
       )
-      .map((name) => this.router.urlFor(name));
+      .map((name) => this.router.urlFor(name))
+      .sort();
   }
 
   @task

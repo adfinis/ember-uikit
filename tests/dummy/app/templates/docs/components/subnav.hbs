@@ -20,7 +20,11 @@
     >
       Item
     </nav.item>
-    <nav.item @href={{this.href}} @disabled={{this.linkItemDisabled}}>
+    <nav.item
+      @href={{this.href}}
+      @disabled={{this.linkItemDisabled}}
+      @linkToIndex={{this.linkToIndex}}
+    >
       Link Item
     </nav.item>
   </UkSubnav>
@@ -148,6 +152,26 @@
                   @options={{this.availableRoutes}}
                   @selected={{this.href}}
                   @onChange={{fn (mut this.href)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>linkToIndex</code></td>
+              <td><code>Boolean</code></td>
+              <td><code>false</code></td>
+              <td>
+                Whether to link to the index route of the passed
+                <code>href</code>
+                or not. If
+                <code>true</code>
+                the item will only be active if the index route is active.
+                Otherwise it will be active for subroutes as well.
+              </td>
+              <td>
+                <Input
+                  @type="checkbox"
+                  class="uk-checkbox"
+                  @checked={{this.linkToIndex}}
                 />
               </td>
             </tr>
