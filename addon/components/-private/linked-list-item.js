@@ -62,7 +62,15 @@ export default class LinkedListItemComponent extends Component {
 
     if (!routeInfo) return null;
 
-    return { routeInfo, dynamicSegments: getParams(routeInfo) };
+    return {
+      name: routeInfo.name.replace(/\.index$/, ""),
+      args: [
+        ...getParams(routeInfo),
+        ...(Object.keys(routeInfo.queryParams)
+          ? [{ queryParams: routeInfo.queryParams }]
+          : []),
+      ],
+    };
   }
 
   get active() {
@@ -70,11 +78,9 @@ export default class LinkedListItemComponent extends Component {
       return this.args.active ?? false;
     }
 
-    const { routeInfo, dynamicSegments } = this.route;
+    const { name, args } = this.route;
 
-    return this.router.isActive(routeInfo.name, ...dynamicSegments, {
-      queryParams: routeInfo.queryParams,
-    });
+    return this.router.isActive(name, ...args);
   }
 
   @action
@@ -84,10 +90,8 @@ export default class LinkedListItemComponent extends Component {
     if (typeof this.args.onClick === "function") {
       this.args.onClick(...[event, this.href].filter(Boolean));
     } else if (this.route) {
-      const { routeInfo, dynamicSegments } = this.route;
-      this.router.transitionTo(routeInfo.name, ...dynamicSegments, {
-        queryParams: routeInfo.queryParams,
-      });
+      const { name, args } = this.route;
+      this.router.transitionTo(name, ...args);
     }
   }
 }
