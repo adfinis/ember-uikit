@@ -1,3 +1,10 @@
+# [5.0.0-beta.10](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.9...v5.0.0-beta.10) (2022-02-02)
+
+
+### Bug Fixes
+
+* **linked-items:** don't transition to index route ([8461794](https://github.com/adfinis-sygroup/ember-uikit/commit/84617948853b3f2b99ddb2425ed6e2be6009b0de))
+
 # [5.0.0-beta.9](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.8...v5.0.0-beta.9) (2022-01-31)
 
 
