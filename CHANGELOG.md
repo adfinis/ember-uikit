@@ -1,3 +1,10 @@
+# [5.0.0-beta.11](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.10...v5.0.0-beta.11) (2022-02-02)
+
+
+### Features
+
+* **linked-item:** add option to link to index route of passed href ([450e24f](https://github.com/adfinis-sygroup/ember-uikit/commit/450e24f3e581e0e8c57ee5c76ba953e49cfad277))
+
 # [5.0.0-beta.10](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.9...v5.0.0-beta.10) (2022-02-02)
 
 
