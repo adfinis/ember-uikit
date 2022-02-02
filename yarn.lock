@@ -6047,10 +6047,10 @@ ember-template-recast@^6.1.2:
     tmp "^0.2.1"
     workerpool "^6.1.5"
 
-ember-toggle@^9.0.2:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-9.0.2.tgz#faf057b20a31be8784d240ca267a1915c91d2538"
-  integrity sha512-t7/Bq+noMjb+FIGgaDbHa9cF+s6ooHdLltgjX8j6BnQXn84/9uPgZVu0pwrT7So9a4SsVH7UggLW4vaZxKdI5A==
+ember-toggle@^9.0.3:
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/ember-toggle/-/ember-toggle-9.0.3.tgz#c82e37ea32b87dc545356a91df07396e8fd2b273"
+  integrity sha512-DxcQZ6HYq0NSRCkHqX77N8XiaIRZPjipDj68FVibPcW3puEFZwJnJgDu9eKmGcZWQvxpge5gzbloiwpJ7xib1A==
   dependencies:
     "@ember/render-modifiers" "^2.0.3"
     ember-cached-decorator-polyfill "^0.1.4"
