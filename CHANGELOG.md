@@ -1,3 +1,32 @@
+# [5.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v4.0.0...v5.0.0) (2022-02-04)
+
+
+### Bug Fixes
+
+* **badge:** add missing attributes ([f0db119](https://github.com/adfinis-sygroup/ember-uikit/commit/f0db1193e41cbbd5349fcdb35745c6167ab1de84))
+* **config:** remove usage of ember-get-config ([fcddb14](https://github.com/adfinis-sygroup/ember-uikit/commit/fcddb14ed71d338e4849c880c34fd47516ffc1f0))
+* **linked-item:** fix order of dynamic segments ([c917428](https://github.com/adfinis-sygroup/ember-uikit/commit/c917428bbc6ba0e2179e8840bd60c8521cf387f0))
+* **linked-item:** handle rootURLs and hash locations ([0ffe74f](https://github.com/adfinis-sygroup/ember-uikit/commit/0ffe74fc17761f8f6fa0a003629f53d117ae5056))
+* **linked-items:** add href to linked tab and subnav items ([5340369](https://github.com/adfinis-sygroup/ember-uikit/commit/5340369405a87977dfda98035aed731cf3cd457a))
+* **linked-items:** don't transition to index route ([8461794](https://github.com/adfinis-sygroup/ember-uikit/commit/84617948853b3f2b99ddb2425ed6e2be6009b0de))
+* **linked-items:** use named dynamic segments ([1d7a8db](https://github.com/adfinis-sygroup/ember-uikit/commit/1d7a8db21be00d9fe6b5d67f736f2df505c58d86))
+* **notification:** fix notification options if app doesn't configure anything ([2bd9f42](https://github.com/adfinis-sygroup/ember-uikit/commit/2bd9f42b81c89cfa8a709517a9b7375794dbe6e6))
+
+
+### Features
+
+* **linked-item:** add option to link to index route of passed href ([450e24f](https://github.com/adfinis-sygroup/ember-uikit/commit/450e24f3e581e0e8c57ee5c76ba953e49cfad277))
+* **linked-item:** support engines using ember-engines-router-service ([ab39acf](https://github.com/adfinis-sygroup/ember-uikit/commit/ab39acf26526abf8f166a422187addf9aebb5aa9))
+* **linked-item:** yield active state of item component ([b28d06a](https://github.com/adfinis-sygroup/ember-uikit/commit/b28d06a540acb15c45d83751a1d3687bfbb5829b))
+* refactor all component to ember v4 ([1f1307c](https://github.com/adfinis-sygroup/ember-uikit/commit/1f1307c9ebbea9660b7c92a74517b8f0050c4e70))
+
+
+### BREAKING CHANGES
+
+* This version drops support for Ember < v3.24 and
+requires `ember-auto-import` v2. Please check [the migration
+guide](/docs/migration-v5) for further instructions.
+
 # [5.0.0-beta.11](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0-beta.10...v5.0.0-beta.11) (2022-02-02)
 
 
