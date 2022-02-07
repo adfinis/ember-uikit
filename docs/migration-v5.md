@@ -94,6 +94,6 @@ possibility of passing a `@href` argument.
 
 ```hbs
 <UkTab as |tab|>
-  <tab.link @href="/my-route/subroute/1?foo=bar">Link</tab.link>
+  <tab.item @href="/my-route/subroute/1?foo=bar">Link</tab.item>
 </UkTab>
 ```
