@@ -4,9 +4,6 @@ const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
-    fingerprint: {
-      prepend: "https://adfinis-sygroup.github.io/ember-uikit/",
-    },
     snippetPaths: ["tests/dummy/app/snippets"],
     "ember-prism": {
       theme: "twilight",
