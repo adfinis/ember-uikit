@@ -13360,10 +13360,10 @@ uglify-js@^3.1.4:
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.15.0.tgz#2d6a689d94783cab43975721977a13c2afec28f1"
   integrity sha512-x+xdeDWq7FiORDvyIJ0q/waWd4PhjBNOm5dQUOq2AKC0IEjxOS66Ha9tctiVDGcRQuh69K7fgU5oRuTK4cysSg==
 
-uikit@^3.10.1:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.10.1.tgz#8862555d8e2e4faf9d4de834d37cab1c41ffe2a4"
-  integrity sha512-aUSO+NIb9EVLoWWWYRDlthB0om6jLTWJ/Qhx3mbXKCW2TKGtWGsrdZdlQKAWRHsz/eeog9Eg89DOPtg5ZuMwoA==
+uikit@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/uikit/-/uikit-3.11.1.tgz#3f0b47f4b2e7610375c5f7cdbf550d086c81e22f"
+  integrity sha512-nUUtvE/wZe+oFF+8WLGlvsdHg1KI75SHHEhf5FcSVFG1AHEJkqOKhPhgU6FQLporAiPTsapzURN/bP765gI2bA==
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
