@@ -26,6 +26,7 @@ Router.map(function () {
     });
 
     this.route("utilities", function () {
+      this.route("confirm");
       this.route("flex");
       this.route("width");
     });
