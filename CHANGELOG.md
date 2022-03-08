@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0...v5.1.0) (2022-03-08)
+
+
+### Features
+
+* **utilities:** add confirm utility ([5a97683](https://github.com/adfinis-sygroup/ember-uikit/commit/5a97683f66951b91464d9a68942221b2f78ba982))
+
 # [5.0.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v4.0.0...v5.0.0) (2022-02-04)
 
 
