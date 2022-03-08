@@ -1,0 +1,51 @@
+<h2>Confirm</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  <UkButton @color="primary" @onClick={{this.click}}>Click me!</UkButton>
+  <span class="uk-margin-small-left">
+    {{#if (eq this.result true)}}
+      <UkIcon @icon="check" />
+    {{else if (eq this.result false)}}
+      <UkIcon @icon="ban" />
+    {{/if}}
+  </span>
+</div>
+
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Arguments</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
+
+  <switcher.content as |content|>
+    <content.item>
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>text</code></td>
+              <td><code>String</code></td>
+              <td></td>
+              <td>The content of the confirm dialog, this can contain HTML.</td>
+              <td><Input class="uk-input" @value={{this.text}} /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </content.item>
+    <content.item>
+      <CodeSnippet @name="confirm.js" />
+    </content.item>
+  </switcher.content>
+</UkSwitcher>
