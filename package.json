@@ -47,7 +47,7 @@
     "ember-focus-trap": "^1.0.1",
     "ember-modifier": "^3.1.0",
     "ember-toggle": "^9.0.3",
-    "uikit": "^3.11.1"
+    "uikit": "^3.12.2"
   },
   "devDependencies": {
     "@adfinis-sygroup/eslint-config": "1.5.0",
