@@ -1,3 +1,10 @@
+## [5.1.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.1.0...v5.1.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* **embroider:** add missing dependency to @ember/string ([e58cbe5](https://github.com/adfinis-sygroup/ember-uikit/commit/e58cbe5f59c2cf1ec26528bd3e67c669edfc56bd))
+
 # [5.1.0](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.0.0...v5.1.0) (2022-03-08)
 
 

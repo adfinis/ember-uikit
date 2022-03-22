@@ -1,6 +1,6 @@
 {
   "name": "ember-uikit",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "The ember implementation of UIkit",
   "keywords": [
     "ember-addon",
