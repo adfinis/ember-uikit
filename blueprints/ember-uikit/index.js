@@ -9,7 +9,7 @@ module.exports = {
   afterInstall() {
     const stylePath = path.join("app", "styles");
     const file = path.join(stylePath, "app.scss");
-    const importStatement = "@import 'ember-uikit';";
+    const importStatement = '@import "ember-uikit";';
 
     if (!fs.existsSync(stylePath)) {
       fs.mkdirSync(stylePath);
@@ -21,7 +21,7 @@ module.exports = {
       fs.writeFileSync(file, importStatement);
     }
 
-    this._writeStatusToUI("add import statement", file);
+    this.ui.writeLine("add import statement", file);
 
     return this.addAddonToProject("ember-cli-sass");
   },
