@@ -21,7 +21,7 @@
   <code>app/styles/app.scss</code>.
 </p>
 
-<h3>Configuration</h3>
+<h3>Build-time configuration</h3>
 
 <table class="uk-table uk-table-divider">
   <thead>
@@ -84,6 +84,29 @@
         included in your build
       </td>
     </tr>
+  </tbody>
+</table>
+
+<p>
+  Those options can be configured in your
+  <code>ember-cli-build.js</code>
+  file:
+</p>
+
+<CodeSnippet @name="build-time-configuration.js" />
+
+<h3>Runtime configuration</h3>
+
+<table class="uk-table uk-table-divider">
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
     <tr>
       <td><code>notification</code></td>
       <td><code>Object</code></td>
@@ -105,11 +128,11 @@
 
 <p>
   Those options can be configured in your
-  <code>ember-cli-build.js</code>
+  <code>config/environment.js</code>
   file:
 </p>
 
-<CodeSnippet @name="configuration.js" />
+<CodeSnippet @name="runtime-configuration.js" />
 
 <h3>Contribution</h3>
 

@@ -17,8 +17,6 @@ const DEFAULT_OPTIONS = {
 
   whitelist: [],
   blacklist: [],
-
-  notification: {},
 };
 
 const COMPONENT_DEPENDENCIES = {
