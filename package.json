@@ -98,7 +98,7 @@
     "qunit": "2.18.1",
     "qunit-dom": "2.0.0",
     "sass": "1.50.0",
-    "webpack": "5.70.0"
+    "webpack": "5.72.0"
   },
   "ember": {
     "edition": "octane"
