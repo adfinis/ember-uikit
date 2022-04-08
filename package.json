@@ -46,7 +46,7 @@
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-focus-trap": "^1.0.1",
-    "ember-modifier": "^3.1.0",
+    "ember-modifier": "^3.2.6",
     "ember-toggle": "^9.0.3",
     "uikit": "^3.13.6"
   },
@@ -86,7 +86,7 @@
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-ember": "10.5.9",
-    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-qunit": "7.2.0",
@@ -97,7 +97,7 @@
     "prettier": "2.6.1",
     "qunit": "2.18.1",
     "qunit-dom": "2.0.0",
-    "sass": "1.49.10",
+    "sass": "1.50.0",
     "webpack": "5.70.0"
   },
   "ember": {
