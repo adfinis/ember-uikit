@@ -46,7 +46,7 @@
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.0.1",
     "ember-focus-trap": "^1.0.1",
-    "ember-modifier": "^3.2.6",
+    "ember-modifier": "^3.2.7",
     "ember-toggle": "^9.0.3",
     "uikit": "^3.13.7"
   },
