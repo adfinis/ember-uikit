@@ -1557,12 +1557,13 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
-"@lint-todo/utils@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@lint-todo/utils/-/utils-12.0.1.tgz#d61ef329f9f6c7332adee7b1f68651f190d53a7f"
-  integrity sha512-Xiy5wN+ns95gEHepJ55TXEBAZrkZlzrF9wTjqoTgv+RYOYL3+qQ+v0RtPH2n/UwPJEFuXJ6QKiT99RnUOt1pzw==
+"@lint-todo/utils@^13.0.2":
+  version "13.0.2"
+  resolved "https://registry.yarnpkg.com/@lint-todo/utils/-/utils-13.0.2.tgz#0d2fc6cc24452564dd2ee97be01437aa92b4c1a8"
+  integrity sha512-tLZfEjU5i7KThQbWZ4u5dLUJx9+euGnytz402uAH4VRa0jMxyc2HNXw+h6qPdKxM/wGAvwEQGn7l1j2kyLI7rQ==
   dependencies:
     "@types/eslint" "^7.2.13"
+    find-up "^5.0.0"
     fs-extra "^9.1.0"
     proper-lockfile "^4.1.2"
     slash "^3.0.0"
@@ -6132,12 +6133,12 @@ ember-template-lint-plugin-prettier@4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-ember-template-lint@4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.4.0.tgz#76f8cea3ba56e2cde56be0942d718872cfe0828e"
-  integrity sha512-4HyyNo1CrKCeSwPbpZ+XHFM1NMl4JzXJweotYWOQ//Yepbv8LWLVy4NqLMUxTeujz0KZmUhAgoGsahASv7roaw==
+ember-template-lint@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.6.0.tgz#9802a7a4a23d369877a7de3c11cc5a15bc59c8aa"
+  integrity sha512-t4fV/8gKaIBwviZD2f5RkRNnF0cOMQR5cDoMvsEkNzOpxQ0DXLooHfHWKZIh1kHGY+Zols/JNpa+nxk3mGsZqA==
   dependencies:
-    "@lint-todo/utils" "^12.0.1"
+    "@lint-todo/utils" "^13.0.2"
     aria-query "^5.0.0"
     chalk "^4.1.2"
     ci-info "^3.3.0"
@@ -6148,6 +6149,7 @@ ember-template-lint@4.4.0:
     get-stdin "^9.0.0"
     globby "^13.1.1"
     is-glob "^4.0.3"
+    language-tags "^1.0.5"
     micromatch "^4.0.5"
     resolve "^1.22.0"
     v8-compile-cache "^2.3.0"
@@ -8927,6 +8929,18 @@ kind-of@^6.0.0, kind-of@^6.0.2, kind-of@^6.0.3:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.3.tgz#07c05034a6c349fa06e24fa35aa76db4580ce4dd"
   integrity sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==
+
+language-subtag-registry@~0.3.2:
+  version "0.3.21"
+  resolved "https://registry.yarnpkg.com/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz#04ac218bea46f04cb039084602c6da9e788dd45a"
+  integrity sha512-L0IqwlIXjilBVVYKFT37X9Ih11Um5NEl9cbJIuU/SwP/zEEAbBPOnEeeuxVMf45ydWQRDQN3Nqc96OgbH1K+Pg==
+
+language-tags@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/language-tags/-/language-tags-1.0.5.tgz#d321dbc4da30ba8bf3024e040fa5c14661f9193a"
+  integrity sha1-0yHbxNowuovzAk4ED6XBRmH5GTo=
+  dependencies:
+    language-subtag-registry "~0.3.2"
 
 leek@0.0.24:
   version "0.0.24"
