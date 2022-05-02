@@ -34,4 +34,21 @@ module("Unit | Utility | confirm", function (hooks) {
 
     assert.verifySteps(["rejected"]);
   });
+
+  test("can pass options", async function (assert) {
+    assert.expect(2);
+
+    const _original = UIkit.modal;
+
+    UIkit.modal = {
+      confirm: (text, options) => {
+        assert.strictEqual(text, "confirm");
+        assert.deepEqual(options, { container: "#modal-container" });
+      },
+    };
+
+    await confirm("confirm", { container: "#modal-container" });
+
+    UIkit.modal = _original;
+  });
 });
