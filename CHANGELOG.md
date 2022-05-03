@@ -1,3 +1,11 @@
+## [5.1.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.1.1...v5.1.2) (2022-05-03)
+
+
+### Bug Fixes
+
+* **blueprint:** fix blueprint ([91ed54a](https://github.com/adfinis-sygroup/ember-uikit/commit/91ed54a5ed020d83d385f3e74d23553a9c12cc19))
+* **confirm:** add modal service with configuration options ([76ed01b](https://github.com/adfinis-sygroup/ember-uikit/commit/76ed01b940729e089909c47c808cf1f08af33843))
+
 ## [5.1.1](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.1.0...v5.1.1) (2022-03-22)
 
 
