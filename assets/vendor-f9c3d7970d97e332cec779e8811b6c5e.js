@@ -5885,14 +5885,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var i=(0,r.modifier)((function(e,r,i){Object.entries(i).forEach((r=>{let[i,s]=r
 n.default.util.on(e,i,(function(){for(var e=arguments.length,r=new Array(e),n=0;n<e;n++)r[n]=arguments[n]
 return(0,t.run)((()=>s(...r)))}))}))}))
-e.default=i})),define("ember-uikit/services/modal",["exports","@ember/application","@ember/service","uikit"],(function(e,t,r,n){"use strict"
-var i,s,o,a,l,u,c,d,h
-function p(e,t,r,n){r&&Object.defineProperty(e,t,{enumerable:r.enumerable,configurable:r.configurable,writable:r.writable,value:r.initializer?r.initializer.call(n):void 0})}function f(e,t,r,n,i){var s={}
-return Object.keys(n).forEach((function(e){s[e]=n[e]})),s.enumerable=!!s.enumerable,s.configurable=!!s.configurable,("value"in s||s.initializer)&&(s.writable=!0),s=r.slice().reverse().reduce((function(r,n){return n(e,t,r)||r}),s),i&&void 0!==s.initializer&&(s.value=s.initializer?s.initializer.call(i):void 0,s.initializer=void 0),void 0===s.initializer&&(Object.defineProperty(e,t,s),s=null),s}function m(e){return function(){return{async value(r){let i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}
-try{const s=(0,t.getOwner)(this).resolveRegistration("config:environment")["ember-uikit"]?.modal??{}
-return await n.default.modal[e](r,{...s,...i}),!0}catch(s){return!1}}}}}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-let g=(i=m("alert"),s=m("confirm"),o=m("prompt"),a=m("dialog"),l=class extends r.default{constructor(){super(...arguments),p(this,"alert",u,this),p(this,"confirm",c,this),p(this,"prompt",d,this),p(this,"dialog",h,this)}},u=f(l.prototype,"alert",[i],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),c=f(l.prototype,"confirm",[s],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),d=f(l.prototype,"prompt",[o],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),h=f(l.prototype,"dialog",[a],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),l)
-e.default=g})),define("ember-uikit/services/notification",["exports","@ember/application","@ember/service","uikit"],(function(e,t,r,n){"use strict"
+e.default=i})),define("ember-uikit/services/notification",["exports","@ember/application","@ember/service","uikit"],(function(e,t,r,n){"use strict"
 var i,s,o,a,l,u,c,d,h,p,f
 function m(e,t,r,n){r&&Object.defineProperty(e,t,{enumerable:r.enumerable,configurable:r.configurable,writable:r.writable,value:r.initializer?r.initializer.call(n):void 0})}function g(e,t,r,n,i){var s={}
 return Object.keys(n).forEach((function(e){s[e]=n[e]})),s.enumerable=!!s.enumerable,s.configurable=!!s.configurable,("value"in s||s.initializer)&&(s.writable=!0),s=r.slice().reverse().reduce((function(r,n){return n(e,t,r)||r}),s),i&&void 0!==s.initializer&&(s.value=s.initializer?s.initializer.call(i):void 0,s.initializer=void 0),void 0===s.initializer&&(Object.defineProperty(e,t,s),s=null),s}function v(e){return function(){return{value(r){let i=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}
@@ -5900,5 +5893,4 @@ const s=(0,t.getOwner)(this).resolveRegistration("config:environment")["ember-ui
 return o?.$el?new Promise((e=>n.default.util.on(o.$el,"close",e))):Promise.resolve()}}}}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 let b=(i=v("default"),s=v("primary"),o=v("success"),a=v("warning"),l=v("danger"),u=class extends r.default{constructor(){super(...arguments),m(this,"default",c,this),m(this,"primary",d,this),m(this,"success",h,this),m(this,"warning",p,this),m(this,"danger",f,this)}},c=g(u.prototype,"default",[i],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),d=g(u.prototype,"primary",[s],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),h=g(u.prototype,"success",[o],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),p=g(u.prototype,"warning",[a],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),f=g(u.prototype,"danger",[l],{configurable:!0,enumerable:!0,writable:!0,initializer:null}),u)
 e.default=b})),define("ember-uikit/utils/confirm",["exports","uikit"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=async function(e){let r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}
-try{return await t.default.modal.confirm(e,r),!0}catch(n){return!1}}}))
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=async function(e){try{return await t.default.modal.confirm(e),!0}catch(r){return!1}}}))
