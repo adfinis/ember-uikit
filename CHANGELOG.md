@@ -1,3 +1,15 @@
+## [5.1.3](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.1.2...v5.1.3) (2022-05-06)
+
+
+### Bug Fixes
+
+* **engine:** add engine compatibility for the global container ([a3562b0](https://github.com/adfinis-sygroup/ember-uikit/commit/a3562b04fcc0691fd89dad33a0362297d954b9fd))
+
+
+### Reverts
+
+* Revert "fix(confirm): add modal service with configuration options" ([d151396](https://github.com/adfinis-sygroup/ember-uikit/commit/d15139667e8b94fafabffafad85f9da820667379))
+
 ## [5.1.2](https://github.com/adfinis-sygroup/ember-uikit/compare/v5.1.1...v5.1.2) (2022-05-03)
 
 
