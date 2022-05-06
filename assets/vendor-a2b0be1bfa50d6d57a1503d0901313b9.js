@@ -5878,10 +5878,11 @@ function n(e,t){let{separator:n=" "}=t
 return e?.filter((e=>!(0,r.isEmpty)(e))).map((e=>String(e).trim())).join(n)||null}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,e.trimmedJoin=n
 var i=(0,t.helper)(n)
 e.default=i})),define("ember-uikit/index",["exports","ember-uikit/utils/confirm"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"confirm",{enumerable:!0,get:function(){return t.default}})})),define("ember-uikit/instance-initializers/uikit",["exports","uikit"],(function(e,t){"use strict"
-function r(e){t.default.container=e.rootElement}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,e.initialize=r
-var n={initialize:r}
-e.default=n})),define("ember-uikit/modifiers/register-uikit-events",["exports","@ember/runloop","ember-modifier","uikit"],(function(e,t,r,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"confirm",{enumerable:!0,get:function(){return t.default}})})),define("ember-uikit/instance-initializers/uikit",["exports","@ember/application","uikit"],(function(e,t,r){"use strict"
+function n(e){const n=(0,t.getOwner)(e.lookup("router:main"))
+r.default.container=n.rootElement}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,e.initialize=n
+var i={initialize:n}
+e.default=i})),define("ember-uikit/modifiers/register-uikit-events",["exports","@ember/runloop","ember-modifier","uikit"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var i=(0,r.modifier)((function(e,r,i){Object.entries(i).forEach((r=>{let[i,s]=r
 n.default.util.on(e,i,(function(){for(var e=arguments.length,r=new Array(e),n=0;n<e;n++)r[n]=arguments[n]
