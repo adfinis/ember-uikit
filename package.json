@@ -36,7 +36,7 @@
   "dependencies": {
     "@ember/render-modifiers": "^2.0.4",
     "@ember/string": "^3.0.0",
-    "@embroider/util": "^1.6.0",
+    "@embroider/util": "^1.7.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "broccoli-funnel": "^3.0.8",
