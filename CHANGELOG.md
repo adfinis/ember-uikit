@@ -1,3 +1,20 @@
+# [6.0.0](https://github.com/adfinis/ember-uikit/compare/v5.1.3...v6.0.0) (2022-08-29)
+
+
+### chore
+
+* **deps:** update ember to v4.6.0 ([7b0ffa3](https://github.com/adfinis/ember-uikit/commit/7b0ffa320f861fd8c99c776667d524e72871b8f3))
+
+
+### Features
+
+* **modifiers:** add modifier for uk-tooltip ([f6d3cac](https://github.com/adfinis/ember-uikit/commit/f6d3cacad661bd1c53b597e9f42805db386f372d))
+
+
+### BREAKING CHANGES
+
+* **deps:** Drop support for node v12.
+
 ## [5.1.3](https://github.com/adfinis/ember-uikit/compare/v5.1.2...v5.1.3) (2022-05-06)
 
 ### Bug Fixes
