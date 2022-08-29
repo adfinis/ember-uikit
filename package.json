@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/adfinis-sygroup/ember-uikit"
+    "url": "https://github.com/adfinis/ember-uikit"
   },
   "license": "MIT",
   "author": "Adfinis AG <info@adfinis.com>",
@@ -17,7 +17,7 @@
   },
   "homepage": "https://docs.adfinis.com/ember-uikit",
   "bugs": {
-    "url": "https://github.com/adfinis-sygroup/ember-uikit/issues"
+    "url": "https://github.com/adfinis/ember-uikit/issues"
   },
   "scripts": {
     "build": "ember build --environment=production",

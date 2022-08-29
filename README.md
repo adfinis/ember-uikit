@@ -1,7 +1,8 @@
-# ember-uikit 
+# ember-uikit
+
 [![npm version](https://badge.fury.io/js/ember-uikit.svg)](https://www.npmjs.com/package/ember-uikit)
-![Test](https://github.com/adfinis-sygroup/ember-uikit/workflows/Test/badge.svg)
-[![codecov](https://codecov.io/gh/adfinis-sygroup/ember-uikit/branch/main/graph/badge.svg)](https://codecov.io/gh/adfinis-sygroup/ember-uikit)
+![Test](https://github.com/adfinis/ember-uikit/workflows/Test/badge.svg)
+[![codecov](https://codecov.io/gh/adfinis/ember-uikit/branch/main/graph/badge.svg)](https://codecov.io/gh/adfinis/ember-uikit)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-uikit.svg)](https://emberobserver.com/addons/ember-uikit)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://semantic-release.gitbook.io/)
 
