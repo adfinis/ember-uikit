@@ -1,0 +1,118 @@
+<h2>Tooltip</h2>
+
+<div class="uk-padding uk-box-shadow-medium uk-margin">
+  <span
+    {{uk-tooltip
+      this.title
+      pos=this.pos
+      offset=this.offset
+      animation=this.animation
+      duration=this.duration
+      delay=this.delay
+      cls=this.cls
+      container=this.container
+    }}
+  >Hover over me!</span>
+</div>
+
+<UkSwitcher @animation="uk-animation-fade" as |switcher|>
+  <switcher.nav @type="tab" as |nav|>
+    <nav.component as |tab|>
+      <tab.item>Arguments</tab.item>
+      <tab.item>Example</tab.item>
+    </nav.component>
+  </switcher.nav>
+
+  <switcher.content as |content|>
+    <content.item>
+      <div class="uk-overflow-auto">
+        <table class="uk-table uk-table-divider">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+              <th>Demo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>title</code></td>
+              <td><code>String</code></td>
+              <td></td>
+              <td>
+                Tooltip text (also available as positional argument)
+              </td>
+              <td><Input class="uk-input" @value={{this.title}} /></td>
+            </tr>
+            <tr>
+              <td><code>pos</code></td>
+              <td><code>String</code></td>
+              <td><code>"top"</code></td>
+              <td>Tooltip position</td>
+              <td>
+                <OptionSelect
+                  @options={{this.positions}}
+                  @onChange={{fn (mut this.pos)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>offset</code></td>
+              <td><code>Number</code></td>
+              <td><code>false</code></td>
+              <td>Tooltip offset</td>
+              <td>
+                <Input class="uk-input" @type="number" @value={{this.offset}} />
+              </td>
+            </tr>
+            <tr>
+              <td><code>animation</code></td>
+              <td><code>String</code></td>
+              <td><code>"uk-animation-scale-up"</code></td>
+              <td>
+                Space-separated names of
+                <a href="https://getuikit.com/docs/animation">animations</a>.
+                Comma-separated for animation out.
+              </td>
+              <td><Input class="uk-input" @value={{this.animation}} /></td>
+            </tr>
+            <tr>
+              <td><code>duration</code></td>
+              <td><code>Number</code></td>
+              <td><code>100</code></td>
+              <td>The animation duration.</td>
+              <td>
+                <Input
+                  class="uk-input"
+                  @type="number"
+                  @value={{this.duration}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>delay</code></td>
+              <td><code>Number</code></td>
+              <td><code>0</code></td>
+              <td>The show delay</td>
+              <td>
+                <Input class="uk-input" @type="number" @value={{this.delay}} />
+              </td>
+            </tr>
+            <tr>
+              <td><code>cls</code></td>
+              <td><code>String</code></td>
+              <td><code>"uk-active"</code></td>
+              <td>The active class.</td>
+              <td><Input class="uk-input" @value={{this.cls}} /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </content.item>
+    <content.item>
+      <CodeSnippet @name="tooltip.hbs" />
+    </content.item>
+  </switcher.content>
+</UkSwitcher>

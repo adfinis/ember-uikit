@@ -34,5 +34,9 @@ Router.map(function () {
     this.route("services", function () {
       this.route("notification");
     });
+
+    this.route("modifiers", function () {
+      this.route("tooltip");
+    });
   });
 });
