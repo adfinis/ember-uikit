@@ -2,8 +2,20 @@
   <div
     id={{this.modalId}}
     class={{@modalClass}}
-    {{did-insert this.initialize}}
-    {{will-destroy this.teardown}}
+    {{uk-modal
+      escClose=@escClose
+      bgClose=@bgClose
+      stack=@stack
+      container=this.containerSelector
+      clsPage=@clsPage
+      clsPanel=@clsPanel
+      selClose=@selClose
+      visible=@visible
+      onHide=this.hide
+      onHidden=(fn (mut this.focusTrapActive) false)
+      onShow=this.show
+      onShown=(fn (mut this.focusTrapActive) true)
+    }}
     ...attributes
   >
     <div
