@@ -5993,14 +5993,14 @@ r.default.container=n.rootElement}Object.defineProperty(e,"__esModule",{value:!0
 var i={initialize:n}
 e.default=i})),define("ember-uikit/modifiers/register-uikit-events",["exports","@ember/runloop","ember-modifier","uikit"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var i=(0,r.modifier)((function(e,r,i){Object.entries(i).forEach((r=>{let[i,s]=r
+var i=(0,r.modifier)(((e,r,i)=>{Object.entries(i).forEach((r=>{let[i,s]=r
 n.default.util.on(e,i,(function(){for(var e=arguments.length,r=new Array(e),n=0;n<e;n++)r[n]=arguments[n]
-return(0,t.run)((()=>s(...r)))}))}))}))
+return(0,t.run)((()=>s(...r)))}))}))}),{eager:!1})
 e.default=i})),define("ember-uikit/modifiers/uk-tooltip",["exports","ember-modifier","uikit"],(function(e,t,r){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var n=(0,t.modifier)((function(e,t,n){let[i]=t
+var n=(0,t.modifier)(((e,t,n)=>{let[i]=t
 const s=r.default.tooltip(e,{title:i,...n})
-return()=>s.$destroy()}))
+return()=>s.$destroy()}),{eager:!1})
 e.default=n})),define("ember-uikit/services/notification",["exports","@ember/application","@ember/service","uikit"],(function(e,t,r,n){"use strict"
 var i,s,o,a,l,u,c,d,h,p,f
 function m(e,t,r,n){r&&Object.defineProperty(e,t,{enumerable:r.enumerable,configurable:r.configurable,writable:r.writable,value:r.initializer?r.initializer.call(n):void 0})}function g(e,t,r,n,i){var s={}
