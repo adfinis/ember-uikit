@@ -88,6 +88,7 @@ jobs:
     strategy:
       matrix:
         scenario:
+          - ember-lts-4.4
           - ember-lts-3.28
           - ember-lts-3.24
           - ember-release
