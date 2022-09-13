@@ -1,3 +1,15 @@
+# [6.1.0](https://github.com/adfinis/ember-uikit/compare/v6.0.0...v6.1.0) (2022-09-13)
+
+
+### Bug Fixes
+
+* **modifiers:** ensure modifier compatibility with the new modifier API ([54aaed0](https://github.com/adfinis/ember-uikit/commit/54aaed0fd67c28b162608722f7ce1b3f6c7dcc89))
+
+
+### Features
+
+* **modal:** convert modal logic to modifier ([84f83cd](https://github.com/adfinis/ember-uikit/commit/84f83cd04d9e3b019d4e50645dcf82607968cc95))
+
 # [6.0.0](https://github.com/adfinis/ember-uikit/compare/v5.1.3...v6.0.0) (2022-08-29)
 
 
