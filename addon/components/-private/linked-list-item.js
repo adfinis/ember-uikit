@@ -60,6 +60,7 @@ export default class LinkedListItemComponent extends Component {
 
     const routeInfo = this.router.recognize(href);
 
+    /* istanbul ignore next */
     if (!routeInfo) return null;
 
     return {
