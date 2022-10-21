@@ -41,7 +41,7 @@
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-stew": "^3.0.0",
-    "ember-auto-import": "^2.4.2",
+    "ember-auto-import": "^2.4.3",
     "ember-cli-babel": "^7.26.11",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-focus-trap": "^1.0.1",
