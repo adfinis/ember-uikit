@@ -1,3 +1,10 @@
+## [6.1.1](https://github.com/adfinis/ember-uikit/compare/v6.1.0...v6.1.1) (2022-11-02)
+
+
+### Bug Fixes
+
+* **color:** fix default colors for uk-toggle-switch and uk-label ([b3c4c33](https://github.com/adfinis/ember-uikit/commit/b3c4c33b155c0d1dd27d98a19b245266451ab7fa))
+
 # [6.1.0](https://github.com/adfinis/ember-uikit/compare/v6.0.0...v6.1.0) (2022-09-13)
 
 
