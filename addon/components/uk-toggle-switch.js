@@ -21,6 +21,7 @@ export default class UkToggleSwitchComponent extends Component {
   @color({
     template: "uk-toggle-switch-$value$",
     options: Object.values(COLOR_OPTIONS),
+    defaultValue: COLOR_OPTIONS.DEFAULT,
   })
   color;
 
