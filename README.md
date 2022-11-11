@@ -25,7 +25,7 @@ This will also install `ember-cli-sass` and add the needed SASS include to `app/
 # Usage
 
 To learn about using `ember-uikit` check the interactive documentation at
-[docs.adfinis.com/ember-uikit](https://docs.adfinis.com/ember-uikit). Feel free
+[adfinis.github.io/ember-uikit/](https://adfinis.github.io/ember-uikit/). Feel free
 to open an issue if you encounter problems or something is not clear enough.
 
 # License
