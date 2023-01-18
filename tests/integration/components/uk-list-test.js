@@ -7,13 +7,11 @@ module("Integration | Component | uk list", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`
-      <UkList as |list|>
-        <list.item>Foo</list.item>
-        <list.item>Bar</list.item>
-        <list.item>Baz</list.item>
-      </UkList>
-    `);
+    await render(hbs`<UkList as |list|>
+  <list.item>Foo</list.item>
+  <list.item>Bar</list.item>
+  <list.item>Baz</list.item>
+</UkList>`);
 
     assert.dom(".uk-list").exists();
     assert.dom("li").exists({ count: 3 });

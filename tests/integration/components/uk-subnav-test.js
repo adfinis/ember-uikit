@@ -7,12 +7,10 @@ module("Integration | Component | uk subnav", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`
-      <UkSubnav as |nav|>
-        <nav.item>Item 1</nav.item>
-        <nav.item @href="/">Item 2</nav.item>
-      </UkSubnav>
-    `);
+    await render(hbs`<UkSubnav as |nav|>
+  <nav.item>Item 1</nav.item>
+  <nav.item @href="/">Item 2</nav.item>
+</UkSubnav>`);
 
     assert.dom("ul.uk-subnav").exists();
     assert.dom("li").exists({ count: 2 });

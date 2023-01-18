@@ -7,12 +7,10 @@ module("Integration | Component | uk switcher/content", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`
-      <UkSwitcher::Content as |content|>
-        <content.item>Content 1</content.item>
-        <content.item>Content 2</content.item>
-      </UkSwitcher::Content>
-    `);
+    await render(hbs`<UkSwitcher::Content as |content|>
+  <content.item>Content 1</content.item>
+  <content.item>Content 2</content.item>
+</UkSwitcher::Content>`);
 
     assert.dom("ul").exists();
     assert.dom("li").exists({ count: 2 });

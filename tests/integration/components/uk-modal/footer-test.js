@@ -7,15 +7,13 @@ module("Integration | Component | uk-modal/header", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`<UkModal::Footer/>`);
+    await render(hbs`<UkModal::Footer />`);
 
     assert.dom(".uk-modal-footer").hasText("");
 
-    await render(hbs`
-      <UkModal::Footer>
-        template block text
-      </UkModal::Footer>
-    `);
+    await render(hbs`<UkModal::Footer>
+  template block text
+</UkModal::Footer>`);
 
     assert.dom(".uk-modal-footer").hasText("template block text");
   });

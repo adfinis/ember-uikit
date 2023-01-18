@@ -7,19 +7,17 @@ module("Integration | Component | uk card", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`
-      <UkCard as |card|>
-        <card.header>
-          <card.title>Header</card.title>
-        </card.header>
-        <card.body>
-          Body
-        </card.body>
-        <card.footer>
-          Footer
-        </card.footer>
-      </UkCard>
-    `);
+    await render(hbs`<UkCard as |card|>
+  <card.header>
+    <card.title>Header</card.title>
+  </card.header>
+  <card.body>
+    Body
+  </card.body>
+  <card.footer>
+    Footer
+  </card.footer>
+</UkCard>`);
 
     assert.dom(".uk-card").exists();
     assert.dom(".uk-card .uk-card-header").exists();
