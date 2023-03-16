@@ -33,6 +33,11 @@
     "test:ember-compatibility": "ember try:each",
     "prepare": "husky install"
   },
+  "lint-staged": {
+    "*.js": ["yarn lint:js:fix", "yarn lint:hbs:fix"],
+    "*.hbs": "yarn lint:hbs:fix",
+    "*.{scss,json,md,yml}": "prettier --write"
+  },
   "dependencies": {
     "@ember/string": "^3.0.1",
     "@embroider/util": "^1.10.0",
