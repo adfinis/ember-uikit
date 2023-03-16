@@ -44,7 +44,6 @@ export default class UkModalModifier extends Modifier {
       stack: named.stack ?? false,
       container: named.container,
       clsPage: named.clsPage ?? "uk-modal-page",
-      clsPanel: named.clsPanel ?? "uk-modal-dialog",
       selClose:
         named.selClose ??
         ".uk-modal-close,.uk-modal-close-default,.uk-modal-close-outside,.uk-modal-close-full",
