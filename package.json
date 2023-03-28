@@ -50,7 +50,7 @@
     "uikit": "^3.16.13"
   },
   "devDependencies": {
-    "@adfinis-sygroup/eslint-config": "1.6.0",
+    "@adfinis-sygroup/eslint-config": "1.6.1",
     "@adfinis-sygroup/semantic-release-config": "3.4.0",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.9.3",
