@@ -234,4 +234,11 @@ module.exports = {
 
     return path.join(uikitPath, "dist", "css");
   },
+
+  options: {
+    babel: {
+      // eslint-disable-next-line n/no-unpublished-require
+      plugins: [...require("ember-cli-code-coverage").buildBabelPlugin()],
+    },
+  },
 };
