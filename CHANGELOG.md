@@ -1,3 +1,25 @@
+# [7.0.0](https://github.com/adfinis/ember-uikit/compare/v6.1.1...v7.0.0) (2023-03-28)
+
+
+### Bug Fixes
+
+* **modal:** remove non existant cls-panel option ([#1014](https://github.com/adfinis/ember-uikit/issues/1014)) ([d3252e5](https://github.com/adfinis/ember-uikit/commit/d3252e56f768d2b22f13dba6586a307ebe7b008b))
+
+
+### chore
+
+* **deps:** update dependencies ([8df899f](https://github.com/adfinis/ember-uikit/commit/8df899fc9d06e825285a87fcb37d5bb6ad586b93))
+
+
+### Features
+
+* added danger color to uk-button ([00159e9](https://github.com/adfinis/ember-uikit/commit/00159e9c4f21d43993cdae2a2f89758d6f84aae6))
+
+
+### BREAKING CHANGES
+
+* **deps:** Remove support for deprecated Ember LTS 3.24.
+
 ## [6.1.1](https://github.com/adfinis/ember-uikit/compare/v6.1.0...v6.1.1) (2022-11-02)
 
 

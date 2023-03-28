@@ -1,6 +1,6 @@
 {
   "name": "ember-uikit",
-  "version": "6.1.1",
+  "version": "7.0.0",
   "description": "The ember implementation of UIkit",
   "keywords": [
     "ember-addon",
@@ -34,7 +34,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.js": ["yarn lint:js:fix", "yarn lint:hbs:fix"],
+    "*.js": [
+      "yarn lint:js:fix",
+      "yarn lint:hbs:fix"
+    ],
     "*.hbs": "yarn lint:hbs:fix",
     "*.{scss,json,md,yml}": "prettier --write"
   },
