@@ -35,10 +35,10 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn lint:js:fix",
-      "yarn lint:hbs:fix"
+      "eslint --cache --fix",
+      "ember-template-lint --fix"
     ],
-    "*.hbs": "yarn lint:hbs:fix",
+    "*.hbs": "ember-template-lint --fix",
     "*.{scss,json,md,yml}": "prettier --write"
   },
   "dependencies": {
