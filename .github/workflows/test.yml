@@ -62,7 +62,8 @@ jobs:
       - name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v3
         with:
-          file: ./coverage/lcov.info
+          files: ./coverage/lcov.info
+          fail_ci_if_error: true
 
   test-floating:
     name: Floating Tests

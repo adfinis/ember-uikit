@@ -15,6 +15,9 @@ module.exports = function (defaults) {
         "bash",
       ],
     },
+    babel: {
+      plugins: [...require("ember-cli-code-coverage").buildBabelPlugin()],
+    },
   });
 
   /*
