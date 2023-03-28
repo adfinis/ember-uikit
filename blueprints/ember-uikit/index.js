@@ -23,6 +23,14 @@ module.exports = {
 
     this.ui.writeLine("add import statement", file);
 
-    return this.addAddonToProject("ember-cli-sass");
+    return this.addAddonsToProject({
+      packages: [
+        { name: "ember-cli-sass" },
+        { name: "ember-composable-helpers" },
+        { name: "ember-truth-helpers" },
+        { name: "ember-focus-trap" },
+        { name: "ember-toggle" },
+      ],
+    });
   },
 };
