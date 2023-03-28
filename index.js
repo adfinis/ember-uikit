@@ -210,7 +210,7 @@ module.exports = {
 
   _getUikitPath() {
     return path.dirname(
-      /* eslint-disable node/no-extraneous-require */
+      /* eslint-disable n/no-extraneous-require */
       require("resolve").sync("uikit/package.json", {
         basedir: this.project.root,
       })
