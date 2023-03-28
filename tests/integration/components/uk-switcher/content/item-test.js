@@ -25,15 +25,15 @@ module("Integration | Component | uk switcher/content/item", function (hooks) {
 
     await render(
       hbs`<UkSwitcher::Content::Item
-        @onBeforeShow={{fn (mut this.beforeShow) true}}
-        @onShow={{fn (mut this.show) true}}
-        @onShown={{fn (mut this.shown) true}}
-        @onBeforeHide={{fn (mut this.beforeHide) true}}
-        @onHide={{fn (mut this.hide) true}}
-        @onHidden={{fn (mut this.hidden) true}}
-      >
-        <div />
-      </UkSwitcher::Content::Item>`
+  @onBeforeShow={{fn (mut this.beforeShow) true}}
+  @onShow={{fn (mut this.show) true}}
+  @onShown={{fn (mut this.shown) true}}
+  @onBeforeHide={{fn (mut this.beforeHide) true}}
+  @onHide={{fn (mut this.hide) true}}
+  @onHidden={{fn (mut this.hidden) true}}
+>
+  <div />
+</UkSwitcher::Content::Item>`
     );
 
     assert.dom("li").exists();

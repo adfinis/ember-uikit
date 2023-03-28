@@ -27,11 +27,9 @@ module(
     });
 
     test("renders", async function (assert) {
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem>Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem>Test</LinkedListItem>
+{{/let}}`);
 
       assert.dom("li").exists();
       assert.dom("a").exists();
@@ -39,11 +37,9 @@ module(
     });
 
     test("can be active", async function (assert) {
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @active={{true}}>Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @active={{true}}>Test</LinkedListItem>
+{{/let}}`);
 
       assert.dom("li").hasClass("uk-active");
     });
@@ -57,11 +53,9 @@ module(
     test("can be clicked", async function (assert) {
       this.click = () => assert.step("click");
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @onClick={{this.click}}>Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @onClick={{this.click}}>Test</LinkedListItem>
+{{/let}}`);
 
       await click("a");
 
@@ -76,11 +70,9 @@ module(
         assert.strictEqual(routeName, "index");
       };
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @href="/">Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @href="/">Test</LinkedListItem>
+{{/let}}`);
 
       assert.dom("a").hasAttribute("href", "/");
 
@@ -100,11 +92,9 @@ module(
         queryParams: { test: 1 },
       });
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @href="/foo/1?test=1">Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @href="/foo/1?test=1">Test</LinkedListItem>
+{{/let}}`);
 
       assert.dom("a").hasAttribute("href", "/foo/1?test=1");
     });
@@ -114,21 +104,19 @@ module(
 
       this.owner.lookup("service:router").isActive = () => false;
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @href="/" as |active|>{{unless active "not"}} active</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @href="/" as |active|>{{unless active "not"}}
+    active</LinkedListItem>
+{{/let}}`);
 
       assert.dom("a").hasText("not active");
 
       this.owner.lookup("service:router").isActive = () => true;
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @href="/" as |active|>{{unless active "not"}} active</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem @href="/" as |active|>{{unless active "not"}}
+    active</LinkedListItem>
+{{/let}}`);
 
       assert.dom("a").hasText("active");
     });
@@ -150,11 +138,12 @@ module(
         assert.strictEqual(routeName, this.linkToIndex ? "foo.index" : "foo");
       };
 
-      await render(hbs`
-        {{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
-          <LinkedListItem @href="/foo" @linkToIndex={{this.linkToIndex}}>Test</LinkedListItem>
-        {{/let}}
-      `);
+      await render(hbs`{{#let (component (ensure-safe-component this.item)) as |LinkedListItem|}}
+  <LinkedListItem
+    @href="/foo"
+    @linkToIndex={{this.linkToIndex}}
+  >Test</LinkedListItem>
+{{/let}}`);
 
       this.set("linkToIndex", true);
     });

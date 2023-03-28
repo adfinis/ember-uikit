@@ -7,12 +7,10 @@ module("Integration | Component | uk tab", function (hooks) {
   setupRenderingTest(hooks);
 
   test("renders", async function (assert) {
-    await render(hbs`
-      <UkTab as |tab|>
-        <tab.item>Item 1</tab.item>
-        <tab.item @href="/">Item 2</tab.item>
-      </UkTab>
-    `);
+    await render(hbs`<UkTab as |tab|>
+  <tab.item>Item 1</tab.item>
+  <tab.item @href="/">Item 2</tab.item>
+</UkTab>`);
 
     assert.dom("ul.uk-tab").exists();
     assert.dom("li").exists({ count: 2 });
