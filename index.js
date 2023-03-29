@@ -89,7 +89,7 @@ module.exports = {
       );
     }
 
-    if (!this.uikitOptions.useIcons) {
+    if (!this.uikitOptions.useIcons && !this.uikitOptions.whitelist.length) {
       this.uikitOptions.blacklist.push("uk-icon");
     }
 
