@@ -25,26 +25,6 @@ const COMPONENT_DEPENDENCIES = {
 module.exports = {
   name: require("./package").name,
 
-  /**
-   * For ember-cli < 2.7 findHost doesnt exist so we backport from that version
-   * for earlier version of ember-cli.
-   * https://github.com/ember-cli/ember-cli/blame/16e4492c9ebf3348eb0f31df17215810674dbdf6/lib/models/addon.js#L533
-   */
-  findHost() {
-    const fn =
-      this._findHost ||
-      function () {
-        let current = this;
-        let app;
-        do {
-          app = current.app || app;
-        } while (current.parent.parent && (current = current.parent));
-        return app;
-      };
-
-    return fn.call(this);
-  },
-
   treeForPublic(tree) {
     const uikitAssets =
       this.uikitOptions.importUIkitAssets &&
@@ -89,7 +69,9 @@ module.exports = {
   included(...args) {
     this._super.included.apply(this, args);
 
-    this.app = this.findHost();
+    this.app = this._findHost();
+
+    this._registerCodeCoveragePlugin();
 
     const options = Object.assign(
       Object.assign({}, DEFAULT_OPTIONS),
@@ -235,10 +217,13 @@ module.exports = {
     return path.join(uikitPath, "dist", "css");
   },
 
-  options: {
-    babel: {
-      // eslint-disable-next-line n/no-unpublished-require
-      plugins: [...require("ember-cli-code-coverage").buildBabelPlugin()],
-    },
+  _registerCodeCoveragePlugin() {
+    if (this.app.project.pkg.name === this.name) {
+      this.options.babel.plugins = [
+        ...(this.options.babel.plugins ?? []),
+        // eslint-disable-next-line n/no-unpublished-require
+        ...require("ember-cli-code-coverage").buildBabelPlugin(),
+      ];
+    }
   },
 };
