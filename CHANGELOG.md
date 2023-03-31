@@ -1,3 +1,12 @@
+## [7.0.1](https://github.com/adfinis/ember-uikit/compare/v7.0.0...v7.0.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* **build:** fix disabling icons in combination with whitelist ([4b2406c](https://github.com/adfinis/ember-uikit/commit/4b2406c2d48909669c703a337489d93f0c6c1948)), closes [#664](https://github.com/adfinis/ember-uikit/issues/664)
+* **build:** make sure coverage plugin is only loaded in addon tests ([3b294eb](https://github.com/adfinis/ember-uikit/commit/3b294eb37d1b1f382163865e0cc6eceda83ffad4))
+* make sure needed dependencies are installed in the host app ([ce5c0dc](https://github.com/adfinis/ember-uikit/commit/ce5c0dcd74bb24154f6a68e4900a6ab14cb6f7f1)), closes [#963](https://github.com/adfinis/ember-uikit/issues/963)
+
 # [7.0.0](https://github.com/adfinis/ember-uikit/compare/v6.1.1...v7.0.0) (2023-03-28)
 
 
