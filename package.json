@@ -67,7 +67,7 @@
     "@embroider/test-setup": "2.1.1",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "concurrently": "7.6.0",
+    "concurrently": "8.0.1",
     "ember-cli": "4.11.0",
     "ember-cli-app-version": "6.0.0",
     "ember-cli-code-coverage": "2.0.0",
