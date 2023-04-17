@@ -1,3 +1,10 @@
+## [7.0.2](https://github.com/adfinis/ember-uikit/compare/v7.0.1...v7.0.2) (2023-04-17)
+
+
+### Bug Fixes
+
+* **build:** make sure to call the super functions on treeFor methods ([015ce0b](https://github.com/adfinis/ember-uikit/commit/015ce0b7a4bbdf68ce7482e67fb0a70a9fe3b7c1))
+
 ## [7.0.1](https://github.com/adfinis/ember-uikit/compare/v7.0.0...v7.0.1) (2023-03-31)
 
 
