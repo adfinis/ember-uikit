@@ -39,7 +39,10 @@ module.exports = {
         destDir: "/assets/images/icons",
       });
 
-    return merge([uikitAssets, uikitIcons, tree].filter(Boolean));
+    return this._super.treeForPublic.call(
+      this,
+      merge([uikitAssets, uikitIcons, tree].filter(Boolean))
+    );
   },
 
   treeForStyles(tree) {
@@ -50,7 +53,10 @@ module.exports = {
         destDir: "ember-uikit",
       });
 
-    return merge([uikitStyles, tree].filter(Boolean));
+    return this._super.treeForStyles.call(
+      this,
+      merge([uikitStyles, tree].filter(Boolean))
+    );
   },
 
   treeForVendor(tree) {
@@ -63,7 +69,10 @@ module.exports = {
       (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
-    return merge([tree, uikitScripts].filter(Boolean));
+    return this._super.treeForVendor.call(
+      this,
+      merge([tree, uikitScripts].filter(Boolean))
+    );
   },
 
   included(...args) {
