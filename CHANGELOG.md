@@ -1,3 +1,10 @@
+## [7.0.3](https://github.com/adfinis/ember-uikit/compare/v7.0.2...v7.0.3) (2023-04-18)
+
+
+### Bug Fixes
+
+* **build:** generate app tree before merging ([dddec06](https://github.com/adfinis/ember-uikit/commit/dddec067520422a5c0cefb9b0217abc49cbcfc7c)), closes [#1048](https://github.com/adfinis/ember-uikit/issues/1048)
+
 ## [7.0.2](https://github.com/adfinis/ember-uikit/compare/v7.0.1...v7.0.2) (2023-04-17)
 
 
