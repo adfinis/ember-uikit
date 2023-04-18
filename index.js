@@ -39,10 +39,9 @@ module.exports = {
         destDir: "/assets/images/icons",
       });
 
-    return this._super.treeForPublic.call(
-      this,
-      merge([uikitAssets, uikitIcons, tree].filter(Boolean))
-    );
+    const appTree = this._super.treeForPublic.call(this, tree);
+
+    return merge([uikitAssets, uikitIcons, appTree].filter(Boolean));
   },
 
   treeForStyles(tree) {
@@ -53,10 +52,9 @@ module.exports = {
         destDir: "ember-uikit",
       });
 
-    return this._super.treeForStyles.call(
-      this,
-      merge([uikitStyles, tree].filter(Boolean))
-    );
+    const appTree = this._super.treeForStyles.call(this, tree);
+
+    return merge([uikitStyles, appTree].filter(Boolean));
   },
 
   treeForVendor(tree) {
@@ -69,10 +67,9 @@ module.exports = {
       (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
     );
 
-    return this._super.treeForVendor.call(
-      this,
-      merge([tree, uikitScripts].filter(Boolean))
-    );
+    const appTree = this._super.treeForVendor.call(this, tree);
+
+    return merge([appTree, uikitScripts].filter(Boolean));
   },
 
   included(...args) {
