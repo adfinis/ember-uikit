@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $toggle-switch-border: 1px;
 
 .uk-toggle-switch {
@@ -15,8 +17,8 @@ $toggle-switch-border: 1px;
   }
 
   .x-toggle-light.x-toggle-btn::after {
-    background-color: rgb(255, 255, 255) !important;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1) !important;
+    background-color: rgb(255 255 255) !important;
+    box-shadow: 2px 2px 8px rgb(0 0 0 / 10%) !important;
   }
 
   .x-toggle-container {
@@ -43,26 +45,28 @@ $toggle-switch-border: 1px;
   }
 }
 
-.uk-toggle-switch-default {
-  .x-toggle-light.x-toggle-btn {
-    background: lighten($global-border, 2%);
-    border: $toggle-switch-border solid $global-border;
-  }
-
-  .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
-    background: lighten($global-primary-background, 2%);
-    border: $toggle-switch-border solid $global-primary-background;
-  }
+.uk-toggle-switch-default .x-toggle-light.x-toggle-btn {
+  background: color.adjust($global-border, $lightness: 2%);
+  border: $toggle-switch-border solid $global-border;
 }
 
-.uk-toggle-switch-onoff {
-  .x-toggle-light.x-toggle-btn {
-    background: lighten($global-danger-background, 2%);
-    border: $toggle-switch-border solid $global-danger-background;
-  }
+.uk-toggle-switch-onoff .x-toggle-light.x-toggle-btn {
+  background: color.adjust($global-danger-background, $lightness: 2%);
+  border: $toggle-switch-border solid $global-danger-background;
+}
 
-  .x-toggle:checked + label > .x-toggle-light.x-toggle-btn {
-    background: lighten($global-success-background, 2%);
-    border: $toggle-switch-border solid $global-success-background;
-  }
+.uk-toggle-switch-default
+  .x-toggle:checked
+  + label
+  > .x-toggle-light.x-toggle-btn {
+  background: color.adjust($global-primary-background, $lightness: 2%);
+  border: $toggle-switch-border solid $global-primary-background;
+}
+
+.uk-toggle-switch-onoff
+  .x-toggle:checked
+  + label
+  > .x-toggle-light.x-toggle-btn {
+  background: color.adjust($global-success-background, $lightness: 2%);
+  border: $toggle-switch-border solid $global-success-background;
 }

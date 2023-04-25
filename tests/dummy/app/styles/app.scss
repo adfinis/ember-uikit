@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
-@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400");
+@import "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i";
+@import "https://fonts.googleapis.com/css?family=Source+Code+Pro:400";
 
 $global-font-family: "Source Sans Pro", sans-serif;
 $base-code-font-family: "Source Code Pro", monospace;
@@ -8,24 +8,28 @@ $base-heading-font-weight: 300;
 
 @import "ember-uikit";
 
-.uk-nav-primary a:hover.active,
-.uk-nav-primary a:active.active,
-.uk-nav-primary a:focus.active,
 .uk-nav-primary a.active {
   color: $global-primary-background;
   position: relative;
-}
 
-.uk-nav-primary a.active::before {
-  content: "";
-  display: block;
-  width: 10px;
-  height: 1px;
-  background-color: $global-primary-background;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateX(calc(-100% - 5px));
+  &:hover,
+  &:active,
+  &:focus {
+    color: $global-primary-background;
+    position: relative;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 1px;
+    background-color: $global-primary-background;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateX(calc(-100% - 5px));
+  }
 }
 
 .uk-sortable-empty {
