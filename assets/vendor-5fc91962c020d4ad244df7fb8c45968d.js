@@ -32,7 +32,7 @@ if(!r||"new"===r.state)return(r=new o(e,[],a,null)).module.exports=t,r.state="fi
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   4.11.0
+ * @version   4.12.0
  */
 var e,t;(function(){var r="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:null
 if(null===r)throw new Error("unable to locate global object")
@@ -66,7 +66,7 @@ var n=m[t]
 if(n)return n
 var[i,s]=t.split(":")
 return m[t]=(0,r.intern)(`${i}:${s}-${g}`)},e.setFactoryFor=d
-class i{constructor(e,t){void 0===t&&(t={}),this.registry=e,this.owner=t.owner||null,this.cache=(0,r.dictionary)(t.cache||null),this.factoryManagerCache=(0,r.dictionary)(t.factoryManagerCache||null),this.isDestroyed=!1,this.isDestroying=!1}lookup(e,t){if(this.isDestroyed)throw new Error("Cannot call `.lookup` after the owner has been destroyed")
+class i{constructor(e,t){void 0===t&&(t={}),this.registry=e,this.owner=t.owner||null,this.cache=(0,r.dictionary)(t.cache||null),this.factoryManagerCache=(0,r.dictionary)(t.factoryManagerCache||null),this.isDestroyed=!1,this.isDestroying=!1}lookup(e,t){if(this.isDestroyed)throw new Error(`Cannot call \`.lookup('${e}')\` after the owner has been destroyed`)
 return function(e,t,r){void 0===r&&(r={})
 var n=t
 if(!0===r.singleton||void 0===r.singleton&&s(e,t)){var i=e.cache[n]
@@ -81,7 +81,7 @@ return!1!==i&&!n&&s(e,t)&&!o(e,t)}(e,r,n)||function(e,t,r){var{instantiate:n,sin
 return!(!1!==n||!1!==i&&s(e,t)||o(e,t))}(e,r,n))return i.class
 throw new Error("Could not create factory")}(e,n,t,r)}(this,this.registry.normalize(e),t)}destroy(){this.isDestroying=!0,l(this)}finalizeDestroy(){u(this),this.isDestroyed=!0}reset(e){this.isDestroyed||(void 0===e?(l(this),u(this)):function(e,t){var r=e.cache[t]
 delete e.factoryManagerCache[t],r&&(delete e.cache[t],r.destroy&&r.destroy())}(this,this.registry.normalize(e)))}ownerInjection(){var e={}
-return(0,t.setOwner)(e,this.owner),e}factoryFor(e){if(this.isDestroyed)throw new Error("Cannot call `.factoryFor` after the owner has been destroyed")
+return(0,t.setOwner)(e,this.owner),e}factoryFor(e){if(this.isDestroyed)throw new Error(`Cannot call \`.factoryFor('${e}')\` after the owner has been destroyed`)
 var t=this.registry.normalize(e)
 return a(this,t,e)}}function s(e,t){return!1!==e.registry.getOption(t,"singleton")}function o(e,t){return!1!==e.registry.getOption(t,"instantiate")}function a(e,t,r){var n=e.factoryManagerCache[t]
 if(void 0!==n)return n
@@ -733,8 +733,8 @@ n.add(a),Qe(e,a,n)}}e.length=i}function Ze(e){return null!=e&&"object"==typeof e
 return(null!==r&&"object"==typeof r||"function"==typeof r)&&r.isNamespace&&r}catch(n){}}e.NAMESPACES_BY_ID=We})),e("@ember/-internals/overrides/index",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.onEmberGlobalAccess=void 0,e.onEmberGlobalAccess=undefined})),e("@ember/-internals/owner/index",["exports","@glimmer/owner"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.getOwner=function(e){return(0,t.getOwner)(e)},e.isFactory=function(e){return null!=e&&"function"==typeof e.create},e.setOwner=function(e,r){(0,t.setOwner)(e,r)}})),e("@ember/-internals/routing/index",["exports","@ember/routing/-internals"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"RouterDSL",{enumerable:!0,get:function(){return t.DSL}}),Object.defineProperty(e,"controllerFor",{enumerable:!0,get:function(){return t.controllerFor}}),Object.defineProperty(e,"generateController",{enumerable:!0,get:function(){return t.generateController}}),Object.defineProperty(e,"generateControllerFactory",{enumerable:!0,get:function(){return t.generateControllerFactory}})})),e("@ember/-internals/runtime/index",["exports","@ember/-internals/runtime/lib/mixins/registry_proxy","@ember/-internals/runtime/lib/mixins/container_proxy","@ember/-internals/runtime/lib/mixins/comparable","@ember/array","@ember/-internals/runtime/lib/mixins/action_handler","@ember/-internals/runtime/lib/mixins/-proxy","@ember/enumerable/mutable","@ember/-internals/runtime/lib/mixins/target_action_support","@ember/-internals/runtime/lib/ext/rsvp"],(function(e,t,r,n,i,s,o,a,l,u){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"ActionHandler",{enumerable:!0,get:function(){return s.default}}),Object.defineProperty(e,"Comparable",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(e,"ContainerProxyMixin",{enumerable:!0,get:function(){return r.default}}),Object.defineProperty(e,"MutableEnumerable",{enumerable:!0,get:function(){return a.default}}),Object.defineProperty(e,"NativeArray",{enumerable:!0,get:function(){return i.NativeArray}}),Object.defineProperty(e,"RSVP",{enumerable:!0,get:function(){return u.default}}),Object.defineProperty(e,"RegistryProxyMixin",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"TargetActionSupport",{enumerable:!0,get:function(){return l.default}}),Object.defineProperty(e,"_ProxyMixin",{enumerable:!0,get:function(){return o.default}}),Object.defineProperty(e,"_contentFor",{enumerable:!0,get:function(){return o.contentFor}}),Object.defineProperty(e,"onerrorDefault",{enumerable:!0,get:function(){return u.onerrorDefault}})})),e("@ember/-internals/runtime/lib/ext/rsvp",["exports","rsvp","@ember/runloop","@ember/-internals/error-handling","@ember/debug"],(function(e,t,r,n,i){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"RouterDSL",{enumerable:!0,get:function(){return t.DSL}}),Object.defineProperty(e,"controllerFor",{enumerable:!0,get:function(){return t.controllerFor}}),Object.defineProperty(e,"generateController",{enumerable:!0,get:function(){return t.generateController}}),Object.defineProperty(e,"generateControllerFactory",{enumerable:!0,get:function(){return t.generateControllerFactory}})})),e("@ember/-internals/runtime/index",["exports","@ember/-internals/runtime/lib/mixins/registry_proxy","@ember/-internals/runtime/lib/mixins/container_proxy","@ember/-internals/runtime/lib/mixins/comparable","@ember/-internals/runtime/lib/mixins/action_handler","@ember/-internals/runtime/lib/mixins/-proxy","@ember/enumerable/mutable","@ember/-internals/runtime/lib/mixins/target_action_support","@ember/-internals/runtime/lib/ext/rsvp"],(function(e,t,r,n,i,s,o,a,l){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"ActionHandler",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(e,"Comparable",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(e,"ContainerProxyMixin",{enumerable:!0,get:function(){return r.default}}),Object.defineProperty(e,"MutableEnumerable",{enumerable:!0,get:function(){return o.default}}),Object.defineProperty(e,"RSVP",{enumerable:!0,get:function(){return l.default}}),Object.defineProperty(e,"RegistryProxyMixin",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"TargetActionSupport",{enumerable:!0,get:function(){return a.default}}),Object.defineProperty(e,"_ProxyMixin",{enumerable:!0,get:function(){return s.default}}),Object.defineProperty(e,"_contentFor",{enumerable:!0,get:function(){return s.contentFor}}),Object.defineProperty(e,"onerrorDefault",{enumerable:!0,get:function(){return l.onerrorDefault}})})),e("@ember/-internals/runtime/lib/ext/rsvp",["exports","rsvp","@ember/runloop","@ember/-internals/error-handling","@ember/debug"],(function(e,t,r,n,i){"use strict"
 function s(e){var t=function(e){if(!e)return
 var t=e
 if(t.errorThrown)return function(e){var t=e.errorThrown
@@ -1399,8 +1399,8 @@ void 0!==u?v(t,u,r,n,i,s,o):void 0!==c&&(g(c,t,r,n,i,s,o),a instanceof _&&void 0
 for(var g of p){var v=t[g]
 if(void 0!==v){if(-1===s.indexOf(g)){s.push(g)
 var y=e.peekDescriptors(g)
-if(void 0===y){var w=n[g]=i[g]
-"function"==typeof w&&b(i,g,w,!1)}else r[g]=y,a.push(g),y.teardown(i,g,e)}var _="function"==typeof v
+if(void 0===y){if(!(0,o.isClassicDecorator)(v)){var w=n[g]=i[g]
+"function"==typeof w&&b(i,g,w,!1)}}else r[g]=y,a.push(g),y.teardown(i,g,e)}var _="function"==typeof v
 if(_){var k=(0,o.descriptorForDecorator)(v)
 if(void 0!==k){r[g]=d(g,v,k,r),n[g]=void 0
 continue}}l&&l.indexOf(g)>=0||"concatenatedProperties"===g||"mergedProperties"===g?v=f(g,v,n):u&&u.indexOf(g)>-1?v=m(g,v,n):_&&(v=h(g,v,n,r)),n[g]=v,r[g]=void 0}}}function b(e,t,r,i){var s=(0,n.observerListenerMetaFor)(r)
@@ -3261,7 +3261,7 @@ return n.Adapter=i,n.QUnitAdapter=s,Object.defineProperty(le,"Test",{configurabl
 var pe=le
 t.default=pe})),e("ember/version",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default="4.11.0"})),e("route-recognizer",["exports"],(function(e){"use strict"
+e.default="4.12.0"})),e("route-recognizer",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Object.create
 function r(){var e=t(null)
