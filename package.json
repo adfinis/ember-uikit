@@ -63,7 +63,7 @@
     "uikit": "^3.16.15"
   },
   "devDependencies": {
-    "@adfinis-sygroup/semantic-release-config": "3.4.0",
+    "@adfinis/semantic-release-config": "4.0.0",
     "@adfinis/eslint-config": "2.0.0",
     "@babel/eslint-parser": "7.21.3",
     "@babel/plugin-proposal-decorators": "7.21.0",
@@ -131,6 +131,6 @@
     "extends": "@commitlint/config-conventional"
   },
   "release": {
-    "extends": "@adfinis-sygroup/semantic-release-config"
+    "extends": "@adfinis/semantic-release-config"
   }
 }
