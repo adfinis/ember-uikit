@@ -91,6 +91,7 @@ jobs:
     timeout-minutes: 10
 
     strategy:
+      fail-fast: false
       matrix:
         scenario:
           - ember-lts-4.8
