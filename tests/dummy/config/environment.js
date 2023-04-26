@@ -47,6 +47,7 @@ module.exports = function (environment) {
 
   if (environment === "production") {
     ENV.rootURL = "/ember-uikit/";
+    ENV.locationType = "hash";
   }
 
   return ENV;
