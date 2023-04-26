@@ -14,6 +14,9 @@ module.exports = async function () {
             "ember-source": "~4.4.0",
           },
         },
+        env: {
+          EMBROIDER_TEST_SETUP_FORCE: "classic",
+        },
       },
       {
         name: "ember-lts-4.8",
@@ -21,6 +24,9 @@ module.exports = async function () {
           devDependencies: {
             "ember-source": "~4.8.0",
           },
+        },
+        env: {
+          EMBROIDER_TEST_SETUP_FORCE: "classic",
         },
       },
       {
@@ -30,6 +36,9 @@ module.exports = async function () {
             "ember-source": await getChannelURL("release"),
           },
         },
+        env: {
+          EMBROIDER_TEST_SETUP_FORCE: "classic",
+        },
       },
       {
         name: "ember-beta",
@@ -38,6 +47,9 @@ module.exports = async function () {
             "ember-source": await getChannelURL("beta"),
           },
         },
+        env: {
+          EMBROIDER_TEST_SETUP_FORCE: "classic",
+        },
       },
       {
         name: "ember-canary",
@@ -45,6 +57,9 @@ module.exports = async function () {
           devDependencies: {
             "ember-source": await getChannelURL("canary"),
           },
+        },
+        env: {
+          EMBROIDER_TEST_SETUP_FORCE: "classic",
         },
       },
       embroiderSafe(),
