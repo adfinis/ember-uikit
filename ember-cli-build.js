@@ -31,5 +31,11 @@ module.exports = function (defaults) {
         package: "qunit",
       },
     ],
+    staticAddonTrees: true,
+    staticAddonTestSupportTrees: true,
+    staticHelpers: true,
+    staticModifiers: true,
+    staticComponents: true,
+    allowUnsafeDynamicComponents: false,
   });
 };
