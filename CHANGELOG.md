@@ -1,3 +1,20 @@
+# [8.0.0](https://github.com/adfinis/ember-uikit/compare/v7.0.3...v8.0.0) (2023-05-01)
+
+
+### Bug Fixes
+
+* **modal:** make sure modal container is the same as UIkit container ([12caffe](https://github.com/adfinis/ember-uikit/commit/12caffe74eb311d508681c2ed3e54bdcbfa3e4a4))
+
+
+### chore
+
+* **deps:** update dependencies ([01d44b0](https://github.com/adfinis/ember-uikit/commit/01d44b01ffa5167064dd13eb0a6b22793e4dc63f))
+
+
+### BREAKING CHANGES
+
+* **deps:** Remove support for Ember.js v3.
+
 ## [7.0.3](https://github.com/adfinis/ember-uikit/compare/v7.0.2...v7.0.3) (2023-04-18)
 
 
