@@ -5,6 +5,8 @@ import { guidFor } from "@ember/object/internals";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
+import container from "ember-uikit/container";
+
 function isBubbling(event) {
   return event.target !== event.currentTarget;
 }
@@ -27,7 +29,7 @@ export default class UkModal extends Component {
   get containerSelector() {
     // Only set the container to the default if no query string was passed as argument.
     if (typeof this.args.container !== "string") {
-      return getOwner(this).rootElement || "body";
+      return container.selector ?? "body";
     }
 
     return this.args.container;

@@ -1,6 +1,8 @@
 import { getOwner } from "@ember/application";
 import UIkit from "uikit";
 
+import container from "ember-uikit/container";
+
 export function initialize(appInstance) {
   // As there is only a single `Router` across the whole app, which is owned
   // by the root `Application`, this reliably finds the root `Application`
@@ -9,6 +11,7 @@ export function initialize(appInstance) {
   const hostApp = getOwner(appInstance.lookup("router:main"));
 
   UIkit.container = hostApp.rootElement;
+  container.selector = hostApp.rootElement;
 }
 
 export default { initialize };
