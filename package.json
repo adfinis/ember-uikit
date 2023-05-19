@@ -108,7 +108,7 @@
     "qunit": "2.19.4",
     "qunit-dom": "2.0.0",
     "sass": "1.62.1",
-    "stylelint": "15.6.0",
+    "stylelint": "15.6.2",
     "stylelint-config-standard-scss": "9.0.0",
     "stylelint-prettier": "3.0.0",
     "stylelint-scss": "4.6.0",
