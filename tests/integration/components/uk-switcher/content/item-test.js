@@ -8,7 +8,7 @@ module("Integration | Component | uk switcher/content/item", function (hooks) {
 
   test("renders", async function (assert) {
     await render(
-      hbs`<UkSwitcher::Content::Item>Test</UkSwitcher::Content::Item>`
+      hbs`<UkSwitcher::Content::Item>Test</UkSwitcher::Content::Item>`,
     );
 
     assert.dom("li").exists();
@@ -33,7 +33,7 @@ module("Integration | Component | uk switcher/content/item", function (hooks) {
   @onHidden={{fn (mut this.hidden) true}}
 >
   <div />
-</UkSwitcher::Content::Item>`
+</UkSwitcher::Content::Item>`,
     );
 
     assert.dom("li").exists();

@@ -16,11 +16,11 @@ export const GRID_OPTIONS = Array.from(
           return `${n / gcd(n, of)}-${of / gcd(n, of)}`;
         }),
       ];
-    }, [])
-  )
+    }, []),
+  ),
 ).reduce(
   (obj, val) => Object.assign(obj, { [val.replace(/-/, "_OF_")]: val }),
-  {}
+  {},
 );
 
 export const FIXED_OPTIONS = {
@@ -50,7 +50,7 @@ export default createDecorator(function (
     template = "uk-width-$value$",
     options = Object.values(WIDTH_OPTIONS),
     ...args
-  } = {}
+  } = {},
 ) {
   return validatedArrayDecorator(target, property, descriptor, {
     template,

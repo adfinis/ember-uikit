@@ -55,8 +55,6 @@ module("Integration | Component | uk sortable", function (hooks) {
   });
 
   test("has sortable events", async function (assert) {
-    assert.expect(11);
-
     this.sortStarted = false;
     this.sortStopped = false;
     this.sortMoved = false;

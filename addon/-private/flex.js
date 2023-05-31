@@ -44,7 +44,7 @@ export default createDecorator(function (
   target,
   property,
   descriptor,
-  { prefix = "flex" } = {}
+  { prefix = "flex" } = {},
 ) {
   const propConfig = [
     {
@@ -81,8 +81,8 @@ export default createDecorator(function (
         {
           template: template ?? `uk-flex-$value$`,
           options,
-        }
-      )
+        },
+      ),
     );
   });
 

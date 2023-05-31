@@ -39,7 +39,7 @@ module("Integration | Component | uk-toggle-switch", function (hooks) {
 
   test("can set labels", async function (assert) {
     await render(
-      hbs`<UkToggleSwitch @onLabel="On" @offLabel="Off" @showLabels={{true}} />`
+      hbs`<UkToggleSwitch @onLabel="On" @offLabel="Off" @showLabels={{true}} />`,
     );
 
     assert.dom("label.on-label").hasText("On");
@@ -60,7 +60,7 @@ module("Integration | Component | uk-toggle-switch", function (hooks) {
     };
 
     await render(
-      hbs`<UkToggleSwitch @value={{this.value}} @onToggle={{this.toggle}} />`
+      hbs`<UkToggleSwitch @value={{this.value}} @onToggle={{this.toggle}} />`,
     );
 
     await click("input[type=checkbox]");

@@ -7,11 +7,11 @@ import UIkit from "uikit";
 module("Unit | Utility | confirm", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it works", async function (assert) {
+  hooks.beforeEach(function () {
     UIkit.container = this.element;
+  });
 
-    assert.expect(8);
-
+  test("it can confirm", async function (assert) {
     confirm("confirm").then((result) => {
       assert.true(result);
       assert.step("confirmed");
@@ -22,7 +22,9 @@ module("Unit | Utility | confirm", function (hooks) {
     await click(".uk-modal-footer .uk-button-primary");
 
     assert.verifySteps(["confirmed"]);
+  });
 
+  test("it can abort", async function (assert) {
     confirm("abort").then((result) => {
       assert.false(result);
       assert.step("rejected");

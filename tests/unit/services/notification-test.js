@@ -8,8 +8,6 @@ module("Unit | Service | notification", function (hooks) {
   hooks.beforeEach(function () {});
 
   test("can display notifications", function (assert) {
-    assert.expect(10);
-
     const _original = UIkit.notification;
     const service = this.owner.lookup("service:notification");
 
@@ -47,8 +45,6 @@ module("Unit | Service | notification", function (hooks) {
   });
 
   test("can pass options", function (assert) {
-    assert.expect(2);
-
     const _original = UIkit.notification;
     const service = this.owner.lookup("service:notification");
 
@@ -62,8 +58,6 @@ module("Unit | Service | notification", function (hooks) {
   });
 
   test("returns a promise", function (assert) {
-    assert.expect(1);
-
     const service = this.owner.lookup("service:notification");
 
     assert.true(service.default("Test") instanceof Promise);

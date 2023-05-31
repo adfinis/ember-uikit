@@ -11,7 +11,7 @@ export default createDecorator(function (
   target,
   property,
   descriptor,
-  { options = Object.values(SIZE_OPTIONS), ...args } = {}
+  { options = Object.values(SIZE_OPTIONS), ...args } = {},
 ) {
   return validatedDecorator(target, property, descriptor, {
     options,

@@ -52,7 +52,7 @@ module("Integration | Component | uk button", function (hooks) {
     this.set("didClick", false);
 
     await render(
-      hbs`<UkButton @onClick={{fn (mut this.didClick) true}}>Click me!</UkButton>`
+      hbs`<UkButton @onClick={{fn (mut this.didClick) true}}>Click me!</UkButton>`,
     );
 
     assert.false(this.didClick);

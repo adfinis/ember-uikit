@@ -15,7 +15,7 @@ export function validateValue(value, name, options) {
     value &&
     !options.some((v) => {
       const re = new RegExp(
-        `^${v}(${Object.values(MEDIA_OPTIONS).join("|")})?$`
+        `^${v}(${Object.values(MEDIA_OPTIONS).join("|")})?$`,
       );
 
       return re.test(value);
@@ -26,7 +26,7 @@ export function validateValue(value, name, options) {
       `\`${name}\` must be one of ${opts}. Passed was '${value}', which will therefore be ignored.`,
       {
         id: "ember-uikit.invalid-property",
-      }
+      },
     );
 
     return null;
@@ -39,7 +39,7 @@ export function validatedDecorator(
   target,
   property,
   descriptor,
-  { argument, options, defaultValue, template, sanitize = (val) => val || "" }
+  { argument, options, defaultValue, template, sanitize = (val) => val || "" },
 ) {
   return {
     get() {
@@ -47,8 +47,8 @@ export function validatedDecorator(
         validateValue(
           this.args[argument ?? property] ?? defaultValue,
           property,
-          options
-        )
+          options,
+        ),
       );
 
       return value && template.replace("$value$", value).trim();
@@ -67,7 +67,7 @@ export function validatedArrayDecorator(
     template,
     separator = " ",
     sanitize = (val) => val || "",
-  }
+  },
 ) {
   return {
     get() {
@@ -79,7 +79,7 @@ export function validatedArrayDecorator(
 
             return value && template.replace(`$value$`, value);
           }),
-        { separator }
+        { separator },
       );
     },
   };

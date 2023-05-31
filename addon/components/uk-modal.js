@@ -42,7 +42,7 @@ export default class UkModal extends Component {
 
     assert(
       `Your specified @container query selector ${this.args.container} did not return an element. Check your query selector and check if the element actually exists.`,
-      containerElement
+      containerElement,
     );
 
     return containerElement;
