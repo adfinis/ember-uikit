@@ -30,7 +30,7 @@ module("Unit | Private | flex", function () {
 
     assert.strictEqual(
       subject.flex,
-      "uk-flex-center uk-flex-middle uk-flex-column-reverse uk-flex-nowrap uk-flex-wrap-between"
+      "uk-flex-center uk-flex-middle uk-flex-column-reverse uk-flex-nowrap uk-flex-wrap-between",
     );
   });
 });

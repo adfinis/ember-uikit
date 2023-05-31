@@ -27,7 +27,7 @@ export default class DocsComponentsTabController extends Controller {
             "docs.components.index",
             "docs.utilities.index",
             "docs.services.index",
-          ].includes(name)
+          ].includes(name),
       )
       .map((name) => this.router.urlFor(name))
       .sort();

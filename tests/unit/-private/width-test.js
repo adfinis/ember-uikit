@@ -19,7 +19,7 @@ module("Unit | Private | width", function () {
 
     assert.strictEqual(
       subject.width,
-      "foo-1-1 foo-1-2@m foo-medium@l foo-auto@xl"
+      "foo-1-1 foo-1-2@m foo-medium@l foo-auto@xl",
     );
   });
 

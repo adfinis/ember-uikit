@@ -7,5 +7,5 @@ export default modifier(
 
     return () => tooltip.$destroy();
   },
-  { eager: false }
+  { eager: false },
 );

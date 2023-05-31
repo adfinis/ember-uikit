@@ -8,7 +8,7 @@ module("Integration | Modifier | uk-tooltip", function (hooks) {
 
   test("it renders", async function (assert) {
     await render(
-      hbs`<div id="trigger" {{uk-tooltip "mytext" cls="my-active-class"}}>Test</div>`
+      hbs`<div id="trigger" {{uk-tooltip "mytext" cls="my-active-class"}}>Test</div>`,
     );
 
     assert.dom(".uk-tooltip").doesNotExist();

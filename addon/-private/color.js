@@ -23,7 +23,7 @@ export default createDecorator(function (
     options = Object.values(COLOR_OPTIONS),
     defaultValue = COLOR_OPTIONS.DEFAULT,
     ...args
-  } = {}
+  } = {},
 ) {
   return validatedDecorator(target, property, descriptor, {
     template,

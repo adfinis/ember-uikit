@@ -4,7 +4,7 @@ import Component from "@glimmer/component";
 
 function getParams(currentRouteInfo) {
   const params = currentRouteInfo.paramNames.map(
-    (key) => currentRouteInfo.params[key]
+    (key) => currentRouteInfo.params[key],
   );
 
   if (currentRouteInfo.parent) {

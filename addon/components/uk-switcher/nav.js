@@ -15,7 +15,7 @@ export default class UkSwitcherNavComponent extends Component {
 
     assert(
       `The @type argument can of the \`UkSwitcher\` component be "tab" or "subnav", "${this.args.type}" was passed`,
-      component
+      component,
     );
 
     return component;

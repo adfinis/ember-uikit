@@ -25,7 +25,7 @@ module(
 
     test("can be active", async function (assert) {
       await render(
-        hbs`<this.LinkedListItem @active={{true}}>Test</this.LinkedListItem>`
+        hbs`<this.LinkedListItem @active={{true}}>Test</this.LinkedListItem>`,
       );
 
       assert.dom("li").hasClass("uk-active");
@@ -41,7 +41,7 @@ module(
       this.click = () => assert.step("click");
 
       await render(
-        hbs`<this.LinkedListItem @onClick={{this.click}}>Test</this.LinkedListItem>`
+        hbs`<this.LinkedListItem @onClick={{this.click}}>Test</this.LinkedListItem>`,
       );
 
       await click("a");
@@ -50,15 +50,13 @@ module(
     });
 
     test("can navigate via href", async function (assert) {
-      assert.expect(4);
-
       this.owner.lookup("service:router").transitionTo = (routeName) => {
         assert.step("navigate");
         assert.strictEqual(routeName, "index");
       };
 
       await render(
-        hbs`<this.LinkedListItem @href="/">Test</this.LinkedListItem>`
+        hbs`<this.LinkedListItem @href="/">Test</this.LinkedListItem>`,
       );
 
       assert.dom("a").hasAttribute("href", "/");
@@ -69,8 +67,6 @@ module(
     });
 
     test("can handle parameters", async function (assert) {
-      assert.expect(1);
-
       this.owner.lookup("service:router").isActive = () => false;
       this.owner.lookup("service:router").recognize = () => ({
         name: "foo",
@@ -80,15 +76,13 @@ module(
       });
 
       await render(
-        hbs`<this.LinkedListItem @href="/foo/1?test=1">Test</this.LinkedListItem>`
+        hbs`<this.LinkedListItem @href="/foo/1?test=1">Test</this.LinkedListItem>`,
       );
 
       assert.dom("a").hasAttribute("href", "/foo/1?test=1");
     });
 
     test("yields the active state", async function (assert) {
-      assert.expect(2);
-
       this.owner.lookup("service:router").isActive = () => false;
 
       await render(hbs`<this.LinkedListItem @href="/" as |active|>{{unless active "not"}}
@@ -107,8 +101,6 @@ module(
     });
 
     test("respects linkToIndex", async function (assert) {
-      assert.expect(2);
-
       this.linkToIndex = false;
 
       this.owner.lookup("service:router").recognize = () => ({
@@ -130,5 +122,5 @@ module(
 
       this.set("linkToIndex", true);
     });
-  }
+  },
 );

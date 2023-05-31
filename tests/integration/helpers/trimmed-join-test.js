@@ -10,7 +10,7 @@ module("Integration | Helper | trimmed-join", function (hooks) {
     this.separator = null;
 
     await render(
-      hbs`{{trimmed-join undefined "test1 " null " test2 " "" "test3"}}`
+      hbs`{{trimmed-join undefined "test1 " null " test2 " "" "test3"}}`,
     );
 
     assert.dom(this.element).hasText("test1 test2 test3");

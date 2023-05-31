@@ -64,7 +64,7 @@ module.exports = {
 
     uikitScripts = map(
       uikitScripts,
-      (content) => `if (typeof FastBoot === 'undefined') { ${content} }`
+      (content) => `if (typeof FastBoot === 'undefined') { ${content} }`,
     );
 
     const appTree = this._super.treeForVendor.call(this, tree);
@@ -81,7 +81,7 @@ module.exports = {
 
     const options = Object.assign(
       Object.assign({}, DEFAULT_OPTIONS),
-      this.app.options["ember-uikit"]
+      this.app.options["ember-uikit"],
     );
 
     this.uikitOptions = options;
@@ -91,7 +91,7 @@ module.exports = {
       this.uikitOptions.blacklist.length
     ) {
       this.ui.writeWarnLine(
-        "[ember-uikit]: `blacklist` and `whitelist` should not be used simultaneously - ignoring whitelist."
+        "[ember-uikit]: `blacklist` and `whitelist` should not be used simultaneously - ignoring whitelist.",
       );
     }
 
@@ -141,7 +141,7 @@ module.exports = {
   treeForAddonTemplates(tree) {
     return this._super.treeForAddonTemplates.call(
       this,
-      this._filterComponents(tree)
+      this._filterComponents(tree),
     );
   },
 
@@ -201,7 +201,7 @@ module.exports = {
       /* eslint-disable n/no-extraneous-require */
       require("resolve").sync("uikit/package.json", {
         basedir: this.project.root,
-      })
+      }),
     );
   },
 

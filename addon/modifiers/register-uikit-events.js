@@ -8,5 +8,5 @@ export default modifier(
       UIkit.util.on(element, name, (...args) => run(() => fn(...args)));
     });
   },
-  { eager: false }
+  { eager: false },
 );
