@@ -112,7 +112,7 @@
     "stylelint-config-standard-scss": "9.0.0",
     "stylelint-prettier": "3.0.0",
     "stylelint-scss": "4.6.0",
-    "webpack": "5.81.0"
+    "webpack": "5.87.0"
   },
   "engines": {
     "node": "14.* || 16.* || >= 18"
