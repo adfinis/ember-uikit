@@ -156,6 +156,25 @@
               </td>
             </tr>
             <tr>
+              <td><code>currentWhen</code></td>
+              <td><code>String</code></td>
+              <td></td>
+              <td>
+                URL of a route which causes the item to be marked as active if
+                that route is active (similar to the functionality
+                <code>LinkTo</code>
+                provides).
+              </td>
+              <td>
+                <OptionSelect
+                  @hasEmpty={{true}}
+                  @options={{this.availableRoutes}}
+                  @selected={{this.currentWhen}}
+                  @onChange={{fn (mut this.currentWhen)}}
+                />
+              </td>
+            </tr>
+            <tr>
               <td><code>linkToIndex</code></td>
               <td><code>Boolean</code></td>
               <td><code>false</code></td>

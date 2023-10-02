@@ -6,6 +6,7 @@ export default class OptionSelectComponent extends Component {
   change(event) {
     event.preventDefault();
 
-    this.args.onChange(event.target.value);
+    const value = event.target.value;
+    this.args.onChange(value === "" ? null : value);
   }
 }

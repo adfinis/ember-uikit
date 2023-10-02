@@ -28,7 +28,27 @@ export default class LinkedListItemComponent extends Component {
   }
 
   get href() {
-    if (!this.args.href) return null;
+    return this.getAbsoluteHref(this.args.href);
+  }
+
+  get route() {
+    return this.getRouteInfo(this.href, this.args.linkToIndex);
+  }
+
+  get active() {
+    if (!this.route || this.args.active !== undefined) {
+      return this.args.active ?? false;
+    }
+
+    const { name, args } = this.args.currentWhen
+      ? this.getRouteInfo(this.getAbsoluteHref(this.args.currentWhen))
+      : this.route;
+
+    return this.router.isActive(name, ...args);
+  }
+
+  getAbsoluteHref(relativeHref) {
+    if (!relativeHref) return null;
 
     /* istanbul ignore next */
     if (this.isEngineRouter) {
@@ -36,17 +56,17 @@ export default class LinkedListItemComponent extends Component {
 
       // Append the engine root to the url in case the engine didn't already
       return this.args.href.startsWith(engineRoot)
-        ? this.args.href
-        : `${engineRoot}${this.args.href}`;
+        ? relativeHref
+        : `${engineRoot}${relativeHref}`;
     }
 
-    return this.args.href;
+    return relativeHref;
   }
 
-  get route() {
-    if (!this.href) return null;
+  getRouteInfo(absoluteHref, linkToIndex = false) {
+    if (!absoluteHref) return null;
 
-    let href = this.href;
+    let href = absoluteHref;
 
     /* istanbul ignore next */
     if (this.router.location.implementation === "hash") {
@@ -64,7 +84,7 @@ export default class LinkedListItemComponent extends Component {
     if (!routeInfo) return null;
 
     return {
-      name: this.args.linkToIndex
+      name: linkToIndex
         ? routeInfo.name
         : routeInfo.name.replace(/\.index$/, ""),
       args: [
@@ -74,16 +94,6 @@ export default class LinkedListItemComponent extends Component {
           : []),
       ],
     };
-  }
-
-  get active() {
-    if (!this.route || this.args.active !== undefined) {
-      return this.args.active ?? false;
-    }
-
-    const { name, args } = this.route;
-
-    return this.router.isActive(name, ...args);
   }
 
   @action

@@ -122,5 +122,26 @@ module(
 
       this.set("linkToIndex", true);
     });
+
+    test("uses currentWhen for active state if passed", async function (assert) {
+      this.owner.lookup("service:router").isActive = (routeName) => {
+        assert.strictEqual(routeName, "foo.bar");
+        return true;
+      };
+
+      this.owner.lookup("service:router").recognize = (url) => ({
+        name: url.replace(/^\//, "").replace(/\//g, "."),
+        paramNames: [],
+        queryParams: {},
+      });
+
+      await render(hbs`<this.LinkedListItem @href="/" @currentWhen="/foo/bar" as |active|>{{unless
+    active
+    "not"
+  }}
+  active</this.LinkedListItem>`);
+
+      assert.dom("a").hasText("active");
+    });
   },
 );
