@@ -198,8 +198,7 @@ module.exports = {
 
   _getUikitPath() {
     return path.dirname(
-      /* eslint-disable n/no-extraneous-require */
-      require("resolve").sync("uikit/package.json", {
+      require.resolve("uikit/package.json", {
         basedir: this.project.root,
       }),
     );

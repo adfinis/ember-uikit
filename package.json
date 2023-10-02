@@ -116,6 +116,7 @@
     "stylelint-scss": "5.2.1",
     "webpack": "5.88.2"
   },
+  "packageManager": "pnpm@8.8.0",
   "engines": {
     "node": "16.* || >= 18"
   },
