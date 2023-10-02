@@ -55,11 +55,12 @@ jobs:
         env:
           COVERAGE: true
 
-      - name: Upload coverage report to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage/lcov.info
-          fail_ci_if_error: true
+      # https://github.com/ember-cli-code-coverage/ember-cli-code-coverage/issues/386
+      # - name: Upload coverage report to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     files: ./coverage/lcov.info
+      #     fail_ci_if_error: true
 
   test-floating:
     name: Floating Tests

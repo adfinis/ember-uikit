@@ -227,7 +227,9 @@ module.exports = {
       this.options.babel.plugins = [
         ...(this.options.babel.plugins ?? []),
         // eslint-disable-next-line n/no-unpublished-require
-        ...require("ember-cli-code-coverage").buildBabelPlugin(),
+        ...require("ember-cli-code-coverage").buildBabelPlugin({
+          embroider: true,
+        }),
       ];
     }
   },
