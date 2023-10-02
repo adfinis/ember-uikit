@@ -27,16 +27,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
 
       - name: Lint ${{ matrix.target }}
-        run: yarn lint:${{ matrix.target }}
+        run: pnpm lint:${{ matrix.target }}
 
   test:
     name: Tests
@@ -50,16 +46,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
 
       - name: Run tests
-        run: yarn test:ember
+        run: pnpm test:ember
         env:
           COVERAGE: true
 
@@ -81,16 +73,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install --no-lockfile
+          args: "--no-lockfile"
 
       - name: Run tests
-        run: yarn test:ember
+        run: pnpm test:ember
 
   test-compatibility:
     name: Compatibility Tests
@@ -117,13 +106,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
 
       - name: Run tests
-        run: yarn ember try:one ${{ matrix.scenario }} --skip-cleanup
+        run: pnpm ember try:one ${{ matrix.scenario }} --skip-cleanup

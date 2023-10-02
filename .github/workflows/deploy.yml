@@ -15,16 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: 18
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
 
       - name: Generate docs
-        run: yarn build
+        run: pnpm build
 
       - name: Deploy to GH pages
         uses: peaceiris/actions-gh-pages@v3
