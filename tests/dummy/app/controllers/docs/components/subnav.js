@@ -14,6 +14,7 @@ export default class DocsComponentsSubnavController extends Controller {
   @tracked itemDisabled = false;
   @tracked linkItemDisabled = false;
   @tracked href = this.router.currentURL;
+  @tracked currentWhen = null;
   @tracked linkToIndex = false;
 
   get availableRoutes() {

@@ -27,6 +27,7 @@
     </tab.item>
     <tab.item
       @href={{this.href}}
+      @currentWhen={{this.currentWhen}}
       @disabled={{this.linkItemDisabled}}
       @linkToIndex={{this.linkToIndex}}
     >
@@ -170,6 +171,25 @@
                   @options={{this.availableRoutes}}
                   @selected={{this.href}}
                   @onChange={{fn (mut this.href)}}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><code>currentWhen</code></td>
+              <td><code>String</code></td>
+              <td></td>
+              <td>
+                URL of a route which causes the item to be marked as active if
+                that route is active (similar to the functionality
+                <code>LinkTo</code>
+                provides).
+              </td>
+              <td>
+                <OptionSelect
+                  @hasEmpty={{true}}
+                  @options={{this.availableRoutes}}
+                  @selected={{this.currentWhen}}
+                  @onChange={{fn (mut this.currentWhen)}}
                 />
               </td>
             </tr>

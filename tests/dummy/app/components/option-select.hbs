@@ -1,4 +1,7 @@
 <select class="uk-select" {{on "change" this.change}}>
+  {{#if @hasEmpty}}
+    <option value="" selected={{not @selected}}>-</option>
+  {{/if}}
   {{#each @options as |opt|}}
     <option value={{opt}} selected={{eq opt @selected}}>{{opt}}</option>
   {{/each}}
