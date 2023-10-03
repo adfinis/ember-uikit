@@ -1,3 +1,20 @@
+# [9.0.0](https://github.com/adfinis/ember-uikit/compare/v8.0.0...v9.0.0) (2023-10-03)
+
+
+### chore
+
+* **deps:** update dependencies ([67131b4](https://github.com/adfinis/ember-uikit/commit/67131b49d8e5241a3bc22e262ca2e8e1c7415492))
+
+
+### Features
+
+* **linked-item:** add current when argument for tab and subnav items ([b4557b0](https://github.com/adfinis/ember-uikit/commit/b4557b0a11eead1689d2b0a17a9cd33da206298b))
+
+
+### BREAKING CHANGES
+
+* **deps:** Removed support for Node.js v14.
+
 # [8.0.0](https://github.com/adfinis/ember-uikit/compare/v7.0.3...v8.0.0) (2023-05-01)
 
 
