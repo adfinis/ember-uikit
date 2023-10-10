@@ -1,8 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-# skip in CI
-[ -n "$CI" ] && exit 0
-
-# lint staged files
 pnpm lint-staged

@@ -10,8 +10,8 @@ export default class UkSwitcherNavComponent extends Component {
       this.args.type === "tab"
         ? UkTabComponent
         : this.args.type === "subnav"
-        ? UkSubnavComponent
-        : null;
+          ? UkSubnavComponent
+          : null;
 
     assert(
       `The @type argument can of the \`UkSwitcher\` component be "tab" or "subnav", "${this.args.type}" was passed`,

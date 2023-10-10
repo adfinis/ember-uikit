@@ -5,4 +5,12 @@ module.exports = {
   settings: {
     "import/internal-regex": "^ember-uikit/",
   },
+  rules: {
+    "ember/no-runloop": [
+      "error",
+      {
+        allowList: ["run"],
+      },
+    ],
+  },
 };

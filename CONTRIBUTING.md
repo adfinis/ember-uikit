@@ -1,12 +1,25 @@
-# Contributing to ember-uikit
+# How To Contribute
 
-## Coding style
+## Installation
 
-* **Commit messages** ember-uikit uses [semantic release](https://github.com/semantic-release/semantic-release) to automate the process of making new releases. That requires all commit messages to adhere to a specific format, namely [conventional commits](https://www.conventionalcommits.org/). The format of the commit messages is checked automaticaly during CI. 
-* **Ember** ember-uikit uses the [ember](https://github.com/ember-cli/eslint-plugin-ember) coding style.
-* **Prettier** Install prettier for automatic code formatting. This is also enforced by the CI.
-* **Actions** Use closure actions. We prefer dasherized action names like `on-click` rather than `onClick`.
+- `git clone <repository-url>`
+- `cd ember-uikit`
+- `pnpm install`
 
-## CI and CD
+## Linting
 
-Travis CI will take care of testing and deploying the demo app. You don't have to care about it.
+- `pnpm lint`
+- `pnpm lint:fix`
+
+## Running tests
+
+- `pnpm test` – Runs the test suite on the current Ember version
+- `pnpm test:ember --server` – Runs the test suite in "watch mode"
+- `pnpm test:ember-compatibility` – Runs the test suite against multiple Ember versions
+
+## Running the dummy application
+
+- `pnpm start`
+- Visit the dummy application at [http://localhost:4200](http://localhost:4200).
+
+For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

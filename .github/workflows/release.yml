@@ -2,6 +2,9 @@ name: Release
 
 on: workflow_dispatch
 
+env:
+  HUSKY: 0
+
 jobs:
   release:
     name: Release
