@@ -15,6 +15,11 @@ module.exports = function (defaults) {
         "bash",
       ],
     },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
   });
 
   /*
