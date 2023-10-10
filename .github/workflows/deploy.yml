@@ -13,9 +13,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    # https://github.com/embroider-build/embroider/issues/1532
-    env:
-      UV_USE_IO_URING: 0
     steps:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3

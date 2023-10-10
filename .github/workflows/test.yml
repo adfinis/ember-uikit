@@ -40,10 +40,6 @@ jobs:
     runs-on: [ubuntu-latest]
     timeout-minutes: 10
 
-    # https://github.com/embroider-build/embroider/issues/1532
-    env:
-      UV_USE_IO_URING: 0
-
     steps:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3
@@ -68,10 +64,6 @@ jobs:
     runs-on: [ubuntu-latest]
     timeout-minutes: 10
 
-    # https://github.com/embroider-build/embroider/issues/1532
-    env:
-      UV_USE_IO_URING: 0
-
     steps:
       - uses: actions/checkout@v4
       - uses: wyvox/action-setup-pnpm@v3
@@ -87,10 +79,6 @@ jobs:
     needs: [lint]
     runs-on: [ubuntu-latest]
     timeout-minutes: 10
-
-    # https://github.com/embroider-build/embroider/issues/1532
-    env:
-      UV_USE_IO_URING: 0
 
     strategy:
       fail-fast: false
