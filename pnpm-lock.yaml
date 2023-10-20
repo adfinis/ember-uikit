@@ -194,8 +194,8 @@ devDependencies:
     specifier: 2.0.0
     version: 2.0.0
   sass:
-    specifier: 1.68.0
-    version: 1.68.0
+    specifier: 1.69.4
+    version: 1.69.4
   semantic-release:
     specifier: 22.0.5
     version: 22.0.5(typescript@5.2.2)
@@ -12552,8 +12552,8 @@ packages:
       walker: 1.0.8
     dev: true
 
-  /sass@1.68.0:
-    resolution: {integrity: sha512-Lmj9lM/fef0nQswm1J2HJcEsBUba4wgNx2fea6yJHODREoMFnwRpZydBnX/RjyXw2REIwdkbqE4hrTo4qfDBUA==}
+  /sass@1.69.4:
+    resolution: {integrity: sha512-+qEreVhqAy8o++aQfCJwp0sklr2xyEzkm9Pp/Igu9wNPoe7EZEQ8X/MBvvXggI2ql607cxKg/RKOwDj6pp2XDA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
