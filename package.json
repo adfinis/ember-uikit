@@ -45,7 +45,7 @@
     "*.{json,md,yml}": "prettier --write"
   },
   "dependencies": {
-    "@babel/core": "^7.22.20",
+    "@babel/core": "^7.23.2",
     "@ember/string": "^3.1.1",
     "@embroider/util": "^1.12.0",
     "@glimmer/component": "^1.1.2",
