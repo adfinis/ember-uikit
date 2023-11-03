@@ -54,8 +54,8 @@ dependencies:
     specifier: ^4.0.3
     version: 4.0.3(ember-source@5.3.0)
   uikit:
-    specifier: ^3.17.0
-    version: 3.17.0
+    specifier: ^3.17.8
+    version: 3.17.8
 
 devDependencies:
   '@adfinis/eslint-config':
@@ -14063,8 +14063,8 @@ packages:
     requiresBuild: true
     optional: true
 
-  /uikit@3.17.0:
-    resolution: {integrity: sha512-/xgmse0IWIVSLihQh61LAfzHMTkM13Y2n7Esgg2B0iojrGMFXXVuGgxuzN+zJTvUK0rTcrk/WiWO1VY0Xc1KGg==}
+  /uikit@3.17.8:
+    resolution: {integrity: sha512-zs7oFYlW2JFVZ1Rz70qnrHRfWqRvKIzSobVhQDVeIPOOZXKiyad/r1oveiWvHQSlb7wKaW6T8Z6/FefBi3Sm5w==}
     dev: false
 
   /unbox-primitive@1.0.2:
