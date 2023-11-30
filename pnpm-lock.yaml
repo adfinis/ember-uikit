@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.6.3
     version: 2.6.3(webpack@5.88.2)
   ember-cli-babel:
-    specifier: ^8.1.0
-    version: 8.1.0(@babel/core@7.22.20)
+    specifier: ^8.2.0
+    version: 8.2.0(@babel/core@7.22.20)
   ember-cli-htmlbars:
     specifier: ^6.3.0
     version: 6.3.0
@@ -6493,8 +6493,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /ember-cli-babel@8.1.0(@babel/core@7.22.20):
-    resolution: {integrity: sha512-zudhce/GzEm2JFVjBKdsJvhnFTPZ3blYG8jK2YnrkmJp65TCMMkOM9LiKLlG9ANtiAMsljEl89YXWdsHY/xR4g==}
+  /ember-cli-babel@8.2.0(@babel/core@7.22.20):
+    resolution: {integrity: sha512-8H4+jQElCDo6tA7CamksE66NqBXWs7VNpS3a738L9pZCjg2kXIX4zoyHzkORUqCtr0Au7YsCnrlAMi1v2ALo7A==}
     engines: {node: 16.* || 18.* || >= 20}
     peerDependencies:
       '@babel/core': ^7.12.0
