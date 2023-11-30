@@ -6401,16 +6401,19 @@ ul.uk-nav-sub {
  ========================================================================== */
 /*
  * 1. Allow items to wrap into the next line
- * 2. Gutter
- * 3. Reset list
+ * 2. Center items vertically if they have a different height
+ * 3. Gutter
+ * 4. Reset list
  */
 .uk-pagination {
   display: flex;
   /* 1 */
   flex-wrap: wrap;
   /* 2 */
-  margin-left: 0;
+  align-items: center;
   /* 3 */
+  margin-left: 0;
+  /* 4 */
   padding: 0;
   list-style: none;
 }
@@ -6432,13 +6435,17 @@ ul.uk-nav-sub {
 /* Items
  ========================================================================== */
 /*
- * 1. Prevent gap if child element is `inline-block`, e.g. an icon
- * 2. Style
+ * 1. Center content vertically, e.g. an icon
+ * 2. Imitate white space gap when using flexbox
+ * 3. Style
  */
 .uk-pagination > * > * {
   /* 1 */
-  display: block;
+  display: flex;
+  align-items: center;
   /* 2 */
+  column-gap: 0.25em;
+  /* 3 */
   padding: 5px 10px;
   color: #999;
   transition: color 0.1s ease-in-out;
@@ -8546,8 +8553,8 @@ td.uk-text-break {
  *       is absolute positioned or if the container has a height
  */
 /* 1 */
-[uk-cover],
-[data-uk-cover] {
+[uk-cover]:where(canvas, iframe, svg),
+[data-uk-cover]:where(canvas, iframe, svg) {
   /* 2 */
   max-width: none;
   /* 3 */
@@ -8562,6 +8569,19 @@ td.uk-text-break {
 iframe[uk-cover],
 iframe[data-uk-cover] {
   pointer-events: none;
+}
+
+[uk-cover]:where(img, video),
+[data-uk-cover]:where(img, video) {
+  /* 3 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* Container
@@ -10465,10 +10485,17 @@ iframe[data-uk-cover] {
   opacity: 1;
 }
 
-/* Duration modifiers
+/* Duration modifier
  ========================================================================== */
 .uk-transition-slow {
   transition-duration: 0.7s;
+}
+
+/* Disable modifier
+ ========================================================================== */
+.uk-transition-disable,
+.uk-transition-disable * {
+  transition: none !important;
 }
 
 /* ========================================================================
@@ -10804,7 +10831,18 @@ iframe[data-uk-cover] {
 .uk-card-secondary.uk-card-body .uk-heading-2xlarge,
 .uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-2xlarge,
 .uk-overlay-primary .uk-heading-2xlarge,
-.uk-offcanvas-bar .uk-heading-2xlarge {
+.uk-offcanvas-bar .uk-heading-2xlarge,
+.uk-light .uk-heading-3xlarge,
+.uk-section-primary:not(.uk-preserve-color) .uk-heading-3xlarge,
+.uk-section-secondary:not(.uk-preserve-color) .uk-heading-3xlarge,
+.uk-tile-primary:not(.uk-preserve-color) .uk-heading-3xlarge,
+.uk-tile-secondary:not(.uk-preserve-color) .uk-heading-3xlarge,
+.uk-card-primary.uk-card-body .uk-heading-3xlarge,
+.uk-card-primary > :not([class*=uk-card-media]) .uk-heading-3xlarge,
+.uk-card-secondary.uk-card-body .uk-heading-3xlarge,
+.uk-card-secondary > :not([class*=uk-card-media]) .uk-heading-3xlarge,
+.uk-overlay-primary .uk-heading-3xlarge,
+.uk-offcanvas-bar .uk-heading-3xlarge {
   color: #fff;
 }
 .uk-light blockquote, .uk-section-primary:not(.uk-preserve-color) blockquote, .uk-section-secondary:not(.uk-preserve-color) blockquote, .uk-tile-primary:not(.uk-preserve-color) blockquote, .uk-tile-secondary:not(.uk-preserve-color) blockquote, .uk-card-primary.uk-card-body blockquote, .uk-card-primary > :not([class*=uk-card-media]) blockquote, .uk-card-secondary.uk-card-body blockquote, .uk-card-secondary > :not([class*=uk-card-media]) blockquote, .uk-overlay-primary blockquote, .uk-offcanvas-bar blockquote {
