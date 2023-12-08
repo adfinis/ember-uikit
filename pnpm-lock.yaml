@@ -74,8 +74,8 @@ devDependencies:
     specifier: 2.0.0
     version: 2.0.0
   '@ember/test-helpers':
-    specifier: 3.2.0
-    version: 3.2.0(ember-source@5.3.0)(webpack@5.89.0)
+    specifier: 3.2.1
+    version: 3.2.1(ember-source@5.3.0)(webpack@5.89.0)
   '@embroider/compat':
     specifier: 3.2.3
     version: 3.2.3(@embroider/core@3.3.0)
@@ -135,7 +135,7 @@ devDependencies:
     version: 0.13.0(@babel/core@7.23.5)(ember-source@5.3.0)(webpack@5.89.0)
   ember-qunit:
     specifier: 8.0.1
-    version: 8.0.1(@ember/test-helpers@3.2.0)(ember-source@5.3.0)(qunit@2.20.0)
+    version: 8.0.1(@ember/test-helpers@3.2.1)(ember-source@5.3.0)(qunit@2.20.0)
   ember-resolver:
     specifier: 11.0.1
     version: 11.0.1(ember-source@5.3.0)
@@ -1793,8 +1793,8 @@ packages:
       - supports-color
     dev: false
 
-  /@ember/test-helpers@3.2.0(ember-source@5.3.0)(webpack@5.89.0):
-    resolution: {integrity: sha512-3yWpPsK5O77tUdCwW3HayrAcdlRitIRYMvLIG69Pkal1JMIGdNYVTvJ2R1lenhQh2syd/WFmGM07vQuDAtotQw==}
+  /@ember/test-helpers@3.2.1(ember-source@5.3.0)(webpack@5.89.0):
+    resolution: {integrity: sha512-DvJSihJPV4xshwEgBrFN4aUVc9m/Y/hVzwcslfSVq/h3dMWCyAj4+agkkdJPQrwBaE+H4IyGNzr555S7bTErEA==}
     engines: {node: 16.* || >= 18}
     peerDependencies:
       ember-source: ^4.0.0 || ^5.0.0
@@ -6980,14 +6980,14 @@ packages:
       - webpack
     dev: true
 
-  /ember-qunit@8.0.1(@ember/test-helpers@3.2.0)(ember-source@5.3.0)(qunit@2.20.0):
+  /ember-qunit@8.0.1(@ember/test-helpers@3.2.1)(ember-source@5.3.0)(qunit@2.20.0):
     resolution: {integrity: sha512-13PtywHNPTQKkDW4o8QRkJvcdsZr8hRyvh6xh/YLAX8+HaRLd3nPL8mBF4O/Kur/DAj3QWLvjzktZ2uRNGSh3A==}
     peerDependencies:
       '@ember/test-helpers': '>=3.0.3'
       ember-source: '>=4.0.0'
       qunit: ^2.13.0
     dependencies:
-      '@ember/test-helpers': 3.2.0(ember-source@5.3.0)(webpack@5.89.0)
+      '@ember/test-helpers': 3.2.1(ember-source@5.3.0)(webpack@5.89.0)
       '@embroider/addon-shim': 1.8.6
       '@embroider/macros': 1.13.2
       ember-cli-test-loader: 3.1.0
