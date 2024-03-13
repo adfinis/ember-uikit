@@ -16,7 +16,7 @@ jobs:
           persist-credentials: false
       - uses: wyvox/action-setup-pnpm@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Release on NPM
         run: pnpm semantic-release
