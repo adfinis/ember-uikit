@@ -1,3 +1,11 @@
+## [9.0.1](https://github.com/adfinis/ember-uikit/compare/v9.0.0...v9.0.1) (2024-03-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies ([844c1d5](https://github.com/adfinis/ember-uikit/commit/844c1d50a03bbc7ce1f47edbf64702e42e5d3027))
+* **modal-demo:** button alignment ([#1144](https://github.com/adfinis/ember-uikit/issues/1144)) ([1b4861c](https://github.com/adfinis/ember-uikit/commit/1b4861cbb713fd607edbc5d05d36b4bfc5f1219e))
+
 # [9.0.0](https://github.com/adfinis/ember-uikit/compare/v8.0.0...v9.0.0) (2023-10-03)
 
 
