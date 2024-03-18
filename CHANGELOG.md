@@ -1,3 +1,10 @@
+# [9.1.0](https://github.com/adfinis/ember-uikit/compare/v9.0.1...v9.1.0) (2024-03-18)
+
+
+### Features
+
+* **ember:** officially support ember v5 ([c69ba5d](https://github.com/adfinis/ember-uikit/commit/c69ba5d0e6b2579af9a5d8cb428f6e38e5fdf106))
+
 ## [9.0.1](https://github.com/adfinis/ember-uikit/compare/v9.0.0...v9.0.1) (2024-03-13)
 
 
