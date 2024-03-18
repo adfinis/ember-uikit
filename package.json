@@ -124,7 +124,7 @@
     "edition": "octane"
   },
   "peerDependencies": {
-    "ember-source": "^4.0.0"
+    "ember-source": ">= 4.0.0"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
