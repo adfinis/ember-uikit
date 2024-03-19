@@ -1,3 +1,10 @@
+## [9.1.1](https://github.com/adfinis/ember-uikit/compare/v9.1.0...v9.1.1) (2024-03-19)
+
+
+### Bug Fixes
+
+* **linked-item:** fix active state for hash routing ([1997e0a](https://github.com/adfinis/ember-uikit/commit/1997e0afcad869c95799517aaa3a2e52f61e28e3))
+
 # [9.1.0](https://github.com/adfinis/ember-uikit/compare/v9.0.1...v9.1.0) (2024-03-18)
 
 
