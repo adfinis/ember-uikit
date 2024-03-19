@@ -1,4 +1,3 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import Component from "@glimmer/component";
@@ -17,13 +16,6 @@ function getParams(currentRouteInfo) {
 
 export default class LinkedListItemComponent extends Component {
   @service("router") _router;
-
-  get isHashLocation() {
-    return (
-      getOwner(this).resolveRegistration("config:environment").locationType ===
-      "hash"
-    );
-  }
 
   /* istanbul ignore next */
   get isEngineRouter() {
@@ -77,7 +69,7 @@ export default class LinkedListItemComponent extends Component {
     let href = absoluteHref;
 
     /* istanbul ignore next */
-    if (this.isHashLocation) {
+    if (href.startsWith("#/")) {
       href = href.replace(/^#/, "");
     }
 
