@@ -60,13 +60,13 @@ dependencies:
 devDependencies:
   '@adfinis/eslint-config':
     specifier: 2.1.1
-    version: 2.1.1(@babel/core@7.24.0)(@babel/eslint-parser@7.23.10)(@babel/plugin-proposal-decorators@7.24.0)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@12.0.2)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2)(eslint-plugin-prettier@5.1.3)(eslint-plugin-qunit@8.1.1)(eslint@8.57.0)(prettier@3.2.5)
+    version: 2.1.1(@babel/core@7.24.0)(@babel/eslint-parser@7.24.7)(@babel/plugin-proposal-decorators@7.24.0)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@12.0.2)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2)(eslint-plugin-prettier@5.1.3)(eslint-plugin-qunit@8.1.1)(eslint@8.57.0)(prettier@3.2.5)
   '@adfinis/semantic-release-config':
     specifier: 4.1.0
     version: 4.1.0(typescript@5.4.2)
   '@babel/eslint-parser':
-    specifier: 7.23.10
-    version: 7.23.10(@babel/core@7.24.0)(eslint@8.57.0)
+    specifier: 7.24.7
+    version: 7.24.7(@babel/core@7.24.0)(eslint@8.57.0)
   '@babel/plugin-proposal-decorators':
     specifier: 7.24.0
     version: 7.24.0(@babel/core@7.24.0)
@@ -201,7 +201,7 @@ devDependencies:
     version: 16.6.1(typescript@5.4.2)
   stylelint-config-standard-scss:
     specifier: 13.0.0
-    version: 13.0.0(postcss@8.4.35)(stylelint@16.6.1)
+    version: 13.0.0(postcss@8.4.38)(stylelint@16.6.1)
   stylelint-prettier:
     specifier: 5.0.0
     version: 5.0.0(prettier@3.2.5)(stylelint@16.6.1)
@@ -219,7 +219,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@adfinis/eslint-config@2.1.1(@babel/core@7.24.0)(@babel/eslint-parser@7.23.10)(@babel/plugin-proposal-decorators@7.24.0)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@12.0.2)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2)(eslint-plugin-prettier@5.1.3)(eslint-plugin-qunit@8.1.1)(eslint@8.57.0)(prettier@3.2.5):
+  /@adfinis/eslint-config@2.1.1(@babel/core@7.24.0)(@babel/eslint-parser@7.24.7)(@babel/plugin-proposal-decorators@7.24.0)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@12.0.2)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.2)(eslint-plugin-prettier@5.1.3)(eslint-plugin-qunit@8.1.1)(eslint@8.57.0)(prettier@3.2.5):
     resolution: {integrity: sha512-MXbEJjlCYg8x/dcKkOySMCd7FTpamlvvoF9F9YpqLPx9HCHB2/pDFe/bDbYZ/WbnR2XArilJScHBZ87gmiIx7w==}
     peerDependencies:
       '@babel-plugin-proposal-decorators': '*'
@@ -245,7 +245,7 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/eslint-parser': 7.23.10(@babel/core@7.24.0)(eslint@8.57.0)
+      '@babel/eslint-parser': 7.24.7(@babel/core@7.24.0)(eslint@8.57.0)
       '@babel/plugin-proposal-decorators': 7.24.0(@babel/core@7.24.0)
       eslint: 8.57.0
       eslint-config-prettier: 9.1.0(eslint@8.57.0)
@@ -323,6 +323,20 @@ packages:
     peerDependencies:
       '@babel/core': ^7.11.0
       eslint: ^7.5.0 || ^8.0.0
+    dependencies:
+      '@babel/core': 7.24.0
+      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
+      eslint: 8.57.0
+      eslint-visitor-keys: 2.1.0
+      semver: 6.3.1
+    dev: true
+
+  /@babel/eslint-parser@7.24.7(@babel/core@7.24.0)(eslint@8.57.0):
+    resolution: {integrity: sha512-SO5E3bVxDuxyNxM5agFv480YA2HO6ohZbGxbazZdIk3KQOPOGVNw6q78I9/lbviIf95eq6tPozeYnJLbjnC8IA==}
+    engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
+    peerDependencies:
+      '@babel/core': ^7.11.0
+      eslint: ^7.5.0 || ^8.0.0 || ^9.0.0
     dependencies:
       '@babel/core': 7.24.0
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -11243,13 +11257,13 @@ packages:
       postcss: 8.4.38
     dev: true
 
-  /postcss-scss@4.0.9(postcss@8.4.35):
+  /postcss-scss@4.0.9(postcss@8.4.38):
     resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.4.29
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
     dev: true
 
   /postcss-selector-parser@6.0.15:
@@ -12736,7 +12750,7 @@ packages:
     resolution: {integrity: sha512-DU2KZiB6VbPkO2tGSqQ9n96ZstUPjW7X4sGO6V2m1myIQluX0p1Ol8BrA/l6/EesqhMqXOIXs3cJNOy1UuU2BA==}
     dev: true
 
-  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.35)(stylelint@16.6.1):
+  /stylelint-config-recommended-scss@14.0.0(postcss@8.4.38)(stylelint@16.6.1):
     resolution: {integrity: sha512-HDvpoOAQ1RpF+sPbDOT2Q2/YrBDEJDnUymmVmZ7mMCeNiFSdhRdyGEimBkz06wsN+HaFwUh249gDR+I9JR7Onw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -12746,8 +12760,8 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss: 8.4.35
-      postcss-scss: 4.0.9(postcss@8.4.35)
+      postcss: 8.4.38
+      postcss-scss: 4.0.9(postcss@8.4.38)
       stylelint: 16.6.1(typescript@5.4.2)
       stylelint-config-recommended: 14.0.0(stylelint@16.6.1)
       stylelint-scss: 6.2.1(stylelint@16.6.1)
@@ -12762,7 +12776,7 @@ packages:
       stylelint: 16.6.1(typescript@5.4.2)
     dev: true
 
-  /stylelint-config-standard-scss@13.0.0(postcss@8.4.35)(stylelint@16.6.1):
+  /stylelint-config-standard-scss@13.0.0(postcss@8.4.38)(stylelint@16.6.1):
     resolution: {integrity: sha512-WaLvkP689qSYUpJQPCo30TFJSSc3VzvvoWnrgp+7PpVby5o8fRUY1cZcP0sePZfjrFl9T8caGhcKg0GO34VDiQ==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
@@ -12772,9 +12786,9 @@ packages:
       postcss:
         optional: true
     dependencies:
-      postcss: 8.4.35
+      postcss: 8.4.38
       stylelint: 16.6.1(typescript@5.4.2)
-      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.35)(stylelint@16.6.1)
+      stylelint-config-recommended-scss: 14.0.0(postcss@8.4.38)(stylelint@16.6.1)
       stylelint-config-standard: 36.0.0(stylelint@16.6.1)
     dev: true
 
