@@ -6,5 +6,6 @@ module.exports = {
   rules: {
     "require-input-label": false,
     "no-obsolete-elements": false,
+    "no-builtin-form-components": false,
   },
 };
