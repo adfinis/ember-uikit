@@ -128,8 +128,8 @@ devDependencies:
     specifier: 2.1.2
     version: 2.1.2(@babel/core@7.24.7)
   ember-prism:
-    specifier: 0.13.0
-    version: 0.13.0(@babel/core@7.24.7)(ember-source@5.9.0)(webpack@5.91.0)
+    specifier: 1.0.0
+    version: 1.0.0(ember-source@5.9.0)(webpack@5.91.0)
   ember-qunit:
     specifier: 8.0.2
     version: 8.0.2(@ember/test-helpers@3.3.0)(ember-source@5.9.0)(qunit@2.21.0)
@@ -6382,21 +6382,23 @@ packages:
       - supports-color
     dev: false
 
-  /ember-prism@0.13.0(@babel/core@7.24.7)(ember-source@5.9.0)(webpack@5.91.0):
-    resolution: {integrity: sha512-+vbrlXAxO8kw3pJCdtNuuQItANEP9dJ/UPxPPFX6hvbbGTAS5JYz6VG4SyNEJ4vBG1MxkwHirYywiDZIbaD8hQ==}
-    engines: {node: 12.* || 14.* || >= 16}
+  /ember-prism@1.0.0(ember-source@5.9.0)(webpack@5.91.0):
+    resolution: {integrity: sha512-+7+LhQA0qc5l+Y1+VInRxCAUL1BUPW6ml6d7QoEKXgagPzu3DRoZ+VhcOx/0PzBOoSYw7CmxmokKXU/faiztrA==}
+    engines: {node: 18.* || >= 20, pnpm: ^8.15.3}
+    peerDependencies:
+      ember-source: '>= 4.0.0'
     dependencies:
+      '@babel/core': 7.24.7
       '@ember/render-modifiers': 2.1.0(@babel/core@7.24.7)(ember-source@5.9.0)
       ember-auto-import: 2.7.4(webpack@5.91.0)
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 8.2.0(@babel/core@7.24.7)
       ember-cli-htmlbars: 6.3.0
       ember-cli-node-assets: 0.2.2
+      ember-source: 5.9.0(@babel/core@7.24.7)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.91.0)
       prismjs: 1.29.0
       prismjs-glimmer: 1.1.1(prismjs@1.29.0)
     transitivePeerDependencies:
-      - '@babel/core'
       - '@glint/template'
-      - ember-source
       - supports-color
       - webpack
     dev: true
@@ -8151,6 +8153,7 @@ packages:
 
   /glob@5.0.15:
     resolution: {integrity: sha512-c9IPMazfRITpmAAKi22dK1VKxGDX9ehhqfABDriL/lzO92xcUKEJPQHrVA/2YHSNFB4iFlykVmWvwo48nr3OxA==}
+    deprecated: Glob versions prior to v9 are no longer supported
     dependencies:
       inflight: 1.0.6
       inherits: 2.0.4
@@ -11434,6 +11437,7 @@ packages:
 
   /rimraf@3.0.2:
     resolution: {integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==}
+    deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
     dependencies:
       glob: 7.2.3
