@@ -45,8 +45,8 @@ dependencies:
     specifier: ^1.1.0
     version: 1.1.0(ember-source@5.9.0)
   ember-modifier:
-    specifier: ^4.1.0
-    version: 4.1.0(ember-source@5.9.0)
+    specifier: ^4.2.0
+    version: 4.2.0(@babel/core@7.24.7)(ember-source@5.9.0)
   ember-toggle:
     specifier: ^9.0.3
     version: 9.0.3(@babel/core@7.24.7)(ember-source@5.9.0)
@@ -1896,7 +1896,6 @@ packages:
       semver: 7.6.2
     transitivePeerDependencies:
       - supports-color
-    dev: true
 
   /@embroider/macros@1.15.0:
     resolution: {integrity: sha512-gXh46ZafqYb6AJVoCCaQwYRsqFIwAat/PVCaJgEDKnOgOP/BTyIXwAld0gLZlIgSKkqOccBih83bXMShflKkLg==}
@@ -3596,6 +3595,11 @@ packages:
     resolution: {integrity: sha512-3qBQWRjzP9NreSH/YrOEU1Lj5F60+pWSLP0kIdCWxjFHH7pX2YPHIxQ67el4gnMNfYoDxSDGcT0zpVlZ+gVtQA==}
     engines: {node: '>= 12.*'}
 
+  /babel-import-util@3.0.0:
+    resolution: {integrity: sha512-4YNPkuVsxAW5lnSTa6cn4Wk49RX6GAB6vX+M6LqEtN0YePqoFczv1/x0EyLK/o+4E1j9jEuYj5Su7IEPab5JHQ==}
+    engines: {node: '>= 12.*'}
+    dev: false
+
   /babel-loader@8.3.0(@babel/core@7.24.7)(webpack@5.91.0):
     resolution: {integrity: sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==}
     engines: {node: '>= 8.9'}
@@ -4833,7 +4837,6 @@ packages:
 
   /common-ancestor-path@1.0.1:
     resolution: {integrity: sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==}
-    dev: true
 
   /commondir@1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
@@ -5447,6 +5450,15 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
+
+  /decorator-transforms@2.0.0(@babel/core@7.24.7):
+    resolution: {integrity: sha512-ETfQccGcotK01YJsoB0AGTdUp7kS9jI93mBzrRY5Oyo+bOJfa2UKTSjCNf+iRNwAWBmBKlbiCcyL4tkY4C4dZQ==}
+    dependencies:
+      '@babel/plugin-syntax-decorators': 7.24.7(@babel/core@7.24.7)
+      babel-import-util: 3.0.0
+    transitivePeerDependencies:
+      - '@babel/core'
+    dev: false
 
   /deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}
@@ -6366,19 +6378,21 @@ packages:
       - supports-color
     dev: false
 
-  /ember-modifier@4.1.0(ember-source@5.9.0):
-    resolution: {integrity: sha512-YFCNpEYj6jdyy3EjslRb2ehNiDvaOrXTilR9+ngq+iUqSHYto2zKV0rleiA1XJQ27ELM1q8RihT29U6Lq5EyqQ==}
+  /ember-modifier@4.2.0(@babel/core@7.24.7)(ember-source@5.9.0):
+    resolution: {integrity: sha512-BJ48eTEGxD8J7+lofwVmee7xDgNDgpr5dd6+MSu4gk+I6xb35099RMNorXY5hjjwMJEyi/IRR6Yn3M7iJMz8Zw==}
     peerDependencies:
-      ember-source: '*'
+      ember-source: ^3.24 || >=4.0
     peerDependenciesMeta:
       ember-source:
         optional: true
     dependencies:
-      '@embroider/addon-shim': 1.8.7
+      '@embroider/addon-shim': 1.8.9
+      decorator-transforms: 2.0.0(@babel/core@7.24.7)
       ember-cli-normalize-entity-name: 1.0.0
       ember-cli-string-utils: 1.1.0
       ember-source: 5.9.0(@babel/core@7.24.7)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.91.0)
     transitivePeerDependencies:
+      - '@babel/core'
       - supports-color
     dev: false
 
