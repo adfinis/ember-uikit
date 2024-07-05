@@ -20,7 +20,7 @@ jobs:
           node-version: 20
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install --no-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Release on NPM
         run: pnpm semantic-release
         env:

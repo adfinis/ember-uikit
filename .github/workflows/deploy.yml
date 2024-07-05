@@ -30,7 +30,7 @@ jobs:
           node-version: 20
           cache: pnpm
       - name: Install Dependencies
-        run: pnpm install --no-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Generate docs
         run: pnpm build
       - name: Upload Artifact
