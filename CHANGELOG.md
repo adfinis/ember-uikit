@@ -1,3 +1,10 @@
+## [9.1.2](https://github.com/adfinis/ember-uikit/compare/v9.1.1...v9.1.2) (2024-07-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies ([782386e](https://github.com/adfinis/ember-uikit/commit/782386e27cd98263e34f675154d6104863939eb4))
+
 ## [9.1.1](https://github.com/adfinis/ember-uikit/compare/v9.1.0...v9.1.1) (2024-03-19)
 
 
