@@ -9,8 +9,8 @@ dependencies:
     specifier: ^7.24.7
     version: 7.24.7
   '@ember/string':
-    specifier: ^3.1.1
-    version: 3.1.1
+    specifier: ^4.0.0
+    version: 4.0.0
   '@embroider/util':
     specifier: ^1.13.1
     version: 1.13.1(ember-source@5.9.0)
@@ -1825,13 +1825,8 @@ packages:
       - '@babel/core'
       - supports-color
 
-  /@ember/string@3.1.1:
-    resolution: {integrity: sha512-UbXJ+k3QOrYN4SRPHgXCqYIJ+yWWUg1+vr0H4DhdQPTy8LJfyqwZ2tc5uqpSSnEXE+/1KopHBE5J8GDagAg5cg==}
-    engines: {node: 12.* || 14.* || >= 16}
-    dependencies:
-      ember-cli-babel: 7.26.11
-    transitivePeerDependencies:
-      - supports-color
+  /@ember/string@4.0.0:
+    resolution: {integrity: sha512-IMVyVE72twuAMSYcHzWSgtgYTtzlHlKSGW8vEbztnnmkU6uo7kVHmiqSN9R4RkBhzvh0VD4G76Eph+55t3iNIA==}
     dev: false
 
   /@ember/test-helpers@3.3.0(ember-source@5.9.0)(webpack@5.93.0):
