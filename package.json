@@ -110,7 +110,7 @@
     "qunit-dom": "3.2.0",
     "sass": "1.77.8",
     "semantic-release": "24.0.0",
-    "stylelint": "16.7.0",
+    "stylelint": "16.8.1",
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-prettier": "5.0.2",
     "stylelint-scss": "6.4.1",
