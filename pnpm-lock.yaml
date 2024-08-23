@@ -175,8 +175,8 @@ importers:
         specifier: 8.1.1
         version: 8.1.1(eslint@8.57.0)
       husky:
-        specifier: 9.1.2
-        version: 9.1.2
+        specifier: 9.1.5
+        version: 9.1.5
       lint-staged:
         specifier: 15.2.7
         version: 15.2.7
@@ -4161,8 +4161,8 @@ packages:
     resolution: {integrity: sha512-74kytxOUSvNbjrT9KisAbaTZ/eJwD/LrbM/kh5j0IhPuJzwuA19dWvniFGwBzN9rVjg+O/e+F310PjObDXS+9Q==}
     engines: {node: '>=18.18.0'}
 
-  husky@9.1.2:
-    resolution: {integrity: sha512-1/aDMXZdhr1VdJJTLt6e7BipM0Jd9qkpubPiIplon1WmCeOy3nnzsCMeBqS9AsL5ioonl8F8y/F2CLOmk19/Pw==}
+  husky@9.1.5:
+    resolution: {integrity: sha512-rowAVRUBfI0b4+niA4SJMhfQwc107VLkBUgEYYAOQAbqDCnra1nYh83hF/MDmhYs9t9n1E3DuKOrs2LYNC+0Ag==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -12500,7 +12500,7 @@ snapshots:
 
   human-signals@7.0.0: {}
 
-  husky@9.1.2: {}
+  husky@9.1.5: {}
 
   iconv-lite@0.4.24:
     dependencies:
