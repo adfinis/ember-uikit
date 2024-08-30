@@ -113,7 +113,7 @@
     "stylelint": "16.7.0",
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-prettier": "5.0.2",
-    "stylelint-scss": "6.4.1",
+    "stylelint-scss": "6.5.1",
     "webpack": "5.93.0"
   },
   "packageManager": "pnpm@9.6.0",
