@@ -114,7 +114,7 @@
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-prettier": "5.0.2",
     "stylelint-scss": "6.9.0",
-    "webpack": "5.93.0"
+    "webpack": "5.94.0"
   },
   "packageManager": "pnpm@9.6.0",
   "engines": {
