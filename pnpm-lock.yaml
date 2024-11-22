@@ -45,8 +45,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0
       ember-focus-trap:
-        specifier: ^1.1.0
-        version: 1.1.0(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0))
+        specifier: ^1.1.1
+        version: 1.1.1(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0))
       ember-modifier:
         specifier: ^4.2.0
         version: 4.2.0(@babel/core@7.25.8)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0))
@@ -3187,11 +3187,11 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  ember-focus-trap@1.1.0:
-    resolution: {integrity: sha512-KxbCKpAJaBVZm+bW4tHPoBJAZThmxa6pI+WQusL+bj0RtAnGUNkWsVy6UBMZ5QqTQzf4EvGHkCVACVp5lbAWMQ==}
+  ember-focus-trap@1.1.1:
+    resolution: {integrity: sha512-5tOWu6eV1UoNZE+P9Gl9lJXNrENZVCoOXi52ePb7JOrOZ3ckOk1OkPsFwR4Jym9VJ7vZ6S3Z3D8BrkFa2aCpYw==}
     engines: {node: 12.* || >= 14}
     peerDependencies:
-      ember-source: ^4.0.0 || ^5.0.0
+      ember-source: '>= 4.0.0'
 
   ember-functions-as-helper-polyfill@2.1.2:
     resolution: {integrity: sha512-yvW6xykvZEIYzzwlrC/g9yu6LtLkkj5F+ho6U+BDxN1uREMgoMOZnji7sSILn5ITVpaJ055DPcO+utEFD7IZOA==}
@@ -11222,7 +11222,7 @@ snapshots:
     transitivePeerDependencies:
       - eslint
 
-  ember-focus-trap@1.1.0(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0)):
+  ember-focus-trap@1.1.1(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0)):
     dependencies:
       '@embroider/addon-shim': 1.8.9
       ember-source: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.25.8))(rsvp@4.8.5)(webpack@5.94.0)
