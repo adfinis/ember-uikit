@@ -11,6 +11,9 @@ module.exports = function (environment) {
         pos: "top-right",
       },
     },
+    "ember-shiki": {
+      defaultThemes: ["github-dark"],
+    },
     EmberENV: {
       EXTEND_PROTOTYPES: false,
       FEATURES: {

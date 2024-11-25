@@ -5,16 +5,6 @@ const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
     snippetPaths: ["tests/dummy/app/snippets"],
-    "ember-prism": {
-      theme: "twilight",
-      components: [
-        "javascript",
-        "handlebars",
-        "markup",
-        "markup-templating",
-        "bash",
-      ],
-    },
     babel: {
       plugins: [
         require.resolve("ember-concurrency/async-arrow-task-transform"),

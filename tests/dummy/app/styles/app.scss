@@ -36,3 +36,7 @@ $base-heading-font-weight: 300;
   border-color: $global-warning-background;
   border-style: dashed;
 }
+
+pre.shiki {
+  padding: 0;
+}
