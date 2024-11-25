@@ -5,7 +5,7 @@ export default async function confirm(text) {
     await UIkit.modal.confirm(text);
 
     return true;
-  } catch (error) {
+  } catch {
     return false;
   }
 }

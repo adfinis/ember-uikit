@@ -11,7 +11,7 @@ export default class ExampleController extends Controller {
       // your code
 
       this.notification.success("Successfully saved!");
-    } catch (e) {
+    } catch {
       this.notification.danger("Ooops! Something went wrong...");
     }
   }
