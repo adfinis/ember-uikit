@@ -14,11 +14,11 @@
   cls-empty={{@clsEmpty}}
   cls-custom={{@clsCustom}}
   {{register-uikit-events
-    start=(optional @onStart)
-    stop=(optional @onStop)
-    moved=(optional @onMoved)
-    added=(optional @onAdded)
-    removed=(optional @onRemoved)
+    start=this.onStart
+    stop=this.onStop
+    moved=this.onMoved
+    added=this.onAdded
+    removed=this.onRemoved
   }}
   ...attributes
 >

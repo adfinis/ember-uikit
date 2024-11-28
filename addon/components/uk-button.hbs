@@ -9,7 +9,7 @@
   }}
   disabled={{@disabled}}
   title={{@title}}
-  {{on "click" (optional @onClick)}}
+  {{on "click" this.onClick}}
   ...attributes
 >
   {{#if @loading}}

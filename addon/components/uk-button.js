@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 
 import color, { COLOR_OPTIONS } from "ember-uikit/-private/color";
+import optionalArgument from "ember-uikit/-private/optional-argument";
 import size from "ember-uikit/-private/size";
 import width from "ember-uikit/-private/width";
 
@@ -22,4 +23,6 @@ export default class UkButtonComponent extends Component {
 
   @size({ template: "uk-button-$value$" }) size;
   @width width;
+
+  @optionalArgument onClick;
 }

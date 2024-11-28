@@ -26,7 +26,6 @@ module.exports = {
     return this.addAddonsToProject({
       packages: [
         { name: "ember-cli-sass" },
-        { name: "ember-composable-helpers" },
         { name: "ember-truth-helpers" },
         { name: "ember-focus-trap" },
         { name: "ember-toggle" },
