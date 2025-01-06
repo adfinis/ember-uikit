@@ -226,7 +226,6 @@ module.exports = {
     if (this.app.project.pkg.name === this.name) {
       this.options.babel.plugins = [
         ...(this.options.babel.plugins ?? []),
-        // eslint-disable-next-line n/no-unpublished-require
         ...require("ember-cli-code-coverage").buildBabelPlugin({
           embroider: true,
         }),
