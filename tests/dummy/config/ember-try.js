@@ -14,6 +14,9 @@ module.exports = async function () {
             "ember-source": "~4.4.0",
             "ember-resolver": "~11.0.1",
           },
+          resolutions: {
+            "@glimmer/component": "^1.1.2",
+          },
         },
       },
       {
