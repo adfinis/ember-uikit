@@ -202,8 +202,8 @@ importers:
         specifier: 3.4.0
         version: 3.4.0
       sass:
-        specifier: 1.83.1
-        version: 1.83.1
+        specifier: 1.83.4
+        version: 1.83.4
       semantic-release:
         specifier: 24.2.1
         version: 24.2.1(typescript@5.7.2)
@@ -6110,8 +6110,8 @@ packages:
     engines: {node: 10.* || >= 12.*}
     hasBin: true
 
-  sass@1.83.1:
-    resolution: {integrity: sha512-EVJbDaEs4Rr3F0glJzFSOvtg2/oy2V/YrGFPqPY24UqcLDWcI9ZY5sN+qyO3c/QCZwzgfirvhXvINiJCE/OLcA==}
+  sass@1.83.4:
+    resolution: {integrity: sha512-B1bozCeNQiOgDcLd33e2Cs2U60wZwjUUXzh900ZyQF5qUasvMdDZYbQ566LJu7cqR+sAHlAfO6RMkaID5s6qpA==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -14332,7 +14332,7 @@ snapshots:
       minimist: 1.2.8
       walker: 1.0.8
 
-  sass@1.83.1:
+  sass@1.83.4:
     dependencies:
       chokidar: 4.0.3
       immutable: 5.0.3
