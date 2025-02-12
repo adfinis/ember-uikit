@@ -28,9 +28,8 @@ module.exports = function (defaults) {
     ],
     staticAddonTrees: true,
     staticAddonTestSupportTrees: true,
-    staticHelpers: true,
-    staticModifiers: true,
-    staticComponents: true,
+    staticInvokables: true,
+    staticEmberSource: true,
     allowUnsafeDynamicComponents: false,
   });
 };
