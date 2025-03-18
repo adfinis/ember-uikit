@@ -15,4 +15,24 @@ updates:
       time: "12:00"
       timezone: "Europe/Zurich"
     open-pull-requests-limit: 10
-    versioning-strategy: increase
+    groups:
+      dev-dependencies:
+        dependency-type: development
+      production-dependencies:
+        dependency-type: production
+      ember:
+        patterns:
+          - "ember-source"
+          - "ember-cli"
+      lint:
+        patterns:
+          - "@adfinis/eslint-config"
+          - "@babel/eslint-parser"
+          - "@commitlint*"
+          - "@eslint/js"
+          - "ember-template-lint*"
+          - "eslint*"
+          - "husky"
+          - "lint-staged"
+          - "prettier*"
+          - "stylelint*"
