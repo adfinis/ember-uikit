@@ -58,7 +58,7 @@ importers:
         version: 4.0.3(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
       uikit:
         specifier: ^3.23.0
-        version: 3.23.2
+        version: 3.23.13
     devDependencies:
       '@adfinis/eslint-config':
         specifier: 3.0.2
@@ -6842,8 +6842,8 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  uikit@3.23.2:
-    resolution: {integrity: sha512-/3dgkrw4rLN9d7TlPVo8siJkRGpNj5cJfSBkUnv0xgp4opkFoqZJAJ6iFHatRPVlUmjoACXv1lbr43/vH55R9A==}
+  uikit@3.23.13:
+    resolution: {integrity: sha512-TegJHfHnd8w+ofcjlUX6O8vCiTNKVJJkhjBNlaC+nBJmwvkt1dQ/t1NG7I1FZ3EkkrxriMYwC0i7RGWIFsfyQg==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -15340,7 +15340,7 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  uikit@3.23.2: {}
+  uikit@3.23.13: {}
 
   unbox-primitive@1.1.0:
     dependencies:
