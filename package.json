@@ -71,7 +71,7 @@
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "@ember/optional-features": "2.2.0",
-    "@ember/test-helpers": "4.0.4",
+    "@ember/test-helpers": "5.3.0",
     "@embroider/test-setup": "4.0.0",
     "@eslint/js": "9.22.0",
     "broccoli-asset-rev": "3.0.0",
