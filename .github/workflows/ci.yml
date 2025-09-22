@@ -26,7 +26,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
@@ -45,7 +45,7 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --no-lockfile
@@ -68,6 +68,7 @@ jobs:
           - ember-lts-5.4
           - ember-lts-5.8
           - ember-lts-5.12
+          - ember-lts-6.4
           - ember-release
           - ember-beta
           - ember-canary
@@ -80,7 +81,7 @@ jobs:
       - name: Install Node
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
