@@ -19,10 +19,9 @@ export default class DocsComponentsButtonController extends Controller {
 
   colors = Object.values(BUTTON_COLOR_OPTIONS);
 
-  @task
-  *fireEvent(name) {
+  fireEvent = task(async (name) => {
     this.firedEvents = [...this.firedEvents, name];
-    yield timeout(1000);
+    await timeout(1000);
     this.firedEvents = this.firedEvents.filter((e) => e !== name);
-  }
+  });
 }

@@ -7,12 +7,6 @@ module.exports = {
       files: "*.{js,gjs,ts,gts,mjs,mts,cjs,cts}",
       options: {
         singleQuote: false,
-      },
-    },
-    {
-      files: "*.{gjs,gts}",
-      options: {
-        singleQuote: false,
         templateSingleQuote: false,
       },
     },
