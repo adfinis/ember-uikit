@@ -36,10 +36,9 @@ export default class DocsComponentsSubnavController extends Controller {
       .sort();
   }
 
-  @task
-  *fireEvent(name) {
+  fireEvent = task(async (name) => {
     this.firedEvents = [...this.firedEvents, name];
-    yield timeout(1000);
+    await timeout(1000);
     this.firedEvents = this.firedEvents.filter((e) => e !== name);
-  }
+  });
 }

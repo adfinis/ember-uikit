@@ -5,7 +5,7 @@ const getChannelURL = require("ember-source-channel-url");
 
 module.exports = async function () {
   return {
-    usePnpm: true,
+    packageManager: "pnpm",
     scenarios: [
       {
         name: "ember-lts-4.4",
@@ -13,6 +13,10 @@ module.exports = async function () {
           devDependencies: {
             "ember-source": "~4.4.0",
             "ember-resolver": "~11.0.1",
+            "@ember/test-helpers": "~4.0.4",
+          },
+          resolutions: {
+            "@ember/test-helpers": "4.0.4",
           },
         },
       },
