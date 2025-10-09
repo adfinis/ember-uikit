@@ -1,3 +1,12 @@
+## [9.1.4](https://github.com/adfinis/ember-uikit/compare/v9.1.3...v9.1.4) (2025-10-09)
+
+
+### Bug Fixes
+
+* add options to confirm modal util ([#1497](https://github.com/adfinis/ember-uikit/issues/1497)) ([a714de6](https://github.com/adfinis/ember-uikit/commit/a714de61ce070bb34054bc042b40bf23d577f03a))
+* **deps:** remove ember-composable-helpers dependency ([bce532a](https://github.com/adfinis/ember-uikit/commit/bce532adb0000f6d59abd59ec1fd1ee68290b020))
+* **deps:** update dependencies ([2bad986](https://github.com/adfinis/ember-uikit/commit/2bad986072464192dc0277f40432a1d9c6020036))
+
 ## [9.1.3](https://github.com/adfinis/ember-uikit/compare/v9.1.2...v9.1.3) (2024-11-25)
 
 
