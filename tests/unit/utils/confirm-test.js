@@ -20,8 +20,27 @@ module("Unit | Utility | confirm", function (hooks) {
     await waitUntil(() => find(".uk-modal.uk-open"));
     assert.dom(".uk-modal-body").hasText("confirm");
     await click(".uk-modal-footer .uk-button-primary");
+    assert.dom(".uk-modal-footer .uk-button-primary").hasText("Ok");
+    assert.dom(".uk-modal-footer .uk-button-default").hasText("Cancel");
 
     assert.verifySteps(["confirmed"]);
+  });
+
+  test("it can confirm with options", async function (assert) {
+    const okText = "Yes, do it!";
+    const cancelText = "No, please not!";
+    confirm("confirm?", { i18n: { ok: okText, cancel: cancelText } }).then(
+      (result) => {
+        assert.true(result);
+        assert.step("confirmed-with-options");
+      },
+    );
+
+    await waitUntil(() => find(".uk-modal.uk-open"));
+    assert.dom(".uk-modal-footer .uk-button-primary").hasText(okText);
+    assert.dom(".uk-modal-footer .uk-button-default").hasText(cancelText);
+    await click(".uk-modal-footer .uk-button-primary");
+    assert.verifySteps(["confirmed-with-options"]);
   });
 
   test("it can abort", async function (assert) {
