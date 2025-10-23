@@ -17,12 +17,6 @@ importers:
       '@embroider/util':
         specifier: ^1.13.1
         version: 1.13.2(ember-source@6.2.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(rsvp@4.8.5)(webpack@5.98.0))
-      '@glimmer/component':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.26.10)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
       broccoli-funnel:
         specifier: ^3.0.8
         version: 3.0.8
@@ -90,6 +84,12 @@ importers:
       '@eslint/js':
         specifier: 9.22.0
         version: 9.22.0
+      '@glimmer/component':
+        specifier: 1.1.2
+        version: 1.1.2(@babel/core@7.26.10)
+      '@glimmer/tracking':
+        specifier: 1.1.2
+        version: 1.1.2
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
@@ -10858,7 +10858,7 @@ snapshots:
     dependencies:
       '@babel/plugin-transform-typescript': 7.5.5(@babel/core@7.26.10)
       ansi-to-html: 0.6.15
-      debug: 4.4.0
+      debug: 4.4.3
       ember-cli-babel-plugin-helpers: 1.1.1
       execa: 2.1.0
       fs-extra: 8.1.0
