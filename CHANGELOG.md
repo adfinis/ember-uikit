@@ -1,3 +1,15 @@
+# [9.2.0](https://github.com/adfinis/ember-uikit/compare/v9.1.4...v9.2.0) (2025-10-23)
+
+
+### Bug Fixes
+
+* **deps:** remove obsolete @glimmer/* dependencies ([26adfa8](https://github.com/adfinis/ember-uikit/commit/26adfa8527a55915a1ad3771597293235a62e9da))
+
+
+### Features
+
+* **drop:** add modifier for uk-drop ([#1506](https://github.com/adfinis/ember-uikit/issues/1506)) ([c0b4f2c](https://github.com/adfinis/ember-uikit/commit/c0b4f2cef4001c241824f02b94896e71eff46721))
+
 ## [9.1.4](https://github.com/adfinis/ember-uikit/compare/v9.1.3...v9.1.4) (2025-10-09)
 
 
