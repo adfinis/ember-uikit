@@ -72,7 +72,7 @@
     "@commitlint/config-conventional": "20.0.0",
     "@ember/optional-features": "2.2.0",
     "@ember/test-helpers": "5.4.0",
-    "@embroider/macros": "1.19.2",
+    "@embroider/macros": "1.19.4",
     "@embroider/test-setup": "4.0.0",
     "@eslint/js": "9.38.0",
     "@glimmer/component": "2.0.0",
