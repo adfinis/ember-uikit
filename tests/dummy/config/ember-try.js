@@ -16,6 +16,14 @@ module.exports = async function () {
         },
       },
       {
+        name: "ember-lts-6.8",
+        npm: {
+          devDependencies: {
+            "ember-source": "~6.8.0",
+          },
+        },
+      },
+      {
         name: "ember-release",
         npm: {
           devDependencies: {
@@ -39,8 +47,20 @@ module.exports = async function () {
           },
         },
       },
-      embroiderSafe(),
-      embroiderOptimized(),
+      embroiderSafe({
+        npm: {
+          overrides: {
+            "ember-cli-htmlbars": "7.0.1",
+          },
+        },
+      }),
+      embroiderOptimized({
+        npm: {
+          overrides: {
+            "ember-cli-htmlbars": "7.0.1",
+          },
+        },
+      }),
     ],
   };
 };
