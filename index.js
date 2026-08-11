@@ -77,8 +77,6 @@ module.exports = {
 
     this.app = this._findHost();
 
-    this._registerCodeCoveragePlugin();
-
     const options = Object.assign(
       Object.assign({}, DEFAULT_OPTIONS),
       this.app.options["ember-uikit"],
@@ -220,16 +218,5 @@ module.exports = {
     }
 
     return path.join(uikitPath, "dist", "css");
-  },
-
-  _registerCodeCoveragePlugin() {
-    if (this.app.project.pkg.name === this.name) {
-      this.options.babel.plugins = [
-        ...(this.options.babel.plugins ?? []),
-        ...require("ember-cli-code-coverage").buildBabelPlugin({
-          embroider: true,
-        }),
-      ];
-    }
   },
 };

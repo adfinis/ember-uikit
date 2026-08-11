@@ -1,0 +1,12 @@
+overrides:
+  ember-cli-htmlbars: 7.0.1
+
+allowBuilds:
+  "@parcel/watcher": false
+  core-js: false
+
+minimumReleaseAgeExclude:
+  - concurrently@10.0.1
+  - lint-staged@17.0.7
+  - qunit@2.26.0
+  - tinyexec@1.2.4
