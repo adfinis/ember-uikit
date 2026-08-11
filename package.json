@@ -100,7 +100,7 @@
     "ember-template-lint": "7.9.3",
     "ember-template-lint-plugin-prettier": "5.0.0",
     "ember-try": "4.0.0",
-    "eslint": "9.38.0",
+    "eslint": "9.39.1",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-ember": "12.7.4",
     "eslint-plugin-import": "2.32.0",
