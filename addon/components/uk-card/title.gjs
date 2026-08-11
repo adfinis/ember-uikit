@@ -1,0 +1,5 @@
+<template>
+  <h1 class="uk-card-title" ...attributes>
+    {{yield}}
+  </h1>
+</template>

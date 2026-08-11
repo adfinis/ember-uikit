@@ -1,0 +1,5 @@
+<template>
+  <span class="uk-badge" ...attributes>
+    {{#if (has-block)}}{{~yield~}}{{else}}{{~@label~}}{{/if}}
+  </span>
+</template>

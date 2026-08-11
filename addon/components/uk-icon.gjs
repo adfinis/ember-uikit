@@ -1,0 +1,3 @@
+<template>
+  <span uk-icon icon={{@icon}} ratio={{@ratio}} ...attributes></span>
+</template>

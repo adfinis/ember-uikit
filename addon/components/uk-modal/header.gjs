@@ -1,0 +1,5 @@
+<template>
+  <div class="uk-modal-header" ...attributes>
+    {{yield}}
+  </div>
+</template>
