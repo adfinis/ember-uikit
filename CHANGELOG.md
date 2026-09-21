@@ -1,3 +1,10 @@
+## [9.2.2](https://github.com/adfinis/ember-uikit/compare/v9.2.1...v9.2.2) (2026-09-21)
+
+
+### Bug Fixes
+
+* **css:** render selected checkboxes and radios in print mode ([#1549](https://github.com/adfinis/ember-uikit/issues/1549)) ([2a310ad](https://github.com/adfinis/ember-uikit/commit/2a310ad2b3c76ca3175468798314669bafea0c56))
+
 ## [9.2.1](https://github.com/adfinis/ember-uikit/compare/v9.2.0...v9.2.1) (2025-10-23)
 
 
