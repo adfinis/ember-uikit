@@ -42,7 +42,10 @@
       "eslint --cache --fix",
       "ember-template-lint --fix"
     ],
-    "*.hbs": "ember-template-lint --fix",
+    "*.hbs": [
+      "ember-template-lint --fix",
+      "prettier --cache --write"
+    ],
     "*.scss": "stylelint --fix",
     "*.{json,md,yml}": "prettier --write"
   },
@@ -98,7 +101,6 @@
     "ember-source": "6.8.0",
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "7.9.3",
-    "ember-template-lint-plugin-prettier": "5.0.0",
     "ember-try": "4.0.0",
     "eslint": "9.38.0",
     "eslint-config-prettier": "10.1.8",
